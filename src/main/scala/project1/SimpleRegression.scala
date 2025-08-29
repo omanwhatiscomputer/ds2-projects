@@ -11,7 +11,7 @@ import scalation.modeling.SimpleRegression
 def minCol(m: MatrixD): VectorD = VectorD((0 until m.dim2).map(j => m.col(j).min))
 def maxCol(m: MatrixD): VectorD = VectorD((0 until m.dim2).map(j => m.col(j).max))
 
-@main def HelloWorld(): Unit =
+@main def SimpleRegression(): Unit =
 //   println("Hello, World!")
 
     // The path to your file
@@ -63,4 +63,4 @@ def maxCol(m: MatrixD): VectorD = VectorD((0 until m.dim2).map(j => m.col(j).max
     mod.trainNtest ()()                                            // train and test the model
 
     val yp = mod.predict (x)
-    new Plot (x(0 until 300, 1), y(0 until 300), yp(0 until 300), "plot y and yp vs. x", lines = true)
+    new Plot (x(0 until x.dim, 1), y, yp, "plot y and yp vs. x", lines = true)

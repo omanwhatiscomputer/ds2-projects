@@ -561,3 +561,399 @@ INFO: Unsupported notification method: $/setTrace
 2025.08.28 12:30:33 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
 Aug 28, 2025 12:31:15 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
 WARNING: Unmatched cancel notification for request id 1214
+2025.08.28 12:32:55 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:32:58 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:32:58 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:32:58 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:33:00 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:33:00 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:33:00 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:33:01 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:33:02 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:33:02 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+Aug 28, 2025 12:33:02 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1240
+2025.08.28 12:33:02 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:33:02 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:33:03 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:33:03 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:33:03 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:33:03 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:33:04 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:33:34 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:33:53 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:33:55 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:33:57 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:34:34 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/SimpleExpRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:34:48 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/SimpleExpRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:34:48 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:34:48 WARN  no build target for: /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala[0m
+2025.08.28 12:34:48 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:34:51 INFO  Shutting down server[0m
+2025.08.28 12:34:51 INFO  shutting down Metals[0m
+2025.08.28 12:34:51 INFO  Exiting server[0m
+2025.08.28 12:34:51 ERROR Unexpected error initializing server: 
+org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Request window/showMessageRequest failed with message: Canceled
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:220)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:204)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:185)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:114)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.lang.Thread.run(Thread.java:1447)
+[0m
+2025.08.28 12:48:39 INFO  Started: Metals version 1.6.2 in folders '/mnt/c/Libs/scalation_2.0' for client Visual Studio Code 1.103.2.[0m
+2025.08.28 12:51:25 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/PriorityQueue.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:51:26 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/PriorityQueue.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:51:26 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/PriorityQueue.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:51:31 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/PriorityQueue.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+Aug 28, 2025 12:53:03 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2025.08.28 12:53:12 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/PriorityQueue.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:55:13 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:55:56 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:56:32 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:57:25 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:57:28 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:58:36 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/SimpleRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:26 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/SimpleRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:26 WARN  no build target for: /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala[0m
+2025.08.28 12:59:26 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+Aug 28, 2025 12:59:26 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 156
+2025.08.28 12:59:26 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:28 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:28 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:28 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:28 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:30 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:30 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:30 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:30 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:31 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:31 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:31 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:32 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:33 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:33 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:33 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:33 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:33 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:33 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:34 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:34 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:34 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:34 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:35 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:35 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:35 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:35 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:37 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:37 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:37 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:38 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:38 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:41 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:41 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:41 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:41 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:42 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:42 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:42 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:42 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:44 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:45 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:45 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:46 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:46 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:46 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:46 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:48 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:48 WARN  no build target for: /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala[0m
+2025.08.28 12:59:48 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 12:59:48 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:01:15 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+Aug 28, 2025 1:01:31 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 302
+Aug 28, 2025 1:01:32 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 307
+2025.08.28 13:01:52 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:01:52 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:01:54 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:04:04 WARN  no build target for: /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala[0m
+2025.08.28 13:04:04 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:04:04 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:04:04 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:04:08 WARN  no build target for: /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala[0m
+2025.08.28 13:04:08 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:04:09 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:04:09 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:04:09 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:04:10 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:04:11 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:04:11 INFO  Created report: Optional[file:///mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala][0m
+2025.08.28 13:04:11 INFO  empty definition using pc, found symbol in pc: `<none>`. (full report at: "/mnt/c/Libs/scalation_2.0/.metals/.reports/metals-full/2025-08-28/r_empty-definition_13-04-11-781.md")[0m
+2025.08.28 13:04:12 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:04:12 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:04:12 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:04:13 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:04:13 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:04:13 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:04:13 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:04:13 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:04:15 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:04:15 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:04:17 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:04:17 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:04:48 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:05:10 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:05:10 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:05:16 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:05:33 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:06:31 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:06:31 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:06:33 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:06:33 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:06:33 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:06:33 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:06:34 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:06:34 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+Aug 28, 2025 1:06:35 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 598
+2025.08.28 13:08:26 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Predictor.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:08:26 WARN  no build target for: /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala[0m
+2025.08.28 13:08:26 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+Aug 28, 2025 1:08:26 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 627
+2025.08.28 13:08:26 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:08:26 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:08:28 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:08:46 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:08:46 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+Aug 28, 2025 1:09:00 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 703
+2025.08.28 13:09:16 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:09:16 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:09:16 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:09:20 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:09:20 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:09:20 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:09:20 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:09:26 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:09:26 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:09:30 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:09:30 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:09:30 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:09:30 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:09:32 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:09:32 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:09:32 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:09:32 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:09:33 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:09:33 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:09:33 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:09:35 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:09:35 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:09:35 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:09:36 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:09:36 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:09:36 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:09:38 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:19:40 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:19:59 WARN  no build target for: /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala[0m
+2025.08.28 13:19:59 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+Aug 28, 2025 1:19:59 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 766
+2025.08.28 13:19:59 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:19:59 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:21:07 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Model.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:21:07 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/TranRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:21:07 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/TranRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:21:11 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/TranRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 13:21:11 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/TranRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+Aug 28, 2025 1:21:29 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 814
+Aug 28, 2025 1:21:36 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 840
+2025.08.28 14:26:48 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/TranRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+Aug 28, 2025 2:36:33 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 908
+2025.08.28 17:04:48 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/TranRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:19:03 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/TranRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:19:05 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/TranRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:19:05 WARN  no build target for: /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala[0m
+2025.08.28 17:19:05 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+Aug 28, 2025 5:19:05 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 928
+2025.08.28 17:19:05 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:19:06 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:19:15 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:19:15 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:19:16 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:19:19 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:19:19 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:19:19 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:19:19 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:19:19 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:19:23 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:19:23 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:19:31 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:19:47 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:19:47 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:19:47 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:19:48 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:19:53 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:19:53 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:19:53 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:19:53 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:19:54 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:19:54 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:19:54 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:01 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:01 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:01 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:04 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:04 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:06 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:06 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:06 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:10 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:10 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:16 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:16 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:16 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:16 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:18 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:18 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:21 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:21 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:21 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:23 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:24 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:24 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:29 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:29 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:32 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:32 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:32 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:33 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:36 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:36 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:39 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:41 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:41 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:43 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:43 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:46 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:46 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:49 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:51 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:51 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:52 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:52 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:54 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:54 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:59 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:20:59 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:21:01 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:21:04 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:21:07 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:21:15 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:21:19 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:21:19 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:21:21 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:21:21 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:21:21 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:21:23 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:21:34 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:22:50 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/BridgeRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:22:50 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/BridgeRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:22:51 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/BridgeRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:22:51 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/BridgeRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:22:52 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Example_BasketBall.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:22:54 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Example_BasketBall.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:23:03 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/scalation/modeling/Example_BasketBall.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:23:03 WARN  no build target for: /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala[0m
+2025.08.28 17:23:03 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:23:03 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:23:03 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+Aug 28, 2025 5:23:04 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1071
+2025.08.28 17:23:03 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:23:04 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:27:02 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:29:21 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:36:03 WARN  no build target for: /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala[0m
+2025.08.28 17:36:03 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:36:03 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:36:09 WARN  no build target for: /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala[0m
+2025.08.28 17:36:09 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+Aug 28, 2025 5:36:09 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1119
+2025.08.28 17:36:09 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:36:09 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:39:06 WARN  no build target for: /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala[0m
+2025.08.28 17:39:07 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 17:39:07 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 18:42:58 WARN  no build target for: /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala[0m
+2025.08.28 18:42:58 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+Aug 28, 2025 6:42:59 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1130
+2025.08.28 18:42:59 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 18:42:58 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 18:42:58 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 18:43:07 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 18:43:07 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 18:43:08 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 18:43:10 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 18:43:10 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 18:44:03 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+Aug 28, 2025 10:18:42 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1168
+2025.08.28 22:18:49 WARN  no build target for: /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala[0m
+2025.08.28 22:18:49 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+Aug 28, 2025 10:18:49 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1170
+2025.08.28 22:18:49 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 22:18:52 WARN  no build target for: /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala[0m
+2025.08.28 22:18:52 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+Aug 28, 2025 10:18:52 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1174
+2025.08.28 22:18:52 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 22:18:52 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 22:19:16 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 22:19:16 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 22:19:41 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/SimpleRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+Aug 28, 2025 10:19:41 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1189
+2025.08.28 22:19:41 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/SimpleRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 22:19:41 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/SimpleRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 22:19:44 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/SimpleRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 22:19:47 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/SimpleRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 22:19:47 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/SimpleRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 22:19:47 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/SimpleRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 22:19:47 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/SimpleRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 22:19:47 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/SimpleRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 22:19:48 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/SimpleRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 22:19:48 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/SimpleRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 22:19:48 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/SimpleRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 22:19:48 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/SimpleRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 22:19:49 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/SimpleRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 22:19:49 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/SimpleRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 22:19:49 WARN  no build target for: /mnt/c/Libs/scalation_2.0/src/main/scala/project1/SimpleRegression.scala[0m
+2025.08.28 22:19:49 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/SimpleRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 22:19:57 WARN  no build target for: /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala[0m
+2025.08.28 22:19:57 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 22:19:57 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/HelloWorld.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 22:20:10 WARN  no build target for: /mnt/c/Libs/scalation_2.0/src/main/scala/project1/SimpleRegression.scala[0m
+2025.08.28 22:20:10 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/SimpleRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 22:20:10 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/SimpleRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 22:21:14 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/SimpleRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 22:23:38 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/SimpleRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 22:23:55 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/SimpleRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 22:23:56 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/SimpleRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
+2025.08.28 22:24:08 WARN  no build target for: /mnt/c/Libs/scalation_2.0/src/main/scala/project1/SimpleRegression.scala[0m
+2025.08.28 22:24:08 INFO  no build target found for /mnt/c/Libs/scalation_2.0/src/main/scala/project1/SimpleRegression.scala. Using presentation compiler with project's scala-library version: 3.3.6[0m
