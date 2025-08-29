@@ -8,13 +8,10 @@ import scalation.mathstat.{VectorD, MatrixD, Plot}
 import scalation.modeling.SimpleRegression
 
 
-def minCol(m: MatrixD): VectorD = VectorD((0 until m.dim2).map(j => m.col(j).min))
-def maxCol(m: MatrixD): VectorD = VectorD((0 until m.dim2).map(j => m.col(j).max))
-
 @main def SimpleRegression(): Unit =
 //   println("Hello, World!")
 
-    // The path to your file
+    
     val filePath = "/mnt/c/Libs/scalation_2.0/data/auto-mpg.csv"
 
     val data: Array[Array[String]] = Source.fromFile(filePath)
@@ -24,24 +21,23 @@ def maxCol(m: MatrixD): VectorD = VectorD((0 until m.dim2).map(j => m.col(j).max
         .filter(row => row.forall(_.nonEmpty))
         .toArray
 
-    // // Extract y (first column) and convert to VectorD
+    // Extract y
     // val y = VectorD(data.map(_(0).toDouble))
 
-    // // Extract x (remaining columns) and convert to MatrixD
+    // Extract x
     // val xRows = data.map(row => row.drop(1).map(_.toDouble))
     // val x = MatrixD(xRows.map(row => VectorD(row)).toIndexedSeq)
 
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-    // Extract y (first column) and convert to VectorD
+    // Extract y
     val y = VectorD(data.map(_(0).toDouble))
 
-    // Extract x (remaining columns) and convert to MatrixD
+    // Extract x
     val xRows = data.map(row => row.drop(1).map(_.toDouble))
     val xRaw = MatrixD(xRows.map(row => VectorD(row)).toIndexedSeq)
 
-    // Normalize x (min-max scaling for each column)
     val xMin = minCol(xRaw)
     val xMax = maxCol(xRaw)
 
@@ -55,9 +51,9 @@ def maxCol(m: MatrixD): VectorD = VectorD((0 until m.dim2).map(j => m.col(j).max
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     // Print first 5 y values and x rows for verification
-    println("y (displacement): " + y(0 until 5))
-    println("x (features):")
-    println(x(0 until 5))
+    // println("y (displacement): " + y(0 until 5))
+    // println("x (features):")
+    // println(x(0 until 5))
 
     val mod = new SimpleRegression (x, y)                          // create a simple regression model
     mod.trainNtest ()()                                            // train and test the model

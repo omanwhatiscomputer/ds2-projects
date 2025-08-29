@@ -1,16 +1,19 @@
 
+
+
 package project1
 
 
 
 
 import scala.io.Source
+
 import scalation.mathstat.{VectorD, MatrixD}
-import scalation.modeling.{RidgeRegression, Regression}
+import scalation.modeling.{BridgeRegression}
 
 
 
-@main def RidgeRegression(): Unit =
+@main def BridgeRegression(): Unit =
 //   println("Hello, World!")
 
     // The path to your file
@@ -58,21 +61,7 @@ import scalation.modeling.{RidgeRegression, Regression}
     // println("x (features):")
     // println(x(0 until 5))
 
-    banner ("Regression")
-    val ox  = VectorD.one (y.dim) +^: x                                // prepend a column of all 1's
-    val reg = new Regression (ox, y)                                   // create a Regression model
-    reg.trainNtest ()()                                                // train and test the model
-
-    banner ("RidgeRegression")
-    val mu_x = x.mean                                                  // column-wise mean of x
-    val mu_y = y.mean                                                  // mean of y
-    val x_c  = x - mu_x                                                // centered x (column-wise)
-    val y_c  = y - mu_y                                                // centered y
-    val mod  = new RidgeRegression (x_c, y_c)                          // create a Ridge Regression model
+    banner ("AutoMPG Bridge Regression")
+    val mod = new BridgeRegression (x, y, null)                     // create a bridge regression model (no intercept)
     mod.trainNtest ()()                                                // train and test the model
-
-    
-
-    banner ("Compare Summaries")
-    println (reg.summary ())
     println (mod.summary ())

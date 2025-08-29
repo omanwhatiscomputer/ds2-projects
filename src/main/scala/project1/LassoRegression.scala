@@ -1,16 +1,18 @@
 
+
 package project1
 
 
 
 
 import scala.io.Source
-import scalation.mathstat.{VectorD, MatrixD}
-import scalation.modeling.{RidgeRegression, Regression}
+
+import scalation.mathstat.{VectorD, MatrixD, PlotM}
+import scalation.modeling.{LassoRegression, Regression}
+import scalation.modeling.qk
 
 
-
-@main def RidgeRegression(): Unit =
+@main def LassoRegression(): Unit =
 //   println("Hello, World!")
 
     // The path to your file
@@ -58,21 +60,14 @@ import scalation.modeling.{RidgeRegression, Regression}
     // println("x (features):")
     // println(x(0 until 5))
 
-    banner ("Regression")
-    val ox  = VectorD.one (y.dim) +^: x                                // prepend a column of all 1's
-    val reg = new Regression (ox, y)                                   // create a Regression model
-    reg.trainNtest ()()                                                // train and test the model
+    banner ("LassoRegression")
+    val mod = new LassoRegression (x, y, null)                    // create a Lasso regression model
+    mod.trainNtest ()()                                            // train and test the model
+    println (mod.summary ())                                       // parameter/coefficient statistics
 
-    banner ("RidgeRegression")
-    val mu_x = x.mean                                                  // column-wise mean of x
-    val mu_y = y.mean                                                  // mean of y
-    val x_c  = x - mu_x                                                // centered x (column-wise)
-    val y_c  = y - mu_y                                                // centered y
-    val mod  = new RidgeRegression (x_c, y_c)                          // create a Ridge Regression model
-    mod.trainNtest ()()                                                // train and test the model
-
-    
-
-    banner ("Compare Summaries")
-    println (reg.summary ())
-    println (mod.summary ())
+    banner ("Forward Selection Test")
+    val (cols, rSq) = mod.forwardSelAll ()                         // R^2, R^2 bar, sMAPE, R^2 cv
+    val k = cols.size
+    val t = VectorD.range (1, k)                                   // instance index
+    new PlotM (t, rSq.transpose, Regression.metrics, "R^2 vs n for LassoRegression", lines = true)
+    println (s"rSq = $rSq")
