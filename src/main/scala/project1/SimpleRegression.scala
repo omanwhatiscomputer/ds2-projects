@@ -4,9 +4,9 @@ package project1
 
 
 import scala.io.Source
-import scalation.mathstat.{VectorD, MatrixD, Plot}
-import scalation.modeling.SimpleRegression
-
+import scalation.mathstat.{VectorD, MatrixD, Plot, PlotM}
+import scalation.modeling.{Regression}
+import scalation.modeling.qk
 
 @main def SimpleRegression(): Unit =
 //   println("Hello, World!")
@@ -55,8 +55,56 @@ import scalation.modeling.SimpleRegression
     // println("x (features):")
     // println(x(0 until 5))
 
-    val mod = new SimpleRegression (x, y)                          // create a simple regression model
-    mod.trainNtest ()()                                            // train and test the model
+    val mod = new Regression (x, y)                          // create a simple regression model
+    mod.trainNtest ()()
+
+    
+    
+    // for tech <- SelectionTech.values do 
+    //     banner (s"Feature Selection Technique: $tech")
+    //     val (cols, rSq) = mod.selectFeatures (tech)                     // R^2, R^2 bar, R^2 cv
+    //     val k = cols.size
+    //     println (s"k = $k, n = ${x.dim2}")
+    //     new PlotM (null, rSq.transpose, Regression.metrics, s"R^2 vs n for Quadratic X Regression with $tech", lines = true)
+    //     println (s"$tech: rSq = $rSq")
+    // end for     
+
+    banner ("Validation")
+    mod.validate ()()
+
+    println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+    println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+
+
+    banner ("Forward Selection Test")
+    val (cols1, rSq1) = mod.forwardSelAll ()                         // R^2, R^2 bar, sMAPE, R^2 cv
+    val k1 = cols1.size
+    val t = VectorD.range (1, k1)                                   // instance index
+    new PlotM (t, rSq1.transpose, Regression.metrics, "R^2 vs n for Regression", lines = true)
+    println (s"rSq = $rSq1")                                       // train and test the model
+
+    println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+    println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+
+    banner ("Backward Elimination Test")
+    val (cols2, rSq2) = mod.backwardElimAll (cross = false)
+    val k2 = cols2.size
+    println (s"k = $k2")
+    new PlotM (null, rSq2.transpose, Regression.metrics, s"R^2 vs n for ${mod.modelName}", lines = true)
+    println (s"rSq = $rSq2")
+
+    println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+    println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+
+    banner ("Stepwise FS Test")
+    val (cols3, rSq3) = mod.stepwiseSelAll ()                             // R^2, R^2 bar, sMAPE, R^2 cv
+
+    val k3 = cols3.size
+    println (s"k = $k3")
+    new PlotM (null, rSq3.transpose, Regression.metrics, s"R^2 vs n for ${mod.modelName}", lines = true)
+    println (s"rSq = $rSq3")
+
+
 
     val yp = mod.predict (x)
     new Plot (x(0 until x.dim, 1), y, yp, "plot y and yp vs. x", lines = true)
