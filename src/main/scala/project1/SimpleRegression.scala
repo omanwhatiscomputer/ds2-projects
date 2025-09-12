@@ -10,6 +10,7 @@ import scalation.modeling.qk
 
 @main def SimpleRegression(): Unit =
 //   println("Hello, World!")
+    val ox_fname = Array ("cylinders","horsepower","weight","acceleration","model_year","origin")
 
     
     val filePath = "/mnt/c/Libs/scalation_2.0/data/auto-mpg.csv"
@@ -75,6 +76,9 @@ import scalation.modeling.qk
     println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
     println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
 
+    banner ("Cross Validation")
+    mod.crossValidate (k = 5)()
+
 
     banner ("Forward Selection Test")
     val (cols1, rSq1) = mod.forwardSelAll ()                         // R^2, R^2 bar, sMAPE, R^2 cv
@@ -82,6 +86,10 @@ import scalation.modeling.qk
     val t = VectorD.range (1, k1)                                   // instance index
     new PlotM (t, rSq1.transpose, Regression.metrics, "R^2 vs n for Regression", lines = true)
     println (s"rSq = $rSq1")                                       // train and test the model
+    
+    banner ("Feature Importance")
+    val imp1 = mod.importance (cols1.toArray, rSq1)
+    for (c, r) <- imp1 do println (s"col = $c, \t ${ox_fname(c)}, \t importance = $r") 
 
     println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
     println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
@@ -92,6 +100,9 @@ import scalation.modeling.qk
     println (s"k = $k2")
     new PlotM (null, rSq2.transpose, Regression.metrics, s"R^2 vs n for ${mod.modelName}", lines = true)
     println (s"rSq = $rSq2")
+    banner ("Feature Importance")
+    val imp2 = mod.importance (cols2.toArray, rSq2)
+    for (c, r) <- imp2 do println (s"col = $c, \t ${ox_fname(c)}, \t importance = $r") 
 
     println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
     println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
@@ -103,6 +114,9 @@ import scalation.modeling.qk
     println (s"k = $k3")
     new PlotM (null, rSq3.transpose, Regression.metrics, s"R^2 vs n for ${mod.modelName}", lines = true)
     println (s"rSq = $rSq3")
+    banner ("Feature Importance")
+    val imp3 = mod.importance (cols3.toArray, rSq3)
+    for (c, r) <- imp3 do println (s"col = $c, \t ${ox_fname(c)}, \t importance = $r") 
 
 
 
