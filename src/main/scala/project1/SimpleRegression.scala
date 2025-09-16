@@ -58,6 +58,7 @@ import scalation.modeling.qk
 
     val mod = new Regression (x, y, ox_fname)                          // create a simple regression model
     mod.trainNtest ()()
+    println (mod.summary ())                                  // parameter/coefficient statistics
 
     
     

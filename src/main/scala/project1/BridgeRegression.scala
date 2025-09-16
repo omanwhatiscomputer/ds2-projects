@@ -8,15 +8,16 @@ package project1
 
 import scala.io.Source
 
-import scalation.mathstat.{VectorD, MatrixD}
-import scalation.modeling.{BridgeRegression}
+import scalation.mathstat.{VectorD, MatrixD, PlotM}
+import scalation.modeling.{BridgeRegression, Regression}
+import scalation.modeling.qk
 
 
 
 @main def BridgeRegression(): Unit =
-//   println("Hello, World!")
+    val ox_fname = Array ("cylinders","horsepower","weight","acceleration","model_year","origin")
 
-    // The path to your file
+    
     val filePath = "/mnt/c/Libs/scalation_2.0/data/auto-mpg.csv"
 
     val data: Array[Array[String]] = Source.fromFile(filePath)
@@ -26,12 +27,12 @@ import scalation.modeling.{BridgeRegression}
         .filter(row => row.forall(_.nonEmpty))
         .toArray
 
-    // // Extract y
+    // Extract y
     // val y = VectorD(data.map(_(0).toDouble))
 
-    // // Extract x
-    // val xRows = data.map(row => row.drop(1).map(_.toDouble))
-    // val x = MatrixD(xRows.map(row => VectorD(row)).toIndexedSeq)
+    // Extract x
+    val xRows = data.map(row => row.drop(1).map(_.toDouble))
+    val x = MatrixD(xRows.map(row => VectorD(row)).toIndexedSeq)
 
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -40,19 +41,18 @@ import scalation.modeling.{BridgeRegression}
     val y = VectorD(data.map(_(0).toDouble))
 
     // Extract x
-    val xRows = data.map(row => row.drop(1).map(_.toDouble))
-    val xRaw = MatrixD(xRows.map(row => VectorD(row)).toIndexedSeq)
+    // val xRows = data.map(row => row.drop(1).map(_.toDouble))
+    // val xRaw = MatrixD(xRows.map(row => VectorD(row)).toIndexedSeq)
 
-    // Normalize x
-    val xMin = minCol(xRaw)
-    val xMax = maxCol(xRaw)
+    // val xMin = minCol(xRaw)
+    // val xMax = maxCol(xRaw)
 
-    val x = MatrixD((0 until xRaw.dim).map(i => {
-        val row = xRaw(i)
-        VectorD(row.zipWithIndex.map { case (v, j) =>
-            if (xMax(j) != xMin(j)) then (v - xMin(j)) / (xMax(j) - xMin(j)) else 0.0
-        })
-    }).toIndexedSeq)
+    // val x = MatrixD((0 until xRaw.dim).map(i => {
+    //     val row = xRaw(i)
+    //     VectorD(row.zipWithIndex.map { case (v, j) =>
+    //         if (xMax(j) != xMin(j)) then (v - xMin(j)) / (xMax(j) - xMin(j)) else 0.0
+    //     })
+    // }).toIndexedSeq)
 
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -61,7 +61,67 @@ import scalation.modeling.{BridgeRegression}
     // println("x (features):")
     // println(x(0 until 5))
 
-    banner ("AutoMPG Bridge Regression")
-    val mod = new BridgeRegression (x, y, null)                     // create a bridge regression model (no intercept)
-    mod.trainNtest ()()                                                // train and test the model
-    println (mod.summary ())
+    val mod = new BridgeRegression (x, y, ox_fname)                          // create a simple regression model
+    mod.trainNtest ()()
+    println (mod.summary ())                                  // parameter/coefficient statistics
+
+    
+    
+    // for tech <- SelectionTech.values do 
+    //     banner (s"Feature Selection Technique: $tech")
+    //     val (cols, rSq) = mod.selectFeatures (tech)                     // R^2, R^2 bar, R^2 cv
+    //     val k = cols.size
+    //     println (s"k = $k, n = ${x.dim2}")
+    //     new PlotM (null, rSq.transpose, Regression.metrics, s"R^2 vs n for Quadratic X Regression with $tech", lines = true)
+    //     println (s"$tech: rSq = $rSq")
+    // end for     
+
+    banner ("Validation")
+    mod.validate ()()
+
+    banner ("cross-validation")
+    mod.crossValidate ()
+
+    
+    println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+    println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+
+
+    banner ("Forward Selection Test")
+    val (cols1, rSq1) = mod.forwardSelAll (cross = false)                         // R^2, R^2 bar, sMAPE, R^2 cv
+    val k1 = cols1.size
+    val t = VectorD.range (1, k1)                                   // instance index
+    new PlotM (t, rSq1.transpose, Regression.metrics, "R^2 vs n for Regression", lines = true)
+    println (s"rSq = $rSq1")                                       // train and test the model
+    
+    banner ("Feature Importance")
+    val imp1 = mod.importance (cols1.toArray, rSq1)
+    for (c, r) <- imp1 do println (s"col = $c, \t ${ox_fname(c)}, \t importance = $r") 
+
+    println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+    println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+
+    banner ("Backward Elimination Test")
+    val (cols2, rSq2) = mod.backwardElimAll (cross = false)
+    val k2 = cols2.size
+    println (s"k = $k2")
+    new PlotM (null, rSq2.transpose, Regression.metrics, s"R^2 vs n for ${mod.modelName}", lines = true)
+    println (s"rSq = $rSq2")
+    banner ("Feature Importance")
+    val imp2 = mod.importance (cols2.toArray, rSq2)
+    for (c, r) <- imp2 do println (s"col = $c, \t ${ox_fname(c)}, \t importance = $r") 
+
+    println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+    println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+
+    banner ("Stepwise FS Test")
+    val (cols3, rSq3) = mod.stepwiseSelAll (cross = false)                             // R^2, R^2 bar, sMAPE, R^2 cv
+
+    val k3 = cols3.size
+    println (s"k = $k3")
+    new PlotM (null, rSq3.transpose, Regression.metrics, s"R^2 vs n for ${mod.modelName}", lines = true)
+    println (s"rSq = $rSq3")
+    banner ("Feature Importance")
+    val imp3 = mod.importance (cols3.toArray, rSq3)
+    for (c, r) <- imp3 do println (s"col = $c, \t ${ox_fname(c)}, \t importance = $r") 
+

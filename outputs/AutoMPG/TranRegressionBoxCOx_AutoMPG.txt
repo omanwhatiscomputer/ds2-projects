@@ -1,0 +1,313 @@
+[info] welcome to sbt 1.11.4 (Oracle Corporation Java 24.0.2)
+[info] loading project definition from /mnt/c/Libs/scalation_2.0/project
+[info] loading settings for project scalation from build.sbt...
+[info] set current project to scalation (in build file:/mnt/c/Libs/scalation_2.0/)
+[info] compiling 1 Scala source to /mnt/c/Libs/scalation_2.0/target/scala-3.7.2/classes ...
+[info] done compiling
+[info] running (fork) project1.TransformedRegressionBoxCox 
+[error] WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+[error] WARNING: sun.misc.Unsafe::objectFieldOffset has been called by scala.runtime.LazyVals$ (file:/mnt/c/Libs/scalation_2.0/target/bg-jobs/sbt_af8cf395/target/21dbe174/563b310f/scala3-library_3-3.7.2.jar)
+[error] WARNING: Please consider reporting this to the maintainers of class scala.runtime.LazyVals$
+[error] WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+[info] DEBUG @ TranRegression.trainNTest: b = VectorD(13.4477,	25.6908,	0.402258,	17.9395,	3.33991,	-0.394623)
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(cylinders, horsepower, weight, acceleration, model_year, origin)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(13.4477,	25.6908,	0.402258,	17.9395,	3.33991,	-0.394623)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.843898, rSqBar -> 0.841876, sst -> 4281593.713648, sse -> 668366.688169, sde -> 41.278932, mse0 -> 1705.017062, rmse -> 41.291852, mae -> 29.322782, smape -> 17.075873, m -> 392.000000, dfm -> 5.000000, df -> 386.000000, fStat -> 417.347440, aic -> -2002.725655, bic -> -1978.898084, mape -> 16.890112, mase -> 1.173745, smapeC -> 17.106486, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] Run + title
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -25.506661134492255 to be nonnegative 
+[info] fname = Array(cylinders, horsepower, weight, acceleration, model_year, origin)
+[info] SUMMARY
+[info]     Parameters/Coefficients:
+[info]     Var      Estimate    Std. Error 	 t value 	 Pr(>|t|) 	 VIF
+[info] ----------------------------------------------------------------------------------
+[info]     x0	 13.447655	 14.818772	 0.907474	 0.364156	 NA
+[info]     x1	 25.690801	 23.338013	 1.100814	 0.270978	 5.382244
+[info]     x2	 0.402258	 25.122812	 0.016012	 0.987225	 8.266125
+[info]     x3	 17.939543	 10.996412	 1.631400	 0.102806	 0.736365
+[info]     x4	 3.339907	 6.979393	 0.478538	 0.632267	 1.036571
+[info]     x5	 -0.394623	 6.390260	 -0.061754	 0.950759	 1.495812
+[info]     Residual standard error: 41.611536 on 386.0 degrees of freedom
+[info]     Multiple R-squared:  0.843898,	Adjusted R-squared:  0.841876
+[info]     F-statistic: 417.3474401175187 on 5.0 and 386.0 DF,  p-value: -0.0
+[info] ----------------------------------------------------------------------------------
+[info]         
+[info] ----------------------------------------------
+[info] | Quality of Fit - based on transformed data |
+[info] ----------------------------------------------
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(cylinders, horsepower, weight, acceleration, model_year, origin)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(13.4477,	25.6908,	0.402258,	17.9395,	3.33991,	-0.394623)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.850683, rSqBar -> 0.848749, sst -> 20777.701785, sse -> 3102.454139, sde -> 2.795204, mse0 -> 7.914424, rmse -> 2.813259, mae -> 2.166767, smape -> 9.392144, m -> 392.000000, dfm -> 5.000000, df -> 386.000000, fStat -> 439.822494, aic -> -1807.014046, bic -> -1783.186475, mape -> 9.267027, mase -> 1.165752, smapeC -> 9.422756, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] --------------
+[info] | Validation |
+[info] --------------
+[info] LinkedHashMap(rSq -> 0.764010, rSqBar -> 0.760953, sst -> 842741.346154, sse -> 198878.432158, sde -> 50.821608, mse0 -> 2549.723489, rmse -> 50.494787, mae -> 32.473562, smape -> 17.981005, m -> 78.000000, dfm -> 5.000000, df -> 386.000000, fStat -> 249.932667, aic -> -408.272370, bic -> -394.132117, mape -> 17.568410, mase -> 1.097862, smapeC -> 18.134851, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] --------------------
+[info] | cross-validation |
+[info] --------------------
+[info] --------------------------------------------------------------
+[info] | crossValidate: fold 0: train-test splits sizes = (314, 78) |
+[info] --------------------------------------------------------------
+[info] LinkedHashMap(rSq -> 0.868365, rSqBar -> 0.866660, sst -> 881104.871795, sse -> 115983.918579, sde -> 38.620533, mse0 -> 1486.973315, rmse -> 38.561293, mae -> 27.714212, smape -> 15.680133, m -> 78.000000, dfm -> 5.000000, df -> 386.000000, fStat -> 509.271788, aic -> -383.885941, bic -> -369.745688, mape -> 16.133061, mase -> 1.044801, smapeC -> 15.833979, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] DEBUG @ Predictor.crossValidate: fold 0: qof = VectorD(0.868365,	0.866660,	881105,	115984,	38.6205,	1486.97,	38.5613,	27.7142,	15.6801,	78.0000,	5.00000,	386.000,	509.272,	-383.886,	-369.746,	16.1331,	1.04480,	15.8340,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+[info] --------------------------------------------------------------
+[info] | crossValidate: fold 1: train-test splits sizes = (314, 78) |
+[info] --------------------------------------------------------------
+[info] LinkedHashMap(rSq -> 0.869181, rSqBar -> 0.867486, sst -> 752067.221154, sse -> 98385.022897, sde -> 35.646807, mse0 -> 1261.346447, rmse -> 35.515440, mae -> 27.665931, smape -> 17.780445, m -> 78.000000, dfm -> 5.000000, df -> 386.000000, fStat -> 512.926299, aic -> -378.708588, bic -> -364.568335, mape -> 17.105860, mase -> 1.041998, smapeC -> 17.934291, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] DEBUG @ Predictor.crossValidate: fold 1: qof = VectorD(0.869181,	0.867486,	752067,	98385.0,	35.6468,	1261.35,	35.5154,	27.6659,	17.7804,	78.0000,	5.00000,	386.000,	512.926,	-378.709,	-364.568,	17.1059,	1.04200,	17.9343,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+[info] --------------------------------------------------------------
+[info] | crossValidate: fold 2: train-test splits sizes = (314, 78) |
+[info] --------------------------------------------------------------
+[info] LinkedHashMap(rSq -> 0.741144, rSqBar -> 0.737791, sst -> 920987.179487, sse -> 238402.784817, sde -> 55.622251, mse0 -> 3056.445959, rmse -> 55.285133, mae -> 35.993946, smape -> 19.186589, m -> 78.000000, dfm -> 5.000000, df -> 386.000000, fStat -> 221.035653, aic -> -419.899892, bic -> -405.759639, mape -> 20.161239, mase -> 1.133660, smapeC -> 19.340435, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] DEBUG @ Predictor.crossValidate: fold 2: qof = VectorD(0.741144,	0.737791,	920987,	238403,	55.6223,	3056.45,	55.2851,	35.9939,	19.1866,	78.0000,	5.00000,	386.000,	221.036,	-419.900,	-405.760,	20.1612,	1.13366,	19.3404,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+[info] --------------------------------------------------------------
+[info] | crossValidate: fold 3: train-test splits sizes = (314, 78) |
+[info] --------------------------------------------------------------
+[info] LinkedHashMap(rSq -> 0.889560, rSqBar -> 0.888129, sst -> 842977.846154, sse -> 93098.804866, sde -> 33.508816, mse0 -> 1193.574421, rmse -> 34.548146, mae -> 28.192954, smape -> 19.389451, m -> 78.000000, dfm -> 5.000000, df -> 386.000000, fStat -> 621.819604, aic -> -377.153455, bic -> -363.013202, mape -> 18.254077, mase -> 1.039881, smapeC -> 19.543298, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] DEBUG @ Predictor.crossValidate: fold 3: qof = VectorD(0.889560,	0.888129,	842978,	93098.8,	33.5088,	1193.57,	34.5481,	28.1930,	19.3895,	78.0000,	5.00000,	386.000,	621.820,	-377.153,	-363.013,	18.2541,	1.03988,	19.5433,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+[info] --------------------------------------------------------------
+[info] | crossValidate: fold 4: train-test splits sizes = (314, 78) |
+[info] --------------------------------------------------------------
+[info] LinkedHashMap(rSq -> 0.793998, rSqBar -> 0.791329, sst -> 822767.179487, sse -> 169491.860090, sde -> 46.763390, mse0 -> 2172.972565, rmse -> 46.615154, mae -> 31.728946, smape -> 16.005542, m -> 78.000000, dfm -> 5.000000, df -> 386.000000, fStat -> 297.553255, aic -> -399.627243, bic -> -385.486990, mape -> 15.604405, mase -> 1.119148, smapeC -> 16.159389, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.793998,	0.791329,	822767,	169492,	46.7634,	2172.97,	46.6152,	31.7289,	16.0055,	78.0000,	5.00000,	386.000,	297.553,	-399.627,	-385.487,	15.6044,	1.11915,	16.1594,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] --------------------------
+[info] | Forward Selection Test |
+[info] --------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 1
+[info] -------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 0) INITIAL variable (0, cylinders) => cols = LinkedHashSet(0) |
+[info] -------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] ------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 1) ADD variable (3, acceleration) => cols = LinkedHashSet(0, 3) @ 0.6722068981198069 |
+[info] ------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] -------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 2) ADD variable (1, horsepower) => cols = LinkedHashSet(0, 3, 1) @ 0.8268285699981257 |
+[info] -------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 4
+[info] DEBUG @ TranRegression.buildModel: 392 by 4
+[info] DEBUG @ TranRegression.buildModel: 392 by 4
+[info] ----------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 3) ADD variable (4, model_year) => cols = LinkedHashSet(0, 3, 1, 4) @ 0.8431632088589502 |
+[info] ----------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 5
+[info] DEBUG @ TranRegression.buildModel: 392 by 5
+[info] ---------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 4) ADD variable (2, weight) => cols = LinkedHashSet(0, 3, 1, 4, 2) @ 0.8429001784070652 |
+[info] ---------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 6
+[info] -----------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 5) ADD variable (5, origin) => cols = LinkedHashSet(0, 3, 1, 4, 2, 5) @ 0.841875634860394 |
+[info] -----------------------------------------------------------------------------------------------------------------
+[info] Run + title
+[info] x-axis: minX = 1.0, maxX = 6.0
+[info] y-axis: minY = -0.0, maxY = 85.0
+[info] rSq = 
+[info] MatrixD (23.5322,	23.5322,	76.9162,	-0.00000,
+[info]  	67.3045,	67.2207,	28.1412,	-0.00000,
+[info]  	82.7714,	82.6829,	18.3698,	-0.00000,
+[info]  	84.4367,	84.3163,	17.1274,	-0.00000,
+[info]  	84.4507,	84.2900,	17.1326,	-0.00000,
+[info]  	84.3898,	84.1876,	17.0759,	-0.00000)
+[info] ----------------------
+[info] | Feature Importance |
+[info] ----------------------
+[info] col = 0, 	 cylinders, 	 importance = -0.0
+[info] col = 3, 	 acceleration, 	 importance = 1.0
+[info] col = 1, 	 horsepower, 	 importance = 0.3533493653769699
+[info] col = 4, 	 model_year, 	 importance = 0.0380427944669235
+[info] col = 2, 	 weight, 	 importance = 3.2161329750269923E-4
+[info] col = 5, 	 origin, 	 importance = -0.0013927809645510143
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] -----------------------------
+[info] | Backward Elimination Test |
+[info] -----------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 6
+[info] -------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 0) INITIAL variables (all) => cols = LinkedHashSet(0, 1, 2, 3, 4, 5) @ 0.8418756348603939 |
+[info] -------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 5
+[info] DEBUG @ TranRegression.buildModel: 392 by 5
+[info] DEBUG @ TranRegression.buildModel: 392 by 5
+[info] DEBUG @ TranRegression.buildModel: 392 by 5
+[info] DEBUG @ TranRegression.buildModel: 392 by 5
+[info] --------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 1) REMOVE variable (5, origin) => cols = LinkedHashSet(0, 1, 2, 3, 4) @ 0.8429001784070651 |
+[info] --------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 4
+[info] DEBUG @ TranRegression.buildModel: 392 by 4
+[info] DEBUG @ TranRegression.buildModel: 392 by 4
+[info] DEBUG @ TranRegression.buildModel: 392 by 4
+[info] -----------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 2) REMOVE variable (2, weight) => cols = LinkedHashSet(0, 1, 3, 4) @ 0.8431632088589502 |
+[info] -----------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] ------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 3) REMOVE variable (4, model_year) => cols = LinkedHashSet(0, 1, 3) @ 0.8268285699981256 |
+[info] ------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] ---------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 4) REMOVE variable (1, horsepower) => cols = LinkedHashSet(0, 3) @ 0.6722068981198069 |
+[info] ---------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 1
+[info] k = 6
+[info] Run + title
+[info] x-axis: minX = 0.0, maxX = 6.0
+[info] y-axis: minY = -0.0, maxY = 85.0
+[info] rSq = 
+[info] MatrixD (23.5322,	23.5322,	76.9162,	-0.00000,
+[info]  	67.3045,	67.2207,	28.1412,	-0.00000,
+[info]  	82.7714,	82.6829,	18.3698,	-0.00000,
+[info]  	84.4367,	84.3163,	17.1274,	-0.00000,
+[info]  	84.4507,	84.2900,	17.1326,	-0.00000,
+[info]  	84.3898,	84.1876,	17.0759,	-0.00000)
+[info] ----------------------
+[info] | Feature Importance |
+[info] ----------------------
+[info] col = 0, 	 cylinders, 	 importance = -0.0
+[info] col = 3, 	 acceleration, 	 importance = 1.0
+[info] col = 1, 	 horsepower, 	 importance = 0.3533493653769696
+[info] col = 4, 	 model_year, 	 importance = 0.038042794466923824
+[info] col = 2, 	 weight, 	 importance = 3.2161329750269923E-4
+[info] col = 5, 	 origin, 	 importance = -0.001392780964551339
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] --------------------
+[info] | Stepwise FS Test |
+[info] --------------------
+[info] --------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 0) INITIAL variable (0, cylinders) => cols = LinkedHashSet(0) |
+[info] --------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] ERROR @ Predictor.backwardElim: could not find a variable x_j to eliminate: best.col = -1 
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(3,VectorD(0.673045,	0.672207,	4.28159e+06,	1.39989e+06,	59.5865,	3571.14,	59.7590,	44.3745,	28.1412,	392.000,	1.00000,	390.000,	802.826,	-2155.64,	-2147.69,	26.3836,	1.35323,	28.1514,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@61386958), bestb = BestStep(-1,null,null)
+[info] stepwiseSelAll: (l = 1) ADD variable BestStep(3,VectorD(0.673045,	0.672207,	4.28159e+06,	1.39989e+06,	59.5865,	3571.14,	59.7590,	44.3745,	28.1412,	392.000,	1.00000,	390.000,	802.826,	-2155.64,	-2147.69,	26.3836,	1.35323,	28.1514,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@61386958)
+[info] -------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 1) ADD variable (3, acceleration) => cols = LinkedHashSet(0, 3) @ 0.6722068981198069 |
+[info] -------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(cylinders, acceleration)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(29.1800,	21.4976)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.673045, rSqBar -> 0.672207, sst -> 4281593.713648, sse -> 1399887.429440, sde -> 59.586519, mse0 -> 3571.141402, rmse -> 59.759028, mae -> 44.374496, smape -> 28.141200, m -> 392.000000, dfm -> 1.000000, df -> 390.000000, fStat -> 802.825590, aic -> -2155.636281, bic -> -2147.693757, mape -> 26.383641, mase -> 1.353233, smapeC -> 28.151404, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] DEBUG @ TranRegression.buildModel: 392 by 1
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(1,VectorD(0.827714,	0.826829,	4.28159e+06,	737657,	43.3543,	1881.78,	43.3795,	30.2186,	18.3698,	392.000,	2.00000,	389.000,	934.439,	-2028.06,	-2016.15,	18.1451,	1.17432,	18.3852,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@3a6bb9bf), bestb = BestStep(3,VectorD(0.235322,	0.235322,	4.28159e+06,	3.27404e+06,	88.3642,	8352.14,	91.3900,	83.3434,	76.9162,	392.000,	0.00000,	391.000,	0.00000,	-2324.65,	-2320.68,	53.2670,	2.18325,	76.9213,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@3d1cfad4)
+[info] stepwiseSelAll: (l = 2) ADD variable BestStep(1,VectorD(0.827714,	0.826829,	4.28159e+06,	737657,	43.3543,	1881.78,	43.3795,	30.2186,	18.3698,	392.000,	2.00000,	389.000,	934.439,	-2028.06,	-2016.15,	18.1451,	1.17432,	18.3852,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@3a6bb9bf)
+[info] --------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 2) ADD variable (1, horsepower) => cols = LinkedHashSet(0, 3, 1) @ 0.8268285699981257 |
+[info] --------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(cylinders, acceleration, horsepower)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(13.6838,	21.0001,	26.1755)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.827714, rSqBar -> 0.826829, sst -> 4281593.713648, sse -> 737657.124463, sde -> 43.354269, mse0 -> 1881.778379, rmse -> 43.379470, mae -> 30.218617, smape -> 18.369847, m -> 392.000000, dfm -> 2.000000, df -> 389.000000, fStat -> 934.439110, aic -> -2028.059881, bic -> -2016.146096, mape -> 18.145071, mase -> 1.174325, smapeC -> 18.385153, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ TranRegression.buildModel: 392 by 4
+[info] DEBUG @ TranRegression.buildModel: 392 by 4
+[info] DEBUG @ TranRegression.buildModel: 392 by 4
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(4,VectorD(0.844367,	0.843163,	4.28159e+06,	666359,	41.2170,	1699.90,	41.2298,	29.3966,	17.1274,	392.000,	3.00000,	388.000,	701.679,	-2006.14,	-1990.25,	16.9650,	1.16917,	17.1478,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@e7edb54), bestb = BestStep(1,VectorD(0.673045,	0.672207,	4.28159e+06,	1.39989e+06,	59.5865,	3571.14,	59.7590,	44.3745,	28.1412,	392.000,	1.00000,	390.000,	802.826,	-2155.64,	-2147.69,	26.3836,	1.35323,	28.1514,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@11bd0f3b)
+[info] stepwiseSelAll: (l = 3) ADD variable BestStep(4,VectorD(0.844367,	0.843163,	4.28159e+06,	666359,	41.2170,	1699.90,	41.2298,	29.3966,	17.1274,	392.000,	3.00000,	388.000,	701.679,	-2006.14,	-1990.25,	16.9650,	1.16917,	17.1478,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@e7edb54)
+[info] -----------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 3) ADD variable (4, model_year) => cols = LinkedHashSet(0, 3, 1, 4) @ 0.8431632088589502 |
+[info] -----------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 4
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(cylinders, acceleration, horsepower, model_year)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(13.9225,	17.7188,	25.5431,	3.26703)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.844367, rSqBar -> 0.843163, sst -> 4281593.713648, sse -> 666359.157491, sde -> 41.216950, mse0 -> 1699.895810, rmse -> 41.229793, mae -> 29.396615, smape -> 17.127404, m -> 392.000000, dfm -> 3.000000, df -> 388.000000, fStat -> 701.679163, aic -> -2006.136054, bic -> -1990.251007, mape -> 16.965030, mase -> 1.169172, smapeC -> 17.147813, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ TranRegression.buildModel: 392 by 5
+[info] DEBUG @ TranRegression.buildModel: 392 by 5
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(2,VectorD(0.844507,	0.842900,	4.28159e+06,	665756,	41.1980,	1698.36,	41.2111,	29.3860,	17.1326,	392.000,	4.00000,	387.000,	525.466,	-2003.96,	-1984.10,	16.9459,	1.17000,	17.1581,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@72cde7cc), bestb = BestStep(4,VectorD(0.827714,	0.826829,	4.28159e+06,	737657,	43.3543,	1881.78,	43.3795,	30.2186,	18.3698,	392.000,	2.00000,	389.000,	934.439,	-2028.06,	-2016.15,	18.1451,	1.17432,	18.3852,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@41e1e210)
+[info] DEBUG @ TranRegression.buildModel: 392 by 4
+[info] stepwiseSelAll: selected features = LinkedHashSet(0, 3, 1, 4)
+[info] stepwiseSelAll: selected features = LinkedHashSet(cylinders, acceleration, horsepower, model_year)
+[info] stepwiseSelAll: features in/out   = ArrayBuffer(3, 1, 4)
+[info] k = 4
+[info] Run + title
+[info] x-axis: minX = 0.0, maxX = 3.0
+[info] y-axis: minY = -0.0, maxY = 85.0
+[info] rSq = 
+[info] MatrixD (67.3045,	67.2207,	28.1412,	-0.00000,
+[info]  	82.7714,	82.6829,	18.3698,	-0.00000,
+[info]  	84.4367,	84.3163,	17.1274,	-0.00000)
+[info] ----------------------
+[info] | Feature Importance |
+[info] ----------------------
+[info] col = 0, 	 cylinders, 	 importance = -0.0
+[info] col = 3, 	 acceleration, 	 importance = 1.0
+[info] col = 1, 	 horsepower, 	 importance = 0.10766340113937276
+[success] Total time: 112 s (0:01:52.0), completed Sep 16, 2025, 12:54:54 PM

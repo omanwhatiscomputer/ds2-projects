@@ -2,9 +2,11 @@
 [info] loading project definition from /mnt/c/Libs/scalation_2.0/project
 [info] loading settings for project scalation from build.sbt...
 [info] set current project to scalation (in build file:/mnt/c/Libs/scalation_2.0/)
+[info] compiling 1 Scala source to /mnt/c/Libs/scalation_2.0/target/scala-3.7.2/classes ...
+[info] done compiling
 [info] running (fork) project1.SimpleRegression 
 [error] WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
-[error] WARNING: sun.misc.Unsafe::objectFieldOffset has been called by scala.runtime.LazyVals$ (file:/mnt/c/Libs/scalation_2.0/target/bg-jobs/sbt_96986d3b/target/21dbe174/563b310f/scala3-library_3-3.7.2.jar)
+[error] WARNING: sun.misc.Unsafe::objectFieldOffset has been called by scala.runtime.LazyVals$ (file:/mnt/c/Libs/scalation_2.0/target/bg-jobs/sbt_edc62ae/target/21dbe174/563b310f/scala3-library_3-3.7.2.jar)
 [error] WARNING: Please consider reporting this to the maintainers of class scala.runtime.LazyVals$
 [error] WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
 [info] DEBUG @ Predictor.trainNTest: b = VectorD(156.476,	187.572,	79.0176,	57.3810,	8.68939,	-15.9723)
@@ -22,6 +24,23 @@
 [info]     ----------------------------------------------------------------------------
 [info]         
 [info] Run + title
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -25.506661134492255 to be nonnegative 
+[info] fname = Array(cylinders, horsepower, weight, acceleration, model_year, origin)
+[info] SUMMARY
+[info]     Parameters/Coefficients:
+[info]     Var      Estimate    Std. Error 	 t value 	 Pr(>|t|) 	 VIF
+[info] ----------------------------------------------------------------------------------
+[info]     x0	 156.475669	 8.736176	 17.911231	 0.000000	 NA
+[info]     x1	 187.571542	 13.758562	 13.633077	 0.000000	 5.382244
+[info]     x2	 79.017560	 14.810762	 5.335145	 0.000000	 8.266125
+[info]     x3	 57.380961	 6.482763	 8.851312	 0.000000	 0.736365
+[info]     x4	 8.689392	 4.114592	 2.111848	 0.034700	 1.036571
+[info]     x5	 -15.972280	 3.767279	 -4.239740	 0.000022	 1.495812
+[info]     Residual standard error: 24.531433 on 386.0 degrees of freedom
+[info]     Multiple R-squared:  0.945747,	Adjusted R-squared:  0.945044
+[info]     F-statistic: 1345.7499100224034 on 5.0 and 386.0 DF,  p-value: -0.0
+[info] ----------------------------------------------------------------------------------
+[info]         
 [info] --------------
 [info] | Validation |
 [info] --------------
@@ -151,8 +170,8 @@
 [info] | stepwiseSelAll: (l = 0) INITIAL variable (0, cylinders) => cols = LinkedHashSet(0) |
 [info] --------------------------------------------------------------------------------------
 [info] ERROR @ Predictor.backwardElim: could not find a variable x_j to eliminate: best.col = -1 
-[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(2,VectorD(0.901491,	0.901239,	4.28159e+06,	421774,	31.1670,	1075.95,	32.8017,	27.1653,	19.8345,	392.000,	1.00000,	390.000,	3569.05,	-1921.61,	-1913.66,	17.7830,	1.16540,	19.8447,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@36d585c), bestb = BestStep(-1,null,null)
-[info] stepwiseSelAll: (l = 1) ADD variable BestStep(2,VectorD(0.901491,	0.901239,	4.28159e+06,	421774,	31.1670,	1075.95,	32.8017,	27.1653,	19.8345,	392.000,	1.00000,	390.000,	3569.05,	-1921.61,	-1913.66,	17.7830,	1.16540,	19.8447,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@36d585c)
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(2,VectorD(0.901491,	0.901239,	4.28159e+06,	421774,	31.1670,	1075.95,	32.8017,	27.1653,	19.8345,	392.000,	1.00000,	390.000,	3569.05,	-1921.61,	-1913.66,	17.7830,	1.16540,	19.8447,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@366647c2), bestb = BestStep(-1,null,null)
+[info] stepwiseSelAll: (l = 1) ADD variable BestStep(2,VectorD(0.901491,	0.901239,	4.28159e+06,	421774,	31.1670,	1075.95,	32.8017,	27.1653,	19.8345,	392.000,	1.00000,	390.000,	3569.05,	-1921.61,	-1913.66,	17.7830,	1.16540,	19.8447,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@366647c2)
 [info] -------------------------------------------------------------------------------------------------------
 [info] | stepwiseSelAll: (l = 1) ADD variable (2, weight) => cols = LinkedHashSet(0, 2) @ 0.9012388808919509 |
 [info] -------------------------------------------------------------------------------------------------------
@@ -169,8 +188,8 @@
 [info]     fitMap     qof = LinkedHashMap(rSq -> 0.901491, rSqBar -> 0.901239, sst -> 4281593.713648, sse -> 421773.516172, sde -> 31.167010, mse0 -> 1075.952847, rmse -> 32.801720, mae -> 27.165252, smape -> 19.834497, m -> 392.000000, dfm -> 1.000000, df -> 390.000000, fStat -> 3569.047888, aic -> -1921.607295, bic -> -1913.664771, mape -> 17.783018, mase -> 1.165397, smapeC -> 19.844702, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
 [info]     ----------------------------------------------------------------------------
 [info]         
-[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(1,VectorD(0.919100,	0.918684,	4.28159e+06,	346382,	28.2614,	883.628,	29.7259,	24.5712,	17.7950,	392.000,	2.00000,	389.000,	2209.69,	-1880.98,	-1869.07,	16.1330,	1.14846,	17.8103,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@1329eff), bestb = BestStep(2,VectorD(0.829696,	0.829696,	4.28159e+06,	729171,	40.0331,	1860.13,	43.1292,	36.7321,	27.9981,	392.000,	0.00000,	391.000,	0.00000,	-2032.16,	-2028.19,	23.5068,	1.30256,	28.0032,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@5f683daf)
-[info] stepwiseSelAll: (l = 2) ADD variable BestStep(1,VectorD(0.919100,	0.918684,	4.28159e+06,	346382,	28.2614,	883.628,	29.7259,	24.5712,	17.7950,	392.000,	2.00000,	389.000,	2209.69,	-1880.98,	-1869.07,	16.1330,	1.14846,	17.8103,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@1329eff)
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(1,VectorD(0.919100,	0.918684,	4.28159e+06,	346382,	28.2614,	883.628,	29.7259,	24.5712,	17.7950,	392.000,	2.00000,	389.000,	2209.69,	-1880.98,	-1869.07,	16.1330,	1.14846,	17.8103,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@2abf4075), bestb = BestStep(2,VectorD(0.829696,	0.829696,	4.28159e+06,	729171,	40.0331,	1860.13,	43.1292,	36.7321,	27.9981,	392.000,	0.00000,	391.000,	0.00000,	-2032.16,	-2028.19,	23.5068,	1.30256,	28.0032,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@26275bef)
+[info] stepwiseSelAll: (l = 2) ADD variable BestStep(1,VectorD(0.919100,	0.918684,	4.28159e+06,	346382,	28.2614,	883.628,	29.7259,	24.5712,	17.7950,	392.000,	2.00000,	389.000,	2209.69,	-1880.98,	-1869.07,	16.1330,	1.14846,	17.8103,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@2abf4075)
 [info] --------------------------------------------------------------------------------------------------------------
 [info] | stepwiseSelAll: (l = 2) ADD variable (1, horsepower) => cols = LinkedHashSet(0, 2, 1) @ 0.9186837278359002 |
 [info] --------------------------------------------------------------------------------------------------------------
@@ -187,8 +206,8 @@
 [info]     fitMap     qof = LinkedHashMap(rSq -> 0.919100, rSqBar -> 0.918684, sst -> 4281593.713648, sse -> 346382.353578, sde -> 28.261377, mse0 -> 883.628453, rmse -> 29.725889, mae -> 24.571202, smape -> 17.794972, m -> 392.000000, dfm -> 2.000000, df -> 389.000000, fStat -> 2209.692848, aic -> -1880.984180, bic -> -1869.070395, mape -> 16.132965, mase -> 1.148461, smapeC -> 17.810278, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
 [info]     ----------------------------------------------------------------------------
 [info]         
-[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(3,VectorD(0.942908,	0.942466,	4.28159e+06,	244446,	24.9682,	623.587,	24.9717,	18.3745,	10.2748,	392.000,	3.00000,	388.000,	2136.01,	-1809.58,	-1793.70,	10.3404,	1.01440,	10.2952,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@76f2bbc1), bestb = BestStep(1,VectorD(0.901491,	0.901239,	4.28159e+06,	421774,	31.1670,	1075.95,	32.8017,	27.1653,	19.8345,	392.000,	1.00000,	390.000,	3569.05,	-1921.61,	-1913.66,	17.7830,	1.16540,	19.8447,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@7e9131d5)
-[info] stepwiseSelAll: (l = 3) ADD variable BestStep(3,VectorD(0.942908,	0.942466,	4.28159e+06,	244446,	24.9682,	623.587,	24.9717,	18.3745,	10.2748,	392.000,	3.00000,	388.000,	2136.01,	-1809.58,	-1793.70,	10.3404,	1.01440,	10.2952,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@76f2bbc1)
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(3,VectorD(0.942908,	0.942466,	4.28159e+06,	244446,	24.9682,	623.587,	24.9717,	18.3745,	10.2748,	392.000,	3.00000,	388.000,	2136.01,	-1809.58,	-1793.70,	10.3404,	1.01440,	10.2952,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@3246fb96), bestb = BestStep(1,VectorD(0.901491,	0.901239,	4.28159e+06,	421774,	31.1670,	1075.95,	32.8017,	27.1653,	19.8345,	392.000,	1.00000,	390.000,	3569.05,	-1921.61,	-1913.66,	17.7830,	1.16540,	19.8447,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@6b8ca3c8)
+[info] stepwiseSelAll: (l = 3) ADD variable BestStep(3,VectorD(0.942908,	0.942466,	4.28159e+06,	244446,	24.9682,	623.587,	24.9717,	18.3745,	10.2748,	392.000,	3.00000,	388.000,	2136.01,	-1809.58,	-1793.70,	10.3404,	1.01440,	10.2952,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@3246fb96)
 [info] -------------------------------------------------------------------------------------------------------------------
 [info] | stepwiseSelAll: (l = 3) ADD variable (3, acceleration) => cols = LinkedHashSet(0, 2, 1, 3) @ 0.9424662931713765 |
 [info] -------------------------------------------------------------------------------------------------------------------
@@ -205,8 +224,8 @@
 [info]     fitMap     qof = LinkedHashMap(rSq -> 0.942908, rSqBar -> 0.942466, sst -> 4281593.713648, sse -> 244445.911771, sde -> 24.968243, mse0 -> 623.586510, rmse -> 24.971714, mae -> 18.374520, smape -> 10.274768, m -> 392.000000, dfm -> 3.000000, df -> 388.000000, fStat -> 2136.005379, aic -> -1809.580243, bic -> -1793.695195, mape -> 10.340419, mase -> 1.014402, smapeC -> 10.295177, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
 [info]     ----------------------------------------------------------------------------
 [info]         
-[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(5,VectorD(0.945120,	0.944552,	4.28159e+06,	234975,	24.4646,	599.427,	24.4832,	18.1448,	10.3744,	392.000,	4.00000,	387.000,	1666.18,	-1799.84,	-1779.98,	10.3678,	1.02540,	10.3999,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@4ef37659), bestb = BestStep(2,VectorD(0.935402,	0.935070,	4.28159e+06,	276582,	26.5871,	705.565,	26.5625,	20.1025,	11.1885,	392.000,	2.00000,	389.000,	2816.44,	-1835.79,	-1823.87,	11.4029,	1.01598,	11.2038,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@1bb266b3)
-[info] stepwiseSelAll: (l = 4) ADD variable BestStep(5,VectorD(0.945120,	0.944552,	4.28159e+06,	234975,	24.4646,	599.427,	24.4832,	18.1448,	10.3744,	392.000,	4.00000,	387.000,	1666.18,	-1799.84,	-1779.98,	10.3678,	1.02540,	10.3999,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@4ef37659)
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(5,VectorD(0.945120,	0.944552,	4.28159e+06,	234975,	24.4646,	599.427,	24.4832,	18.1448,	10.3744,	392.000,	4.00000,	387.000,	1666.18,	-1799.84,	-1779.98,	10.3678,	1.02540,	10.3999,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@3e6ef8ad), bestb = BestStep(2,VectorD(0.935402,	0.935070,	4.28159e+06,	276582,	26.5871,	705.565,	26.5625,	20.1025,	11.1885,	392.000,	2.00000,	389.000,	2816.44,	-1835.79,	-1823.87,	11.4029,	1.01598,	11.2038,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@3d1cfad4)
+[info] stepwiseSelAll: (l = 4) ADD variable BestStep(5,VectorD(0.945120,	0.944552,	4.28159e+06,	234975,	24.4646,	599.427,	24.4832,	18.1448,	10.3744,	392.000,	4.00000,	387.000,	1666.18,	-1799.84,	-1779.98,	10.3678,	1.02540,	10.3999,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@3e6ef8ad)
 [info] ----------------------------------------------------------------------------------------------------------------
 [info] | stepwiseSelAll: (l = 4) ADD variable (5, origin) => cols = LinkedHashSet(0, 2, 1, 3, 5) @ 0.9445524176505258 |
 [info] ----------------------------------------------------------------------------------------------------------------
@@ -243,4 +262,4 @@
 [info] col = 1, 	 horsepower, 	 importance = 1.3521006746884316
 [info] col = 3, 	 acceleration, 	 importance = 0.12561919789199613
 [info] Run + title
-[success] Total time: 36 s, completed Sep 16, 2025, 12:03:00 PM
+[success] Total time: 108 s (0:01:48.0), completed Sep 16, 2025, 12:08:37 PM
