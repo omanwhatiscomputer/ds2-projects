@@ -9,7 +9,7 @@ import scalation.mathstat.{VectorD, MatrixD}
 import scalation.modeling.{TranRegression, Regression}
 import scala.math.{ log1p, sqrt, expm1}
 
-@main def TransformedRegression(): Unit =
+@main def TransformedRegressionBoxCox(): Unit =
 //   println("Hello, World!")
 
     

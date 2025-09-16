@@ -56,7 +56,7 @@ import scalation.modeling.qk
     // println("x (features):")
     // println(x(0 until 5))
 
-    val mod = new Regression (x, y)                          // create a simple regression model
+    val mod = new Regression (x, y, ox_fname)                          // create a simple regression model
     mod.trainNtest ()()
 
     
@@ -82,7 +82,7 @@ import scalation.modeling.qk
 
 
     banner ("Forward Selection Test")
-    val (cols1, rSq1) = mod.forwardSelAll ()                         // R^2, R^2 bar, sMAPE, R^2 cv
+    val (cols1, rSq1) = mod.forwardSelAll (cross = false)                         // R^2, R^2 bar, sMAPE, R^2 cv
     val k1 = cols1.size
     val t = VectorD.range (1, k1)                                   // instance index
     new PlotM (t, rSq1.transpose, Regression.metrics, "R^2 vs n for Regression", lines = true)
@@ -109,7 +109,7 @@ import scalation.modeling.qk
     println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
 
     banner ("Stepwise FS Test")
-    val (cols3, rSq3) = mod.stepwiseSelAll ()                             // R^2, R^2 bar, sMAPE, R^2 cv
+    val (cols3, rSq3) = mod.stepwiseSelAll (cross = false)                             // R^2, R^2 bar, sMAPE, R^2 cv
 
     val k3 = cols3.size
     println (s"k = $k3")
