@@ -1,0 +1,51 @@
+#DOWNLOAD THE FILES BECAUSE IT DOESNT DISPLAY PROPERLY ON GITHUB
+
+The following were removed from energy model because they crashed the program many times by generating NA values.
+Symbolic was removed because it would take 20 mins times 9 types for 3 hours total
+#"Log1p": (LinearRegression(), "log1p"),
+    #"Box-Cox": (LinearRegression(), "box-cox"),
+    #"Yeo-Johnson": (LinearRegression(), "yeo-johnson"),
+    #"Symbolic": (SymbolicRegressor(population_size=1000, generations=10,
+    #                               function_set=["add", "sub", "mul", "div"],
+    #                               metric="rmse", random_state=RANDOM_STATE, verbose=1), None)
+
+
+Option 1 for both datasets have a bunch of features added/modified to get a higher rsq
+
+For Seoul
+#Added a LOT of stuff to get good rsq vals (Credit google)
+df["Date"] = pd.to_datetime(df["Date"], format="%d/%m/%Y")
+df["Year"] = df["Date"].dt.year
+df["Month"] = df["Date"].dt.month
+df["Day"] = df["Date"].dt.day
+df["DayOfWeek"] = df["Date"].dt.dayofweek
+df["WeekOfYear"] = df["Date"].dt.isocalendar().week.astype(int)
+df["Hour_sin"] = np.sin(2 * np.pi * df["Hour"] / 24)
+df["Hour_cos"] = np.cos(2 * np.pi * df["Hour"] / 24)
+df["DayOfWeek_sin"] = np.sin(2 * np.pi * df["DayOfWeek"] / 7)
+df["DayOfWeek_cos"] = np.cos(2 * np.pi * df["DayOfWeek"] / 7)
+df["Month_sin"] = np.sin(2 * np.pi * df["Month"] / 12)
+df["Month_cos"] = np.cos(2 * np.pi * df["Month"] / 12)
+df["Lag_1"] = df["Rented_Bike_Count"].shift(1)
+df["Lag_24"] = df["Rented_Bike_Count"].shift(24)
+df["Rolling_3h"] = df["Rented_Bike_Count"].shift(1).rolling(window=3).mean()
+df["Rolling_7d"] = df["Rented_Bike_Count"].shift(24).rolling(window=7).mean()
+
+For Energy
+for lag in [1, 2, 3]:
+    df[f'Appliances_lag{lag}'] = df['Appliances'].shift(lag)
+
+
+Option 2 is the one that has nothing added and is just the base data fitted to a model
+#Use whichever one you see fit
+
+#note, Seoul has #"Log1p": (LinearRegression(), "log1p"),
+    #"Box-Cox": (LinearRegression(), "box-cox"),
+removed as well due to generating NA values, not an issue with option 1
+
+
+Total python models:
+9 + (9 or 9) + (8 or 6) + (5 or 5)
+= 29 min
+= 31 max
+
