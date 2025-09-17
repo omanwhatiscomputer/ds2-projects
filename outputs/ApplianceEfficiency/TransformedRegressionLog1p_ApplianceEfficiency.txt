@@ -1,0 +1,2154 @@
+[info] welcome to sbt 1.11.4 (Oracle Corporation Java 24.0.2)
+[info] loading project definition from /mnt/c/Libs/scalation_2.0/project
+[info] loading settings for project scalation from build.sbt...
+[info] set current project to scalation (in build file:/mnt/c/Libs/scalation_2.0/)
+[info] running (fork) project1.AE.TransformedRegressionLog1p1 
+[error] WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+[error] WARNING: sun.misc.Unsafe::objectFieldOffset has been called by scala.runtime.LazyVals$ (file:/mnt/c/Libs/scalation_2.0/target/bg-jobs/sbt_66fe639f/target/21dbe174/563b310f/scala3-library_3-3.7.2.jar)
+[error] WARNING: Please consider reporting this to the maintainers of class scala.runtime.LazyVals$
+[error] WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+[info] DEBUG @ TranRegression.trainNTest: b = VectorD(0.0161236,	0.0149910,	0.106641,	-0.102263,	-0.0816009,	0.158131,	0.0304030,	-0.0241710,	-0.00149653,	0.00268637,	0.00318169,	0.0552807,	0.00249124,	-0.0304148,	-0.00234755,	0.113479,	-0.0465276,	-0.104536,	-0.0160148,	-0.0506307,	0.00451103,	-0.00251322,	0.0191746,	0.000766838,	0.00997615,	-2.08573e+10,	2.08573e+10)
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(date, Appliances, lights, T1, RH_1, T2, RH_2, T3, RH_3, T4, RH_4, T5, RH_5, T6, RH_6, T7, RH_7, T8, RH_8, T9, RH_9, T_out, Press_mm_hg, RH_out, Windspeed, Visibility, Tdewpoint, rv1, rv2)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(0.0161236,	0.0149910,	0.106641,	-0.102263,	-0.0816009,	0.158131,	0.0304030,	-0.0241710,	-0.00149653,	0.00268637,	0.00318169,	0.0552807,	0.00249124,	-0.0304148,	-0.00234755,	0.113479,	-0.0465276,	-0.104536,	-0.0160148,	-0.0506307,	0.00451103,	-0.00251322,	0.0191746,	0.000766838,	0.00997615,	-2.08573e+10,	2.08573e+10)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.106058, rSqBar -> 0.104878, sst -> 207431043.648343, sse -> 185431410.805827, sde -> 95.135380, mse0 -> 9396.068447, rmse -> 96.933320, mae -> 44.907870, smape -> 36.779719, m -> 19735.000000, dfm -> 26.000000, df -> 19708.000000, fStat -> 89.929325, aic -> -118224.125993, bic -> -118011.091971, mape -> 39.359057, mase -> 1.546015, smapeC -> 36.782455, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] Run + title
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -630.5666867705186 to be nonnegative 
+[info] fname = Array(date, Appliances, lights, T1, RH_1, T2, RH_2, T3, RH_3, T4, RH_4, T5, RH_5, T6, RH_6, T7, RH_7, T8, RH_8, T9, RH_9, T_out, Press_mm_hg, RH_out, Windspeed, Visibility, Tdewpoint, rv1, rv2)
+[info] SUMMARY
+[info]     Parameters/Coefficients:
+[info]     Var      Estimate    Std. Error 	 t value 	 Pr(>|t|) 	 VIF
+[info] ----------------------------------------------------------------------------------
+[info]     x0	 0.016124	 0.098622	 0.163489	 0.870134	 NA
+[info]     x1	 0.014991	 1.906815	 0.007862	 0.993727	 19.669431
+[info]     x2	 0.106641	 0.692431	 0.154010	 0.877602	 15.922880
+[info]     x3	 -0.102263	 1.689056	 -0.060545	 0.951722	 28.775916
+[info]     x4	 -0.081601	 0.792008	 -0.103030	 0.917939	 21.780636
+[info]     x5	 0.158131	 1.087159	 0.145453	 0.884353	 9.976094
+[info]     x6	 0.030403	 0.694333	 0.043787	 0.965074	 10.709772
+[info]     x7	 -0.024171	 1.056065	 -0.022888	 0.981740	 9.761795
+[info]     x8	 -0.001497	 0.656530	 -0.002279	 0.998181	 17.036023
+[info]     x9	 0.002686	 1.209162	 0.002222	 0.998227	 10.431678
+[info]     x10	 0.003182	 0.089730	 0.035459	 0.971714	 1.373935
+[info]     x11	 0.055281	 0.652698	 0.084696	 0.932503	 33.141846
+[info]     x12	 0.002491	 0.069800	 0.035691	 0.971529	 9.913154
+[info]     x13	 -0.030415	 1.361474	 -0.022340	 0.982177	 17.307922
+[info]     x14	 -0.002348	 0.440122	 -0.005334	 0.995744	 10.626181
+[info]     x15	 0.113479	 0.979800	 0.115819	 0.907796	 7.703581
+[info]     x16	 -0.046528	 0.385476	 -0.120702	 0.903927	 8.506206
+[info]     x17	 -0.104536	 1.795412	 -0.058224	 0.953570	 27.441590
+[info]     x18	 -0.016015	 0.418475	 -0.038269	 0.969473	 6.329791
+[info]     x19	 -0.050631	 1.513567	 -0.033451	 0.973315	 135.841804
+[info]     x20	 0.004511	 0.041756	 0.108034	 0.913969	 0.200154
+[info]     x21	 -0.002513	 0.306692	 -0.008195	 0.993462	 43.796009
+[info]     x22	 0.019175	 0.335289	 0.057188	 0.954395	 1.416701
+[info]     x23	 0.000767	 0.059726	 0.012839	 0.989756	 1.040805
+[info]     x24	 0.009976	 1.410728	 0.007072	 0.994358	 73.432367
+[info]     x25	 -20857291826.985462	 1090211.720248	 -19131.414054	 0.000000	 Infinity
+[info]     x26	 20857291826.985508	 1090211.720248	 19131.414054	 0.000000	 Infinity
+[info]     Residual standard error: 96.999696 on 19708.0 degrees of freedom
+[info]     Multiple R-squared:  0.106058,	Adjusted R-squared:  0.104878
+[info]     F-statistic: 89.92932546950732 on 26.0 and 19708.0 DF,  p-value: -0.0
+[info] ----------------------------------------------------------------------------------
+[info]         
+[info] ----------------------------------------------
+[info] | Quality of Fit - based on transformed data |
+[info] ----------------------------------------------
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(date, Appliances, lights, T1, RH_1, T2, RH_2, T3, RH_3, T4, RH_4, T5, RH_5, T6, RH_6, T7, RH_7, T8, RH_8, T9, RH_9, T_out, Press_mm_hg, RH_out, Windspeed, Visibility, Tdewpoint, rv1, rv2)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(0.0161236,	0.0149910,	0.106641,	-0.102263,	-0.0816009,	0.158131,	0.0304030,	-0.0241710,	-0.00149653,	0.00268637,	0.00318169,	0.0552807,	0.00249124,	-0.0304148,	-0.00234755,	0.113479,	-0.0465276,	-0.104536,	-0.0160148,	-0.0506307,	0.00451103,	-0.00251322,	0.0191746,	0.000766838,	0.00997615,	-2.08573e+10,	2.08573e+10)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.270902, rSqBar -> 0.269940, sst -> 8306.087810, sse -> 6055.956136, sde -> 0.553967, mse0 -> 0.306864, rmse -> 0.553953, mae -> 0.387956, smape -> 8.715425, m -> 19735.000000, dfm -> 26.000000, df -> 19708.000000, fStat -> 281.640053, aic -> -107979.950336, bic -> -107766.916314, mape -> 8.713185, mase -> 1.704990, smapeC -> 8.718161, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] --------------
+[info] | Validation |
+[info] --------------
+[info] LinkedHashMap(rSq -> 0.090493, rSqBar -> 0.089293, sst -> 44825388.396250, sse -> 40769021.961247, sde -> 98.767158, mse0 -> 10329.116281, rmse -> 101.632260, mae -> 46.904148, smape -> 36.841290, m -> 3947.000000, dfm -> 26.000000, df -> 19708.000000, fStat -> 75.418188, aic -> -23805.085149, bic -> -23635.505950, mape -> 37.561026, mase -> 0.988380, smapeC -> 36.854971, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] --------------------
+[info] | cross-validation |
+[info] --------------------
+[info] ------------------------------------------------------------------
+[info] | crossValidate: fold 0: train-test splits sizes = (15788, 3947) |
+[info] ------------------------------------------------------------------
+[info] LinkedHashMap(rSq -> 0.090332, rSqBar -> 0.089132, sst -> 41899095.971625, sse -> 38114248.125296, sde -> 96.358274, mse0 -> 9656.510799, rmse -> 98.267547, mae -> 45.558039, smape -> 37.128019, m -> 3947.000000, dfm -> 26.000000, df -> 19708.000000, fStat -> 75.271449, aic -> -23658.417129, bic -> -23488.837930, mape -> 39.750717, mase -> 0.991965, smapeC -> 37.141700, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] DEBUG @ Predictor.crossValidate: fold 0: qof = VectorD(0.0903324,	0.0891324,	4.18991e+07,	3.81142e+07,	96.3583,	9656.51,	98.2675,	45.5580,	37.1280,	3947.00,	26.0000,	19708.0,	75.2714,	-23658.4,	-23488.8,	39.7507,	0.991965,	37.1417,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+[info] ------------------------------------------------------------------
+[info] | crossValidate: fold 1: train-test splits sizes = (15788, 3947) |
+[info] ------------------------------------------------------------------
+[info] LinkedHashMap(rSq -> 0.108231, rSqBar -> 0.107055, sst -> 40717166.962250, sse -> 36310302.196030, sde -> 94.158078, mse0 -> 9199.468507, rmse -> 95.913860, mae -> 45.434673, smape -> 37.279444, m -> 3947.000000, dfm -> 26.000000, df -> 19708.000000, fStat -> 91.996026, aic -> -23558.754713, bic -> -23389.175514, mape -> 39.969851, mase -> 0.990901, smapeC -> 37.293126, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] DEBUG @ Predictor.crossValidate: fold 1: qof = VectorD(0.108231,	0.107055,	4.07172e+07,	3.63103e+07,	94.1581,	9199.47,	95.9139,	45.4347,	37.2794,	3947.00,	26.0000,	19708.0,	91.9960,	-23558.8,	-23389.2,	39.9699,	0.990901,	37.2931,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+[info] ------------------------------------------------------------------
+[info] | crossValidate: fold 2: train-test splits sizes = (15788, 3947) |
+[info] ------------------------------------------------------------------
+[info] LinkedHashMap(rSq -> 0.098533, rSqBar -> 0.097343, sst -> 41336248.441855, sse -> 37263273.995945, sde -> 95.398233, mse0 -> 9440.910564, rmse -> 97.164348, mae -> 44.354576, smape -> 36.294076, m -> 3947.000000, dfm -> 26.000000, df -> 19708.000000, fStat -> 82.851406, aic -> -23611.403448, bic -> -23441.824249, mape -> 38.585325, mase -> 0.995134, smapeC -> 36.307757, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] DEBUG @ Predictor.crossValidate: fold 2: qof = VectorD(0.0985328,	0.0973435,	4.13362e+07,	3.72633e+07,	95.3982,	9440.91,	97.1643,	44.3546,	36.2941,	3947.00,	26.0000,	19708.0,	82.8514,	-23611.4,	-23441.8,	38.5853,	0.995134,	36.3078,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+[info] ------------------------------------------------------------------
+[info] | crossValidate: fold 3: train-test splits sizes = (15788, 3947) |
+[info] ------------------------------------------------------------------
+[info] LinkedHashMap(rSq -> 0.109002, rSqBar -> 0.107826, sst -> 43779566.506206, sse -> 39007516.387187, sde -> 97.059750, mse0 -> 9882.826549, rmse -> 99.412406, mae -> 45.708140, smape -> 36.537728, m -> 3947.000000, dfm -> 26.000000, df -> 19708.000000, fStat -> 92.731205, aic -> -23707.767430, bic -> -23538.188231, mape -> 38.177070, mase -> 0.980066, smapeC -> 36.551410, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] DEBUG @ Predictor.crossValidate: fold 3: qof = VectorD(0.109002,	0.107826,	4.37796e+07,	3.90075e+07,	97.0597,	9882.83,	99.4124,	45.7081,	36.5377,	3947.00,	26.0000,	19708.0,	92.7312,	-23707.8,	-23538.2,	38.1771,	0.980066,	36.5514,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+[info] ------------------------------------------------------------------
+[info] | crossValidate: fold 4: train-test splits sizes = (15788, 3947) |
+[info] ------------------------------------------------------------------
+[info] LinkedHashMap(rSq -> 0.117184, rSqBar -> 0.116019, sst -> 39645779.174056, sse -> 34999930.824406, sde -> 92.950667, mse0 -> 8867.476773, rmse -> 94.167281, mae -> 43.829501, smape -> 36.985660, m -> 3947.000000, dfm -> 26.000000, df -> 19708.000000, fStat -> 100.616000, aic -> -23486.360759, bic -> -23316.781560, mape -> 40.773651, mase -> 0.989270, smapeC -> 36.999341, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.117184,	0.116019,	3.96458e+07,	3.49999e+07,	92.9507,	8867.48,	94.1673,	43.8295,	36.9857,	3947.00,	26.0000,	19708.0,	100.616,	-23486.4,	-23316.8,	40.7737,	0.989270,	36.9993,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] --------------------------
+[info] | Forward Selection Test |
+[info] --------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 1
+[info] --------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 0) INITIAL variable (0, date) => cols = LinkedHashSet(0) |
+[info] --------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -763.0626365210614 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -1484.4254757363437 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -2095.6352745163636 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -2451.4487818925772 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -735.5552548434887 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -1380.3073643314904 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -1696.837350729328 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -2905.308956508804 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -1825.2941246039375 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -15849.007691518507 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -19710.458886709355 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -14707.40255258007 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -1771.7133167493014 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -5581.3640955121955 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -1118.2791559085583 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -4368.219656875666 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -2069.3666512388763 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -2870.4191923737294 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -19686.03122188192 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -278.06102145909557 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -5032.231970489337 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -19691.86456292854 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -16059.243214033128 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -19712.72505567743 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -18261.31346263164 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -18261.31346263164 to be nonnegative 
+[info] ---------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 1) ADD variable (20, RH_9) => cols = LinkedHashSet(0, 20) @ -0.014343967964479676 |
+[info] ---------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -104.6640174941853 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -89.01968892323131 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -104.32657989952267 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -9.98076481305361 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -141.86606715189316 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -131.58609762658514 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -139.66904302182306 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -138.66982711595537 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -139.45736512564565 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -11.160486266091967 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -114.48402367897927 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -114.9862090979859 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -122.28702945231788 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -69.6901891474045 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -133.09843799209392 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -127.17257826336963 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -80.47450512865124 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -138.83305649492752 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -135.45575363167018 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -138.229506322064 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -138.229506322064 to be nonnegative 
+[info] ------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 2) ADD variable (21, T_out) => cols = LinkedHashSet(0, 20, 21) @ 0.01178994877771855 |
+[info] ------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] ----------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 3) ADD variable (2, lights) => cols = LinkedHashSet(0, 20, 21, 2) @ 0.028670434922133836 |
+[info] ----------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] -------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 4) ADD variable (16, RH_7) => cols = LinkedHashSet(0, 20, 21, 2, 16) @ 0.049855000116724724 |
+[info] -------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] ---------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 5) ADD variable (4, RH_1) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4) @ 0.060721032942652964 |
+[info] ---------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] --------------------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 6) ADD variable (22, Press_mm_hg) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22) @ 0.06379042159122839 |
+[info] --------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] -------------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 7) ADD variable (5, T2) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22, 5) @ 0.06827690208943926 |
+[info] -------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] ------------------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 8) ADD variable (17, T8) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22, 5, 17) @ 0.08801648257687955 |
+[info] ------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] --------------------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 9) ADD variable (3, T1) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22, 5, 17, 3) @ 0.09235373220877785 |
+[info] --------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] ------------------------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 10) ADD variable (7, T3) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22, 5, 17, 3, 7) @ 0.09422076029833826 |
+[info] ------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] -----------------------------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 11) ADD variable (6, RH_2) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22, 5, 17, 3, 7, 6) @ 0.09557509568139033 |
+[info] -----------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] -------------------------------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 12) ADD variable (11, T5) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22, 5, 17, 3, 7, 6, 11) @ 0.0970032201408847 |
+[info] -------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] ------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 13) ADD variable (15, T7) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22, 5, 17, 3, 7, 6, 11, 15) @ 0.10161382591547807 |
+[info] ------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] ----------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 14) ADD variable (19, T9) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22, 5, 17, 3, 7, 6, 11, 15, 19) @ 0.10551933103092292 |
+[info] ----------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] ----------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 15) ADD variable (14, RH_6) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22, 5, 17, 3, 7, 6, 11, 15, 19, 14) @ 0.10616725685160544 |
+[info] ----------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 16) ADD variable (23, RH_out) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22, 5, 17, 3, 7, 6, 11, 15, 19, 14, 23) @ 0.10633632392841841 |
+[info] ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 17) ADD variable (10, RH_4) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22, 5, 17, 3, 7, 6, 11, 15, 19, 14, 23, 10) @ 0.10646883539868102 |
+[info] ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 18) ADD variable (25, Visibility) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22, 5, 17, 3, 7, 6, 11, 15, 19, 14, 23, 10, 25) @ 0.10645329936142645 |
+[info] ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 20
+[info] DEBUG @ TranRegression.buildModel: 19735 by 20
+[info] DEBUG @ TranRegression.buildModel: 19735 by 20
+[info] DEBUG @ TranRegression.buildModel: 19735 by 20
+[info] DEBUG @ TranRegression.buildModel: 19735 by 20
+[info] DEBUG @ TranRegression.buildModel: 19735 by 20
+[info] DEBUG @ TranRegression.buildModel: 19735 by 20
+[info] DEBUG @ TranRegression.buildModel: 19735 by 20
+[info] -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 19) ADD variable (26, Tdewpoint) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22, 5, 17, 3, 7, 6, 11, 15, 19, 14, 23, 10, 25, 26) @ 0.10653637379512548 |
+[info] -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 21
+[info] DEBUG @ TranRegression.buildModel: 19735 by 21
+[info] DEBUG @ TranRegression.buildModel: 19735 by 21
+[info] DEBUG @ TranRegression.buildModel: 19735 by 21
+[info] DEBUG @ TranRegression.buildModel: 19735 by 21
+[info] DEBUG @ TranRegression.buildModel: 19735 by 21
+[info] DEBUG @ TranRegression.buildModel: 19735 by 21
+[info] ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 20) ADD variable (18, RH_8) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22, 5, 17, 3, 7, 6, 11, 15, 19, 14, 23, 10, 25, 26, 18) @ 0.10648113581684493 |
+[info] ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 22
+[info] DEBUG @ TranRegression.buildModel: 19735 by 22
+[info] DEBUG @ TranRegression.buildModel: 19735 by 22
+[info] DEBUG @ TranRegression.buildModel: 19735 by 22
+[info] DEBUG @ TranRegression.buildModel: 19735 by 22
+[info] DEBUG @ TranRegression.buildModel: 19735 by 22
+[info] --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 21) ADD variable (8, RH_3) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22, 5, 17, 3, 7, 6, 11, 15, 19, 14, 23, 10, 25, 26, 18, 8) @ 0.10652399763411646 |
+[info] --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 23
+[info] DEBUG @ TranRegression.buildModel: 19735 by 23
+[info] DEBUG @ TranRegression.buildModel: 19735 by 23
+[info] DEBUG @ TranRegression.buildModel: 19735 by 23
+[info] DEBUG @ TranRegression.buildModel: 19735 by 23
+[info] -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 22) ADD variable (9, T4) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22, 5, 17, 3, 7, 6, 11, 15, 19, 14, 23, 10, 25, 26, 18, 8, 9) @ 0.106503083021666 |
+[info] -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 24
+[info] DEBUG @ TranRegression.buildModel: 19735 by 24
+[info] DEBUG @ TranRegression.buildModel: 19735 by 24
+[info] DEBUG @ TranRegression.buildModel: 19735 by 24
+[info] ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 23) ADD variable (12, RH_5) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22, 5, 17, 3, 7, 6, 11, 15, 19, 14, 23, 10, 25, 26, 18, 8, 9, 12) @ 0.10636179217332997 |
+[info] ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 25
+[info] DEBUG @ TranRegression.buildModel: 19735 by 25
+[info] DEBUG @ TranRegression.buildModel: 19735 by 25
+[info] -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 24) ADD variable (24, Windspeed) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22, 5, 17, 3, 7, 6, 11, 15, 19, 14, 23, 10, 25, 26, 18, 8, 9, 12, 24) @ 0.10666567951928252 |
+[info] -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 26
+[info] DEBUG @ TranRegression.buildModel: 19735 by 26
+[info] ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 25) ADD variable (1, Appliances) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22, 5, 17, 3, 7, 6, 11, 15, 19, 14, 23, 10, 25, 26, 18, 8, 9, 12, 24, 1) @ 0.10608110164258189 |
+[info] ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 27
+[info] -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 26) ADD variable (13, T6) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22, 5, 17, 3, 7, 6, 11, 15, 19, 14, 23, 10, 25, 26, 18, 8, 9, 12, 24, 1, 13) @ 0.10502712820808058 |
+[info] -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] Run + title
+[info] x-axis: minX = 1.0, maxX = 27.0
+[info] y-axis: minY = -4.3570211E7, maxY = 182.0
+[info] rSq = 
+[info] MatrixD (-4.35702e+07,	-4.35702e+07,	181.294,	-0.00000,
+[info]  	-1.42926,	-1.43440,	43.5416,	-0.00000,
+[info]  	1.18901,	1.17899,	41.5020,	-0.00000,
+[info]  	2.88181,	2.86704,	40.8523,	-0.00000,
+[info]  	5.00476,	4.98550,	39.4904,	-0.00000,
+[info]  	6.09590,	6.07210,	39.1207,	-0.00000,
+[info]  	6.40751,	6.37904,	39.0128,	-0.00000,
+[info]  	6.86074,	6.82769,	38.6156,	-0.00000,
+[info]  	8.83862,	8.80165,	38.2936,	-0.00000,
+[info]  	9.27677,	9.23537,	38.3351,	-0.00000,
+[info]  	9.46798,	9.42208,	38.2600,	-0.00000,
+[info]  	9.60792,	9.55751,	38.2916,	-0.00000,
+[info]  	9.75523,	9.70032,	38.2946,	-0.00000,
+[info]  	10.2206,	10.1614,	37.1028,	-0.00000,
+[info]  	10.6154,	10.5519,	37.0601,	-0.00000,
+[info]  	10.6847,	10.6167,	37.0379,	-0.00000,
+[info]  	10.7061,	10.6336,	37.0453,	-0.00000,
+[info]  	10.7239,	10.6469,	36.9700,	-0.00000,
+[info]  	10.7268,	10.6453,	36.9700,	-0.00000,
+[info]  	10.7397,	10.6536,	36.9738,	-0.00000,
+[info]  	10.7387,	10.6481,	36.8591,	-0.00000,
+[info]  	10.7475,	10.6524,	36.8614,	-0.00000,
+[info]  	10.7499,	10.6503,	36.8635,	-0.00000,
+[info]  	10.7403,	10.6362,	36.8187,	-0.00000,
+[info]  	10.7752,	10.6666,	36.8281,	-0.00000,
+[info]  	10.7214,	10.6081,	36.8086,	-0.00000,
+[info]  	10.6206,	10.5027,	36.7828,	-0.00000)
+[info] ----------------------
+[info] | Feature Importance |
+[info] ----------------------
+[info] col = 0, 	 date, 	 importance = -0.0
+[info] col = 20, 	 RH_9, 	 importance = 0.9999999999999999
+[info] col = 21, 	 T_out, 	 importance = 6.009305267416161E-8
+[info] col = 2, 	 lights, 	 importance = 3.885222644140223E-8
+[info] col = 16, 	 RH_7, 	 importance = 4.8724788168589566E-8
+[info] col = 4, 	 RH_1, 	 importance = 2.5043320737242794E-8
+[info] col = 22, 	 Press_mm_hg, 	 importance = 7.151795786881149E-9
+[info] col = 5, 	 T2, 	 importance = 1.0402361073661288E-8
+[info] col = 17, 	 T8, 	 importance = 4.53952196887666E-8
+[info] col = 3, 	 T1, 	 importance = 1.0056149442007799E-8
+[info] col = 7, 	 T3, 	 importance = 4.3884939912057305E-9
+[info] col = 6, 	 RH_2, 	 importance = 3.2120109084558276E-9
+[info] col = 11, 	 T5, 	 importance = 3.3809496121242194E-9
+[info] col = 15, 	 T7, 	 importance = 1.0680065491720549E-8
+[info] col = 19, 	 T9, 	 importance = 9.061832026873324E-9
+[info] col = 14, 	 RH_6, 	 importance = 1.5899859441497822E-9
+[info] col = 23, 	 RH_out, 	 importance = 4.916755058488894E-10
+[info] col = 10, 	 RH_4, 	 importance = 4.0780799532079954E-10
+[info] col = 25, 	 Visibility, 	 importance = 6.829643419091435E-11
+[info] col = 26, 	 Tdewpoint, 	 importance = 2.944075865429744E-10
+[info] col = 18, 	 RH_8, 	 importance = -2.2737215330567124E-11
+[info] col = 8, 	 RH_3, 	 importance = 2.0218940697668855E-10
+[info] col = 9, 	 T4, 	 importance = 5.596639200666374E-11
+[info] col = 12, 	 RH_5, 	 importance = -2.1998779534177018E-10
+[info] col = 24, 	 Windspeed, 	 importance = 8.005514771061285E-10
+[info] col = 1, 	 Appliances, 	 importance = -1.2360934680255627E-9
+[info] col = 13, 	 T6, 	 importance = -2.3118695035448482E-9
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] -----------------------------
+[info] | Backward Elimination Test |
+[info] -----------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 27
+[info] ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 0) INITIAL variables (all) => cols = LinkedHashSet(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26) @ 0.10487822840690908 |
+[info] ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 26
+[info] DEBUG @ TranRegression.buildModel: 19735 by 26
+[info] DEBUG @ TranRegression.buildModel: 19735 by 26
+[info] DEBUG @ TranRegression.buildModel: 19735 by 26
+[info] DEBUG @ TranRegression.buildModel: 19735 by 26
+[info] DEBUG @ TranRegression.buildModel: 19735 by 26
+[info] DEBUG @ TranRegression.buildModel: 19735 by 26
+[info] DEBUG @ TranRegression.buildModel: 19735 by 26
+[info] DEBUG @ TranRegression.buildModel: 19735 by 26
+[info] DEBUG @ TranRegression.buildModel: 19735 by 26
+[info] DEBUG @ TranRegression.buildModel: 19735 by 26
+[info] DEBUG @ TranRegression.buildModel: 19735 by 26
+[info] DEBUG @ TranRegression.buildModel: 19735 by 26
+[info] DEBUG @ TranRegression.buildModel: 19735 by 26
+[info] DEBUG @ TranRegression.buildModel: 19735 by 26
+[info] DEBUG @ TranRegression.buildModel: 19735 by 26
+[info] DEBUG @ TranRegression.buildModel: 19735 by 26
+[info] DEBUG @ TranRegression.buildModel: 19735 by 26
+[info] DEBUG @ TranRegression.buildModel: 19735 by 26
+[info] DEBUG @ TranRegression.buildModel: 19735 by 26
+[info] DEBUG @ TranRegression.buildModel: 19735 by 26
+[info] DEBUG @ TranRegression.buildModel: 19735 by 26
+[info] DEBUG @ TranRegression.buildModel: 19735 by 26
+[info] DEBUG @ TranRegression.buildModel: 19735 by 26
+[info] DEBUG @ TranRegression.buildModel: 19735 by 26
+[info] DEBUG @ TranRegression.buildModel: 19735 by 26
+[info] -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 1) REMOVE variable (13, T6) => cols = LinkedHashSet(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26) @ 0.10611555403883666 |
+[info] -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 25
+[info] DEBUG @ TranRegression.buildModel: 19735 by 25
+[info] DEBUG @ TranRegression.buildModel: 19735 by 25
+[info] DEBUG @ TranRegression.buildModel: 19735 by 25
+[info] DEBUG @ TranRegression.buildModel: 19735 by 25
+[info] DEBUG @ TranRegression.buildModel: 19735 by 25
+[info] DEBUG @ TranRegression.buildModel: 19735 by 25
+[info] DEBUG @ TranRegression.buildModel: 19735 by 25
+[info] DEBUG @ TranRegression.buildModel: 19735 by 25
+[info] DEBUG @ TranRegression.buildModel: 19735 by 25
+[info] DEBUG @ TranRegression.buildModel: 19735 by 25
+[info] DEBUG @ TranRegression.buildModel: 19735 by 25
+[info] DEBUG @ TranRegression.buildModel: 19735 by 25
+[info] DEBUG @ TranRegression.buildModel: 19735 by 25
+[info] DEBUG @ TranRegression.buildModel: 19735 by 25
+[info] DEBUG @ TranRegression.buildModel: 19735 by 25
+[info] DEBUG @ TranRegression.buildModel: 19735 by 25
+[info] DEBUG @ TranRegression.buildModel: 19735 by 25
+[info] DEBUG @ TranRegression.buildModel: 19735 by 25
+[info] DEBUG @ TranRegression.buildModel: 19735 by 25
+[info] DEBUG @ TranRegression.buildModel: 19735 by 25
+[info] DEBUG @ TranRegression.buildModel: 19735 by 25
+[info] DEBUG @ TranRegression.buildModel: 19735 by 25
+[info] DEBUG @ TranRegression.buildModel: 19735 by 25
+[info] DEBUG @ TranRegression.buildModel: 19735 by 25
+[info] -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 2) REMOVE variable (1, Appliances) => cols = LinkedHashSet(0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26) @ 0.10655277914721561 |
+[info] -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 24
+[info] DEBUG @ TranRegression.buildModel: 19735 by 24
+[info] DEBUG @ TranRegression.buildModel: 19735 by 24
+[info] DEBUG @ TranRegression.buildModel: 19735 by 24
+[info] DEBUG @ TranRegression.buildModel: 19735 by 24
+[info] DEBUG @ TranRegression.buildModel: 19735 by 24
+[info] DEBUG @ TranRegression.buildModel: 19735 by 24
+[info] DEBUG @ TranRegression.buildModel: 19735 by 24
+[info] DEBUG @ TranRegression.buildModel: 19735 by 24
+[info] DEBUG @ TranRegression.buildModel: 19735 by 24
+[info] DEBUG @ TranRegression.buildModel: 19735 by 24
+[info] DEBUG @ TranRegression.buildModel: 19735 by 24
+[info] DEBUG @ TranRegression.buildModel: 19735 by 24
+[info] DEBUG @ TranRegression.buildModel: 19735 by 24
+[info] DEBUG @ TranRegression.buildModel: 19735 by 24
+[info] DEBUG @ TranRegression.buildModel: 19735 by 24
+[info] DEBUG @ TranRegression.buildModel: 19735 by 24
+[info] DEBUG @ TranRegression.buildModel: 19735 by 24
+[info] DEBUG @ TranRegression.buildModel: 19735 by 24
+[info] DEBUG @ TranRegression.buildModel: 19735 by 24
+[info] DEBUG @ TranRegression.buildModel: 19735 by 24
+[info] DEBUG @ TranRegression.buildModel: 19735 by 24
+[info] DEBUG @ TranRegression.buildModel: 19735 by 24
+[info] DEBUG @ TranRegression.buildModel: 19735 by 24
+[info] ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 3) REMOVE variable (9, T4) => cols = LinkedHashSet(0, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26) @ 0.10663371541695377 |
+[info] ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 23
+[info] DEBUG @ TranRegression.buildModel: 19735 by 23
+[info] DEBUG @ TranRegression.buildModel: 19735 by 23
+[info] DEBUG @ TranRegression.buildModel: 19735 by 23
+[info] DEBUG @ TranRegression.buildModel: 19735 by 23
+[info] DEBUG @ TranRegression.buildModel: 19735 by 23
+[info] DEBUG @ TranRegression.buildModel: 19735 by 23
+[info] DEBUG @ TranRegression.buildModel: 19735 by 23
+[info] DEBUG @ TranRegression.buildModel: 19735 by 23
+[info] DEBUG @ TranRegression.buildModel: 19735 by 23
+[info] DEBUG @ TranRegression.buildModel: 19735 by 23
+[info] DEBUG @ TranRegression.buildModel: 19735 by 23
+[info] DEBUG @ TranRegression.buildModel: 19735 by 23
+[info] DEBUG @ TranRegression.buildModel: 19735 by 23
+[info] DEBUG @ TranRegression.buildModel: 19735 by 23
+[info] DEBUG @ TranRegression.buildModel: 19735 by 23
+[info] DEBUG @ TranRegression.buildModel: 19735 by 23
+[info] DEBUG @ TranRegression.buildModel: 19735 by 23
+[info] DEBUG @ TranRegression.buildModel: 19735 by 23
+[info] DEBUG @ TranRegression.buildModel: 19735 by 23
+[info] DEBUG @ TranRegression.buildModel: 19735 by 23
+[info] DEBUG @ TranRegression.buildModel: 19735 by 23
+[info] DEBUG @ TranRegression.buildModel: 19735 by 23
+[info] -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 4) REMOVE variable (25, Visibility) => cols = LinkedHashSet(0, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 26) @ 0.10668666184814468 |
+[info] -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 22
+[info] DEBUG @ TranRegression.buildModel: 19735 by 22
+[info] DEBUG @ TranRegression.buildModel: 19735 by 22
+[info] DEBUG @ TranRegression.buildModel: 19735 by 22
+[info] DEBUG @ TranRegression.buildModel: 19735 by 22
+[info] DEBUG @ TranRegression.buildModel: 19735 by 22
+[info] DEBUG @ TranRegression.buildModel: 19735 by 22
+[info] DEBUG @ TranRegression.buildModel: 19735 by 22
+[info] DEBUG @ TranRegression.buildModel: 19735 by 22
+[info] DEBUG @ TranRegression.buildModel: 19735 by 22
+[info] DEBUG @ TranRegression.buildModel: 19735 by 22
+[info] DEBUG @ TranRegression.buildModel: 19735 by 22
+[info] DEBUG @ TranRegression.buildModel: 19735 by 22
+[info] DEBUG @ TranRegression.buildModel: 19735 by 22
+[info] DEBUG @ TranRegression.buildModel: 19735 by 22
+[info] DEBUG @ TranRegression.buildModel: 19735 by 22
+[info] DEBUG @ TranRegression.buildModel: 19735 by 22
+[info] DEBUG @ TranRegression.buildModel: 19735 by 22
+[info] DEBUG @ TranRegression.buildModel: 19735 by 22
+[info] DEBUG @ TranRegression.buildModel: 19735 by 22
+[info] DEBUG @ TranRegression.buildModel: 19735 by 22
+[info] DEBUG @ TranRegression.buildModel: 19735 by 22
+[info] -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 5) REMOVE variable (8, RH_3) => cols = LinkedHashSet(0, 2, 3, 4, 5, 6, 7, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 26) @ 0.10672424306054751 |
+[info] -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 21
+[info] DEBUG @ TranRegression.buildModel: 19735 by 21
+[info] DEBUG @ TranRegression.buildModel: 19735 by 21
+[info] DEBUG @ TranRegression.buildModel: 19735 by 21
+[info] DEBUG @ TranRegression.buildModel: 19735 by 21
+[info] DEBUG @ TranRegression.buildModel: 19735 by 21
+[info] DEBUG @ TranRegression.buildModel: 19735 by 21
+[info] DEBUG @ TranRegression.buildModel: 19735 by 21
+[info] DEBUG @ TranRegression.buildModel: 19735 by 21
+[info] DEBUG @ TranRegression.buildModel: 19735 by 21
+[info] DEBUG @ TranRegression.buildModel: 19735 by 21
+[info] DEBUG @ TranRegression.buildModel: 19735 by 21
+[info] DEBUG @ TranRegression.buildModel: 19735 by 21
+[info] DEBUG @ TranRegression.buildModel: 19735 by 21
+[info] DEBUG @ TranRegression.buildModel: 19735 by 21
+[info] DEBUG @ TranRegression.buildModel: 19735 by 21
+[info] DEBUG @ TranRegression.buildModel: 19735 by 21
+[info] DEBUG @ TranRegression.buildModel: 19735 by 21
+[info] DEBUG @ TranRegression.buildModel: 19735 by 21
+[info] DEBUG @ TranRegression.buildModel: 19735 by 21
+[info] DEBUG @ TranRegression.buildModel: 19735 by 21
+[info] --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 6) REMOVE variable (26, Tdewpoint) => cols = LinkedHashSet(0, 2, 3, 4, 5, 6, 7, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24) @ 0.1067282645584402 |
+[info] --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 20
+[info] DEBUG @ TranRegression.buildModel: 19735 by 20
+[info] DEBUG @ TranRegression.buildModel: 19735 by 20
+[info] DEBUG @ TranRegression.buildModel: 19735 by 20
+[info] DEBUG @ TranRegression.buildModel: 19735 by 20
+[info] DEBUG @ TranRegression.buildModel: 19735 by 20
+[info] DEBUG @ TranRegression.buildModel: 19735 by 20
+[info] DEBUG @ TranRegression.buildModel: 19735 by 20
+[info] DEBUG @ TranRegression.buildModel: 19735 by 20
+[info] DEBUG @ TranRegression.buildModel: 19735 by 20
+[info] DEBUG @ TranRegression.buildModel: 19735 by 20
+[info] DEBUG @ TranRegression.buildModel: 19735 by 20
+[info] DEBUG @ TranRegression.buildModel: 19735 by 20
+[info] DEBUG @ TranRegression.buildModel: 19735 by 20
+[info] DEBUG @ TranRegression.buildModel: 19735 by 20
+[info] DEBUG @ TranRegression.buildModel: 19735 by 20
+[info] DEBUG @ TranRegression.buildModel: 19735 by 20
+[info] DEBUG @ TranRegression.buildModel: 19735 by 20
+[info] DEBUG @ TranRegression.buildModel: 19735 by 20
+[info] DEBUG @ TranRegression.buildModel: 19735 by 20
+[info] ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 7) REMOVE variable (10, RH_4) => cols = LinkedHashSet(0, 2, 3, 4, 5, 6, 7, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24) @ 0.10661585143694441 |
+[info] ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 8) REMOVE variable (18, RH_8) => cols = LinkedHashSet(0, 2, 3, 4, 5, 6, 7, 11, 12, 14, 15, 16, 17, 19, 20, 21, 22, 23, 24) @ 0.10646154107886219 |
+[info] --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 9) REMOVE variable (21, T_out) => cols = LinkedHashSet(0, 2, 3, 4, 5, 6, 7, 11, 12, 14, 15, 16, 17, 19, 20, 22, 23, 24) @ 0.10636019645784911 |
+[info] -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 10) REMOVE variable (12, RH_5) => cols = LinkedHashSet(0, 2, 3, 4, 5, 6, 7, 11, 14, 15, 16, 17, 19, 20, 22, 23, 24) @ 0.10661534326180533 |
+[info] -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 11) REMOVE variable (24, Windspeed) => cols = LinkedHashSet(0, 2, 3, 4, 5, 6, 7, 11, 14, 15, 16, 17, 19, 20, 22, 23) @ 0.10661130899355198 |
+[info] --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] -------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 12) REMOVE variable (23, RH_out) => cols = LinkedHashSet(0, 2, 3, 4, 5, 6, 7, 11, 14, 15, 16, 17, 19, 20, 22) @ 0.10642969822858228 |
+[info] -------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] -------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 13) REMOVE variable (14, RH_6) => cols = LinkedHashSet(0, 2, 3, 4, 5, 6, 7, 11, 15, 16, 17, 19, 20, 22) @ 0.10586470120947344 |
+[info] -------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] -------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 14) REMOVE variable (7, T3) => cols = LinkedHashSet(0, 2, 3, 4, 5, 6, 11, 15, 16, 17, 19, 20, 22) @ 0.10519848441124402 |
+[info] -------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] -------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 15) REMOVE variable (22, Press_mm_hg) => cols = LinkedHashSet(0, 2, 3, 4, 5, 6, 11, 15, 16, 17, 19, 20) @ 0.10292663863237206 |
+[info] -------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] ------------------------------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 16) REMOVE variable (19, T9) => cols = LinkedHashSet(0, 2, 3, 4, 5, 6, 11, 15, 16, 17, 20) @ 0.09854926708622269 |
+[info] ------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] -------------------------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 17) REMOVE variable (15, T7) => cols = LinkedHashSet(0, 2, 3, 4, 5, 6, 11, 16, 17, 20) @ 0.0938736203340258 |
+[info] -------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] -----------------------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 18) REMOVE variable (6, RH_2) => cols = LinkedHashSet(0, 2, 3, 4, 5, 11, 16, 17, 20) @ 0.0910639176795831 |
+[info] -----------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] -------------------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 19) REMOVE variable (11, T5) => cols = LinkedHashSet(0, 2, 3, 4, 5, 16, 17, 20) @ 0.08876297181746162 |
+[info] -------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] ---------------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 20) REMOVE variable (3, T1) => cols = LinkedHashSet(0, 2, 4, 5, 16, 17, 20) @ 0.08508908381341151 |
+[info] ---------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] --------------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 21) REMOVE variable (4, RH_1) => cols = LinkedHashSet(0, 2, 5, 16, 17, 20) @ 0.06887965108022776 |
+[info] --------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] ---------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 22) REMOVE variable (17, T8) => cols = LinkedHashSet(0, 2, 5, 16, 20) @ 0.04037132683499933 |
+[info] ---------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -0.4142556903593683 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] -----------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 23) REMOVE variable (5, T2) => cols = LinkedHashSet(0, 2, 16, 20) @ 0.03706427702475512 |
+[info] -----------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -69.69018914748834 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -89.01968892336497 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -1008.9787845099712 to be nonnegative 
+[info] ---------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 24) REMOVE variable (2, lights) => cols = LinkedHashSet(0, 16, 20) @ -0.0072160017917335395 |
+[info] ---------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -278.06102145909557 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -4368.219656875666 to be nonnegative 
+[info] ---------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 25) REMOVE variable (16, RH_7) => cols = LinkedHashSet(0, 20) @ -0.014343967964479676 |
+[info] ---------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 1
+[info] k = 27
+[info] Run + title
+[info] x-axis: minX = 0.0, maxX = 27.0
+[info] y-axis: minY = -4.3570211E7, maxY = 182.0
+[info] rSq = 
+[info] MatrixD (-4.35702e+07,	-4.35702e+07,	181.294,	-0.00000,
+[info]  	-1.42926,	-1.43440,	43.5416,	-0.00000,
+[info]  	-0.711392,	-0.721600,	42.6447,	-0.00000,
+[info]  	3.72107,	3.70643,	40.2263,	-0.00000,
+[info]  	4.05658,	4.03713,	39.9553,	-0.00000,
+[info]  	6.91156,	6.88797,	39.3730,	-0.00000,
+[info]  	8.53673,	8.50891,	38.5200,	-0.00000,
+[info]  	8.90862,	8.87630,	38.5657,	-0.00000,
+[info]  	9.14324,	9.10639,	38.5366,	-0.00000,
+[info]  	9.42869,	9.38736,	38.5642,	-0.00000,
+[info]  	9.90061,	9.85493,	37.3961,	-0.00000,
+[info]  	10.3427,	10.2927,	37.3143,	-0.00000,
+[info]  	10.5743,	10.5198,	37.1030,	-0.00000,
+[info]  	10.6454,	10.5865,	37.0713,	-0.00000,
+[info]  	10.7064,	10.6430,	37.0541,	-0.00000,
+[info]  	10.7290,	10.6611,	37.0636,	-0.00000,
+[info]  	10.7340,	10.6615,	37.0536,	-0.00000,
+[info]  	10.7130,	10.6360,	37.0323,	-0.00000,
+[info]  	10.7277,	10.6462,	37.0353,	-0.00000,
+[info]  	10.7476,	10.6616,	36.8857,	-0.00000,
+[info]  	10.7634,	10.6728,	36.8232,	-0.00000,
+[info]  	10.7675,	10.6724,	36.8232,	-0.00000,
+[info]  	10.7683,	10.6687,	36.8235,	-0.00000,
+[info]  	10.7675,	10.6634,	36.8235,	-0.00000,
+[info]  	10.7639,	10.6553,	36.8238,	-0.00000,
+[info]  	10.7248,	10.6116,	36.8183,	-0.00000,
+[info]  	10.6058,	10.4878,	36.7797,	-0.00000)
+[info] ----------------------
+[info] | Feature Importance |
+[info] ----------------------
+[info] col = 0, 	 date, 	 importance = -0.0
+[info] col = 20, 	 RH_9, 	 importance = 0.9999999999999999
+[info] col = 16, 	 RH_7, 	 importance = 1.647603873769427E-8
+[info] col = 2, 	 lights, 	 importance = 1.0173140631311836E-7
+[info] col = 5, 	 T2, 	 importance = 7.700617674988558E-9
+[info] col = 17, 	 T8, 	 importance = 6.552580215583703E-8
+[info] col = 4, 	 RH_1, 	 importance = 3.729999946316931E-8
+[info] col = 3, 	 T1, 	 importance = 8.535526945716285E-9
+[info] col = 11, 	 T5, 	 importance = 5.384846885138144E-9
+[info] col = 6, 	 RH_2, 	 importance = 6.5514503405515765E-9
+[info] col = 15, 	 T7, 	 importance = 1.0831241081035202E-8
+[info] col = 19, 	 T9, 	 importance = 1.0145949883607705E-8
+[info] col = 22, 	 Press_mm_hg, 	 importance = 5.315380822166682E-9
+[info] col = 7, 	 T3, 	 importance = 1.6321267850330943E-9
+[info] col = 14, 	 RH_6, 	 importance = 1.3998224398430044E-9
+[info] col = 23, 	 RH_out, 	 importance = 5.204323607614771E-10
+[info] col = 24, 	 Windspeed, 	 importance = 1.1315654434392368E-10
+[info] col = 12, 	 RH_5, 	 importance = -4.811903971012315E-10
+[info] col = 21, 	 T_out, 	 importance = 3.363225791751549E-10
+[info] col = 18, 	 RH_8, 	 importance = 4.577460721979154E-10
+[info] col = 10, 	 RH_4, 	 importance = 3.6164735220610907E-10
+[info] col = 26, 	 Tdewpoint, 	 importance = 9.467111030500146E-11
+[info] col = 8, 	 RH_3, 	 importance = 1.7733464075478408E-11
+[info] col = 25, 	 Visibility, 	 importance = -1.7482115562241173E-11
+[info] col = 9, 	 T4, 	 importance = -8.163244282110714E-11
+[info] col = 1, 	 Appliances, 	 importance = -8.98312637148825E-10
+[info] col = 13, 	 T6, 	 importance = -2.7321391661462713E-9
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] --------------------
+[info] | Stepwise FS Test |
+[info] --------------------
+[info] ---------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 0) INITIAL variable (0, date) => cols = LinkedHashSet(0) |
+[info] ---------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -763.0626365210614 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -1484.4254757363437 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -2095.6352745163636 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -2451.4487818925772 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -735.5552548434887 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -1380.3073643314904 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -1696.837350729328 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -2905.308956508804 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -1825.2941246039375 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -15849.007691518507 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -19710.458886709355 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -14707.40255258007 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -1771.7133167493014 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -5581.3640955121955 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -1118.2791559085583 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -4368.219656875666 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -2069.3666512388763 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -2870.4191923737294 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -19686.03122188192 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -278.06102145909557 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -5032.231970489337 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -19691.86456292854 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -16059.243214033128 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -19712.72505567743 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -18261.31346263164 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -18261.31346263164 to be nonnegative 
+[info] ERROR @ Predictor.backwardElim: could not find a variable x_j to eliminate: best.col = -1 
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(20,VectorD(-0.0142926,	-0.0143440,	2.07431e+08,	2.10396e+08,	100.819,	10661.0,	103.252,	50.2399,	43.5416,	19735.0,	1.00000,	19733.0,	-278.061,	-119525,	-119509,	47.0433,	1.70399,	43.5418,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@f107c50), bestb = BestStep(-1,null,null)
+[info] stepwiseSelAll: (l = 1) ADD variable BestStep(20,VectorD(-0.0142926,	-0.0143440,	2.07431e+08,	2.10396e+08,	100.819,	10661.0,	103.252,	50.2399,	43.5416,	19735.0,	1.00000,	19733.0,	-278.061,	-119525,	-119509,	47.0433,	1.70399,	43.5418,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@f107c50)
+[info] ----------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 1) ADD variable (20, RH_9) => cols = LinkedHashSet(0, 20) @ -0.014343967964479676 |
+[info] ----------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -278.06102145909557 to be nonnegative 
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(date, RH_9)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(0.0214550,	0.00560829)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> -0.014293, rSqBar -> -0.014344, sst -> 207431043.648343, sse -> 210395765.765581, sde -> 100.819075, mse0 -> 10661.047163, rmse -> 103.252347, mae -> 50.239902, smape -> 43.541604, m -> 19735.000000, dfm -> 1.000000, df -> 19733.000000, fStat -> -278.061021, aic -> -119524.848814, bic -> -119509.068516, mape -> 47.043303, mase -> 1.703989, smapeC -> 43.541806, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -104.6640174941853 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -89.01968892323131 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -104.32657989952267 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -9.98076481305361 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -141.86606715189316 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -131.58609762658514 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -139.66904302182306 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -138.66982711595537 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -139.45736512564565 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -11.160486266091967 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -114.48402367897927 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -114.9862090979859 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -122.28702945231788 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -69.6901891474045 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -133.09843799209392 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -127.17257826336963 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -80.47450512865124 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -138.83305649492752 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -135.45575363167018 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -138.229506322064 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -138.229506322064 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 1
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(21,VectorD(0.0118901,	0.0117899,	2.07431e+08,	2.04965e+08,	99.6478,	10385.8,	101.911,	48.8393,	41.5020,	19735.0,	2.00000,	19732.0,	118.719,	-119263,	-119240,	44.7593,	1.65639,	41.5023,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@7d446ed1), bestb = BestStep(20,VectorD(-435702,	-435702,	2.07431e+08,	9.03784e+13,	67672.2,	4.57960e+09,	67672.7,	717.661,	181.294,	19735.0,	0.00000,	19734.0,	0.00000,	-247502,	-247494,	409.798,	24.2872,	181.294,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@3403e2ac)
+[info] stepwiseSelAll: (l = 2) ADD variable BestStep(21,VectorD(0.0118901,	0.0117899,	2.07431e+08,	2.04965e+08,	99.6478,	10385.8,	101.911,	48.8393,	41.5020,	19735.0,	2.00000,	19732.0,	118.719,	-119263,	-119240,	44.7593,	1.65639,	41.5023,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@7d446ed1)
+[info] -------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 2) ADD variable (21, T_out) => cols = LinkedHashSet(0, 20, 21) @ 0.01178994877771855 |
+[info] -------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(date, RH_9, T_out)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(0.0227615,	0.00665424,	-0.00997373)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.011890, rSqBar -> 0.011790, sst -> 207431043.648343, sse -> 204964667.419092, sde -> 99.647774, mse0 -> 10385.845828, rmse -> 101.910970, mae -> 48.839317, smape -> 41.501990, m -> 19735.000000, dfm -> 2.000000, df -> 19732.000000, fStat -> 118.719329, aic -> -119263.484534, bic -> -119239.814087, mape -> 44.759283, mase -> 1.656388, smapeC -> 41.502294, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -5032.231970489337 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -278.06102145909557 to be nonnegative 
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(2,VectorD(0.0288181,	0.0286704,	2.07431e+08,	2.01453e+08,	98.8166,	10207.9,	101.034,	48.2368,	40.8523,	19735.0,	3.00000,	19731.0,	195.161,	-119091,	-119059,	44.2402,	1.63867,	40.8527,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@74bf1791), bestb = BestStep(21,VectorD(-0.0142926,	-0.0143440,	2.07431e+08,	2.10396e+08,	100.819,	10661.0,	103.252,	50.2399,	43.5416,	19735.0,	1.00000,	19733.0,	-278.061,	-119525,	-119509,	47.0433,	1.70399,	43.5418,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@5c2375a9)
+[info] stepwiseSelAll: (l = 3) ADD variable BestStep(2,VectorD(0.0288181,	0.0286704,	2.07431e+08,	2.01453e+08,	98.8166,	10207.9,	101.034,	48.2368,	40.8523,	19735.0,	3.00000,	19731.0,	195.161,	-119091,	-119059,	44.2402,	1.63867,	40.8527,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@74bf1791)
+[info] -----------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 3) ADD variable (2, lights) => cols = LinkedHashSet(0, 20, 21, 2) @ 0.028670434922133836 |
+[info] -----------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(date, RH_9, T_out, lights)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(0.0215815,	0.00547526,	-0.0120416,	0.0263416)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.028818, rSqBar -> 0.028670, sst -> 207431043.648343, sse -> 201453275.446256, sde -> 98.816620, mse0 -> 10207.918695, rmse -> 101.034245, mae -> 48.236834, smape -> 40.852330, m -> 19735.000000, dfm -> 3.000000, df -> 19731.000000, fStat -> 195.160795, aic -> -119090.734422, bic -> -119059.173826, mape -> 44.240243, mase -> 1.638670, smapeC -> 40.852736, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -760.6601068664232 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -89.01968892323131 to be nonnegative 
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(16,VectorD(0.0500476,	0.0498550,	2.07431e+08,	1.97050e+08,	97.8459,	9984.78,	99.9239,	47.3153,	39.4904,	19735.0,	4.00000,	19730.0,	259.865,	-118870,	-118830,	42.7316,	1.60970,	39.4909,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@21337f7b), bestb = BestStep(2,VectorD(0.0118901,	0.0117899,	2.07431e+08,	2.04965e+08,	99.6478,	10385.8,	101.911,	48.8393,	41.5020,	19735.0,	2.00000,	19732.0,	118.719,	-119263,	-119240,	44.7593,	1.65639,	41.5023,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@2fd953a6)
+[info] stepwiseSelAll: (l = 4) ADD variable BestStep(16,VectorD(0.0500476,	0.0498550,	2.07431e+08,	1.97050e+08,	97.8459,	9984.78,	99.9239,	47.3153,	39.4904,	19735.0,	4.00000,	19730.0,	259.865,	-118870,	-118830,	42.7316,	1.60970,	39.4909,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@21337f7b)
+[info] --------------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 4) ADD variable (16, RH_7) => cols = LinkedHashSet(0, 20, 21, 2, 16) @ 0.049855000116724724 |
+[info] --------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(date, RH_9, T_out, lights, RH_7)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(0.0192842,	0.00544984,	-0.00720579,	0.0645773,	-0.0441839)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.050048, rSqBar -> 0.049855, sst -> 207431043.648343, sse -> 197049619.704380, sde -> 97.845900, mse0 -> 9984.779311, rmse -> 99.923868, mae -> 47.315259, smape -> 39.490390, m -> 19735.000000, dfm -> 4.000000, df -> 19730.000000, fStat -> 259.865376, aic -> -118869.615377, bic -> -118830.164632, mape -> 42.731595, mase -> 1.609696, smapeC -> 39.490896, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -672.3123487435469 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 4
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(4,VectorD(0.0609590,	0.0607210,	2.07431e+08,	1.94786e+08,	97.3216,	9870.09,	99.3483,	47.0422,	39.1207,	19735.0,	5.00000,	19729.0,	256.147,	-118753,	-118706,	42.5767,	1.60369,	39.1213,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@7b420819), bestb = BestStep(21,VectorD(0.0372107,	0.0370643,	2.07431e+08,	1.99712e+08,	98.4648,	10119.7,	100.597,	47.9069,	40.2263,	19735.0,	3.00000,	19731.0,	254.193,	-119004,	-118973,	43.5074,	1.62932,	40.2267,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@e57b96d)
+[info] stepwiseSelAll: (l = 5) ADD variable BestStep(4,VectorD(0.0609590,	0.0607210,	2.07431e+08,	1.94786e+08,	97.3216,	9870.09,	99.3483,	47.0422,	39.1207,	19735.0,	5.00000,	19729.0,	256.147,	-118753,	-118706,	42.5767,	1.60369,	39.1213,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@7b420819)
+[info] ----------------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 5) ADD variable (4, RH_1) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4) @ 0.060721032942652964 |
+[info] ----------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(date, RH_9, T_out, lights, RH_7, RH_1)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(0.0180894,	0.00561841,	-0.00244665,	0.0960821,	-0.0463513,	-0.0415065)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.060959, rSqBar -> 0.060721, sst -> 207431043.648343, sse -> 194786250.948858, sde -> 97.321634, mse0 -> 9870.091257, rmse -> 99.348333, mae -> 47.042181, smape -> 39.120679, m -> 19735.000000, dfm -> 5.000000, df -> 19729.000000, fStat -> 256.146534, aic -> -118753.279244, bic -> -118705.938350, mape -> 42.576675, mase -> 1.603693, smapeC -> 39.121287, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -547.0203386981036 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 5
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(22,VectorD(0.0640751,	0.0637904,	2.07431e+08,	1.94140e+08,	97.1610,	9837.34,	99.1834,	46.9352,	39.0128,	19735.0,	6.00000,	19728.0,	225.102,	-118718,	-118663,	42.5595,	1.60041,	39.0135,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@27eedb64), bestb = BestStep(21,VectorD(0.0597191,	0.0595285,	2.07431e+08,	1.95043e+08,	97.3883,	9883.12,	99.4139,	47.1078,	39.1965,	19735.0,	4.00000,	19730.0,	313.273,	-118768,	-118729,	42.7030,	1.60675,	39.1971,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@6f63b475)
+[info] stepwiseSelAll: (l = 6) ADD variable BestStep(22,VectorD(0.0640751,	0.0637904,	2.07431e+08,	1.94140e+08,	97.1610,	9837.34,	99.1834,	46.9352,	39.0128,	19735.0,	6.00000,	19728.0,	225.102,	-118718,	-118663,	42.5595,	1.60041,	39.0135,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@27eedb64)
+[info] ---------------------------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 6) ADD variable (22, Press_mm_hg) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22) @ 0.06379042159122839 |
+[info] ---------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(date, RH_9, T_out, lights, RH_7, RH_1, Press_mm_hg)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(0.0176825,	0.00561512,	-0.00139533,	0.0958733,	-0.0491486,	-0.0419907,	0.0169183)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.064075, rSqBar -> 0.063790, sst -> 207431043.648343, sse -> 194139884.945734, sde -> 97.160987, mse0 -> 9837.338989, rmse -> 99.183360, mae -> 46.935237, smape -> 39.012816, m -> 19735.000000, dfm -> 6.000000, df -> 19728.000000, fStat -> 225.102275, aic -> -118718.472918, bic -> -118663.241875, mape -> 42.559509, mase -> 1.600408, smapeC -> 39.013525, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -415.49234758064904 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ TranRegression.buildModel: 19735 by 6
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(5,VectorD(0.0686074,	0.0682769,	2.07431e+08,	1.93200e+08,	96.9646,	9789.70,	98.9429,	46.6424,	38.6156,	19735.0,	7.00000,	19727.0,	207.587,	-118668,	-118605,	41.4666,	1.59179,	38.6164,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@4426bff1), bestb = BestStep(21,VectorD(0.0637387,	0.0635014,	2.07431e+08,	1.94210e+08,	97.1798,	9840.87,	99.2012,	46.9652,	39.0482,	19735.0,	5.00000,	19729.0,	268.622,	-118724,	-118677,	42.6300,	1.60174,	39.0488,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@1921ad94)
+[info] stepwiseSelAll: (l = 7) ADD variable BestStep(5,VectorD(0.0686074,	0.0682769,	2.07431e+08,	1.93200e+08,	96.9646,	9789.70,	98.9429,	46.6424,	38.6156,	19735.0,	7.00000,	19727.0,	207.587,	-118668,	-118605,	41.4666,	1.59179,	38.6164,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@4426bff1)
+[info] --------------------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 7) ADD variable (5, T2) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22, 5) @ 0.06827690208943926 |
+[info] --------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(date, RH_9, T_out, lights, RH_7, RH_1, Press_mm_hg, T2)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(0.0187617,	0.00447061,	0.00232297,	0.0895391,	-0.0489939,	-0.0500809,	0.0267796,	0.0493912)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.068607, rSqBar -> 0.068277, sst -> 207431043.648343, sse -> 193199738.897020, sde -> 96.964607, mse0 -> 9789.700476, rmse -> 98.942915, mae -> 46.642389, smape -> 38.615577, m -> 19735.000000, dfm -> 7.000000, df -> 19727.000000, fStat -> 207.587495, aic -> -118668.239867, bic -> -118605.118675, mape -> 41.466559, mase -> 1.591792, smapeC -> 38.616388, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ TranRegression.buildModel: 19735 by 7
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(17,VectorD(0.0883862,	0.0880165,	2.07431e+08,	1.89097e+08,	95.9678,	9581.81,	97.8867,	46.1285,	38.2936,	19735.0,	8.00000,	19726.0,	239.069,	-118454,	-118383,	41.2633,	1.57993,	38.2945,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@4b6e2263), bestb = BestStep(21,VectorD(0.0684478,	0.0681645,	2.07431e+08,	1.93233e+08,	96.9688,	9791.38,	98.9514,	46.6486,	38.6369,	19735.0,	6.00000,	19728.0,	241.593,	-118672,	-118617,	41.4899,	1.59118,	38.6376,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@6138e79a)
+[info] stepwiseSelAll: (l = 8) ADD variable BestStep(17,VectorD(0.0883862,	0.0880165,	2.07431e+08,	1.89097e+08,	95.9678,	9581.81,	97.8867,	46.1285,	38.2936,	19735.0,	8.00000,	19726.0,	239.069,	-118454,	-118383,	41.2633,	1.57993,	38.2945,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@4b6e2263)
+[info] -------------------------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 8) ADD variable (17, T8) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22, 5, 17) @ 0.08801648257687955 |
+[info] -------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(date, RH_9, T_out, lights, RH_7, RH_1, Press_mm_hg, T2, T8)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(0.0170787,	0.00472430,	0.00138047,	0.0859408,	-0.0551301,	-0.0427505,	0.0214493,	0.144758,	-0.107781)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.088386, rSqBar -> 0.088016, sst -> 207431043.648343, sse -> 189097003.362399, sde -> 95.967797, mse0 -> 9581.809139, rmse -> 97.886716, mae -> 46.128505, smape -> 38.293550, m -> 19735.000000, dfm -> 8.000000, df -> 19726.000000, fStat -> 239.068621, aic -> -118454.117860, bic -> -118383.106519, mape -> 41.263303, mase -> 1.579930, smapeC -> 38.294462, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ TranRegression.buildModel: 19735 by 8
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(3,VectorD(0.0927677,	0.0923537,	2.07431e+08,	1.88188e+08,	95.7559,	9535.76,	97.6512,	46.1320,	38.3351,	19735.0,	9.00000,	19725.0,	224.106,	-118404,	-118326,	41.3457,	1.58189,	38.3361,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@62ef27a8), bestb = BestStep(21,VectorD(0.0886775,	0.0883541,	2.07431e+08,	1.89037e+08,	95.9500,	9578.75,	97.8711,	46.1266,	38.3029,	19735.0,	7.00000,	19727.0,	274.223,	-118453,	-118390,	41.2801,	1.57957,	38.3037,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@53dbe163)
+[info] stepwiseSelAll: (l = 9) ADD variable BestStep(3,VectorD(0.0927677,	0.0923537,	2.07431e+08,	1.88188e+08,	95.7559,	9535.76,	97.6512,	46.1320,	38.3351,	19735.0,	9.00000,	19725.0,	224.106,	-118404,	-118326,	41.3457,	1.58189,	38.3361,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@62ef27a8)
+[info] ---------------------------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 9) ADD variable (3, T1) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22, 5, 17, 3) @ 0.09235373220877785 |
+[info] ---------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(date, RH_9, T_out, lights, RH_7, RH_1, Press_mm_hg, T2, T8, T1)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(0.0177234,	0.00503424,	0.00102251,	0.105149,	-0.0512034,	-0.0660872,	0.0219230,	0.162341,	-0.0903818,	-0.0461725)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.092768, rSqBar -> 0.092354, sst -> 207431043.648343, sse -> 188188147.277110, sde -> 95.755914, mse0 -> 9535.756133, rmse -> 97.651196, mae -> 46.132048, smape -> 38.335096, m -> 19735.000000, dfm -> 9.000000, df -> 19725.000000, fStat -> 224.105583, aic -> -118404.419663, bic -> -118325.518173, mape -> 41.345683, mase -> 1.581886, smapeC -> 38.336109, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ TranRegression.buildModel: 19735 by 9
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(7,VectorD(0.0946798,	0.0942208,	2.07431e+08,	1.87792e+08,	95.6582,	9515.66,	97.5482,	46.0674,	38.2600,	19735.0,	10.0000,	19724.0,	206.277,	-118382,	-118295,	41.2992,	1.57928,	38.2612,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@6dee4f1b), bestb = BestStep(21,VectorD(0.0932832,	0.0929154,	2.07431e+08,	1.88081e+08,	95.7267,	9530.34,	97.6234,	46.1301,	38.3454,	19735.0,	8.00000,	19726.0,	253.677,	-118401,	-118330,	41.3611,	1.58155,	38.3463,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@a22cb6a)
+[info] stepwiseSelAll: (l = 10) ADD variable BestStep(7,VectorD(0.0946798,	0.0942208,	2.07431e+08,	1.87792e+08,	95.6582,	9515.66,	97.5482,	46.0674,	38.2600,	19735.0,	10.0000,	19724.0,	206.277,	-118382,	-118295,	41.2992,	1.57928,	38.2612,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@6dee4f1b)
+[info] -------------------------------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 10) ADD variable (7, T3) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22, 5, 17, 3, 7) @ 0.09422076029833826 |
+[info] -------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(date, RH_9, T_out, lights, RH_7, RH_1, Press_mm_hg, T2, T8, T1, T3)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(0.0188862,	0.00516741,	0.000604602,	0.101926,	-0.0504797,	-0.0640678,	0.0189290,	0.166431,	-0.0676489,	-0.0345228,	-0.0390090)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.094680, rSqBar -> 0.094221, sst -> 207431043.648343, sse -> 187791523.351405, sde -> 95.658181, mse0 -> 9515.658645, rmse -> 97.548238, mae -> 46.067358, smape -> 38.260038, m -> 19735.000000, dfm -> 10.000000, df -> 19724.000000, fStat -> 206.276562, aic -> -118381.574416, bic -> -118294.782777, mape -> 41.299242, mase -> 1.579280, smapeC -> 38.261153, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ TranRegression.buildModel: 19735 by 10
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(6,VectorD(0.0960792,	0.0955751,	2.07431e+08,	1.87501e+08,	95.5804,	9500.95,	97.4728,	46.0406,	38.2916,	19735.0,	11.0000,	19723.0,	190.581,	-118364,	-118270,	41.3272,	1.57871,	38.2928,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@7502291e), bestb = BestStep(21,VectorD(0.0950078,	0.0945948,	2.07431e+08,	1.87723e+08,	95.6398,	9512.21,	97.5306,	46.0652,	38.2632,	19735.0,	9.00000,	19725.0,	230.085,	-118380,	-118301,	41.3067,	1.57900,	38.2642,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@12c7a01b)
+[info] stepwiseSelAll: (l = 11) ADD variable BestStep(6,VectorD(0.0960792,	0.0955751,	2.07431e+08,	1.87501e+08,	95.5804,	9500.95,	97.4728,	46.0406,	38.2916,	19735.0,	11.0000,	19723.0,	190.581,	-118364,	-118270,	41.3272,	1.57871,	38.2928,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@7502291e)
+[info] ------------------------------------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 11) ADD variable (6, RH_2) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22, 5, 17, 3, 7, 6) @ 0.09557509568139033 |
+[info] ------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(date, RH_9, T_out, lights, RH_7, RH_1, Press_mm_hg, T2, T8, T1, T3, RH_2)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(0.0188441,	0.00498155,	0.000649315,	0.0988257,	-0.0525256,	-0.0663369,	0.0187474,	0.166635,	-0.0607209,	-0.0398861,	-0.0386726,	0.0103122)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.096079, rSqBar -> 0.095575, sst -> 207431043.648343, sse -> 187501227.778830, sde -> 95.580387, mse0 -> 9500.948963, rmse -> 97.472811, mae -> 46.040638, smape -> 38.291596, m -> 19735.000000, dfm -> 11.000000, df -> 19723.000000, fStat -> 190.580938, aic -> -118364.340671, bic -> -118269.658883, mape -> 41.327215, mase -> 1.578715, smapeC -> 38.292812, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ TranRegression.buildModel: 19735 by 11
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(11,VectorD(0.0975523,	0.0970032,	2.07431e+08,	1.87196e+08,	95.4986,	9485.47,	97.3934,	46.0173,	38.2946,	19735.0,	12.0000,	19722.0,	177.658,	-118346,	-118244,	41.3780,	1.57758,	38.2959,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@736caf7a), bestb = BestStep(21,VectorD(0.0963937,	0.0959356,	2.07431e+08,	1.87436e+08,	95.5627,	9497.64,	97.4559,	46.0376,	38.2933,	19735.0,	10.0000,	19724.0,	210.409,	-118363,	-118276,	41.3340,	1.57841,	38.2944,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@6399551e)
+[info] stepwiseSelAll: (l = 12) ADD variable BestStep(11,VectorD(0.0975523,	0.0970032,	2.07431e+08,	1.87196e+08,	95.4986,	9485.47,	97.3934,	46.0173,	38.2946,	19735.0,	12.0000,	19722.0,	177.658,	-118346,	-118244,	41.3780,	1.57758,	38.2959,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@736caf7a)
+[info] --------------------------------------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 12) ADD variable (11, T5) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22, 5, 17, 3, 7, 6, 11) @ 0.0970032201408847 |
+[info] --------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(date, RH_9, T_out, lights, RH_7, RH_1, Press_mm_hg, T2, T8, T1, T3, RH_2, T5)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(0.0188359,	0.00515093,	0.00178323,	0.0970945,	-0.0541918,	-0.0685906,	0.0181996,	0.167177,	-0.0652956,	-0.0492665,	-0.0348707,	0.0143593,	0.00580809)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.097552, rSqBar -> 0.097003, sst -> 207431043.648343, sse -> 187195663.840391, sde -> 95.498608, mse0 -> 9485.465611, rmse -> 97.393355, mae -> 46.017336, smape -> 38.294566, m -> 19735.000000, dfm -> 12.000000, df -> 19722.000000, fStat -> 177.658211, aic -> -118346.278868, bic -> -118243.706931, mape -> 41.378010, mase -> 1.577578, smapeC -> 38.295883, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ TranRegression.buildModel: 19735 by 12
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(15,VectorD(0.102206,	0.101614,	2.07431e+08,	1.86230e+08,	95.3244,	9436.56,	97.1419,	45.1587,	37.1028,	19735.0,	13.0000,	19721.0,	172.697,	-118293,	-118182,	39.7171,	1.55339,	37.1042,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@13f95696), bestb = BestStep(21,VectorD(0.0974544,	0.0969510,	2.07431e+08,	1.87216e+08,	95.5037,	9486.49,	97.3986,	46.0229,	38.2977,	19735.0,	11.0000,	19723.0,	193.603,	-118349,	-118255,	41.3685,	1.57754,	38.2989,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@1d3ac898)
+[info] stepwiseSelAll: (l = 13) ADD variable BestStep(15,VectorD(0.102206,	0.101614,	2.07431e+08,	1.86230e+08,	95.3244,	9436.56,	97.1419,	45.1587,	37.1028,	19735.0,	13.0000,	19721.0,	172.697,	-118293,	-118182,	39.7171,	1.55339,	37.1042,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@13f95696)
+[info] -------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 13) ADD variable (15, T7) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22, 5, 17, 3, 7, 6, 11, 15) @ 0.10161382591547807 |
+[info] -------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(date, RH_9, T_out, lights, RH_7, RH_1, Press_mm_hg, T2, T8, T1, T3, RH_2, T5, T7)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(0.0168902,	0.00464875,	0.00375261,	0.111604,	-0.0542294,	-0.0868691,	0.0190971,	0.152010,	-0.146771,	-0.0882784,	-0.0287698,	0.0229264,	0.0181523,	0.115319)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.102206, rSqBar -> 0.101614, sst -> 207431043.648343, sse -> 186230419.382816, sde -> 95.324420, mse0 -> 9436.555327, rmse -> 97.141934, mae -> 45.158654, smape -> 37.102765, m -> 19735.000000, dfm -> 13.000000, df -> 19721.000000, fStat -> 172.696529, aic -> -118292.677666, bic -> -118182.215580, mape -> 39.717143, mase -> 1.553394, smapeC -> 37.104184, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ TranRegression.buildModel: 19735 by 13
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(19,VectorD(0.106154,	0.105519,	2.07431e+08,	1.85411e+08,	95.1169,	9395.06,	96.9281,	45.1202,	37.0601,	19735.0,	14.0000,	19720.0,	167.283,	-118247,	-118129,	39.6905,	1.55073,	37.0616,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@34cdeda2), bestb = BestStep(21,VectorD(0.102007,	0.101460,	2.07431e+08,	1.86272e+08,	95.3320,	9438.65,	97.1527,	45.2068,	37.1487,	19735.0,	12.0000,	19722.0,	186.692,	-118297,	-118194,	39.7575,	1.55442,	37.1500,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@373ebf74)
+[info] stepwiseSelAll: (l = 14) ADD variable BestStep(19,VectorD(0.106154,	0.105519,	2.07431e+08,	1.85411e+08,	95.1169,	9395.06,	96.9281,	45.1202,	37.0601,	19735.0,	14.0000,	19720.0,	167.283,	-118247,	-118129,	39.6905,	1.55073,	37.0616,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@34cdeda2)
+[info] -----------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 14) ADD variable (19, T9) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22, 5, 17, 3, 7, 6, 11, 15, 19) @ 0.10551933103092292 |
+[info] -----------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(date, RH_9, T_out, lights, RH_7, RH_1, Press_mm_hg, T2, T8, T1, T3, RH_2, T5, T7, T9)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(0.0169096,	0.00431300,	0.00141425,	0.106627,	-0.0504108,	-0.0798952,	0.0202675,	0.153673,	-0.151416,	-0.0868138,	-0.0239427,	0.0243549,	0.0471008,	0.120642,	-0.0390464)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.106154, rSqBar -> 0.105519, sst -> 207431043.648343, sse -> 185411427.856389, sde -> 95.116924, mse0 -> 9395.055883, rmse -> 96.928096, mae -> 45.120169, smape -> 37.060082, m -> 19735.000000, dfm -> 14.000000, df -> 19720.000000, fStat -> 167.283118, aic -> -118247.168629, bic -> -118128.816395, mape -> 39.690539, mase -> 1.550729, smapeC -> 37.061602, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(14,VectorD(0.106847,	0.106167,	2.07431e+08,	1.85268e+08,	95.0812,	9387.77,	96.8905,	45.0929,	37.0379,	19735.0,	15.0000,	19719.0,	157.264,	-118238,	-118111,	39.6612,	1.54981,	37.0396,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@3bcbb589), bestb = BestStep(21,VectorD(0.106454,	0.105865,	2.07431e+08,	1.85349e+08,	95.1002,	9391.90,	96.9118,	45.1312,	37.0713,	19735.0,	13.0000,	19721.0,	180.730,	-118246,	-118135,	39.7026,	1.55076,	37.0728,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@1d470d0)
+[info] stepwiseSelAll: (l = 15) ADD variable BestStep(14,VectorD(0.106847,	0.106167,	2.07431e+08,	1.85268e+08,	95.0812,	9387.77,	96.8905,	45.0929,	37.0379,	19735.0,	15.0000,	19719.0,	157.264,	-118238,	-118111,	39.6612,	1.54981,	37.0396,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@3bcbb589)
+[info] -----------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 15) ADD variable (14, RH_6) => cols = LinkedHashSet(0, 20, 21, 2, 16, 4, 22, 5, 17, 3, 7, 6, 11, 15, 19, 14) @ 0.10616725685160544 |
+[info] -----------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(date, RH_9, T_out, lights, RH_7, RH_1, Press_mm_hg, T2, T8, T1, T3, RH_2, T5, T7, T9, RH_6)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(0.0168725,	0.00418305,	0.00193851,	0.105333,	-0.0466616,	-0.0771361,	0.0203244,	0.151654,	-0.150433,	-0.0816644,	-0.0234247,	0.0272397,	0.0467436,	0.116929,	-0.0366635,	-0.00848093)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.106847, rSqBar -> 0.106167, sst -> 207431043.648343, sse -> 185267727.883631, sde -> 95.081216, mse0 -> 9387.774405, rmse -> 96.890528, mae -> 45.092867, smape -> 37.037942, m -> 19735.000000, dfm -> 15.000000, df -> 19719.000000, fStat -> 157.263735, aic -> -118237.508775, bic -> -118111.266391, mape -> 39.661241, mase -> 1.549813, smapeC -> 37.039563, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(23,VectorD(0.107061,	0.106336,	2.07431e+08,	1.85223e+08,	95.0700,	9385.52,	96.8789,	45.0960,	37.0453,	19735.0,	16.0000,	19718.0,	147.758,	-118233,	-118099,	39.6696,	1.55007,	37.0470,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@50ecde95), bestb = BestStep(21,VectorD(0.107064,	0.106430,	2.07431e+08,	1.85223e+08,	95.0687,	9385.49,	96.8788,	45.1126,	37.0541,	19735.0,	14.0000,	19720.0,	168.889,	-118237,	-118119,	39.6803,	1.55004,	37.0556,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@3a6f2de3)
+[info] stepwiseSelAll: (l = 16) REMOVE variable BestStep(21,VectorD(0.107064,	0.106430,	2.07431e+08,	1.85223e+08,	95.0687,	9385.49,	96.8788,	45.1126,	37.0541,	19735.0,	14.0000,	19720.0,	168.889,	-118237,	-118119,	39.6803,	1.55004,	37.0556,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@3a6f2de3)
+[info] -----------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 16) REMOVE variable (21, T_out) => cols = LinkedHashSet(0, 20, 2, 16, 4, 22, 5, 17, 3, 7, 6, 11, 15, 19, 14) @ 0.10642969822856252 |
+[info] -----------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(date, RH_9, lights, RH_7, RH_1, Press_mm_hg, T2, T8, T1, T3, RH_2, T5, T7, T9, RH_6)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(0.0170961,	0.00418572,	0.103660,	-0.0448989,	-0.0729125,	0.0190784,	0.151833,	-0.148042,	-0.0786912,	-0.0260747,	0.0248964,	0.0480328,	0.116372,	-0.0420954,	-0.00689269)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.107064, rSqBar -> 0.106430, sst -> 207431043.648343, sse -> 185222723.407155, sde -> 95.068743, mse0 -> 9385.493965, rmse -> 96.878759, mae -> 45.112583, smape -> 37.054116, m -> 19735.000000, dfm -> 14.000000, df -> 19720.000000, fStat -> 168.888594, aic -> -118237.118888, bic -> -118118.766653, mape -> 39.680266, mase -> 1.550038, smapeC -> 37.055636, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ TranRegression.buildModel: 19735 by 14
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(23,VectorD(0.107290,	0.106611,	2.07431e+08,	1.85176e+08,	95.0568,	9383.11,	96.8665,	45.1158,	37.0636,	19735.0,	15.0000,	19719.0,	157.995,	-118233,	-118106,	39.6905,	1.55033,	37.0652,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@68ead359), bestb = BestStep(14,VectorD(0.106454,	0.105865,	2.07431e+08,	1.85349e+08,	95.1002,	9391.90,	96.9118,	45.1312,	37.0713,	19735.0,	13.0000,	19721.0,	180.730,	-118246,	-118135,	39.7026,	1.55076,	37.0728,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@2dd29a59)
+[info] stepwiseSelAll: (l = 17) ADD variable BestStep(23,VectorD(0.107290,	0.106611,	2.07431e+08,	1.85176e+08,	95.0568,	9383.11,	96.8665,	45.1158,	37.0636,	19735.0,	15.0000,	19719.0,	157.995,	-118233,	-118106,	39.6905,	1.55033,	37.0652,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@68ead359)
+[info] -------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 17) ADD variable (23, RH_out) => cols = LinkedHashSet(0, 20, 2, 16, 4, 22, 5, 17, 3, 7, 6, 11, 15, 19, 14, 23) @ 0.10661130899353266 |
+[info] -------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(date, RH_9, lights, RH_7, RH_1, Press_mm_hg, T2, T8, T1, T3, RH_2, T5, T7, T9, RH_6, RH_out)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(0.0170702,	0.00413993,	0.103788,	-0.0452982,	-0.0730716,	0.0191827,	0.152339,	-0.147694,	-0.0792540,	-0.0254409,	0.0250570,	0.0480987,	0.115752,	-0.0422016,	-0.00663388,	0.000818168)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.107290, rSqBar -> 0.106611, sst -> 207431043.648343, sse -> 185175687.698230, sde -> 95.056848, mse0 -> 9383.110600, rmse -> 96.866458, mae -> 45.115793, smape -> 37.063591, m -> 19735.000000, dfm -> 15.000000, df -> 19719.000000, fStat -> 157.995314, aic -> -118232.611394, bic -> -118106.369010, mape -> 39.690456, mase -> 1.550327, smapeC -> 37.065213, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ TranRegression.buildModel: 19735 by 15
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(10,VectorD(0.107474,	0.106750,	2.07431e+08,	1.85138e+08,	95.0498,	9381.18,	96.8565,	45.0618,	36.9953,	19735.0,	16.0000,	19718.0,	148.397,	-118229,	-118094,	39.5948,	1.54933,	36.9970,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@5829e4f4), bestb = BestStep(23,VectorD(0.107064,	0.106430,	2.07431e+08,	1.85223e+08,	95.0687,	9385.49,	96.8788,	45.1126,	37.0541,	19735.0,	14.0000,	19720.0,	168.889,	-118237,	-118119,	39.6803,	1.55004,	37.0556,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@4c5474f5)
+[info] stepwiseSelAll: (l = 18) ADD variable BestStep(10,VectorD(0.107474,	0.106750,	2.07431e+08,	1.85138e+08,	95.0498,	9381.18,	96.8565,	45.0618,	36.9953,	19735.0,	16.0000,	19718.0,	148.397,	-118229,	-118094,	39.5948,	1.54933,	36.9970,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@5829e4f4)
+[info] ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 18) ADD variable (10, RH_4) => cols = LinkedHashSet(0, 20, 2, 16, 4, 22, 5, 17, 3, 7, 6, 11, 15, 19, 14, 23, 10) @ 0.10674967337159391 |
+[info] ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(date, RH_9, lights, RH_7, RH_1, Press_mm_hg, T2, T8, T1, T3, RH_2, T5, T7, T9, RH_6, RH_out, RH_4)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(0.0168435,	0.00413686,	0.103643,	-0.0464585,	-0.0741756,	0.0189617,	0.155062,	-0.143167,	-0.0839858,	-0.0262215,	0.0244945,	0.0491971,	0.111694,	-0.0421980,	-0.00678791,	0.000933660,	0.00337243)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.107474, rSqBar -> 0.106750, sst -> 207431043.648343, sse -> 185137619.177177, sde -> 95.049820, mse0 -> 9381.181615, rmse -> 96.856500, mae -> 45.061779, smape -> 36.995307, m -> 19735.000000, dfm -> 16.000000, df -> 19718.000000, fStat -> 148.396955, aic -> -118228.560715, bic -> -118094.428182, mape -> 39.594773, mase -> 1.549335, smapeC -> 36.997029, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ TranRegression.buildModel: 19735 by 16
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(24,VectorD(0.107551,	0.106781,	2.07431e+08,	1.85122e+08,	95.0464,	9380.37,	96.8523,	45.0384,	36.9814,	19735.0,	17.0000,	19717.0,	139.773,	-118226,	-118084,	39.5779,	1.54905,	36.9832,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@5ddea849), bestb = BestStep(10,VectorD(0.107290,	0.106611,	2.07431e+08,	1.85176e+08,	95.0568,	9383.11,	96.8665,	45.1158,	37.0636,	19735.0,	15.0000,	19719.0,	157.995,	-118233,	-118106,	39.6905,	1.55033,	37.0652,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@6b7906b3)
+[info] stepwiseSelAll: (l = 19) ADD variable BestStep(24,VectorD(0.107551,	0.106781,	2.07431e+08,	1.85122e+08,	95.0464,	9380.37,	96.8523,	45.0384,	36.9814,	19735.0,	17.0000,	19717.0,	139.773,	-118226,	-118084,	39.5779,	1.54905,	36.9832,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@5ddea849)
+[info] ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 19) ADD variable (24, Windspeed) => cols = LinkedHashSet(0, 20, 2, 16, 4, 22, 5, 17, 3, 7, 6, 11, 15, 19, 14, 23, 10, 24) @ 0.10678144279361357 |
+[info] ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(date, RH_9, lights, RH_7, RH_1, Press_mm_hg, T2, T8, T1, T3, RH_2, T5, T7, T9, RH_6, RH_out, RH_4, Windspeed)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(0.0166375,	0.00435992,	0.104730,	-0.0479121,	-0.0784731,	0.0198887,	0.155038,	-0.145083,	-0.0867810,	-0.0241836,	0.0272305,	0.0480317,	0.112465,	-0.0455790,	-0.00833026,	0.000890382,	0.00347864,	0.00899151)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.107551, rSqBar -> 0.106781, sst -> 207431043.648343, sse -> 185121645.620123, sde -> 95.046422, mse0 -> 9380.372213, rmse -> 96.852322, mae -> 45.038368, smape -> 36.981368, m -> 19735.000000, dfm -> 17.000000, df -> 19717.000000, fStat -> 139.772768, aic -> -118225.703710, bic -> -118083.681028, mape -> 39.577884, mase -> 1.549047, smapeC -> 36.983192, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 19
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ TranRegression.buildModel: 19735 by 17
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(25,VectorD(0.107579,	0.106764,	2.07431e+08,	1.85116e+08,	95.0449,	9380.08,	96.8508,	45.0377,	36.9813,	19735.0,	18.0000,	19716.0,	132.039,	-118223,	-118073,	39.5776,	1.54902,	36.9833,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@74a6a609), bestb = BestStep(24,VectorD(0.107474,	0.106750,	2.07431e+08,	1.85138e+08,	95.0498,	9381.18,	96.8565,	45.0618,	36.9953,	19735.0,	16.0000,	19718.0,	148.397,	-118229,	-118094,	39.5948,	1.54933,	36.9970,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@73dce0e6)
+[info] DEBUG @ TranRegression.buildModel: 19735 by 18
+[info] stepwiseSelAll: selected features = LinkedHashSet(0, 20, 2, 16, 4, 22, 5, 17, 3, 7, 6, 11, 15, 19, 14, 23, 10, 24)
+[info] stepwiseSelAll: selected features = LinkedHashSet(date, RH_9, lights, RH_7, RH_1, Press_mm_hg, T2, T8, T1, T3, RH_2, T5, T7, T9, RH_6, RH_out, RH_4, Windspeed)
+[info] stepwiseSelAll: features in/out   = ArrayBuffer(20, 21, 2, 16, 4, 22, 5, 17, 3, 7, 6, 11, 15, 19, 14, 21, 23, 10, 24)
+[info] k = 18
+[info] Run + title
+[info] x-axis: minX = 0.0, maxX = 17.0
+[info] y-axis: minY = -2.0, maxY = 44.0
+[info] rSq = 
+[info] MatrixD (-1.42926,	-1.43440,	43.5416,	-0.00000,
+[info]  	1.18901,	1.17899,	41.5020,	-0.00000,
+[info]  	2.88181,	2.86704,	40.8523,	-0.00000,
+[info]  	5.00476,	4.98550,	39.4904,	-0.00000,
+[info]  	6.09590,	6.07210,	39.1207,	-0.00000,
+[info]  	6.40751,	6.37904,	39.0128,	-0.00000,
+[info]  	6.86074,	6.82769,	38.6156,	-0.00000,
+[info]  	8.83862,	8.80165,	38.2936,	-0.00000,
+[info]  	9.27677,	9.23537,	38.3351,	-0.00000,
+[info]  	9.46798,	9.42208,	38.2600,	-0.00000,
+[info]  	9.60792,	9.55751,	38.2916,	-0.00000,
+[info]  	9.75523,	9.70032,	38.2946,	-0.00000,
+[info]  	10.2206,	10.1614,	37.1028,	-0.00000,
+[info]  	10.6154,	10.5519,	37.0601,	-0.00000,
+[info]  	10.6847,	10.6167,	37.0379,	-0.00000,
+[info]  	10.7064,	10.6430,	37.0541,	-0.00000,
+[info]  	10.7290,	10.6611,	37.0636,	-0.00000)
+[info] ----------------------
+[info] | Feature Importance |
+[info] ----------------------
+[info] col = 0, 	 date, 	 importance = -0.0
+[info] col = 20, 	 RH_9, 	 importance = 1.0
+[info] col = 2, 	 lights, 	 importance = 0.6465344114246944
+[info] col = 16, 	 RH_7, 	 importance = 0.8108223163963162
+[info] col = 4, 	 RH_1, 	 importance = 0.4167423624330329
+[info] col = 22, 	 Press_mm_hg, 	 importance = 0.11901202333088044
+[info] col = 5, 	 T2, 	 importance = 0.17310422104973244
+[info] col = 17, 	 T8, 	 importance = 0.7554154377030893
+[info] col = 3, 	 T1, 	 importance = 0.167342962197886
+[info] col = 7, 	 T3, 	 importance = 0.07302830853012506
+[info] col = 6, 	 RH_2, 	 importance = 0.05345061975586581
+[info] col = 11, 	 T5, 	 importance = 0.05626190485706405
+[info] col = 15, 	 T7, 	 importance = 0.1777254610384053
+[info] col = 19, 	 T9, 	 importance = 0.15079666656324928
+[info] col = 14, 	 RH_6, 	 importance = 0.0264587314738536
+[info] col = 23, 	 RH_out, 	 importance = 0.008286441085151832
+[info] col = 10, 	 RH_4, 	 importance = 0.008660441392192216
+[success] Total time: 41 s, completed Sep 16, 2025, 10:10:25 PM
