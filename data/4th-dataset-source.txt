@@ -1,0 +1,12 @@
+https://archive.ics.uci.edu/dataset/374/appliances+energy+prediction
+dependent var: Appliances
+rest: indepedent
+
+Seoul BSD
+dependent: Functioning Day
+indepedent: rest
+
+EE
+dependent:
+y1 and y2 dependent
+rest independent
