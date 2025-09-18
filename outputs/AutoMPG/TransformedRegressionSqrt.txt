@@ -1,0 +1,458 @@
+[info] welcome to sbt 1.11.4 (Oracle Corporation Java 24.0.2)
+[info] loading project definition from /mnt/c/Libs/scalation_2.0/project
+[info] loading settings for project scalation from build.sbt...
+[info] set current project to scalation (in build file:/mnt/c/Libs/scalation_2.0/)
+[info] running (fork) project1.TransformedRegressionSqrt 
+[error] WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+[error] WARNING: sun.misc.Unsafe::objectFieldOffset has been called by scala.runtime.LazyVals$ (file:/mnt/c/Libs/scalation_2.0/target/bg-jobs/sbt_77f67251/target/21dbe174/563b310f/scala3-library_3-3.7.2.jar)
+[error] WARNING: Please consider reporting this to the maintainers of class scala.runtime.LazyVals$
+[error] WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+[info] DEBUG @ TranRegression.trainNTest: b = VectorD(0.828018,	0.536964,	6.49620,	-5.25246,	6.28800,	1.98732,	0.820629)
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(mpg, cylinders, displacement, horsepower, weight, acceleration, model year, origin)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(0.828018,	0.536964,	6.49620,	-5.25246,	6.28800,	1.98732,	0.820629)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.022159, rSqBar -> 0.006920, sst -> 23818.993469, sse -> 23291.197751, sde -> 7.689964, mse0 -> 59.416321, rmse -> 7.708198, mae -> 6.015134, smape -> 27.606042, m -> 392.000000, dfm -> 6.000000, df -> 385.000000, fStat -> 1.454064, aic -> -1342.804641, bic -> -1315.005809, mape -> 27.470400, mase -> 1.690526, smapeC -> 27.641757, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] Run + title
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -17.837750757321427 to be nonnegative 
+[info] fname = Array(mpg, cylinders, displacement, horsepower, weight, acceleration, model year, origin)
+[info] SUMMARY
+[info]     Parameters/Coefficients:
+[info]     Var      Estimate    Std. Error 	 t value 	 Pr(>|t|) 	 VIF
+[info] ----------------------------------------------------------------------------------
+[info]     x0	 0.828018	 3.732032	 0.221868	 0.824417	 NA
+[info]     x1	 0.536964	 6.797396	 0.078996	 0.937036	 21.834217
+[info]     x2	 6.496201	 4.681680	 1.387579	 0.165265	 6.199197
+[info]     x3	 -5.252464	 5.140277	 -1.021825	 0.306864	 9.904554
+[info]     x4	 6.288003	 2.100403	 2.993712	 0.002756	 0.768941
+[info]     x5	 1.987320	 1.308531	 1.518742	 0.128828	 1.042866
+[info]     x6	 0.820629	 1.264673	 0.648886	 0.516412	 1.676845
+[info]     Residual standard error: 7.777957 on 385.0 degrees of freedom
+[info]     Multiple R-squared:  0.022159,	Adjusted R-squared:  0.006920
+[info]     F-statistic: 1.4540639887317737 on 6.0 and 385.0 DF,  p-value: -0.0
+[info] ----------------------------------------------------------------------------------
+[info]         
+[info] ----------------------------------------------
+[info] | Quality of Fit - based on transformed data |
+[info] ----------------------------------------------
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -1.3401168413248825 to be nonnegative 
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(mpg, cylinders, displacement, horsepower, weight, acceleration, model year, origin)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(0.828018,	0.536964,	6.49620,	-5.25246,	6.28800,	1.98732,	0.820629)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> -0.021330, rSqBar -> -0.037247, sst -> 252.160994, sse -> 257.539694, sde -> 0.804230, mse0 -> 0.656989, rmse -> 0.810549, mae -> 0.640009, smape -> 14.047468, m -> 392.000000, dfm -> 6.000000, df -> 385.000000, fStat -> -1.340117, aic -> -1147.553471, bic -> -1119.754638, mape -> 13.767214, mase -> 1.745357, smapeC -> 14.083183, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] --------------
+[info] | Validation |
+[info] --------------
+[info] LinkedHashMap(rSq -> 0.045489, rSqBar -> 0.030613, sst -> 4731.234872, sse -> 4516.016962, sde -> 7.571990, mse0 -> 57.897653, rmse -> 7.609051, mae -> 5.845603, smape -> 27.784558, m -> 78.000000, dfm -> 6.000000, df -> 385.000000, fStat -> 3.057964, aic -> -254.972308, bic -> -238.475346, mape -> 29.168173, mase -> 1.280288, smapeC -> 27.964046, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] --------------------
+[info] | cross-validation |
+[info] --------------------
+[info] --------------------------------------------------------------
+[info] | crossValidate: fold 0: train-test splits sizes = (314, 78) |
+[info] --------------------------------------------------------------
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -13.17574856043261 to be nonnegative 
+[info] LinkedHashMap(rSq -> -0.258394, rSqBar -> -0.278005, sst -> 4531.937949, sse -> 5702.963636, sde -> 8.605762, mse0 -> 73.114918, rmse -> 8.550726, mae -> 6.614557, smape -> 28.806485, m -> 78.000000, dfm -> 6.000000, df -> 385.000000, fStat -> -13.175749, aic -> -265.033790, bic -> -248.536828, mape -> 29.678490, mase -> 1.456914, smapeC -> 28.985972, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] DEBUG @ Predictor.crossValidate: fold 0: qof = VectorD(-0.258394,	-0.278005,	4531.94,	5702.96,	8.60576,	73.1149,	8.55073,	6.61456,	28.8065,	78.0000,	6.00000,	385.000,	-13.1757,	-265.034,	-248.537,	29.6785,	1.45691,	28.9860,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+[info] --------------------------------------------------------------
+[info] | crossValidate: fold 1: train-test splits sizes = (314, 78) |
+[info] --------------------------------------------------------------
+[info] LinkedHashMap(rSq -> 0.071266, rSqBar -> 0.056792, sst -> 5020.963718, sse -> 4663.139086, sde -> 7.538931, mse0 -> 59.783834, rmse -> 7.732001, mae -> 6.109255, smape -> 27.997337, m -> 78.000000, dfm -> 6.000000, df -> 385.000000, fStat -> 4.923811, aic -> -256.219430, bic -> -239.722468, mape -> 26.088461, mase -> 1.230207, smapeC -> 28.176824, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] DEBUG @ Predictor.crossValidate: fold 1: qof = VectorD(0.0712661,	0.0567924,	5020.96,	4663.14,	7.53893,	59.7838,	7.73200,	6.10925,	27.9973,	78.0000,	6.00000,	385.000,	4.92381,	-256.219,	-239.722,	26.0885,	1.23021,	28.1768,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+[info] --------------------------------------------------------------
+[info] | crossValidate: fold 2: train-test splits sizes = (314, 78) |
+[info] --------------------------------------------------------------
+[info] LinkedHashMap(rSq -> 0.023424, rSqBar -> 0.008205, sst -> 5812.381538, sse -> 5676.231175, sde -> 8.570621, mse0 -> 72.772195, rmse -> 8.530662, mae -> 6.547832, smape -> 29.911643, m -> 78.000000, dfm -> 6.000000, df -> 385.000000, fStat -> 1.539105, aic -> -264.807185, bic -> -248.310223, mape -> 31.929732, mase -> 1.174087, smapeC -> 30.091130, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] DEBUG @ Predictor.crossValidate: fold 2: qof = VectorD(0.0234242,	0.00820483,	5812.38,	5676.23,	8.57062,	72.7722,	8.53066,	6.54783,	29.9116,	78.0000,	6.00000,	385.000,	1.53910,	-264.807,	-248.310,	31.9297,	1.17409,	30.0911,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+[info] --------------------------------------------------------------
+[info] | crossValidate: fold 3: train-test splits sizes = (314, 78) |
+[info] --------------------------------------------------------------
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -5.845500920732796 to be nonnegative 
+[info] LinkedHashMap(rSq -> -0.100229, rSqBar -> -0.117376, sst -> 4224.373462, sse -> 4647.780275, sde -> 7.631031, mse0 -> 59.586927, rmse -> 7.719257, mae -> 6.021563, smape -> 27.198842, m -> 78.000000, dfm -> 6.000000, df -> 385.000000, fStat -> -5.845501, aic -> -256.089236, bic -> -239.592275, mape -> 25.715067, mase -> 1.317103, smapeC -> 27.378329, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] DEBUG @ Predictor.crossValidate: fold 3: qof = VectorD(-0.100229,	-0.117376,	4224.37,	4647.78,	7.63103,	59.5869,	7.71926,	6.02156,	27.1988,	78.0000,	6.00000,	385.000,	-5.84550,	-256.089,	-239.592,	25.7151,	1.31710,	27.3783,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+[info] --------------------------------------------------------------
+[info] | crossValidate: fold 4: train-test splits sizes = (314, 78) |
+[info] --------------------------------------------------------------
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -4.780162620145004 to be nonnegative 
+[info] LinkedHashMap(rSq -> -0.080492, rSqBar -> -0.097331, sst -> 4095.068846, sse -> 4424.690792, sde -> 7.578373, mse0 -> 56.726805, rmse -> 7.531720, mae -> 5.859908, smape -> 28.937977, m -> 78.000000, dfm -> 6.000000, df -> 385.000000, fStat -> -4.780163, aic -> -254.198157, bic -> -237.701195, mape -> 29.871820, mase -> 1.269470, smapeC -> 29.117465, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(-0.0804924,	-0.0973312,	4095.07,	4424.69,	7.57837,	56.7268,	7.53172,	5.85991,	28.9380,	78.0000,	6.00000,	385.000,	-4.78016,	-254.198,	-237.701,	29.8718,	1.26947,	29.1175,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] --------------------------
+[info] | Forward Selection Test |
+[info] --------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 1
+[info] -------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 0) INITIAL variable (0, mpg) => cols = LinkedHashSet(0) |
+[info] -------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -346.4161930982576 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -350.5305801770508 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -346.7177166309273 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -255.29526280072037 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -276.842147891229 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -301.4102352202516 to be nonnegative 
+[info] -------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 1) ADD variable (4, weight) => cols = LinkedHashSet(0, 4) @ -1.9026447631278334 |
+[info] -------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -126.92319297679893 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -111.31577926170937 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -126.23513232184018 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -98.11983233751057 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -98.86939690296178 to be nonnegative 
+[info] ----------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 2) ADD variable (5, acceleration) => cols = LinkedHashSet(0, 4, 5) @ -1.0284256060293968 |
+[info] ----------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 4
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -65.25236093809863 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 4
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -47.16799130106856 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 4
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -63.610149992462986 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 4
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -42.690939903936425 to be nonnegative 
+[info] -----------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 3) ADD variable (6, model year) => cols = LinkedHashSet(0, 4, 5, 6) @ -0.5042674627812453 |
+[info] -----------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 5
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -31.27535248626665 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 5
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -17.98074631707309 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 5
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -31.841652724401698 to be nonnegative 
+[info] -----------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 4) ADD variable (2, displacement) => cols = LinkedHashSet(0, 4, 5, 6, 2) @ -0.24096643588216637 |
+[info] -----------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 6
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -12.690146666749548 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 6
+[info] ------------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 5) ADD variable (3, horsepower) => cols = LinkedHashSet(0, 4, 5, 6, 2, 3) @ 0.010979972481077849 |
+[info] ------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 7
+[info] --------------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 6) ADD variable (1, cylinders) => cols = LinkedHashSet(0, 4, 5, 6, 2, 3, 1) @ 0.006919520465509366 |
+[info] --------------------------------------------------------------------------------------------------------------------------
+[info] Run + title
+[info] x-axis: minX = 1.0, maxX = 7.0
+[info] y-axis: minY = -795.0, maxY = 126.0
+[info] rSq = 
+[info] MatrixD (-794.523,	-794.523,	125.434,	-0.00000,
+[info]  	-189.522,	-190.264,	45.9556,	-0.00000,
+[info]  	-101.805,	-102.843,	41.0790,	-0.00000,
+[info]  	-49.2726,	-50.4267,	34.9681,	-0.00000,
+[info]  	-22.8271,	-24.0966,	31.2427,	-0.00000,
+[info]  	2.36273,	1.09800,	27.5481,	-0.00000,
+[info]  	2.21586,	0.691952,	27.6060,	-0.00000)
+[info] ----------------------
+[info] | Feature Importance |
+[info] ----------------------
+[info] col = 0, 	 mpg, 	 importance = -0.0
+[info] col = 4, 	 weight, 	 importance = 1.0
+[info] col = 5, 	 acceleration, 	 importance = 0.14498685333398165
+[info] col = 6, 	 model year, 	 importance = 0.08683039372599852
+[info] col = 2, 	 displacement, 	 importance = 0.04371147966273923
+[info] col = 3, 	 horsepower, 	 importance = 0.041636071707844814
+[info] col = 1, 	 cylinders, 	 importance = -2.427569007790411E-4
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] -----------------------------
+[info] | Backward Elimination Test |
+[info] -----------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 7
+[info] ------------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 0) INITIAL variables (all) => cols = LinkedHashSet(0, 1, 2, 3, 4, 5, 6) @ 0.006919520465510365 |
+[info] ------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 6
+[info] DEBUG @ TranRegression.buildModel: 392 by 6
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -24.037094319181595 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 6
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -12.6901466667495 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 6
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -47.21911681354804 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 6
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -28.958341615113564 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 6
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -5.878901979587437 to be nonnegative 
+[info] ----------------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 1) REMOVE variable (1, cylinders) => cols = LinkedHashSet(0, 2, 3, 4, 5, 6) @ 0.010979972481078959 |
+[info] ----------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 5
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -31.841652724401648 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 5
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -17.98074631707311 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 5
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -59.41653442626393 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 5
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -36.31019546467938 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 5
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -8.26458713571325 to be nonnegative 
+[info] --------------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 2) REMOVE variable (6, model year) => cols = LinkedHashSet(0, 2, 3, 4, 5) @ -0.10470185803306009 |
+[info] --------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 4
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -63.610149992462986 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 4
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -47.16799130106855 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 4
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -89.37833365297674 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 4
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -60.24459297135726 to be nonnegative 
+[info] ----------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 3) REMOVE variable (3, horsepower) => cols = LinkedHashSet(0, 2, 4, 5) @ -0.5862324686989542 |
+[info] ----------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -98.11983233751057 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -134.15794307152882 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -111.31577926170931 to be nonnegative 
+[info] ---------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 4) REMOVE variable (2, displacement) => cols = LinkedHashSet(0, 4, 5) @ -1.0284256060293968 |
+[info] ---------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -276.842147891229 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -255.29526280072037 to be nonnegative 
+[info] ------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 5) REMOVE variable (5, acceleration) => cols = LinkedHashSet(0, 4) @ -1.9026447631278334 |
+[info] ------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 1
+[info] k = 7
+[info] Run + title
+[info] x-axis: minX = 0.0, maxX = 7.0
+[info] y-axis: minY = -795.0, maxY = 126.0
+[info] rSq = 
+[info] MatrixD (-794.523,	-794.523,	125.434,	-0.00000,
+[info]  	-189.522,	-190.264,	45.9556,	-0.00000,
+[info]  	-101.805,	-102.843,	41.0790,	-0.00000,
+[info]  	-57.4062,	-58.6232,	35.1103,	-0.00000,
+[info]  	-9.34006,	-10.4702,	29.2266,	-0.00000,
+[info]  	2.36273,	1.09800,	27.5481,	-0.00000,
+[info]  	2.21586,	0.691952,	27.6060,	-0.00000)
+[info] ----------------------
+[info] | Feature Importance |
+[info] ----------------------
+[info] col = 0, 	 mpg, 	 importance = -0.0
+[info] col = 4, 	 weight, 	 importance = 1.0
+[info] col = 5, 	 acceleration, 	 importance = 0.14498685333398165
+[info] col = 2, 	 displacement, 	 importance = 0.0733864168545047
+[info] col = 3, 	 horsepower, 	 importance = 0.07944809621977655
+[info] col = 6, 	 model year, 	 importance = 0.019343432022301495
+[info] col = 1, 	 cylinders, 	 importance = -2.4275690077905945E-4
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] --------------------
+[info] | Stepwise FS Test |
+[info] --------------------
+[info] --------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 0) INITIAL variable (0, mpg) => cols = LinkedHashSet(0) |
+[info] --------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -346.4161930982576 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -350.5305801770508 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -346.7177166309273 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -255.29526280072037 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -276.842147891229 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -301.4102352202516 to be nonnegative 
+[info] ERROR @ Predictor.backwardElim: could not find a variable x_j to eliminate: best.col = -1 
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(4,VectorD(-1.89522,	-1.90264,	23819.0,	68961.3,	13.1501,	175.922,	13.2635,	10.2981,	45.9556,	392.000,	1.00000,	390.000,	-255.295,	-1565.59,	-1557.65,	45.0448,	2.68561,	45.9658,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@1eb5174b), bestb = BestStep(-1,null,null)
+[info] stepwiseSelAll: (l = 1) ADD variable BestStep(4,VectorD(-1.89522,	-1.90264,	23819.0,	68961.3,	13.1501,	175.922,	13.2635,	10.2981,	45.9556,	392.000,	1.00000,	390.000,	-255.295,	-1565.59,	-1557.65,	45.0448,	2.68561,	45.9658,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@1eb5174b)
+[info] --------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 1) ADD variable (4, weight) => cols = LinkedHashSet(0, 4) @ -1.9026447631278334 |
+[info] --------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -255.29526280072037 to be nonnegative 
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(mpg, weight)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(1.39479,	8.45362)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> -1.895221, rSqBar -> -1.902645, sst -> 23818.993469, sse -> 68961.252931, sde -> 13.150118, mse0 -> 175.921564, rmse -> 13.263543, mae -> 10.298142, smape -> 45.955585, m -> 392.000000, dfm -> 1.000000, df -> 390.000000, fStat -> -255.295263, aic -> -1565.589804, bic -> -1557.647280, mape -> 45.044768, mase -> 2.685615, smapeC -> 45.965789, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -126.92319297679893 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -111.31577926170937 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -126.23513232184018 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -98.11983233751057 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -98.86939690296178 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 1
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(5,VectorD(-1.01805,	-1.02843,	23819.0,	48067.9,	11.0037,	122.622,	11.0735,	8.86248,	41.0790,	392.000,	2.00000,	389.000,	-98.1198,	-1492.83,	-1480.92,	39.4539,	2.23979,	41.0943,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@44821a96), bestb = BestStep(4,VectorD(-7.94523,	-7.94523,	23819.0,	213066,	20.7207,	543.536,	23.3139,	21.3993,	125.434,	392.000,	0.00000,	391.000,	0.00000,	-1794.69,	-1790.72,	94.8405,	5.27649,	125.439,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@272ed83b)
+[info] stepwiseSelAll: (l = 2) ADD variable BestStep(5,VectorD(-1.01805,	-1.02843,	23819.0,	48067.9,	11.0037,	122.622,	11.0735,	8.86248,	41.0790,	392.000,	2.00000,	389.000,	-98.1198,	-1492.83,	-1480.92,	39.4539,	2.23979,	41.0943,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@44821a96)
+[info] -----------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 2) ADD variable (5, acceleration) => cols = LinkedHashSet(0, 4, 5) @ -1.0284256060293968 |
+[info] -----------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -98.11983233751057 to be nonnegative 
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(mpg, weight, acceleration)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(1.29930,	6.13505,	2.30007)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> -1.018050, rSqBar -> -1.028426, sst -> 23818.993469, sse -> 48067.920425, sde -> 11.003710, mse0 -> 122.622246, rmse -> 11.073493, mae -> 8.862477, smape -> 41.079003, m -> 392.000000, dfm -> 2.000000, df -> 389.000000, fStat -> -98.119832, aic -> -1492.831913, bic -> -1480.918128, mape -> 39.453921, mase -> 2.239793, smapeC -> 41.094309, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ TranRegression.buildModel: 392 by 4
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -65.25236093809863 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 4
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -47.16799130106856 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 4
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -63.610149992462986 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 4
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -42.690939903936425 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -276.842147891229 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 2
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -255.29526280072037 to be nonnegative 
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(6,VectorD(-0.492726,	-0.504267,	23819.0,	35555.2,	9.48094,	90.7021,	9.52377,	7.53557,	34.9681,	392.000,	3.00000,	388.000,	-42.6909,	-1431.72,	-1415.84,	33.2296,	2.07910,	34.9885,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@b62d79), bestb = BestStep(5,VectorD(-1.89522,	-1.90264,	23819.0,	68961.3,	13.1501,	175.922,	13.2635,	10.2981,	45.9556,	392.000,	1.00000,	390.000,	-255.295,	-1565.59,	-1557.65,	45.0448,	2.68561,	45.9658,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@27ff5d15)
+[info] stepwiseSelAll: (l = 3) ADD variable BestStep(6,VectorD(-0.492726,	-0.504267,	23819.0,	35555.2,	9.48094,	90.7021,	9.52377,	7.53557,	34.9681,	392.000,	3.00000,	388.000,	-42.6909,	-1431.72,	-1415.84,	33.2296,	2.07910,	34.9885,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@b62d79)
+[info] ------------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 3) ADD variable (6, model year) => cols = LinkedHashSet(0, 4, 5, 6) @ -0.5042674627812453 |
+[info] ------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 4
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -42.690939903936425 to be nonnegative 
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(mpg, weight, acceleration, model year)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(1.77454,	5.06800,	1.98119,	1.58700)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> -0.492726, rSqBar -> -0.504267, sst -> 23818.993469, sse -> 35555.225336, sde -> 9.480936, mse0 -> 90.702105, rmse -> 9.523765, mae -> 7.535573, smape -> 34.968051, m -> 392.000000, dfm -> 3.000000, df -> 388.000000, fStat -> -42.690940, aic -> -1431.722863, bic -> -1415.837816, mape -> 33.229645, mase -> 2.079096, smapeC -> 34.988460, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ TranRegression.buildModel: 392 by 5
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -31.27535248626665 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 5
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -17.98074631707309 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 5
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -31.841652724401698 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -123.38514787211166 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -98.86939690296178 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 3
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -98.11983233751057 to be nonnegative 
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(2,VectorD(-0.228271,	-0.240966,	23819.0,	29256.2,	8.60919,	74.6331,	8.63905,	6.80771,	31.2427,	392.000,	4.00000,	387.000,	-17.9807,	-1391.50,	-1371.64,	30.4489,	1.81686,	31.2682,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@31e5415e), bestb = BestStep(6,VectorD(-1.01805,	-1.02843,	23819.0,	48067.9,	11.0037,	122.622,	11.0735,	8.86248,	41.0790,	392.000,	2.00000,	389.000,	-98.1198,	-1492.83,	-1480.92,	39.4539,	2.23979,	41.0943,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@49912c99)
+[info] stepwiseSelAll: (l = 4) ADD variable BestStep(2,VectorD(-0.228271,	-0.240966,	23819.0,	29256.2,	8.60919,	74.6331,	8.63905,	6.80771,	31.2427,	392.000,	4.00000,	387.000,	-17.9807,	-1391.50,	-1371.64,	30.4489,	1.81686,	31.2682,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@31e5415e)
+[info] ------------------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 4) ADD variable (2, displacement) => cols = LinkedHashSet(0, 4, 5, 6, 2) @ -0.24096643588216637 |
+[info] ------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 5
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -17.98074631707309 to be nonnegative 
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(mpg, weight, acceleration, model year, displacement)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(-0.563700,	5.33052,	1.93983,	1.25233,	3.78797)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> -0.228271, rSqBar -> -0.240966, sst -> 23818.993469, sse -> 29256.181954, sde -> 8.609189, mse0 -> 74.633117, rmse -> 8.639046, mae -> 6.807709, smape -> 31.242665, m -> 392.000000, dfm -> 4.000000, df -> 387.000000, fStat -> -17.980746, aic -> -1391.499268, bic -> -1371.642958, mape -> 30.448915, mase -> 1.816863, smapeC -> 31.268175, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ TranRegression.buildModel: 392 by 6
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -12.690146666749548 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 6
+[info] DEBUG @ TranRegression.buildModel: 392 by 4
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -42.690939903936425 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 4
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -79.82459038556969 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 4
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -56.839189582900005 to be nonnegative 
+[info] DEBUG @ TranRegression.buildModel: 392 by 4
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -47.16799130106856 to be nonnegative 
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(3,VectorD(0.0236273,	0.0109800,	23819.0,	23256.2,	7.68406,	59.3271,	7.70241,	5.99760,	27.5481,	392.000,	5.00000,	386.000,	1.86817,	-1344.51,	-1320.68,	27.4484,	1.68806,	27.5787,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@5f9b2141), bestb = BestStep(2,VectorD(-0.492726,	-0.504267,	23819.0,	35555.2,	9.48094,	90.7021,	9.52377,	7.53557,	34.9681,	392.000,	3.00000,	388.000,	-42.6909,	-1431.72,	-1415.84,	33.2296,	2.07910,	34.9885,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@48974e45)
+[info] stepwiseSelAll: (l = 5) ADD variable BestStep(3,VectorD(0.0236273,	0.0109800,	23819.0,	23256.2,	7.68406,	59.3271,	7.70241,	5.99760,	27.5481,	392.000,	5.00000,	386.000,	1.86817,	-1344.51,	-1320.68,	27.4484,	1.68806,	27.5787,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.TranRegression@5f9b2141)
+[info] -------------------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 5) ADD variable (3, horsepower) => cols = LinkedHashSet(0, 4, 5, 6, 2, 3) @ 0.010979972481077849 |
+[info] -------------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ TranRegression.buildModel: 392 by 6
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = TranRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(mpg, weight, acceleration, model year, displacement, horsepower)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(1.02560,	6.25385,	1.97929,	0.787803,	6.63046,	-5.08731)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.023627, rSqBar -> 0.010980, sst -> 23818.993469, sse -> 23256.215265, sde -> 7.684062, mse0 -> 59.327080, rmse -> 7.702407, mae -> 5.997603, smape -> 27.548113, m -> 392.000000, dfm -> 5.000000, df -> 386.000000, fStat -> 1.868166, aic -> -1344.510082, bic -> -1320.682511, mape -> 27.448431, mase -> 1.688055, smapeC -> 27.578726, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] stepwiseSelAll: selected features = LinkedHashSet(0, 4, 5, 6, 2, 3)
+[info] stepwiseSelAll: selected features = LinkedHashSet(mpg, weight, acceleration, model year, displacement, horsepower)
+[info] stepwiseSelAll: features in/out   = ArrayBuffer(4, 5, 6, 2, 3)
+[info] k = 6
+[info] Run + title
+[info] x-axis: minX = 0.0, maxX = 5.0
+[info] y-axis: minY = -191.0, maxY = 46.0
+[info] rSq = 
+[info] MatrixD (-189.522,	-190.264,	45.9556,	-0.00000,
+[info]  	-101.805,	-102.843,	41.0790,	-0.00000,
+[info]  	-49.2726,	-50.4267,	34.9681,	-0.00000,
+[info]  	-22.8271,	-24.0966,	31.2427,	-0.00000,
+[info]  	2.36273,	1.09800,	27.5481,	-0.00000)
+[info] ----------------------
+[info] | Feature Importance |
+[info] ----------------------
+[info] col = 0, 	 mpg, 	 importance = -0.0
+[info] col = 4, 	 weight, 	 importance = 1.0
+[info] col = 5, 	 acceleration, 	 importance = 0.5988846004263714
+[info] col = 6, 	 model year, 	 importance = 0.30148581514524286
+[info] col = 2, 	 displacement, 	 importance = 0.28717135899166557
+[success] Total time: 153 s (0:02:33.0), completed Sep 18, 2025, 12:07:13 AM

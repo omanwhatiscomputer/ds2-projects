@@ -15,7 +15,7 @@ import scalation.modeling.qk
 @main def LassoRegression(): Unit =
 //   println("Hello, World!")
 
-    val ox_fname = Array ("cylinders","horsepower","weight","acceleration","model_year","origin")
+    val ox_fname = Array ("mpg","cylinders","displacement","horsepower","weight","acceleration","model year","origin")
 
     
     val filePath = "/mnt/c/Libs/scalation_2.0/data/auto-mpg.csv"
@@ -23,7 +23,7 @@ import scalation.modeling.qk
     val data: Array[Array[String]] = Source.fromFile(filePath)
         .getLines()
         .drop(1)
-        .map(_.split(",").drop(1))
+        .map(_.split(","))
         .filter(row => row.forall(_.nonEmpty))
         .toArray
 

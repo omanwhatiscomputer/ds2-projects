@@ -1,0 +1,324 @@
+[info] welcome to sbt 1.11.4 (Oracle Corporation Java 24.0.2)
+[info] loading project definition from /mnt/c/Libs/scalation_2.0/project
+[info] loading settings for project scalation from build.sbt...
+[info] set current project to scalation (in build file:/mnt/c/Libs/scalation_2.0/)
+[info] running (fork) project1.SimpleRegression 
+[error] WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+[error] WARNING: sun.misc.Unsafe::objectFieldOffset has been called by scala.runtime.LazyVals$ (file:/mnt/c/Libs/scalation_2.0/target/bg-jobs/sbt_63849014/target/21dbe174/563b310f/scala3-library_3-3.7.2.jar)
+[error] WARNING: Please consider reporting this to the maintainers of class scala.runtime.LazyVals$
+[error] WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+[info] DEBUG @ Predictor.trainNTest: b = VectorD(3.18820,	6.99007,	31.8559,	-37.9475,	32.7278,	14.5461,	5.75399)
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = Regression @dfm = 6.0
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(mpg, cylinders, displacement, horsepower, weight, acceleration, model year, origin)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(3.18820,	6.99007,	31.8559,	-37.9475,	32.7278,	14.5461,	5.75399)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.586807, rSqBar -> 0.580368, sst -> 23818.993469, sse -> 9841.831789, sde -> 4.987052, mse0 -> 25.106714, rmse -> 5.010660, mae -> 3.999875, smape -> 19.167329, m -> 392.000000, dfm -> 6.000000, df -> 385.000000, fStat -> 91.128145, aic -> -1173.972589, bic -> -1146.173757, mape -> 18.860497, mase -> 1.272199, smapeC -> 19.203044, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] Run + title
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -17.837750757321427 to be nonnegative 
+[info] fname = Array(mpg, cylinders, displacement, horsepower, weight, acceleration, model year, origin)
+[info] SUMMARY
+[info]     Parameters/Coefficients:
+[info]     Var      Estimate    Std. Error 	 t value 	 Pr(>|t|) 	 VIF
+[info] ----------------------------------------------------------------------------------
+[info]     x0	 3.188205	 2.425981	 1.314192	 0.188782	 NA
+[info]     x1	 6.990074	 4.418600	 1.581966	 0.113657	 21.834217
+[info]     x2	 31.855874	 3.043293	 10.467567	 0.000000	 6.199197
+[info]     x3	 -37.947468	 3.341401	 -11.356754	 0.000000	 9.904554
+[info]     x4	 32.727818	 1.365352	 23.970237	 0.000000	 0.768941
+[info]     x5	 14.546138	 0.850601	 17.101005	 0.000000	 1.042866
+[info]     x6	 5.753990	 0.822092	 6.999207	 0.000000	 1.676845
+[info]     Residual standard error: 5.056006 on 385.0 degrees of freedom
+[info]     Multiple R-squared:  0.586807,	Adjusted R-squared:  0.580368
+[info]     F-statistic: 91.12814500905415 on 6.0 and 385.0 DF,  p-value: -0.0
+[info] ----------------------------------------------------------------------------------
+[info]         
+[info] --------------
+[info] | Validation |
+[info] --------------
+[info] DEBUG @ Predictor.validate: n_test = 78, rando = true
+[info] LinkedHashMap(rSq -> 0.617506, rSqBar -> 0.611545, sst -> 4731.234872, sse -> 1809.668142, sde -> 4.757795, mse0 -> 23.200874, rmse -> 4.816729, mae -> 3.921052, smape -> 19.638961, m -> 78.000000, dfm -> 6.000000, df -> 385.000000, fStat -> 103.592031, aic -> -219.386089, bic -> -202.889127, mape -> 19.701626, mase -> 1.089956, smapeC -> 19.818448, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] --------------------
+[info] | cross-validation |
+[info] --------------------
+[info] --------------------------------------------------------------
+[info] | crossValidate: fold 0: train-test splits sizes = (314, 78) |
+[info] --------------------------------------------------------------
+[info] DEBUG @ Predictor.validate: n_test = 78, rando = true
+[info] LinkedHashMap(rSq -> 0.509529, rSqBar -> 0.501885, sst -> 4531.937949, sse -> 2222.783321, sde -> 5.363776, mse0 -> 28.497222, rmse -> 5.338279, mae -> 4.209193, smape -> 19.627645, m -> 78.000000, dfm -> 6.000000, df -> 385.000000, fStat -> 66.660009, aic -> -227.712591, bic -> -211.215630, mape -> 19.705419, mase -> 1.132538, smapeC -> 19.807132, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] DEBUG @ Predictor.crossValidate: fold 0: qof = VectorD(0.509529,	0.501885,	4531.94,	2222.78,	5.36378,	28.4972,	5.33828,	4.20919,	19.6276,	78.0000,	6.00000,	385.000,	66.6600,	-227.713,	-211.216,	19.7054,	1.13254,	19.8071,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+[info] --------------------------------------------------------------
+[info] | crossValidate: fold 1: train-test splits sizes = (314, 78) |
+[info] --------------------------------------------------------------
+[info] DEBUG @ Predictor.validate: n_test = 78, rando = true
+[info] LinkedHashMap(rSq -> 0.584082, rSqBar -> 0.577600, sst -> 5020.963718, sse -> 2088.309559, sde -> 5.069830, mse0 -> 26.773199, rmse -> 5.174283, mae -> 4.053057, smape -> 18.128823, m -> 78.000000, dfm -> 6.000000, df -> 385.000000, fStat -> 90.110511, aic -> -225.002219, bic -> -208.505257, mape -> 17.624819, mase -> 1.015969, smapeC -> 18.308310, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] DEBUG @ Predictor.crossValidate: fold 1: qof = VectorD(0.584082,	0.577600,	5020.96,	2088.31,	5.06983,	26.7732,	5.17428,	4.05306,	18.1288,	78.0000,	6.00000,	385.000,	90.1105,	-225.002,	-208.505,	17.6248,	1.01597,	18.3083,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+[info] --------------------------------------------------------------
+[info] | crossValidate: fold 2: train-test splits sizes = (314, 78) |
+[info] --------------------------------------------------------------
+[info] DEBUG @ Predictor.validate: n_test = 78, rando = true
+[info] LinkedHashMap(rSq -> 0.624090, rSqBar -> 0.618232, sst -> 5812.381538, sse -> 2184.931243, sde -> 5.314080, mse0 -> 28.011939, rmse -> 5.292631, mae -> 4.369302, smape -> 21.773008, m -> 78.000000, dfm -> 6.000000, df -> 385.000000, fStat -> 106.530306, aic -> -226.949668, bic -> -210.452706, mape -> 21.556447, mase -> 0.977166, smapeC -> 21.952495, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] DEBUG @ Predictor.crossValidate: fold 2: qof = VectorD(0.624090,	0.618232,	5812.38,	2184.93,	5.31408,	28.0119,	5.29263,	4.36930,	21.7730,	78.0000,	6.00000,	385.000,	106.530,	-226.950,	-210.453,	21.5564,	0.977166,	21.9525,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+[info] --------------------------------------------------------------
+[info] | crossValidate: fold 3: train-test splits sizes = (314, 78) |
+[info] --------------------------------------------------------------
+[info] DEBUG @ Predictor.validate: n_test = 78, rando = true
+[info] LinkedHashMap(rSq -> 0.564229, rSqBar -> 0.557438, sst -> 4224.373462, sse -> 1840.860076, sde -> 4.823969, mse0 -> 23.600770, rmse -> 4.858062, mae -> 3.945936, smape -> 18.229790, m -> 78.000000, dfm -> 6.000000, df -> 385.000000, fStat -> 83.081876, aic -> -220.014775, bic -> -203.517813, mape -> 17.898087, mase -> 1.048605, smapeC -> 18.409277, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] DEBUG @ Predictor.crossValidate: fold 3: qof = VectorD(0.564229,	0.557438,	4224.37,	1840.86,	4.82397,	23.6008,	4.85806,	3.94594,	18.2298,	78.0000,	6.00000,	385.000,	83.0819,	-220.015,	-203.518,	17.8981,	1.04861,	18.4093,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+[info] --------------------------------------------------------------
+[info] | crossValidate: fold 4: train-test splits sizes = (314, 78) |
+[info] --------------------------------------------------------------
+[info] DEBUG @ Predictor.validate: n_test = 78, rando = true
+[info] LinkedHashMap(rSq -> 0.498908, rSqBar -> 0.491099, sst -> 4095.068846, sse -> 2052.004912, sde -> 5.159130, mse0 -> 26.307755, rmse -> 5.129109, mae -> 3.994932, smape -> 21.009271, m -> 78.000000, dfm -> 6.000000, df -> 385.000000, fStat -> 63.887080, aic -> -224.270484, bic -> -207.773522, mape -> 20.655082, mase -> 1.139180, smapeC -> 21.188758, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.498908,	0.491099,	4095.07,	2052.00,	5.15913,	26.3078,	5.12911,	3.99493,	21.0093,	78.0000,	6.00000,	385.000,	63.8871,	-224.270,	-207.774,	20.6551,	1.13918,	21.1888,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] --------------------------
+[info] | Forward Selection Test |
+[info] --------------------------
+[info] -------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 0) INITIAL variable (0, mpg) => cols = LinkedHashSet(0) |
+[info] -------------------------------------------------------------------------------
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -313.41749581135645 to be nonnegative 
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -321.1994991464861 to be nonnegative 
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -319.9950172431501 to be nonnegative 
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -70.8099949822548 to be nonnegative 
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -156.95179653259308 to be nonnegative 
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -241.06173882740484 to be nonnegative 
+[info] --------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 1) ADD variable (4, weight) => cols = LinkedHashSet(0, 4) @ -0.22497570053380134 |
+[info] --------------------------------------------------------------------------------------------------------
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -33.37312263214247 to be nonnegative 
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -16.073611129202533 to be nonnegative 
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -27.19340593661166 to be nonnegative 
+[info] ----------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 2) ADD variable (5, acceleration) => cols = LinkedHashSet(0, 4, 5) @ 0.18130453058941998 |
+[info] ----------------------------------------------------------------------------------------------------------------
+[info] ----------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 3) ADD variable (6, model year) => cols = LinkedHashSet(0, 4, 5, 6) @ 0.3931791944674977 |
+[info] ----------------------------------------------------------------------------------------------------------------
+[info] ---------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 4) ADD variable (2, displacement) => cols = LinkedHashSet(0, 4, 5, 6, 2) @ 0.4307016389018118 |
+[info] ---------------------------------------------------------------------------------------------------------------------
+[info] ----------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 5) ADD variable (3, horsepower) => cols = LinkedHashSet(0, 4, 5, 6, 2, 3) @ 0.5787344988375547 |
+[info] ----------------------------------------------------------------------------------------------------------------------
+[info] ------------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 6) ADD variable (1, cylinders) => cols = LinkedHashSet(0, 4, 5, 6, 2, 3, 1) @ 0.5803680370034217 |
+[info] ------------------------------------------------------------------------------------------------------------------------
+[info] Run + title
+[info] x-axis: minX = 1.0, maxX = 7.0
+[info] y-axis: minY = -491.0, maxY = 92.0
+[info] rSq = 
+[info] MatrixD (-490.425,	-490.425,	91.8331,	-0.00000,
+[info]  	-22.1843,	-22.4976,	30.8366,	-0.00000,
+[info]  	18.5492,	18.1305,	27.9025,	-0.00000,
+[info]  	39.7835,	39.3179,	22.9017,	-0.00000,
+[info]  	43.6526,	43.0702,	21.9958,	-0.00000,
+[info]  	58.4122,	57.8734,	19.2321,	-0.00000,
+[info]  	58.6807,	58.0368,	19.1673,	-0.00000)
+[info] ----------------------
+[info] | Feature Importance |
+[info] ----------------------
+[info] col = 0, 	 mpg, 	 importance = -0.0
+[info] col = 4, 	 weight, 	 importance = 1.0
+[info] col = 5, 	 acceleration, 	 importance = 0.08699269542490186
+[info] col = 6, 	 model year, 	 importance = 0.04534910868641765
+[info] col = 2, 	 displacement, 	 importance = 0.008262966867189301
+[info] col = 3, 	 horsepower, 	 importance = 0.03152138136066619
+[info] col = 1, 	 cylinders, 	 importance = 5.736104969028003E-4
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] -----------------------------
+[info] | Backward Elimination Test |
+[info] -----------------------------
+[info] ----------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 0) INITIAL variables (all) => cols = LinkedHashSet(0, 1, 2, 3, 4, 5, 6) @ 0.5803680370034217 |
+[info] ----------------------------------------------------------------------------------------------------------------------
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -2.236854332220704 to be nonnegative 
+[info] --------------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 1) REMOVE variable (1, cylinders) => cols = LinkedHashSet(0, 2, 3, 4, 5, 6) @ 0.5787344988375546 |
+[info] --------------------------------------------------------------------------------------------------------------------------
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -3.937975175443914 to be nonnegative 
+[info] ------------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 2) REMOVE variable (6, model year) => cols = LinkedHashSet(0, 2, 3, 4, 5) @ 0.5287907570841541 |
+[info] ------------------------------------------------------------------------------------------------------------------------
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -45.5212933555465 to be nonnegative 
+[info] ----------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 3) REMOVE variable (3, horsepower) => cols = LinkedHashSet(0, 2, 4, 5) @ 0.28002555994493605 |
+[info] ----------------------------------------------------------------------------------------------------------------------
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -71.74836659970612 to be nonnegative 
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -16.073611129202533 to be nonnegative 
+[info] ---------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 4) REMOVE variable (2, displacement) => cols = LinkedHashSet(0, 4, 5) @ 0.18130453058941998 |
+[info] ---------------------------------------------------------------------------------------------------------------------
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -156.95179653259308 to be nonnegative 
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -70.8099949822548 to be nonnegative 
+[info] -------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 5) REMOVE variable (5, acceleration) => cols = LinkedHashSet(0, 4) @ -0.22497570053380134 |
+[info] -------------------------------------------------------------------------------------------------------------------
+[info] k = 7
+[info] Run + title
+[info] x-axis: minX = 0.0, maxX = 7.0
+[info] y-axis: minY = -491.0, maxY = 92.0
+[info] rSq = 
+[info] MatrixD (-490.425,	-490.425,	91.8331,	-0.00000,
+[info]  	-22.1843,	-22.4976,	30.8366,	-0.00000,
+[info]  	18.5492,	18.1305,	27.9025,	-0.00000,
+[info]  	28.5550,	28.0026,	25.0767,	-0.00000,
+[info]  	53.3611,	52.8791,	21.1233,	-0.00000,
+[info]  	58.4122,	57.8734,	19.2321,	-0.00000,
+[info]  	58.6807,	58.0368,	19.1673,	-0.00000)
+[info] ----------------------
+[info] | Feature Importance |
+[info] ----------------------
+[info] col = 0, 	 mpg, 	 importance = -0.0
+[info] col = 4, 	 weight, 	 importance = 1.0
+[info] col = 5, 	 acceleration, 	 importance = 0.08699269542490186
+[info] col = 2, 	 displacement, 	 importance = 0.021368812990715774
+[info] col = 3, 	 horsepower, 	 importance = 0.0529774058512943
+[info] col = 6, 	 model year, 	 importance = 0.010787238072263053
+[info] col = 1, 	 cylinders, 	 importance = 5.736104969028154E-4
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] --------------------
+[info] | Stepwise FS Test |
+[info] --------------------
+[info] --------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 0) INITIAL variable (0, mpg) => cols = LinkedHashSet(0) |
+[info] --------------------------------------------------------------------------------
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -313.41749581135645 to be nonnegative 
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -321.1994991464861 to be nonnegative 
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -319.9950172431501 to be nonnegative 
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -70.8099949822548 to be nonnegative 
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -156.95179653259308 to be nonnegative 
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -241.06173882740484 to be nonnegative 
+[info] ERROR @ Predictor.backwardElim: could not find a variable x_j to eliminate: best.col = -1 
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(4,VectorD(-0.221843,	-0.224976,	23819.0,	29103.1,	8.47428,	74.2425,	8.61641,	6.78213,	30.8366,	392.000,	1.00000,	390.000,	-70.8100,	-1396.59,	-1388.65,	29.9953,	1.88102,	30.8468,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@3a6bb9bf), bestb = BestStep(-1,null,null)
+[info] stepwiseSelAll: (l = 1) ADD variable BestStep(4,VectorD(-0.221843,	-0.224976,	23819.0,	29103.1,	8.47428,	74.2425,	8.61641,	6.78213,	30.8366,	392.000,	1.00000,	390.000,	-70.8100,	-1396.59,	-1388.65,	29.9953,	1.88102,	30.8468,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@3a6bb9bf)
+[info] ---------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 1) ADD variable (4, weight) => cols = LinkedHashSet(0, 4) @ -0.22497570053380134 |
+[info] ---------------------------------------------------------------------------------------------------------
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -70.8099949822548 to be nonnegative 
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = Regression @dfm = 1.0
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(mpg, weight)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(0.715289,	47.8426)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> -0.221843, rSqBar -> -0.224976, sst -> 23818.993469, sse -> 29103.064968, sde -> 8.474275, mse0 -> 74.242513, rmse -> 8.616410, mae -> 6.782128, smape -> 30.836615, m -> 392.000000, dfm -> 1.000000, df -> 390.000000, fStat -> -70.809995, aic -> -1396.589206, bic -> -1388.646683, mape -> 29.995298, mase -> 1.881016, smapeC -> 30.846819, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -33.37312263214247 to be nonnegative 
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -16.073611129202533 to be nonnegative 
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -27.19340593661166 to be nonnegative 
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(5,VectorD(0.185492,	0.181305,	23819.0,	19400.8,	6.93997,	49.4917,	7.03504,	5.74953,	27.9025,	392.000,	2.00000,	389.000,	44.2945,	-1315.07,	-1303.15,	26.2394,	1.56667,	27.9178,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@e7edb54), bestb = BestStep(4,VectorD(-4.90425,	-4.90425,	23819.0,	140633,	15.8622,	358.758,	18.9409,	16.4234,	91.8331,	392.000,	0.00000,	391.000,	0.00000,	-1721.37,	-1717.40,	68.3846,	4.05229,	91.8382,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@11bd0f3b)
+[info] stepwiseSelAll: (l = 2) ADD variable BestStep(5,VectorD(0.185492,	0.181305,	23819.0,	19400.8,	6.93997,	49.4917,	7.03504,	5.74953,	27.9025,	392.000,	2.00000,	389.000,	44.2945,	-1315.07,	-1303.15,	26.2394,	1.56667,	27.9178,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@e7edb54)
+[info] -----------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 2) ADD variable (5, acceleration) => cols = LinkedHashSet(0, 4, 5) @ 0.18130453058941998 |
+[info] -----------------------------------------------------------------------------------------------------------------
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = Regression @dfm = 2.0
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(mpg, weight, acceleration)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(0.0394215,	31.4307,	16.2810)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.185492, rSqBar -> 0.181305, sst -> 23818.993469, sse -> 19400.755226, sde -> 6.939969, mse0 -> 49.491723, rmse -> 7.035035, mae -> 5.749534, smape -> 27.902490, m -> 392.000000, dfm -> 2.000000, df -> 389.000000, fStat -> 44.294530, aic -> -1315.065462, bic -> -1303.151677, mape -> 26.239446, mase -> 1.566673, smapeC -> 27.917796, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -156.95179653259308 to be nonnegative 
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -70.8099949822548 to be nonnegative 
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(6,VectorD(0.397835,	0.393179,	23819.0,	14343.0,	5.99395,	36.5892,	6.04890,	4.80229,	22.9017,	392.000,	3.00000,	388.000,	85.4473,	-1253.82,	-1237.93,	21.8373,	1.42451,	22.9221,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@53976f5c), bestb = BestStep(5,VectorD(-0.221843,	-0.224976,	23819.0,	29103.1,	8.47428,	74.2425,	8.61641,	6.78213,	30.8366,	392.000,	1.00000,	390.000,	-70.8100,	-1396.59,	-1388.65,	29.9953,	1.88102,	30.8468,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@41e1e210)
+[info] stepwiseSelAll: (l = 3) ADD variable BestStep(6,VectorD(0.397835,	0.393179,	23819.0,	14343.0,	5.99395,	36.5892,	6.04890,	4.80229,	22.9017,	392.000,	3.00000,	388.000,	85.4473,	-1253.82,	-1237.93,	21.8373,	1.42451,	22.9221,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@53976f5c)
+[info] -----------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 3) ADD variable (6, model year) => cols = LinkedHashSet(0, 4, 5, 6) @ 0.3931791944674977 |
+[info] -----------------------------------------------------------------------------------------------------------------
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = Regression @dfm = 3.0
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(mpg, weight, acceleration, model year)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(2.97321,	24.8435,	14.3125,	9.79711)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.397835, rSqBar -> 0.393179, sst -> 23818.993469, sse -> 14342.961616, sde -> 5.993948, mse0 -> 36.589188, rmse -> 6.048900, mae -> 4.802291, smape -> 22.901721, m -> 392.000000, dfm -> 3.000000, df -> 388.000000, fStat -> 85.447261, aic -> -1253.818172, bic -> -1237.933124, mape -> 21.837312, mase -> 1.424509, smapeC -> 22.922130, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -10.636642480253624 to be nonnegative 
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(2,VectorD(0.436526,	0.430702,	23819.0,	13421.4,	5.81747,	34.2382,	5.85135,	4.70467,	21.9958,	392.000,	4.00000,	387.000,	74.9526,	-1238.78,	-1218.92,	21.4124,	1.36252,	22.0214,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@1ba9117e), bestb = BestStep(6,VectorD(0.185492,	0.181305,	23819.0,	19400.8,	6.93997,	49.4917,	7.03504,	5.74953,	27.9025,	392.000,	2.00000,	389.000,	44.2945,	-1315.07,	-1303.15,	26.2394,	1.56667,	27.9178,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@cad498c)
+[info] stepwiseSelAll: (l = 4) ADD variable BestStep(2,VectorD(0.436526,	0.430702,	23819.0,	13421.4,	5.81747,	34.2382,	5.85135,	4.70467,	21.9958,	392.000,	4.00000,	387.000,	74.9526,	-1238.78,	-1218.92,	21.4124,	1.36252,	22.0214,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@1ba9117e)
+[info] ----------------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 4) ADD variable (2, displacement) => cols = LinkedHashSet(0, 4, 5, 6, 2) @ 0.4307016389018118 |
+[info] ----------------------------------------------------------------------------------------------------------------------
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = Regression @dfm = 4.0
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(mpg, weight, acceleration, model year, displacement)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(-5.42305,	25.7861,	14.1639,	8.59534,	13.6020)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.436526, rSqBar -> 0.430702, sst -> 23818.993469, sse -> 13421.391552, sde -> 5.817467, mse0 -> 34.238244, rmse -> 5.851345, mae -> 4.704672, smape -> 21.995842, m -> 392.000000, dfm -> 4.000000, df -> 387.000000, fStat -> 74.952585, aic -> -1238.778947, bic -> -1218.922638, mape -> 21.412366, mase -> 1.362521, smapeC -> 22.021352, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -5.71272167383952 to be nonnegative 
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(3,VectorD(0.584122,	0.578734,	23819.0,	9905.81,	5.00350,	25.2699,	5.02692,	3.99513,	19.2321,	392.000,	5.00000,	386.000,	108.431,	-1177.24,	-1153.41,	18.9102,	1.26809,	19.2627,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@5ace1ed4), bestb = BestStep(2,VectorD(0.397835,	0.393179,	23819.0,	14343.0,	5.99395,	36.5892,	6.04890,	4.80229,	22.9017,	392.000,	3.00000,	388.000,	85.4473,	-1253.82,	-1237.93,	21.8373,	1.42451,	22.9221,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@27ff5d15)
+[info] stepwiseSelAll: (l = 5) ADD variable BestStep(3,VectorD(0.584122,	0.578734,	23819.0,	9905.81,	5.00350,	25.2699,	5.02692,	3.99513,	19.2321,	392.000,	5.00000,	386.000,	108.431,	-1177.24,	-1153.41,	18.9102,	1.26809,	19.2627,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.Regression@5ace1ed4)
+[info] -----------------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 5) ADD variable (3, horsepower) => cols = LinkedHashSet(0, 4, 5, 6, 2, 3) @ 0.5787344988375547 |
+[info] -----------------------------------------------------------------------------------------------------------------------
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = Regression @dfm = 5.0
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(mpg, weight, acceleration, model year, displacement, horsepower)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(5.76025,	32.2832,	14.4416,	5.32667,	33.6036,	-35.7975)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.584122, rSqBar -> 0.578734, sst -> 23818.993469, sse -> 9905.806663, sde -> 5.003499, mse0 -> 25.269915, rmse -> 5.026919, mae -> 3.995135, smape -> 19.232133, m -> 392.000000, dfm -> 5.000000, df -> 386.000000, fStat -> 108.431151, aic -> -1177.242276, bic -> -1153.414705, mape -> 18.910172, mase -> 1.268086, smapeC -> 19.262745, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] stepwiseSelAll: selected features = LinkedHashSet(0, 4, 5, 6, 2, 3)
+[info] stepwiseSelAll: selected features = LinkedHashSet(mpg, weight, acceleration, model year, displacement, horsepower)
+[info] stepwiseSelAll: features in/out   = ArrayBuffer(4, 5, 6, 2, 3)
+[info] k = 6
+[info] Run + title
+[info] x-axis: minX = 0.0, maxX = 5.0
+[info] y-axis: minY = -23.0, maxY = 59.0
+[info] rSq = 
+[info] MatrixD (-22.1843,	-22.4976,	30.8366,	-0.00000,
+[info]  	18.5492,	18.1305,	27.9025,	-0.00000,
+[info]  	39.7835,	39.3179,	22.9017,	-0.00000,
+[info]  	43.6526,	43.0702,	21.9958,	-0.00000,
+[info]  	58.4122,	57.8734,	19.2321,	-0.00000)
+[info] ----------------------
+[info] | Feature Importance |
+[info] ----------------------
+[info] col = 0, 	 mpg, 	 importance = -0.0
+[info] col = 4, 	 weight, 	 importance = 1.0
+[info] col = 5, 	 acceleration, 	 importance = 0.5212978913334874
+[info] col = 6, 	 model year, 	 importance = 0.09498460562499145
+[info] col = 2, 	 displacement, 	 importance = 0.3623451510118759
+[info] Run + title
+[success] Total time: 28 s, completed Sep 17, 2025, 11:48:50 PM
