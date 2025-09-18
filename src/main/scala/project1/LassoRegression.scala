@@ -31,8 +31,8 @@ import scalation.modeling.qk
     // val y = VectorD(data.map(_(0).toDouble))
 
     // Extract x
-    // val xRows = data.map(row => row.drop(1).map(_.toDouble))
-    // val x = MatrixD(xRows.map(row => VectorD(row)).toIndexedSeq)
+    val xRows = data.map(row => row.drop(1).map(_.toDouble))
+    val x = MatrixD(xRows.map(row => VectorD(row)).toIndexedSeq)
 
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -41,19 +41,7 @@ import scalation.modeling.qk
     val y = VectorD(data.map(_(0).toDouble))
 
     // Extract x
-    val xRows = data.map(row => row.drop(1).map(_.toDouble))
-    val xRaw = MatrixD(xRows.map(row => VectorD(row)).toIndexedSeq)
-
-    val xMin = minCol(xRaw)
-    val xMax = maxCol(xRaw)
-
-    val x = MatrixD((0 until xRaw.dim).map(i => {
-        val row = xRaw(i)
-        VectorD(row.zipWithIndex.map { case (v, j) =>
-            if (xMax(j) != xMin(j)) then (v - xMin(j)) / (xMax(j) - xMin(j)) else 0.0
-        })
-    }).toIndexedSeq)
-
+   
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     // Print first 5 y values and x rows for verification

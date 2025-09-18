@@ -1,0 +1,472 @@
+[info] welcome to sbt 1.11.4 (Oracle Corporation Java 24.0.2)
+[info] loading project definition from /mnt/c/Libs/scalation_2.0/project
+[info] loading settings for project scalation from build.sbt...
+[info] set current project to scalation (in build file:/mnt/c/Libs/scalation_2.0/)
+[info] compiling 1 Scala source to /mnt/c/Libs/scalation_2.0/target/scala-3.7.2/classes ...
+[info] done compiling
+[info] running (fork) project1.LassoRegression 
+[error] WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+[error] WARNING: sun.misc.Unsafe::objectFieldOffset has been called by scala.runtime.LazyVals$ (file:/mnt/c/Libs/scalation_2.0/target/bg-jobs/sbt_f11ea27f/target/21dbe174/563b310f/scala3-library_3-3.7.2.jar)
+[error] WARNING: Please consider reporting this to the maintainers of class scala.runtime.LazyVals$
+[error] WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.704443,	0.0218532,	-0.0395369,	-0.00603288,	-0.0795200,	0.583583,	1.30915)
+[info] DEBUG @ Predictor.trainNTest: b = VectorD(-0.704443,	0.0218532,	-0.0395369,	-0.00603288,	-0.0795200,	0.583583,	1.30915)
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = LassoRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_Cholesky,Fac_Cholesky), lambda -> (0.1,0.1), beta -> (0.1,0.1), pow -> (0.5,0.5), tol -> (1.0E-6,1.0E-6), eps -> (1.0E-8,1.0E-8), maxIter -> (50,50))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(mpg, cylinders, displacement, horsepower, weight, acceleration, model year, origin)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(-0.704443,	0.0218532,	-0.0395369,	-0.00603288,	-0.0795200,	0.583583,	1.30915)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.815088, rSqBar -> 0.812206, sst -> 23818.993469, sse -> 4404.418684, sde -> 3.356187, mse0 -> 11.235762, rmse -> 3.351979, mae -> 2.520439, smape -> 11.502097, m -> 392.000000, dfm -> 6.000000, df -> 385.000000, fStat -> 282.845169, aic -> -1016.367843, bic -> -988.569010, mape -> 11.602487, mase -> 1.050192, smapeC -> 11.537811, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] Run + title
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -56.289592455835695 to be nonnegative 
+[info] fname = Array(mpg, cylinders, displacement, horsepower, weight, acceleration, model year, origin)
+[info] SUMMARY
+[info]     Parameters/Coefficients:
+[info]     Var      Estimate    Std. Error 	 t value 	 Pr(>|t|) 	 VIF
+[info] ----------------------------------------------------------------------------------
+[info]     x0	 -0.704443	 0.323403	 -2.178220	 0.029390	 NA
+[info]     x1	 0.021853	 0.007619	 2.868191	 0.004128	 21.726682
+[info]     x2	 -0.039537	 0.012568	 -3.145758	 0.001657	 7.998822
+[info]     x3	 -0.006033	 0.000652	 -9.258683	 0.000000	 10.469541
+[info]     x4	 -0.079520	 0.090360	 -0.880031	 0.378842	 2.124055
+[info]     x5	 0.583583	 0.024166	 24.148643	 0.000000	 0.270860
+[info]     x6	 1.309145	 0.280902	 4.660503	 0.000003	 1.749885
+[info]     Residual standard error: 3.382314 on 385.0 degrees of freedom
+[info]     Multiple R-squared:  0.815088,	Adjusted R-squared:  0.812206
+[info]     F-statistic: 282.84516935362427 on 6.0 and 385.0 DF,  p-value: -0.0
+[info] ----------------------------------------------------------------------------------
+[info]         
+[info] --------------
+[info] | Validation |
+[info] --------------
+[info] DEBUG @ Predictor.validate: n_test = 78, rando = true
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.690412,	0.0218495,	-0.0427908,	-0.00606386,	-0.126740,	0.598980,	1.20896)
+[info] LinkedHashMap(rSq -> 0.838201, rSqBar -> 0.835679, sst -> 4731.234872, sse -> 765.509643, sde -> 3.131023, mse0 -> 9.814226, rmse -> 3.132767, mae -> 2.351713, smape -> 11.274525, m -> 78.000000, dfm -> 6.000000, df -> 385.000000, fStat -> 332.415628, aic -> -186.087714, bic -> -169.590752, mape -> 10.827813, mase -> 1.005317, smapeC -> 11.454012, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] --------------------
+[info] | cross-validation |
+[info] --------------------
+[info] --------------------------------------------------------------
+[info] | crossValidate: fold 0: train-test splits sizes = (314, 78) |
+[info] --------------------------------------------------------------
+[info] DEBUG @ Predictor.validate: n_test = 78, rando = true
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.950177,	0.0250343,	-0.0387182,	-0.00592418,	-0.117684,	0.594529,	1.33989)
+[info] LinkedHashMap(rSq -> 0.841142, rSqBar -> 0.838667, sst -> 4531.937949, sse -> 719.933454, sde -> 3.054000, mse0 -> 9.229916, rmse -> 3.038078, mae -> 2.405846, smape -> 10.553581, m -> 78.000000, dfm -> 6.000000, df -> 385.000000, fStat -> 339.758655, aic -> -184.059447, bic -> -167.562485, mape -> 10.635135, mase -> 0.922885, smapeC -> 10.733068, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] DEBUG @ Predictor.crossValidate: fold 0: qof = VectorD(0.841142,	0.838667,	4531.94,	719.933,	3.05400,	9.22992,	3.03808,	2.40585,	10.5536,	78.0000,	6.00000,	385.000,	339.759,	-184.059,	-167.562,	10.6351,	0.922885,	10.7331,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+[info] --------------------------------------------------------------
+[info] | crossValidate: fold 1: train-test splits sizes = (314, 78) |
+[info] --------------------------------------------------------------
+[info] DEBUG @ Predictor.validate: n_test = 78, rando = true
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.827939,	0.0237309,	-0.0380965,	-0.00593716,	-0.0266373,	0.572174,	1.24199)
+[info] LinkedHashMap(rSq -> 0.792545, rSqBar -> 0.789312, sst -> 5020.963718, sse -> 1041.625556, sde -> 3.676700, mse0 -> 13.354174, rmse -> 3.654336, mae -> 2.739538, smape -> 11.568008, m -> 78.000000, dfm -> 6.000000, df -> 385.000000, fStat -> 245.136905, aic -> -198.375640, bic -> -181.878678, mape -> 11.803274, mase -> 0.934903, smapeC -> 11.747495, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] DEBUG @ Predictor.crossValidate: fold 1: qof = VectorD(0.792545,	0.789312,	5020.96,	1041.63,	3.67670,	13.3542,	3.65434,	2.73954,	11.5680,	78.0000,	6.00000,	385.000,	245.137,	-198.376,	-181.879,	11.8033,	0.934903,	11.7475,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+[info] --------------------------------------------------------------
+[info] | crossValidate: fold 2: train-test splits sizes = (314, 78) |
+[info] --------------------------------------------------------------
+[info] DEBUG @ Predictor.validate: n_test = 78, rando = true
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.732913,	0.0207311,	-0.0488327,	-0.00548224,	-0.208473,	0.602130,	1.43778)
+[info] LinkedHashMap(rSq -> 0.776416, rSqBar -> 0.772932, sst -> 5812.381538, sse -> 1299.553589, sde -> 4.084131, mse0 -> 16.660943, rmse -> 4.081782, mae -> 2.695818, smape -> 12.223577, m -> 78.000000, dfm -> 6.000000, df -> 385.000000, fStat -> 222.825076, aic -> -209.854154, bic -> -193.357192, mape -> 11.912517, mase -> 0.942399, smapeC -> 12.403064, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] DEBUG @ Predictor.crossValidate: fold 2: qof = VectorD(0.776416,	0.772932,	5812.38,	1299.55,	4.08413,	16.6609,	4.08178,	2.69582,	12.2236,	78.0000,	6.00000,	385.000,	222.825,	-209.854,	-193.357,	11.9125,	0.942399,	12.4031,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+[info] --------------------------------------------------------------
+[info] | crossValidate: fold 3: train-test splits sizes = (314, 78) |
+[info] --------------------------------------------------------------
+[info] DEBUG @ Predictor.validate: n_test = 78, rando = true
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.645797,	0.0217625,	-0.0382994,	-0.00632913,	-0.0442773,	0.587709,	1.11045)
+[info] LinkedHashMap(rSq -> 0.837137, rSqBar -> 0.834599, sst -> 4224.373462, sse -> 687.993985, sde -> 2.944677, mse0 -> 8.820436, rmse -> 2.969922, mae -> 2.381762, smape -> 11.244416, m -> 78.000000, dfm -> 6.000000, df -> 385.000000, fStat -> 329.825097, aic -> -182.638052, bic -> -166.141090, mape -> 11.665153, mase -> 0.973081, smapeC -> 11.423903, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] DEBUG @ Predictor.crossValidate: fold 3: qof = VectorD(0.837137,	0.834599,	4224.37,	687.994,	2.94468,	8.82044,	2.96992,	2.38176,	11.2444,	78.0000,	6.00000,	385.000,	329.825,	-182.638,	-166.141,	11.6652,	0.973081,	11.4239,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+[info] --------------------------------------------------------------
+[info] | crossValidate: fold 4: train-test splits sizes = (314, 78) |
+[info] --------------------------------------------------------------
+[info] DEBUG @ Predictor.validate: n_test = 78, rando = true
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.425508,	0.0193090,	-0.0337667,	-0.00651723,	0.00564511,	0.561540,	1.42040)
+[info] LinkedHashMap(rSq -> 0.796718, rSqBar -> 0.793550, sst -> 4095.068846, sse -> 832.453763, sde -> 3.286284, mse0 -> 10.672484, rmse -> 3.266877, mae -> 2.626653, smape -> 13.202454, m -> 78.000000, dfm -> 6.000000, df -> 385.000000, fStat -> 251.486802, aic -> -189.066913, bic -> -172.569952, mape -> 13.125278, mase -> 1.095976, smapeC -> 13.381942, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info] DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.796718,	0.793550,	4095.07,	832.454,	3.28628,	10.6725,	3.26688,	2.62665,	13.2025,	78.0000,	6.00000,	385.000,	251.487,	-189.067,	-172.570,	13.1253,	1.09598,	13.3819,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] --------------------------
+[info] | Forward Selection Test |
+[info] --------------------------
+[info] DEBUG @ LassoRegression.buildModel: 392 by 1
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(3.59172)
+[info] -------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 0) INITIAL variable (0, mpg) => cols = LinkedHashSet(0) |
+[info] -------------------------------------------------------------------------------
+[info] DEBUG @ LassoRegression.buildModel: 392 by 2
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(11.7514,	-0.217339)
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -62.19014163786124 to be nonnegative 
+[info] DEBUG @ LassoRegression.buildModel: 392 by 2
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(5.17050,	-0.0827209)
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -261.09540291778234 to be nonnegative 
+[info] DEBUG @ LassoRegression.buildModel: 392 by 2
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.0748861,	0.00684628)
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -257.63516680253537 to be nonnegative 
+[info] DEBUG @ LassoRegression.buildModel: 392 by 2
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-1.10337,	1.86529)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 2
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-3.21346,	0.540421)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 2
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(1.25118,	9.79664)
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -31.12626081103582 to be nonnegative 
+[info] ------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 1) ADD variable (5, acceleration) => cols = LinkedHashSet(0, 5) @ 0.7055067779389681 |
+[info] ------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ LassoRegression.buildModel: 392 by 3
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.927770,	0.478240,	-0.0400246)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 3
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-1.97344,	0.538768,	-0.0638803)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 3
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.284394,	0.582491,	-0.00645828)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 3
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-3.27401,	0.565730,	-0.102554)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 3
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-2.86332,	0.483659,	1.52625)
+[info] -------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 2) ADD variable (3, horsepower) => cols = LinkedHashSet(0, 5, 3) @ 0.8015966530759103 |
+[info] -------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ LassoRegression.buildModel: 392 by 4
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.507557,	0.594708,	-0.00678429,	0.00649694)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 4
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.196574,	0.580263,	-0.00616174,	-0.0114525)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 4
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.281352,	0.581670,	-0.00646058,	0.00338523)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 4
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.217519,	0.547596,	-0.00615775,	0.885629)
+[info] ----------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 3) ADD variable (6, model year) => cols = LinkedHashSet(0, 5, 3, 6) @ 0.8068385704149248 |
+[info] ----------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ LassoRegression.buildModel: 392 by 5
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.633837,	0.566472,	-0.00674051,	0.996650,	0.0123643)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 5
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.0598073,	0.539229,	-0.00561539,	1.00207,	-0.0194204)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 5
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.206856,	0.544692,	-0.00616524,	0.887072,	0.0117468)
+[info] ---------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 4) ADD variable (2, displacement) => cols = LinkedHashSet(0, 5, 3, 6, 2) @ 0.8083286851369669 |
+[info] ---------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ LassoRegression.buildModel: 392 by 6
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.713082,	0.567954,	-0.00629308,	1.29296,	-0.0337160,	0.0228495)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 6
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.0892618,	0.564284,	-0.00527305,	1.04492,	-0.0289850,	-0.118025)
+[info] ---------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 5) ADD variable (1, cylinders) => cols = LinkedHashSet(0, 5, 3, 6, 2, 1) @ 0.8123150308111806 |
+[info] ---------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ LassoRegression.buildModel: 392 by 7
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.704443,	0.583583,	-0.00603288,	1.30915,	-0.0395369,	0.0218532,	-0.0795200)
+[info] ---------------------------------------------------------------------------------------------------------------------
+[info] | forwardSelAll: (l = 6) ADD variable (4, weight) => cols = LinkedHashSet(0, 5, 3, 6, 2, 1, 4) @ 0.8122062134420794 |
+[info] ---------------------------------------------------------------------------------------------------------------------
+[info] Run + title
+[info] x-axis: minX = 1.0, maxX = 7.0
+[info] y-axis: minY = -208.0, maxY = 82.0
+[info] rSq = 
+[info] MatrixD (-207.367,	-207.367,	54.6565,	-0.00000,
+[info]  	70.6260,	70.5507,	13.3541,	-0.00000,
+[info]  	80.2612,	80.1597,	11.8493,	-0.00000,
+[info]  	80.8321,	80.6839,	11.3714,	-0.00000,
+[info]  	81.0290,	80.8329,	11.5482,	-0.00000,
+[info]  	81.4715,	81.2315,	11.5142,	-0.00000,
+[info]  	81.5088,	81.2206,	11.5021,	-0.00000)
+[info] ----------------------
+[info] | Feature Importance |
+[info] ----------------------
+[info] col = 0, 	 mpg, 	 importance = -0.0
+[info] col = 5, 	 acceleration, 	 importance = 1.0
+[info] col = 3, 	 horsepower, 	 importance = 0.03465973776859329
+[info] col = 6, 	 model year, 	 importance = 0.002053695342791563
+[info] col = 2, 	 displacement, 	 importance = 7.082522199483552E-4
+[info] col = 1, 	 cylinders, 	 importance = 0.0015919760111393533
+[info] col = 4, 	 weight, 	 importance = 1.3412767672014788E-4
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] -----------------------------
+[info] | Backward Elimination Test |
+[info] -----------------------------
+[info] DEBUG @ LassoRegression.buildModel: 392 by 7
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.704443,	0.0218532,	-0.0395369,	-0.00603288,	-0.0795200,	0.583583,	1.30915)
+[info] ----------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 0) INITIAL variables (all) => cols = LinkedHashSet(0, 1, 2, 3, 4, 5, 6) @ 0.8122062134420794 |
+[info] ----------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ LassoRegression.buildModel: 392 by 6
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.0892618,	-0.0289850,	-0.00527305,	-0.118025,	0.564284,	1.04492)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 6
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.653477,	0.0148338,	-0.00690149,	0.0699737,	0.552945,	1.02742)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 6
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.998272,	-0.00682639,	-0.0888630,	-0.459145,	0.580601,	1.61925)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 6
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.713082,	0.0228495,	-0.0337160,	-0.00629308,	0.567954,	1.29296)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 6
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(1.69808,	-0.0293515,	0.0828599,	-0.00582227,	1.52409,	2.91362)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 6
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.521686,	0.0102075,	-0.0208649,	-0.00639495,	-0.0519426,	0.610215)
+[info] -----------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 1) REMOVE variable (4, weight) => cols = LinkedHashSet(0, 1, 2, 3, 5, 6) @ 0.8123150308111805 |
+[info] -----------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ LassoRegression.buildModel: 392 by 5
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.0598073,	-0.0194204,	-0.00561539,	0.539229,	1.00207)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 5
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.633837,	0.0123643,	-0.00674051,	0.566472,	0.996650)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 5
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-1.15320,	-0.00857726,	-0.0620068,	0.466030,	1.59880)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 5
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(4.74060,	-0.128025,	-0.0231044,	0.00525375,	5.37807)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 5
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.528833,	0.0109555,	-0.0171978,	-0.00656271,	0.599746)
+[info] -----------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 2) REMOVE variable (1, cylinders) => cols = LinkedHashSet(0, 2, 3, 5, 6) @ 0.8083286851369667 |
+[info] -----------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ LassoRegression.buildModel: 392 by 4
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.217519,	-0.00615775,	0.547596,	0.885629)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 4
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-1.46195,	-0.0696486,	0.473850,	1.74149)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 4
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(1.56583,	-0.138853,	0.00446487,	9.56317)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 4
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.196574,	-0.0114525,	-0.00616174,	0.580263)
+[info] -----------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 3) REMOVE variable (2, displacement) => cols = LinkedHashSet(0, 3, 5, 6) @ 0.8068385704149246 |
+[info] -----------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ LassoRegression.buildModel: 392 by 3
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-2.86332,	0.483659,	1.52625)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 3
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(0.518754,	0.00141395,	9.69270)
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -14.663315357537849 to be nonnegative 
+[info] DEBUG @ LassoRegression.buildModel: 392 by 3
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.284394,	-0.00645828,	0.582491)
+[info] ------------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 4) REMOVE variable (6, model year) => cols = LinkedHashSet(0, 3, 5) @ 0.8015966530759105 |
+[info] ------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ LassoRegression.buildModel: 392 by 2
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-3.21346,	0.540421)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 2
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.0748861,	0.00684628)
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -257.63516680253537 to be nonnegative 
+[info] ---------------------------------------------------------------------------------------------------------------
+[info] | backwardElimAll: (l = 5) REMOVE variable (3, horsepower) => cols = LinkedHashSet(0, 5) @ 0.7055067779389681 |
+[info] ---------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ LassoRegression.buildModel: 392 by 1
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(3.59172)
+[info] k = 7
+[info] Run + title
+[info] x-axis: minX = 0.0, maxX = 7.0
+[info] y-axis: minY = -208.0, maxY = 82.0
+[info] rSq = 
+[info] MatrixD (-207.367,	-207.367,	54.6565,	-0.00000,
+[info]  	70.6260,	70.5507,	13.3541,	-0.00000,
+[info]  	80.2612,	80.1597,	11.8493,	-0.00000,
+[info]  	80.8321,	80.6839,	11.3714,	-0.00000,
+[info]  	81.0290,	80.8329,	11.5482,	-0.00000,
+[info]  	81.4715,	81.2315,	11.5142,	-0.00000,
+[info]  	81.5088,	81.2206,	11.5021,	-0.00000)
+[info] ----------------------
+[info] | Feature Importance |
+[info] ----------------------
+[info] col = 0, 	 mpg, 	 importance = -0.0
+[info] col = 5, 	 acceleration, 	 importance = 1.0
+[info] col = 3, 	 horsepower, 	 importance = 0.03465973776859339
+[info] col = 6, 	 model year, 	 importance = 0.0020536953427914098
+[info] col = 2, 	 displacement, 	 importance = 7.082522199483041E-4
+[info] col = 1, 	 cylinders, 	 importance = 0.0015919760111394554
+[info] col = 4, 	 weight, 	 importance = 1.3412767672014788E-4
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[info] --------------------
+[info] | Stepwise FS Test |
+[info] --------------------
+[info] --------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 0) INITIAL variable (0, mpg) => cols = LinkedHashSet(0) |
+[info] --------------------------------------------------------------------------------
+[info] DEBUG @ LassoRegression.buildModel: 392 by 2
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(11.7514,	-0.217339)
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -62.19014163786124 to be nonnegative 
+[info] DEBUG @ LassoRegression.buildModel: 392 by 2
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(5.17050,	-0.0827209)
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -261.09540291778234 to be nonnegative 
+[info] DEBUG @ LassoRegression.buildModel: 392 by 2
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.0748861,	0.00684628)
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -257.63516680253537 to be nonnegative 
+[info] DEBUG @ LassoRegression.buildModel: 392 by 2
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-1.10337,	1.86529)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 2
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-3.21346,	0.540421)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 2
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(1.25118,	9.79664)
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -31.12626081103582 to be nonnegative 
+[info] ERROR @ Predictor.backwardElim: could not find a variable x_j to eliminate: best.col = -1 
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(5,VectorD(0.706260,	0.705507,	23819.0,	6996.59,	4.23003,	17.8484,	4.22474,	3.19761,	13.3541,	392.000,	1.00000,	390.000,	937.705,	-1117.08,	-1109.14,	13.6967,	1.09031,	13.3643,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.LassoRegression@4944252c), bestb = BestStep(-1,null,null)
+[info] stepwiseSelAll: (l = 1) ADD variable BestStep(5,VectorD(0.706260,	0.705507,	23819.0,	6996.59,	4.23003,	17.8484,	4.22474,	3.19761,	13.3541,	392.000,	1.00000,	390.000,	937.705,	-1117.08,	-1109.14,	13.6967,	1.09031,	13.3643,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.LassoRegression@4944252c)
+[info] -------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 1) ADD variable (5, acceleration) => cols = LinkedHashSet(0, 5) @ 0.7055067779389681 |
+[info] -------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ LassoRegression.buildModel: 392 by 2
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-3.21346,	0.540421)
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = LassoRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_Cholesky,Fac_Cholesky), lambda -> (0.1,0.1), beta -> (0.1,0.1), pow -> (0.5,0.5), tol -> (1.0E-6,1.0E-6), eps -> (1.0E-8,1.0E-8), maxIter -> (50,50))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(mpg, acceleration)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(-3.21346,	0.540421)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.706260, rSqBar -> 0.705507, sst -> 23818.993469, sse -> 6996.592153, sde -> 4.230026, mse0 -> 17.848449, rmse -> 4.224743, mae -> 3.197614, smape -> 13.354078, m -> 392.000000, dfm -> 1.000000, df -> 390.000000, fStat -> 937.704581, aic -> -1117.079566, bic -> -1109.137042, mape -> 13.696718, mase -> 1.090306, smapeC -> 13.364283, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ LassoRegression.buildModel: 392 by 3
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.927770,	0.478240,	-0.0400246)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 3
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-1.97344,	0.538768,	-0.0638803)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 3
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.284394,	0.582491,	-0.00645828)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 3
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-3.27401,	0.565730,	-0.102554)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 3
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-2.86332,	0.483659,	1.52625)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 1
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(3.59172)
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(3,VectorD(0.802612,	0.801597,	23819.0,	4701.60,	3.46755,	11.9939,	3.46322,	2.61759,	11.8493,	392.000,	2.00000,	389.000,	790.866,	-1037.17,	-1025.25,	11.9286,	1.04818,	11.8646,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.LassoRegression@51dcb805), bestb = BestStep(5,VectorD(-2.07367,	-2.07367,	23819.0,	73211.7,	13.1463,	186.764,	13.6662,	12.0491,	54.6565,	392.000,	0.00000,	391.000,	0.00000,	-1579.92,	-1575.95,	55.0152,	2.89284,	54.6616,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.LassoRegression@6631f5ca)
+[info] stepwiseSelAll: (l = 2) ADD variable BestStep(3,VectorD(0.802612,	0.801597,	23819.0,	4701.60,	3.46755,	11.9939,	3.46322,	2.61759,	11.8493,	392.000,	2.00000,	389.000,	790.866,	-1037.17,	-1025.25,	11.9286,	1.04818,	11.8646,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.LassoRegression@51dcb805)
+[info] --------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 2) ADD variable (3, horsepower) => cols = LinkedHashSet(0, 5, 3) @ 0.8015966530759103 |
+[info] --------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ LassoRegression.buildModel: 392 by 3
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.284394,	0.582491,	-0.00645828)
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = LassoRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_Cholesky,Fac_Cholesky), lambda -> (0.1,0.1), beta -> (0.1,0.1), pow -> (0.5,0.5), tol -> (1.0E-6,1.0E-6), eps -> (1.0E-8,1.0E-8), maxIter -> (50,50))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(mpg, acceleration, horsepower)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(-0.284394,	0.582491,	-0.00645828)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.802612, rSqBar -> 0.801597, sst -> 23818.993469, sse -> 4701.595298, sde -> 3.467550, mse0 -> 11.993866, rmse -> 3.463216, mae -> 2.617587, smape -> 11.849251, m -> 392.000000, dfm -> 2.000000, df -> 389.000000, fStat -> 790.866442, aic -> -1037.165387, bic -> -1025.251602, mape -> 11.928603, mase -> 1.048178, smapeC -> 11.864558, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ LassoRegression.buildModel: 392 by 4
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.507557,	0.594708,	-0.00678429,	0.00649694)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 4
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.196574,	0.580263,	-0.00616174,	-0.0114525)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 4
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.281352,	0.581670,	-0.00646058,	0.00338523)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 4
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.217519,	0.547596,	-0.00615775,	0.885629)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 2
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-3.21346,	0.540421)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 2
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.0748861,	0.00684628)
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -257.63516680253537 to be nonnegative 
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(6,VectorD(0.808321,	0.806839,	23819.0,	4565.61,	3.41699,	11.6470,	3.41276,	2.53966,	11.3714,	392.000,	3.00000,	388.000,	545.405,	-1029.41,	-1013.53,	11.4994,	1.04733,	11.3919,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.LassoRegression@a2431d0), bestb = BestStep(3,VectorD(0.706260,	0.705507,	23819.0,	6996.59,	4.23003,	17.8484,	4.22474,	3.19761,	13.3541,	392.000,	1.00000,	390.000,	937.705,	-1117.08,	-1109.14,	13.6967,	1.09031,	13.3643,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.LassoRegression@1a4013)
+[info] stepwiseSelAll: (l = 3) ADD variable BestStep(6,VectorD(0.808321,	0.806839,	23819.0,	4565.61,	3.41699,	11.6470,	3.41276,	2.53966,	11.3714,	392.000,	3.00000,	388.000,	545.405,	-1029.41,	-1013.53,	11.4994,	1.04733,	11.3919,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.LassoRegression@a2431d0)
+[info] -----------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 3) ADD variable (6, model year) => cols = LinkedHashSet(0, 5, 3, 6) @ 0.8068385704149248 |
+[info] -----------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ LassoRegression.buildModel: 392 by 4
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.217519,	0.547596,	-0.00615775,	0.885629)
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = LassoRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_Cholesky,Fac_Cholesky), lambda -> (0.1,0.1), beta -> (0.1,0.1), pow -> (0.5,0.5), tol -> (1.0E-6,1.0E-6), eps -> (1.0E-8,1.0E-8), maxIter -> (50,50))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(mpg, acceleration, horsepower, model year)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(-0.217519,	0.547596,	-0.00615775,	0.885629)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.808321, rSqBar -> 0.806839, sst -> 23818.993469, sse -> 4565.609724, sde -> 3.416986, mse0 -> 11.646964, rmse -> 3.412765, mae -> 2.539658, smape -> 11.371444, m -> 392.000000, dfm -> 3.000000, df -> 388.000000, fStat -> 545.404546, aic -> -1029.412825, bic -> -1013.527778, mape -> 11.499409, mase -> 1.047332, smapeC -> 11.391852, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ LassoRegression.buildModel: 392 by 5
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.633837,	0.566472,	-0.00674051,	0.996650,	0.0123643)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 5
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.0598073,	0.539229,	-0.00561539,	1.00207,	-0.0194204)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 5
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.206856,	0.544692,	-0.00616524,	0.887072,	0.0117468)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 3
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-2.86332,	0.483659,	1.52625)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 3
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(0.518754,	0.00141395,	9.69270)
+[info] ERROR @ CDF.fisherCDF: F(x) requires coordinate x = -14.663315357537849 to be nonnegative 
+[info] DEBUG @ LassoRegression.buildModel: 392 by 3
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.284394,	0.582491,	-0.00645828)
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(2,VectorD(0.810290,	0.808329,	23819.0,	4518.71,	3.39942,	11.5273,	3.39519,	2.54775,	11.5482,	392.000,	4.00000,	387.000,	413.238,	-1025.39,	-1005.53,	11.6319,	1.05986,	11.5737,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.LassoRegression@2dde1bff), bestb = BestStep(6,VectorD(0.802612,	0.801597,	23819.0,	4701.60,	3.46755,	11.9939,	3.46322,	2.61759,	11.8493,	392.000,	2.00000,	389.000,	790.866,	-1037.17,	-1025.25,	11.9286,	1.04818,	11.8646,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.LassoRegression@50ad3bc1)
+[info] stepwiseSelAll: (l = 4) ADD variable BestStep(2,VectorD(0.810290,	0.808329,	23819.0,	4518.71,	3.39942,	11.5273,	3.39519,	2.54775,	11.5482,	392.000,	4.00000,	387.000,	413.238,	-1025.39,	-1005.53,	11.6319,	1.05986,	11.5737,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.LassoRegression@2dde1bff)
+[info] ----------------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 4) ADD variable (2, displacement) => cols = LinkedHashSet(0, 5, 3, 6, 2) @ 0.8083286851369669 |
+[info] ----------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ LassoRegression.buildModel: 392 by 5
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.0598073,	0.539229,	-0.00561539,	1.00207,	-0.0194204)
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = LassoRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_Cholesky,Fac_Cholesky), lambda -> (0.1,0.1), beta -> (0.1,0.1), pow -> (0.5,0.5), tol -> (1.0E-6,1.0E-6), eps -> (1.0E-8,1.0E-8), maxIter -> (50,50))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(mpg, acceleration, horsepower, model year, displacement)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(-0.0598073,	0.539229,	-0.00561539,	1.00207,	-0.0194204)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.810290, rSqBar -> 0.808329, sst -> 23818.993469, sse -> 4518.712756, sde -> 3.399416, mse0 -> 11.527328, rmse -> 3.395192, mae -> 2.547745, smape -> 11.548165, m -> 392.000000, dfm -> 4.000000, df -> 387.000000, fStat -> 413.237632, aic -> -1025.389144, bic -> -1005.532835, mape -> 11.631912, mase -> 1.059856, smapeC -> 11.573675, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] DEBUG @ LassoRegression.buildModel: 392 by 6
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.713082,	0.567954,	-0.00629308,	1.29296,	-0.0337160,	0.0228495)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 6
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.0892618,	0.564284,	-0.00527305,	1.04492,	-0.0289850,	-0.118025)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 4
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.217519,	0.547596,	-0.00615775,	0.885629)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 4
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-1.46195,	0.473850,	1.74149,	-0.0696486)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 4
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(1.56583,	0.00446487,	9.56317,	-0.138853)
+[info] DEBUG @ LassoRegression.buildModel: 392 by 4
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.196574,	0.580263,	-0.00616174,	-0.0114525)
+[info] DEBUG @ Predictor.stepwiseSelAll: bestf = BestStep(1,VectorD(0.814715,	0.812315,	23819.0,	4413.30,	3.35955,	11.2584,	3.35536,	2.53061,	11.5142,	392.000,	5.00000,	386.000,	339.456,	-1018.76,	-994.935,	11.6324,	1.05318,	11.5448,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.LassoRegression@193f604a), bestb = BestStep(2,VectorD(0.808321,	0.806839,	23819.0,	4565.61,	3.41699,	11.6470,	3.41276,	2.53966,	11.3714,	392.000,	3.00000,	388.000,	545.405,	-1029.41,	-1013.53,	11.4994,	1.04733,	11.3919,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.LassoRegression@932bc4a)
+[info] stepwiseSelAll: (l = 5) ADD variable BestStep(1,VectorD(0.814715,	0.812315,	23819.0,	4413.30,	3.35955,	11.2584,	3.35536,	2.53061,	11.5142,	392.000,	5.00000,	386.000,	339.456,	-1018.76,	-994.935,	11.6324,	1.05318,	11.5448,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000),scalation.modeling.LassoRegression@193f604a)
+[info] ----------------------------------------------------------------------------------------------------------------------
+[info] | stepwiseSelAll: (l = 5) ADD variable (1, cylinders) => cols = LinkedHashSet(0, 5, 3, 6, 2, 1) @ 0.8123150308111806 |
+[info] ----------------------------------------------------------------------------------------------------------------------
+[info] DEBUG @ LassoRegression.buildModel: 392 by 6
+[info] DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.713082,	0.567954,	-0.00629308,	1.29296,	-0.0337160,	0.0228495)
+[info] REPORT
+[info]     ----------------------------------------------------------------------------
+[info]     modelName  mn  = LassoRegression
+[info]     ----------------------------------------------------------------------------
+[info]     hparameter hp  = HyperParameter(factorization -> (Fac_Cholesky,Fac_Cholesky), lambda -> (0.1,0.1), beta -> (0.1,0.1), pow -> (0.5,0.5), tol -> (1.0E-6,1.0E-6), eps -> (1.0E-8,1.0E-8), maxIter -> (50,50))
+[info]     ----------------------------------------------------------------------------
+[info]     features   fn  = Array(mpg, acceleration, horsepower, model year, displacement, cylinders)
+[info]     ----------------------------------------------------------------------------
+[info]     parameter  b   = VectorD(-0.713082,	0.567954,	-0.00629308,	1.29296,	-0.0337160,	0.0228495)
+[info]     ----------------------------------------------------------------------------
+[info]     fitMap     qof = LinkedHashMap(rSq -> 0.814715, rSqBar -> 0.812315, sst -> 23818.993469, sse -> 4413.299958, sde -> 3.359550, mse0 -> 11.258418, rmse -> 3.355357, mae -> 2.530609, smape -> 11.514157, m -> 392.000000, dfm -> 5.000000, df -> 386.000000, fStat -> 339.455635, aic -> -1018.762668, bic -> -994.935097, mape -> 11.632368, mase -> 1.053184, smapeC -> 11.544769, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, iscore -> -1.000000, wis -> -1.000000)
+[info]     ----------------------------------------------------------------------------
+[info]         
+[info] stepwiseSelAll: selected features = LinkedHashSet(0, 5, 3, 6, 2, 1)
+[info] stepwiseSelAll: selected features = LinkedHashSet(mpg, acceleration, horsepower, model year, displacement, cylinders)
+[info] stepwiseSelAll: features in/out   = ArrayBuffer(5, 3, 6, 2, 1)
+[info] k = 6
+[info] Run + title
+[info] x-axis: minX = 0.0, maxX = 5.0
+[info] y-axis: minY = -0.0, maxY = 82.0
+[info] rSq = 
+[info] MatrixD (70.6260,	70.5507,	13.3541,	-0.00000,
+[info]  	80.2612,	80.1597,	11.8493,	-0.00000,
+[info]  	80.8321,	80.6839,	11.3714,	-0.00000,
+[info]  	81.0290,	80.8329,	11.5482,	-0.00000,
+[info]  	81.4715,	81.2315,	11.5142,	-0.00000)
+[info] ----------------------
+[info] | Feature Importance |
+[info] ----------------------
+[info] col = 0, 	 mpg, 	 importance = -0.0
+[info] col = 5, 	 acceleration, 	 importance = 0.9999999999999999
+[info] col = 3, 	 horsepower, 	 importance = 0.05925305484141621
+[info] col = 6, 	 model year, 	 importance = 0.020434436771478798
+[info] col = 2, 	 displacement, 	 importance = 0.04593156537329352
+[success] Total time: 116 s (0:01:56.0), completed Sep 18, 2025, 12:35:37 PM
