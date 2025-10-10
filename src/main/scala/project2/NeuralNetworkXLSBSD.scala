@@ -88,7 +88,7 @@ import scalation.modeling.neuralnet.Optimizer
     Optimizer.hp("eta")   = 0.001                                  // set the learning rate (large for small dataset)
     Optimizer.hp("bSize") = 6.0                                  // set the batch size (small for small dataset)
 //  val mod = new NeuralNet_XL (x, y)                            // create NeuralNet_XL model with sigmoid (default)
-    val mod = new NeuralNet_XL (x, y, f = Array (ActivationFun.f_tanh, ActivationFun.f_tanh, ActivationFun.f_id))   // create NeuralNet_XL model with tanh-tanh-id
+    val mod = NeuralNet_XL.rescale (x, y, f = Array (ActivationFun.f_tanh, ActivationFun.f_tanh, ActivationFun.f_id))   // create NeuralNet_XL model with tanh-tanh-id
 
     
 
