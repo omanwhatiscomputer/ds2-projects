@@ -20,7 +20,7 @@ import scalation.modeling.neuralnet.Optimizer
     // val ox_fname = Array ("mpg","cylinders","displacement","horsepower","weight","acceleration","model year","origin")
 
     
-    val filePath = "/mnt/c/Libs/scalation_2.0/data/appliances-energy.csv"
+    val filePath = "C:/Libs/scalation_2.0/data/appliances-energy.csv"
 
     val data: Array[Array[String]] = Source.fromFile(filePath)
         .getLines()
@@ -50,7 +50,7 @@ import scalation.modeling.neuralnet.Optimizer
     Optimizer.hp("eta")   = 0.001                                  // set the learning rate (large for small dataset)
     Optimizer.hp("bSize") = 6.0                                  // set the batch size (small for small dataset)
 //  val mod = new NeuralNet_XL (x, y)                            // create NeuralNet_XL model with sigmoid (default)
-    val mod = NeuralNet_XL.rescale (x, y, f = Array (ActivationFun.f_tanh, ActivationFun.f_tanh, ActivationFun.f_id))   // create NeuralNet_XL model with tanh-tanh-id
+    val mod = NeuralNet_XL.rescale (x, y, f = Array (ActivationFun.f_tanh, ActivationFun.f_id))   // create NeuralNet_XL model with tanh-tanh-id
 
     banner ("Small Example - NeuralNet_XL: trainNtest")
     mod.trainNtest ()()                                          // train and test the model
@@ -63,6 +63,7 @@ import scalation.modeling.neuralnet.Optimizer
 
     banner ("Validate")
     mod.validate ()()
+
     
 
     // banner ("neuralNet_XLTest: Compare with Linear Regression - first column of y")

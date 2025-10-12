@@ -20,7 +20,7 @@ import scalation.modeling.neuralnet.Optimizer
     // val ox_fname = Array ("mpg","cylinders","displacement","horsepower","weight","acceleration","model year","origin")
 
     
-    val filePath = "/mnt/c/Libs/scalation_2.0/data/appliances-energy.csv"
+    val filePath = "C:/Libs/scalation_2.0/data/appliances-energy.csv"
 
     val data: Array[Array[String]] = Source.fromFile(filePath)
         .getLines()
