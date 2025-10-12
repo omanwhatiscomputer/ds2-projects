@@ -1,0 +1,78 @@
+C:\Program Files\Java\jdk-25\bin\java.exe" "-javaagent:C:\Users\mkk51\AppData\Local\Programs\IntelliJ IDEA Community Edition\lib\idea_rt.jar=54517" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath C:\Libs\scalation_2.0\target\scala-3.7.2\classes;C:\Users\mkk51\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala3-library_3\3.7.2\scala3-library_3-3.7.2.jar;C:\Users\mkk51\AppData\Local\Coursier\cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala-library\2.13.16\scala-library-2.13.16.jar project2.NeuralNetworkXLSBSD
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by scala.runtime.LazyVals$ (file:/C:/Users/mkk51/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.7.2/scala3-library_3-3.7.2.jar)
+WARNING: Please consider reporting this to the maintainers of class scala.runtime.LazyVals$
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+ERROR @ NeuralNet_XL.init: must have at least two ACTIVE layers, but nl = 1
+---------------------------------------------
+| Small Example - NeuralNet_XL: trainNtest2 |
+---------------------------------------------
+optimize: bSize = 6, nB = 1460
+ending epoch = (1.6431589884740124E9,400)
+
+REPORT
+    ----------------------------------------------------------------------------
+    modelName  mn  = NeuralNet_XL_Array(id)
+    ----------------------------------------------------------------------------
+    hparameter hp  = HyperParameter(eta -> (0.001,0.1), bSize -> (6.0,20), maxEpochs -> (400,400), lambda -> (0.01,0.01), upLimit -> (4,4), beta -> (0.9,0.9), beta2 -> (0.999,0.999), nu -> (0.9,0.9))
+    ----------------------------------------------------------------------------
+    features   fn  = Array(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15)
+    ----------------------------------------------------------------------------
+    parameter  bb  = Array(b.w =
+MatrixD (187.608,
+ 	191.717,
+ 	-221.905,
+ 	21.5619,
+ 	8.76859,
+ 	142.187,
+ 	-64.3520,
+ 	-60.3065,
+ 	15.1927,
+ 	70.2986,
+ 	11.2184,
+ 	3.29901,
+ 	-84.7864,
+ 	-11.1823,
+ 	11.5300,
+ 	167.217)
+ b.b = VectorD(703.976))
+    ----------------------------------------------------------------------------
+    fitMap     qof =
+		rSq 	 -> VectorD(0.550156)
+		rSqBar 	 -> VectorD(0.549333)
+		sst 	 -> VectorD(3.64393e+09)
+		sse 	 -> VectorD(1.63920e+09)
+		sde 	 -> VectorD(432.602)
+		mse0 	 -> VectorD(187124)
+		rmse 	 -> VectorD(432.578)
+		mae 	 -> VectorD(322.638)
+		smape 	 -> VectorD(68.0629)
+		m 	 -> VectorD(8760.00)
+		dfm 	 -> VectorD(16.0000)
+		df 	 -> VectorD(8744.00)
+		fStat 	 -> VectorD(668.365)
+		aic 	 -> VectorD(-65567.0)
+		bic 	 -> VectorD(-65446.7)
+		mape 	 -> VectorD(Infinity)
+		mase 	 -> VectorD(1.86978)
+		smapeC 	 -> VectorD(68.0668)
+		picp 	 -> VectorD(-1.00000)
+		pinc 	 -> VectorD(-1.00000)
+		ace 	 -> VectorD(-1.00000)
+		pinaw 	 -> VectorD(-1.00000)
+		iscore 	 -> VectorD(-1.00000)
+		wis 	 -> VectorD(-1.00000)
+
+    ----------------------------------------------------------------------------
+
+Run + title
+Run + title
+summary2 not implemented yet
+----------------------------------------
+| AutoMPG - NeuralNet_XL: TnT validate |
+----------------------------------------
+DEBUG @ PredictorMV.validate: n_test = 1752, rando = true
+optimize: bSize = 6, nB = 1168
+ending epoch = (1.3170471855313141E9,400)
+
+Process finished with exit code 0

@@ -2,9 +2,10 @@
 
 package project2
 
-import scala.io.Source
-import scalation.mathstat.{VectorD, MatrixD}
+import scalation.mathstat.{MatrixD, VectorD}
+
 import scala.collection.mutable.ArrayBuffer
+import scala.io.Source
 // import scalation.modeling.qk
 
 // import scala.math.max
@@ -13,11 +14,11 @@ import scala.collection.mutable.ArrayBuffer
 // import scalation.mathstat._
 
 import scalation.modeling.ActivationFun
-import scalation.modeling.neuralnet.NeuralNet_XL
+import scalation.modeling.neuralnet.NeuralNet_2L
 // import scalation.modeling.Initializer
 import scalation.modeling.neuralnet.Optimizer
 
-@main def NeuralNetworkXLSBSD(): Unit =
+@main def NeuralNetwork2LSBSD(): Unit =
     // val ox_fname = Array ("mpg","cylinders","displacement","horsepower","weight","acceleration","model year","origin")
 
     
@@ -112,7 +113,7 @@ import scalation.modeling.neuralnet.Optimizer
     Optimizer.hp("eta")   = 0.001                                  // set the learning rate (large for small dataset)
     Optimizer.hp("bSize") = 6.0                                  // set the batch size (small for small dataset)
 //  val mod = new NeuralNet_XL (x, y)                            // create NeuralNet_XL model with sigmoid (default)
-    val mod = NeuralNet_XL.rescale (x, y, f = Array (ActivationFun.f_id))   // create NeuralNet_XL model with tanh-tanh-id
+    val mod = NeuralNet_2L.rescale (x, y, f = ActivationFun.f_tanh)   // create NeuralNet_XL model with tanh-tanh-id
 
     
 
