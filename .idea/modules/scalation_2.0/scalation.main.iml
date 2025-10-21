@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id="scalation:main [file:/C:/Libs/scalation_2.0/]" external.linked.project.path="$MODULE_DIR$/../../.." external.root.project.path="$MODULE_DIR$/../../.." external.system.id="SBT" external.system.module.type="sbtSourceSet" type="JAVA_MODULE" version="4">
+<module external.linked.project.id="scalation:main [file:/home/khubayeeb_k/dev/Git-repos/scalation_2.0/]" external.linked.project.path="$MODULE_DIR$/../../.." external.root.project.path="$MODULE_DIR$/../../.." external.system.id="SBT" external.system.module.type="sbtSourceSet" type="JAVA_MODULE" version="4">
   <component name="DisplayModuleName">
     <option name="name" value="scalation.main" />
   </component>
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_25">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_22">
     <output url="file://$MODULE_DIR$/../../../target/scala-3.7.2/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../src/main">

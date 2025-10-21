@@ -14,7 +14,6 @@
 package scalation
 package optimization
 package quasi_newtonC
-
 import java.lang.foreign.FunctionDescriptor
 import java.lang.foreign.ValueLayout.{ADDRESS, JAVA_DOUBLE, JAVA_INT}
 

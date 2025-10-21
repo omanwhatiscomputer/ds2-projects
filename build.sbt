@@ -23,3 +23,11 @@ lazy val scalation = project.in(file("."))
   )
 
 fork := true
+// Fork the JVM when running
+
+// Enable Panama/FFM API native access
+run / javaOptions += "--enable-native-access=ALL-UNNAMED"
+
+// Optional: enable for tests too
+Test / fork := true
+Test / javaOptions += "--enable-native-access=ALL-UNNAMED"
