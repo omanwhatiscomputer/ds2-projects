@@ -47,15 +47,15 @@ object LBFGS_FFM:
 //  @static
     val memoryLayout: StructLayout = MemoryLayout.structLayout (
         JAVA_INT.withName ("m"),
-        MemoryLayout.paddingLayout (32),
+        MemoryLayout.paddingLayout (4),
         JAVA_DOUBLE.withName ("epsilon"),
         JAVA_INT.withName ("past"),
-        MemoryLayout.paddingLayout (32),
+        MemoryLayout.paddingLayout (4),
         JAVA_DOUBLE.withName ("delta"),
         JAVA_INT.withName ("max_iterations"),
         JAVA_INT.withName ("linesearch"),
         JAVA_INT.withName ("max_linesearch"),
-        MemoryLayout.paddingLayout (32),
+        MemoryLayout.paddingLayout (4),
         JAVA_DOUBLE.withName ("default_step"),
         JAVA_DOUBLE.withName ("min_step"),
         JAVA_DOUBLE.withName ("max_step"),
@@ -67,7 +67,7 @@ object LBFGS_FFM:
         JAVA_INT.withName ("orthantwise_start"),
         JAVA_INT.withName ("orthantwise_end")).withName ("lbfgs_parameter_t")
 
-    private val LBFGS_LIBRARY_PATH_STRING = "src/main/scala/scalation/optimization/quasi_newtonC/lib/C/lbfgs/lbfgs.so"
+    private val LBFGS_LIBRARY_PATH_STRING = "src/main/scala/scalation/optimization/quasi_newtonC/lib/C/lbfgs/liblbfgs.so"
 
     // Linker and library configuration.
     private val linker: Linker = Linker.nativeLinker
