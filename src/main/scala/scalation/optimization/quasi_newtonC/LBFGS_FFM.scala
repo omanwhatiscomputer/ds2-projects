@@ -120,8 +120,10 @@ object LBFGS_FFM:
 
         val result: Try [LBFGSResults] = Using (Arena.ofConfined ()) { arena =>
 
-            val xMemorySegment:  MemorySegment = Arena.global ().allocate (n, 8)
-            val fxMemorySegment: MemorySegment = Arena.global ().allocate (1, 8)
+//            val xMemorySegment:  MemorySegment = Arena.global ().allocate (n, 8)
+//            val fxMemorySegment: MemorySegment = Arena.global ().allocate (1, 8)
+            val  xMemorySegment:  MemorySegment = arena.allocate(n*JAVA_DOUBLE.byteSize(), JAVA_DOUBLE.byteAlignment())
+            val  fxMemorySegment: MemorySegment = arena.allocate(JAVA_DOUBLE.byteSize(), JAVA_DOUBLE.byteAlignment())
 //          val fxMemorySegment: MemorySegment = MemorySegment.allocateNative (JAVA_DOUBLE, arena.scope())
 
             val evaluateMemorySegment: MemorySegment = linker.upcallStub (
