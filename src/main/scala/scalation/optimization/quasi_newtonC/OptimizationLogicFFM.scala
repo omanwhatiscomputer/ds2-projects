@@ -96,17 +96,43 @@ trait OptimizationLogicFFM:
      *                  continues optimization. Non-zero values cancel the
      *                  optimization.
      */
-    def progress (instance: MemorySegment, x: MemorySegment, g: MemorySegment,
+//    def progress (instance: MemorySegment, x: MemorySegment, g: MemorySegment,
+//                  fx: Double, xnorm: Double, gnorm: Double, step: Double,
+//                  n: Int, k: Int, ls: Int): Int =
+//        println ()
+//        println (s"Iteration $k:")
+//        println (s"fx = $fx")
+//
+//        for i <- 0 until n do
+//            println (s"x[$i]: ${x.getAtIndex(JAVA_DOUBLE, i)}")
+//
+//        println (s"xnorm = $xnorm, gnorm = $gnorm, step = $step\n")
+//
+//        0
+//    end progress
+    def progress(
+                  instance: MemorySegment,
+                  xPtr: MemorySegment,
+                  gPtr: MemorySegment,
                   fx: Double, xnorm: Double, gnorm: Double, step: Double,
-                  n: Int, k: Int, ls: Int): Int =
-        println ()
-        println (s"Iteration $k:")
-        println (s"fx = $fx")
+                  n: Int, k: Int, ls: Int
+                ): Int =
+      // Reinterpret raw pointers to sized views
+        val bytes = n.toLong * JAVA_DOUBLE.byteSize()
+        val x = xPtr.reinterpret(bytes)
 
-        for i <- 0 until n do
-            println (s"x[$i]: ${x.getAtIndex(JAVA_DOUBLE, i)}")
+        println()
+        println(s"Iteration $k:")
+        println(s"fx = $fx")
 
-        println (s"xnorm = $xnorm, gnorm = $gnorm, step = $step\n")
+        var i = 0
+        while (i < n) do
+            // safe now — x has size n*8
+            val xi = x.getAtIndex(JAVA_DOUBLE, i)
+            println(s"x[$i]: $xi")
+            i += 1
+
+        println(s"xnorm = $xnorm, gnorm = $gnorm, step = $step\n")
 
         0
     end progress

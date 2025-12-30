@@ -71,10 +71,18 @@ case object FunctionOptimizationFFM:
      *  @param vec   the vector whose contents are to be copied to the memory segment
      *  @param dest  `MemorySegment` where `VectorD` contents are copied to.
      */
-    def copyToMemorySegment (vec: VectorD, dest: MemorySegment): Unit =
-        val arr = vec.toArray
-        for i <- 0 until vec.dim do dest.setAtIndex (JAVA_DOUBLE, i, arr(i))
-    end copyToMemorySegment
+//    def copyToMemorySegment (vec: VectorD, dest: MemorySegment): Unit =
+//        val arr = vec.toArray
+//        for i <- 0 until vec.dim do dest.setAtIndex (JAVA_DOUBLE, i, arr(i))
+//    end copyToMemorySegment
+    def copyToMemorySegment(vec: VectorD, ptr: MemorySegment): Unit = {
+        val sized = ptr.reinterpret(vec.dim.toLong * JAVA_DOUBLE.byteSize())
+        var i = 0
+        while (i < vec.dim) do{
+            sized.setAtIndex(JAVA_DOUBLE, i, vec(i))
+            i += 1
+        }
+    }
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     /** Create a `VectorD` `vec` from the `source` `MemorySegment` by copying the contents
@@ -83,11 +91,21 @@ case object FunctionOptimizationFFM:
      *  @param source  `MemorySegment` whose content is copied to initialize a new `VectorD`
      *  @param n       the number of JAVA_DOUBLE elements in `source`.
      */
-    def fromMemorySegment (source: MemorySegment, n: Int): VectorD =
-        val vec = new VectorD (n)
-        for i <- 0 until n do vec(i) = source.getAtIndex (JAVA_DOUBLE, i)
-        vec
-    end fromMemorySegment
+//    def fromMemorySegment (source: MemorySegment, n: Int): VectorD =
+//        val vec = new VectorD (n)
+//        for i <- 0 until n do vec(i) = source.getAtIndex (JAVA_DOUBLE, i)
+//        vec
+//    end fromMemorySegment
+    def fromMemorySegment(ptr: MemorySegment, n: Int): VectorD = {
+        val sized = ptr.reinterpret(n.toLong * JAVA_DOUBLE.byteSize())
+        val arr = Array.ofDim[Double](n)
+        var i = 0
+        while (i < n) do{
+            arr(i) = sized.getAtIndex(JAVA_DOUBLE, i)
+            i += 1
+        }
+        VectorD(arr)
+    }
 
 end FunctionOptimizationFFM
 

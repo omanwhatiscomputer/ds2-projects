@@ -56,7 +56,7 @@ object LBFGS_FFM:
         JAVA_INT.withName ("linesearch"),
         JAVA_INT.withName ("max_linesearch"),
         MemoryLayout.paddingLayout (4),
-        JAVA_DOUBLE.withName ("default_step"),
+//        JAVA_DOUBLE.withName ("default_step"),
         JAVA_DOUBLE.withName ("min_step"),
         JAVA_DOUBLE.withName ("max_step"),
         JAVA_DOUBLE.withName ("ftol"),
@@ -179,16 +179,25 @@ object LBFGS_FFM:
         destination.set (JAVA_INT, 32,     prm.maxIterations)
         destination.set (JAVA_INT, 36,     prm.lineSearch.number)
         destination.set (JAVA_INT, 40,     prm.lineSearchPrms.maxLineSearch)
-        destination.set (JAVA_DOUBLE, 48,  prm.lineSearchPrms.defaultStep)
-        destination.set (JAVA_DOUBLE, 56,  prm.lineSearchPrms.minStep)
-        destination.set (JAVA_DOUBLE, 64,  prm.lineSearchPrms.maxStep)
-        destination.set (JAVA_DOUBLE, 72,  prm.lineSearchPrms.ftol)
-        destination.set (JAVA_DOUBLE, 80,  prm.lineSearchPrms.wolfe)
-        destination.set (JAVA_DOUBLE, 88,  prm.lineSearchPrms.gtol)
-        destination.set (JAVA_DOUBLE, 96,  prm.lineSearchPrms.xtol)
-        destination.set (JAVA_DOUBLE, 104, orthantWisePrms.c)
-        destination.set (JAVA_INT, 112,    orthantWisePrms.start)
-        destination.set (JAVA_INT, 116,    orthantWisePrms.end.getOrElse(-1))
+//        destination.set (JAVA_DOUBLE, 48,  prm.lineSearchPrms.defaultStep)
+//        destination.set (JAVA_DOUBLE, 56,  prm.lineSearchPrms.minStep)
+//        destination.set (JAVA_DOUBLE, 64,  prm.lineSearchPrms.maxStep)
+//        destination.set (JAVA_DOUBLE, 72,  prm.lineSearchPrms.ftol)
+//        destination.set (JAVA_DOUBLE, 80,  prm.lineSearchPrms.wolfe)
+//        destination.set (JAVA_DOUBLE, 88,  prm.lineSearchPrms.gtol)
+//        destination.set (JAVA_DOUBLE, 96,  prm.lineSearchPrms.xtol)
+//        destination.set (JAVA_DOUBLE, 104, orthantWisePrms.c)
+//        destination.set (JAVA_INT, 112,    orthantWisePrms.start)
+//        destination.set (JAVA_INT, 116,    orthantWisePrms.end.getOrElse(-1))
+        destination.set(JAVA_DOUBLE, 48,  prm.lineSearchPrms.minStep)
+        destination.set(JAVA_DOUBLE, 56,  prm.lineSearchPrms.maxStep)
+        destination.set(JAVA_DOUBLE, 64,  prm.lineSearchPrms.ftol)
+        destination.set(JAVA_DOUBLE, 72,  prm.lineSearchPrms.wolfe)
+        destination.set(JAVA_DOUBLE, 80,  prm.lineSearchPrms.gtol)
+        destination.set(JAVA_DOUBLE, 88,  prm.lineSearchPrms.xtol)
+        destination.set(JAVA_DOUBLE, 96,  orthantWisePrms.c)
+        destination.set(JAVA_INT,    104, orthantWisePrms.start)
+        destination.set(JAVA_INT,    108, orthantWisePrms.end.getOrElse(-1))
     end copyToMemorySegment
 
 end LBFGS_FFM
