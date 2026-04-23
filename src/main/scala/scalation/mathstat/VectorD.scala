@@ -393,10 +393,37 @@ class VectorD (val dim: Int,
     /** Compute the element-wise sum (or difference, product, quotient) of this and scalar a.
      *  @param a  the scalar second operand
      */
-    def + (a: Double): VectorD = new VectorD (dim, cfor (dim) { i => v(i) + a })
-    def - (a: Double): VectorD = new VectorD (dim, cfor (dim) { i => v(i) - a })
-    def * (a: Double): VectorD = new VectorD (dim, cfor (dim) { i => v(i) * a })
-    def / (a: Double): VectorD = new VectorD (dim, cfor (dim) { i => v(i) / a })
+//    def + (a: Double): VectorD = new VectorD (dim, cfor (dim) { i => v(i) + a })
+    def + (a: Double): VectorD =
+        CudaVectorOps.addScalar(v, a) match
+            case Some(result) => new VectorD(dim, result)
+            case None         =>
+                println("Defaulted to CPU!!")
+                new VectorD(dim, cfor(dim) { i => v(i) + a })
+
+//    def - (a: Double): VectorD = new VectorD (dim, cfor (dim) { i => v(i) - a })
+    def - (a: Double): VectorD =
+        CudaVectorOps.subScalar(v, a) match
+            case Some(result) => new VectorD(dim, result)
+            case None         =>
+                println("Defaulted to CPU!!")
+                new VectorD(dim, cfor(dim) { i => v(i) - a })
+
+//    def * (a: Double): VectorD = new VectorD (dim, cfor (dim) { i => v(i) * a })
+    def * (a: Double): VectorD =
+        CudaVectorOps.mulScalar(v, a) match
+            case Some(result) => new VectorD(dim, result)
+            case None         =>
+                println("Defaulted to CPU!!")
+                new VectorD(dim, cfor(dim) { i => v(i) * a })
+
+//    def / (a: Double): VectorD = new VectorD (dim, cfor (dim) { i => v(i) / a })
+    def / (a: Double): VectorD =
+        CudaVectorOps.divScalar(v, a) match
+            case Some(result) => new VectorD(dim, result)
+            case None         =>
+                println("Defaulted to CPU!!")
+                new VectorD(dim, cfor(dim) { i => v(i) / a })
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     /** Compute the element-wise sum (or difference, product, quotient) of vectors this and y.

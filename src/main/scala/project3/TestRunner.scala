@@ -12,10 +12,23 @@ import scalation.mathstat.{VectorD}
   val a = x-y;
   val b = x*y;
   val c = x/y;
+
   println(z);
   println(a);
   println(b);
   println(c);
+
+  // %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  val d = x + 1;
+  val e = x - 2;
+  val f = x * 2;
+  val g = x / 2;
+
+  println(d);
+  println(e);
+  println(f);
+  println(g);
 
   // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 }
