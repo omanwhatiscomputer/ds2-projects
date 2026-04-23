@@ -37,73 +37,69 @@ object CudaVectorOps:
 
   def isAvailable: Boolean = _available
 
+  // op codes matching the CUDA kernel switch statement
+  private val OP_ADD = 0
+  private val OP_SUB = 1
+  private val OP_MUL = 2
+  private val OP_DIV = 3
+
+  // ---- Single address for the combined kernel ----
+  private val opAddr: MemorySegment =
+    libKernels.find("gpuVectorOp")
+      .orElseThrow(() => new RuntimeException("Cannot find gpuVectorOp"))
+
   // ---- Generic helper to invoke a kernel that takes two input arrays and one output array ----
   private def invokeKernel(
                             kernelAddr: MemorySegment,
                             a: Array[Double],
                             b: Array[Double],
                             result: Array[Double],
-                            n: Int
+                            n: Int,
+                            op: Int
                           ): Unit =
-    // Create a downcall handle for the kernel (void (double*, double*, double*, int))
+    // void gpuVectorOp(double*, double*, double*, int n, int op)
     val kernelHandle = linker.downcallHandle(
       kernelAddr,
-      FunctionDescriptor.ofVoid(ADDRESS, ADDRESS, ADDRESS, JAVA_INT)
+      FunctionDescriptor.ofVoid(ADDRESS, ADDRESS, ADDRESS, JAVA_INT, JAVA_INT)
     )
 
     val byteSize = n * 8L
-    // Use a confined arena that will be closed automatically at the end of the block
     val arena = Arena.ofConfined()
     try
       val segA   = arena.allocate(byteSize)
       val segB   = arena.allocate(byteSize)
       val segRes = arena.allocate(byteSize)
 
-      // Copy Java arrays into off‑heap memory
       MemorySegment.copy(a, 0, segA, ValueLayout.JAVA_DOUBLE, 0, n)
       MemorySegment.copy(b, 0, segB, ValueLayout.JAVA_DOUBLE, 0, n)
 
-      // Invoke the native function – use invoke() instead of invokeExact to avoid type mismatch
-//      println(s"[CudaVectorOps] Calling native kernel with n=$n")
-      kernelHandle.invoke(segA, segB, segRes, n)   // <-- changed to invoke()
-//      println("[CudaVectorOps] Native kernel returned")
+      kernelHandle.invoke(segA, segB, segRes, n, op)
 
-      // Copy result back into the Java array
       MemorySegment.copy(segRes, ValueLayout.JAVA_DOUBLE, 0, result, 0, n)
     finally
       arena.close()
     end try
   end invokeKernel
 
-  // ---- Addresses for each kernel ----
-  private val addAddr: MemorySegment =
-    libKernels.find("gpuVectorAdd")
-      .orElseThrow(() => new RuntimeException("Cannot find gpuVectorAdd"))
+  private val opName = Map(OP_ADD -> "add", OP_SUB -> "sub", OP_MUL -> "mul", OP_DIV -> "div")
 
-  // ---- Public API for each operation ----
-  def add(a: Array[Double], b: Array[Double]): Option[Array[Double]] =
-//    println(s"[CudaVectorOps] add called with a.length=${a.length}, b.length=${b.length}")
-    if !isAvailable then
-      println("[CudaVectorOps] CUDA not available, returning None")
-      return None
-
+  // ---- Shared dispatch logic ----
+  private def dispatch(a: Array[Double], b: Array[Double], op: Int): Option[Array[Double]] =
+    if !isAvailable then return None
     val n = a.length
-    if n != b.length then
-      println(s"[CudaVectorOps] Array length mismatch: a=$n, b=${b.length}, returning None")
-      return None
-
+    if n != b.length then return None
     val result = new Array[Double](n)
     try
-//      println("[CudaVectorOps] About to invoke kernel...")
-      invokeKernel(addAddr, a, b, result, n)
-//      println("[CudaVectorOps] Kernel invocation successful, returning Some(result)")
+      invokeKernel(opAddr, a, b, result, n, op)
+      // println(s"[CudaVectorOps] GPU executed: ${opName(op)} on $n elements")
       Some(result)
     catch case e: Throwable =>
-//      println("[CudaVectorOps] Kernel invocation threw exception:")
       e.printStackTrace()
       None
 
-  // Example for future operations:
-  // def sub(a: Array[Double], b: Array[Double]): Option[Array[Double]] = ...
-  // def mul(a: Array[Double], b: Array[Double]): Option[Array[Double]] = ...
+  // ---- Public API ----
+  def add(a: Array[Double], b: Array[Double]): Option[Array[Double]] = dispatch(a, b, OP_ADD)
+  def sub(a: Array[Double], b: Array[Double]): Option[Array[Double]] = dispatch(a, b, OP_SUB)
+  def mul(a: Array[Double], b: Array[Double]): Option[Array[Double]] = dispatch(a, b, OP_MUL)
+  def div(a: Array[Double], b: Array[Double]): Option[Array[Double]] = dispatch(a, b, OP_DIV)
 end CudaVectorOps

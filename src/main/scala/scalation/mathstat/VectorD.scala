@@ -342,8 +342,8 @@ class VectorD (val dim: Int,
         CudaVectorOps.add(this.v, that.v) match
             case Some(result) => new VectorD(dim, result)   // result array is used directly
             case None         =>
-                // CPU fallback (your existing cfor loop)
-                println("Defaulted to CPU!!")
+                // CPU fallback
+//                println("Defaulted to CPU!!")
                 val newData = new Array[Double](dim)
                 cfor(0, dim) { i =>
                     newData(i) = this.v(i) + that.v(i)
@@ -353,13 +353,40 @@ class VectorD (val dim: Int,
 
     def + (y: IndexedSeq [Double]): VectorD = new VectorD (dim, cfor (dim) { i => v(i) + y(i) })
 
-    def - (y: VectorD): VectorD = new VectorD (dim, cfor (dim) { i => v(i) - y.v(i) })
+//    def - (y: VectorD): VectorD = new VectorD (dim, cfor (dim) { i => v(i) - y.v(i) })
+    def - (that: VectorD): VectorD =
+        require(this.dim == that.dim)
+        CudaVectorOps.sub(this.v, that.v) match
+            case Some(result) => new VectorD(dim, result)
+            case None         =>
+//                println("Defaulted to CPU!!")
+                val newData = new Array[Double](dim)
+                cfor(0, dim) { i => newData(i) = this.v(i) - that.v(i) }
+                new VectorD(dim, newData)
     def - (y: IndexedSeq [Double]): VectorD = new VectorD (dim, cfor (dim) { i => v(i) - y(i) })
 
-    def * (y: VectorD): VectorD = new VectorD (dim, cfor (dim) { i => v(i) * y.v(i) })
+//    def * (y: VectorD): VectorD = new VectorD (dim, cfor (dim) { i => v(i) * y.v(i) })
+    def * (that: VectorD): VectorD =
+        require(this.dim == that.dim)
+        CudaVectorOps.mul(this.v, that.v) match
+            case Some(result) => new VectorD(dim, result)
+            case None         =>
+//                println("Defaulted to CPU!!")
+                val newData = new Array[Double](dim)
+                cfor(0, dim) { i => newData(i) = this.v(i) * that.v(i) }
+                new VectorD(dim, newData)
     def * (y: IndexedSeq [Double]): VectorD = new VectorD (dim, cfor (dim) { i => v(i) * y(i) })
 
-    def / (y: VectorD): VectorD = new VectorD (dim, cfor (dim) { i => v(i) / y.v(i) })
+//    def / (y: VectorD): VectorD = new VectorD (dim, cfor (dim) { i => v(i) / y.v(i) })
+    def / (that: VectorD): VectorD =
+        require(this.dim == that.dim)
+        CudaVectorOps.div(this.v, that.v) match
+            case Some(result) => new VectorD(dim, result)
+            case None         =>
+//                println("Defaulted to CPU!!")
+                val newData = new Array[Double](dim)
+                cfor(0, dim) { i => newData(i) = this.v(i) / that.v(i) }
+                new VectorD(dim, newData)
     def / (y: IndexedSeq [Double]): VectorD = new VectorD (dim, cfor (dim) { i => v(i) / y(i) })
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
