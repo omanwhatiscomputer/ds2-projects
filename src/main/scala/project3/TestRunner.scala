@@ -58,4 +58,41 @@ import scalation.mathstat.{VectorD, MatrixD}
   println(m10)
 
   // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  // MatrixD tests (matrix op row vector — broadcast across rows)
+  // m1 = [[1,2],[3,4]], rowVec = [10,20]
+  // +(rowVec): [[11,22],[13,24]]
+  // -(rowVec): [[-9,-18],[-7,-16]]
+  // *~(rowVec): [[10,40],[30,80]]
+  // /(rowVec): [[0.1,0.1],[0.3,0.2]]
+  val rowVec = VectorD(10.0, 20.0)
+
+  val mr1 = m1 + rowVec
+  val mr2 = m1 - rowVec
+  val mr3 = m1 *~ rowVec
+  val mr4 = m1 / rowVec
+
+  println(mr1)
+  println(mr2)
+  println(mr3)
+  println(mr4)
+
+  // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  // MatrixD tests (matrix op col vector — broadcast across cols)
+  // m1 = [[1,2],[3,4]], colVec = [100,200]
+  // +^(colVec): [[101,102],[203,204]]
+  // -^(colVec): [[-99,-98],[-197,-196]]
+  // *~:(colVec): [[100,200],[600,800]]
+  val colVec = VectorD(100.0, 200.0)
+
+  val mc1 = m1 +^ colVec
+  val mc2 = m1 -^ colVec
+  val mc3 = colVec *~: m1
+
+  println(mc1)
+  println(mc2)
+  println(mc3)
+
+  // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 }

@@ -82,3 +82,79 @@ extern "C" void gpuMatrixOp(const double* h_a, const double* h_b, double* h_resu
 extern "C" void gpuMatrixScalarOp(const double* h_a, double scalar, double* h_result, int rows, int cols, int op) {
     gpuVectorScalarOp(h_a, scalar, h_result, rows * cols, op);
 }
+
+// Row broadcast: c[k] = op(a[k], vec[k % cols])
+__global__ void matrixRowVecOpKernel(const double *a, const double *vec, double *c, int n, int cols, int op) {
+    int k = blockDim.x * blockIdx.x + threadIdx.x;
+    if (k < n) {
+        int j = k % cols;
+        switch (op) {
+            case 0: c[k] = a[k] + vec[j]; break;
+            case 1: c[k] = a[k] - vec[j]; break;
+            case 2: c[k] = a[k] * vec[j]; break;
+            case 3: c[k] = a[k] / vec[j]; break;
+        }
+    }
+}
+
+extern "C" void gpuMatrixRowVecOp(const double* h_a, const double* h_vec, double* h_result, int rows, int cols, int op) {
+    double *d_a, *d_vec, *d_c;
+    int n = rows * cols;
+    size_t matSize = n * sizeof(double);
+    size_t vecSize = cols * sizeof(double);
+
+    cudaMalloc((void**)&d_a,   matSize);
+    cudaMalloc((void**)&d_vec, vecSize);
+    cudaMalloc((void**)&d_c,   matSize);
+
+    cudaMemcpy(d_a,   h_a,   matSize, cudaMemcpyHostToDevice);
+    cudaMemcpy(d_vec, h_vec, vecSize, cudaMemcpyHostToDevice);
+
+    int threadsPerBlock = 256;
+    int blocksPerGrid   = (n + threadsPerBlock - 1) / threadsPerBlock;
+
+    matrixRowVecOpKernel<<<blocksPerGrid, threadsPerBlock>>>(d_a, d_vec, d_c, n, cols, op);
+    cudaDeviceSynchronize();
+
+    cudaMemcpy(h_result, d_c, matSize, cudaMemcpyDeviceToHost);
+
+    cudaFree(d_a); cudaFree(d_vec); cudaFree(d_c);
+}
+
+// Col broadcast: c[k] = op(a[k], vec[k / cols])
+__global__ void matrixColVecOpKernel(const double *a, const double *vec, double *c, int n, int cols, int op) {
+    int k = blockDim.x * blockIdx.x + threadIdx.x;
+    if (k < n) {
+        int i = k / cols;
+        switch (op) {
+            case 0: c[k] = a[k] + vec[i]; break;
+            case 1: c[k] = a[k] - vec[i]; break;
+            case 2: c[k] = a[k] * vec[i]; break;
+            case 3: c[k] = a[k] / vec[i]; break;
+        }
+    }
+}
+
+extern "C" void gpuMatrixColVecOp(const double* h_a, const double* h_vec, double* h_result, int rows, int cols, int op) {
+    double *d_a, *d_vec, *d_c;
+    int n = rows * cols;
+    size_t matSize = n * sizeof(double);
+    size_t vecSize = rows * sizeof(double);
+
+    cudaMalloc((void**)&d_a,   matSize);
+    cudaMalloc((void**)&d_vec, vecSize);
+    cudaMalloc((void**)&d_c,   matSize);
+
+    cudaMemcpy(d_a,   h_a,   matSize, cudaMemcpyHostToDevice);
+    cudaMemcpy(d_vec, h_vec, vecSize, cudaMemcpyHostToDevice);
+
+    int threadsPerBlock = 256;
+    int blocksPerGrid   = (n + threadsPerBlock - 1) / threadsPerBlock;
+
+    matrixColVecOpKernel<<<blocksPerGrid, threadsPerBlock>>>(d_a, d_vec, d_c, n, cols, op);
+    cudaDeviceSynchronize();
+
+    cudaMemcpy(h_result, d_c, matSize, cudaMemcpyDeviceToHost);
+
+    cudaFree(d_a); cudaFree(d_vec); cudaFree(d_c);
+}
