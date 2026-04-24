@@ -685,16 +685,27 @@ class MatrixD (val dim:  Int,
      *  Alias rows to avoid double subscripting.
      *  @param y  the other matrix
      */
+//    def + (y: MatrixD): MatrixD =
+//        if y.dim < dim || y.dim2 < dim2 then
+//            flaw ("+", s"matrix + matrix - incompatible dimensions: this = $dims, y = ${y.dims}")
+//        val a = Array.ofDim [Double] (dim, dim2)
+//        cfor (0, dim) { i =>
+//            val v_i = v(i); val y_i = y.v(i); val a_i = a(i)
+//            cfor (0, dim2) { j => a_i(j) = v_i(j) + y_i(j) }
+//        } // cfor
+//        new MatrixD (dim, dim2, a)
+//    end +
     def + (y: MatrixD): MatrixD =
         if y.dim < dim || y.dim2 < dim2 then
             flaw ("+", s"matrix + matrix - incompatible dimensions: this = $dims, y = ${y.dims}")
-
-        val a = Array.ofDim [Double] (dim, dim2)
-        cfor (0, dim) { i =>
-            val v_i = v(i); val y_i = y.v(i); val a_i = a(i)
-            cfor (0, dim2) { j => a_i(j) = v_i(j) + y_i(j) }
-        } // cfor
-        new MatrixD (dim, dim2, a) 
+        CudaMatrixOps.add(v, y.v, dim, dim2) match
+            case Some(result) => new MatrixD(dim, dim2, result)
+            case None         =>
+                // println("Defaulted to CPU!!")
+                val a = Array.ofDim[Double](dim, dim2)
+                cfor(0, dim) { i => val v_i = v(i); val y_i = y.v(i); val a_i = a(i)
+                    cfor(0, dim2) { j => a_i(j) = v_i(j) + y_i(j) } }
+                new MatrixD(dim, dim2, a)
     end +
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -749,13 +760,23 @@ class MatrixD (val dim:  Int,
     /** Add this matrix and scaler u.
      *  @param u  the scalar to add
      */
+//    def + (u: Double): MatrixD =
+//        val a = Array.ofDim [Double] (dim, dim2)
+//        cfor (0, dim) { i =>
+//            val v_i = v(i); val a_i = a(i)
+//            cfor (0, dim2) { j => a_i(j) = v_i(j) + u }
+//        } // cfor
+//        new MatrixD (dim, dim2, a)
+//    end +
     def + (u: Double): MatrixD =
-        val a = Array.ofDim [Double] (dim, dim2)
-        cfor (0, dim) { i =>
-            val v_i = v(i); val a_i = a(i)
-            cfor (0, dim2) { j => a_i(j) = v_i(j) + u }
-        } // cfor
-        new MatrixD (dim, dim2, a)
+        CudaMatrixOps.addScalar(v, u, dim, dim2) match
+            case Some(result) => new MatrixD(dim, dim2, result)
+            case None         =>
+                // println("Defaulted to CPU!!")
+                val a = Array.ofDim[Double](dim, dim2)
+                cfor(0, dim) { i => val v_i = v(i); val a_i = a(i)
+                    cfor(0, dim2) { j => a_i(j) = v_i(j) + u } }
+                new MatrixD(dim, dim2, a)
     end +
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -789,16 +810,27 @@ class MatrixD (val dim:  Int,
      *  Alias rows to avoid double subscripting.
      *  @param y  the other matrix
      */
+//    def - (y: MatrixD): MatrixD =
+//        if y.dim < dim || y.dim2 < dim2 then
+//            flaw ("-", s"matrix - matrix - incompatible dimensions: this = $dims, y = ${y.dims}")
+//        val a = Array.ofDim [Double] (dim, dim2)
+//        cfor (0, dim) { i =>
+//            val v_i = v(i); val y_i = y.v(i); val a_i = a(i)
+//            cfor (0, dim2) { j => a_i(j) = v_i(j) - y_i(j) }
+//        } // cfor
+//        new MatrixD (dim, dim2, a)
+//    end -
     def - (y: MatrixD): MatrixD =
         if y.dim < dim || y.dim2 < dim2 then
             flaw ("-", s"matrix - matrix - incompatible dimensions: this = $dims, y = ${y.dims}")
-
-        val a = Array.ofDim [Double] (dim, dim2)
-        cfor (0, dim) { i =>
-            val v_i = v(i); val y_i = y.v(i); val a_i = a(i)
-            cfor (0, dim2) { j => a_i(j) = v_i(j) - y_i(j) }
-        } // cfor
-        new MatrixD (dim, dim2, a)
+        CudaMatrixOps.sub(v, y.v, dim, dim2) match
+            case Some(result) => new MatrixD(dim, dim2, result)
+            case None         =>
+                // println("Defaulted to CPU!!")
+                val a = Array.ofDim[Double](dim, dim2)
+                cfor(0, dim) { i => val v_i = v(i); val y_i = y.v(i); val a_i = a(i)
+                    cfor(0, dim2) { j => a_i(j) = v_i(j) - y_i(j) } }
+                new MatrixD(dim, dim2, a)
     end -
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -853,13 +885,23 @@ class MatrixD (val dim:  Int,
     /** Subtract from this matrix, the scalar u.
      *  @param u  the scalar to subtract
      */
+//    def - (u: Double): MatrixD =
+//        val a = Array.ofDim [Double] (dim, dim2)
+//        cfor (0, dim) { i =>
+//            val v_i = v(i); val a_i = a(i)
+//            cfor (0, dim2) { j => a_i(j) = v_i(j) - u }
+//        } // cfor
+//        new MatrixD (dim, dim2, a)
+//    end -
     def - (u: Double): MatrixD =
-        val a = Array.ofDim [Double] (dim, dim2)
-        cfor (0, dim) { i =>
-            val v_i = v(i); val a_i = a(i)
-            cfor (0, dim2) { j => a_i(j) = v_i(j) - u }
-        } // cfor
-        new MatrixD (dim, dim2, a)
+        CudaMatrixOps.subScalar(v, u, dim, dim2) match
+            case Some(result) => new MatrixD(dim, dim2, result)
+            case None         =>
+                // println("Defaulted to CPU!!")
+                val a = Array.ofDim[Double](dim, dim2)
+                cfor(0, dim) { i => val v_i = v(i); val a_i = a(i)
+                    cfor(0, dim2) { j => a_i(j) = v_i(j) - u } }
+                new MatrixD(dim, dim2, a)
     end -
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -882,16 +924,27 @@ class MatrixD (val dim:  Int,
      *  Also known as Hadamard product.
      *  @param y  the other matrix
      */
+//    def *~ (y: MatrixD): MatrixD =
+//        if y.dim < dim || y.dim2 < dim2 then
+//            flaw ("*~", s"matrix *~ matrix - incompatible dimensions: this = $dims, y = ${y.dims}")
+//        val a = Array.ofDim [Double] (dim, dim2)
+//        cfor (0, dim) { i =>
+//            val v_i = v(i); val y_i = y.v(i); val a_i = a(i)
+//            cfor (0, dim2) { j => a_i(j) = v_i(j) * y_i(j) }
+//        } // cfor
+//        new MatrixD (dim, dim2, a)
+//    end *~
     def *~ (y: MatrixD): MatrixD =
         if y.dim < dim || y.dim2 < dim2 then
             flaw ("*~", s"matrix *~ matrix - incompatible dimensions: this = $dims, y = ${y.dims}")
-
-        val a = Array.ofDim [Double] (dim, dim2)
-        cfor (0, dim) { i =>
-            val v_i = v(i); val y_i = y.v(i); val a_i = a(i)
-            cfor (0, dim2) { j => a_i(j) = v_i(j) * y_i(j) }
-        } // cfor
-        new MatrixD (dim, dim2, a)
+        CudaMatrixOps.mul(v, y.v, dim, dim2) match
+            case Some(result) => new MatrixD(dim, dim2, result)
+            case None         =>
+                // println("Defaulted to CPU!!")
+                val a = Array.ofDim[Double](dim, dim2)
+                cfor(0, dim) { i => val v_i = v(i); val y_i = y.v(i); val a_i = a(i)
+                    cfor(0, dim2) { j => a_i(j) = v_i(j) * y_i(j) } }
+                new MatrixD(dim, dim2, a)
     end *~
 
     inline def ⊙ (y: MatrixD): MatrixD = *~ (y)                     // unicode XNOR gate
@@ -988,13 +1041,23 @@ class MatrixD (val dim:  Int,
     /** Multiply this matrix and scaler u.
      *  @param u  the scalar to multiply by
      */
+//    def * (u: Double): MatrixD =
+//        val a = Array.ofDim [Double] (dim, dim2)
+//        cfor (0, dim) { i =>
+//            val v_i = v(i); val a_i = a(i)
+//            cfor (0, dim2) { j => a_i(j) = v_i(j) * u }
+//        } // cfor
+//        new MatrixD (dim, dim2, a)
+//    end *
     def * (u: Double): MatrixD =
-        val a = Array.ofDim [Double] (dim, dim2)
-        cfor (0, dim) { i =>
-            val v_i = v(i); val a_i = a(i)
-            cfor (0, dim2) { j => a_i(j) = v_i(j) * u }
-        } // cfor
-        new MatrixD (dim, dim2, a)
+        CudaMatrixOps.mulScalar(v, u, dim, dim2) match
+            case Some(result) => new MatrixD(dim, dim2, result)
+            case None         =>
+                // println("Defaulted to CPU!!")
+                val a = Array.ofDim[Double](dim, dim2)
+                cfor(0, dim) { i => val v_i = v(i); val a_i = a(i)
+                    cfor(0, dim2) { j => a_i(j) = v_i(j) * u } }
+                new MatrixD(dim, dim2, a)
     end *
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -1039,16 +1102,27 @@ class MatrixD (val dim:  Int,
      *  the dimensions of this).  Alias rows to avoid double subscripting.
      *  @param y  the other matrix
      */
+//    def / (y: MatrixD): MatrixD =
+//        if y.dim < dim || y.dim2 < dim2 then
+//            flaw ("/", s"matrix / matrix - incompatible dimensions: this = $dims, y = ${y.dims}")
+//        val a = Array.ofDim [Double] (dim, dim2)
+//        cfor (0, dim) { i =>
+//            val v_i = v(i); val y_i = y.v(i); val a_i = a(i)
+//            cfor (0, dim2) { j => a_i(j) = v_i(j) / y_i(j) }
+//        } // cfor
+//        new MatrixD (dim, dim2, a)
+//    end /
     def / (y: MatrixD): MatrixD =
         if y.dim < dim || y.dim2 < dim2 then
             flaw ("/", s"matrix / matrix - incompatible dimensions: this = $dims, y = ${y.dims}")
-
-        val a = Array.ofDim [Double] (dim, dim2)
-        cfor (0, dim) { i =>
-            val v_i = v(i); val y_i = y.v(i); val a_i = a(i)
-            cfor (0, dim2) { j => a_i(j) = v_i(j) / y_i(j) }
-        } // cfor
-        new MatrixD (dim, dim2, a)
+        CudaMatrixOps.div(v, y.v, dim, dim2) match
+            case Some(result) => new MatrixD(dim, dim2, result)
+            case None         =>
+                // println("Defaulted to CPU!!")
+                val a = Array.ofDim[Double](dim, dim2)
+                cfor(0, dim) { i => val v_i = v(i); val y_i = y.v(i); val a_i = a(i)
+                    cfor(0, dim2) { j => a_i(j) = v_i(j) / y_i(j) } }
+                new MatrixD(dim, dim2, a)
     end /
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -1071,13 +1145,23 @@ class MatrixD (val dim:  Int,
     /** Divide element-wise this matrix by scaler u.
      *  @param u  the scalar to divide by
      */
+//    def / (u: Double): MatrixD =
+//        val a = Array.ofDim [Double] (dim, dim2)
+//        cfor (0, dim) { i =>
+//            val v_i = v(i); val a_i = a(i)
+//            cfor (0, dim2) { j => a_i(j) = v_i(j) / u }
+//        } // cfor
+//        new MatrixD (dim, dim2, a)
+//    end /
     def / (u: Double): MatrixD =
-        val a = Array.ofDim [Double] (dim, dim2)
-        cfor (0, dim) { i =>
-            val v_i = v(i); val a_i = a(i)
-            cfor (0, dim2) { j => a_i(j) = v_i(j) / u }
-        } // cfor
-        new MatrixD (dim, dim2, a)
+        CudaMatrixOps.divScalar(v, u, dim, dim2) match
+            case Some(result) => new MatrixD(dim, dim2, result)
+            case None         =>
+                // println("Defaulted to CPU!!")
+                val a = Array.ofDim[Double](dim, dim2)
+                cfor(0, dim) { i => val v_i = v(i); val a_i = a(i)
+                    cfor(0, dim2) { j => a_i(j) = v_i(j) / u } }
+                new MatrixD(dim, dim2, a)
     end /
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
