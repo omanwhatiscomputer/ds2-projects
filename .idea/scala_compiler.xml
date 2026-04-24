@@ -3,13 +3,15 @@
   <component name="ScalaCompilerConfiguration">
     <option name="separateProdTestSources" value="true" />
     <profile name="sbt 1" modules="scalation" />
-    <profile name="sbt 2" modules="scalation.main,scalation.test">
+    <profile name="sbt 3" modules="scalation.main,scalation.test">
       <option name="deprecationWarnings" value="true" />
       <parameters>
         <parameter value="-explain" />
         <parameter value="-new-syntax" />
         <parameter value="-Wunused:all" />
         <parameter value="-Xfatal-warnings" />
+        <parameter value="-release" />
+        <parameter value="21" />
       </parameters>
     </profile>
   </component>

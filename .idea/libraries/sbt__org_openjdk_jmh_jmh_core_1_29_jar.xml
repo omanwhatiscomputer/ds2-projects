@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="sbt: org.openjdk.jmh:jmh-core:1.29:jar" type="java-imported" external-system-id="SBT">
+    <properties groupId="org.openjdk.jmh" artifactId="jmh-core" version="1.29" baseVersion="1.29" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.cache/coursier/v1/https/repo1.maven.org/maven2/org/openjdk/jmh/jmh-core/1.29/jmh-core-1.29.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.cache/coursier/v1/https/repo1.maven.org/maven2/org/openjdk/jmh/jmh-core/1.29/jmh-core-1.29-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
