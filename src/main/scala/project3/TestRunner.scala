@@ -32,7 +32,7 @@ import scalation.mathstat.{VectorD, MatrixD}
 
   // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  // MatrixD tests (element-wise matrix op matrix — 4 cases)
+  // MatrixD tests (element-wise matrix op matrix: 4 cases)
   val m1 = MatrixD((2, 2), 1.0, 2.0, 3.0, 4.0)
   val m2 = MatrixD((2, 2), 5.0, 6.0, 7.0, 8.0)
 
@@ -46,7 +46,7 @@ import scalation.mathstat.{VectorD, MatrixD}
   println(m5)
   println(m6)
 
-  // MatrixD tests (matrix op scalar — 4 cases)
+  // MatrixD tests (matrix op scalar: 4 cases)
   val m7 = m1 + 10.0
   val m8 = m1 - 1.0
   val m9 = m1 * 2.0
@@ -59,7 +59,7 @@ import scalation.mathstat.{VectorD, MatrixD}
 
   // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  // MatrixD tests (matrix op row vector — broadcast across rows)
+  // MatrixD tests (matrix op row vector: broadcast across rows)
   // m1 = [[1,2],[3,4]], rowVec = [10,20]
   // +(rowVec): [[11,22],[13,24]]
   // -(rowVec): [[-9,-18],[-7,-16]]
@@ -79,7 +79,7 @@ import scalation.mathstat.{VectorD, MatrixD}
 
   // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  // MatrixD tests (matrix op col vector — broadcast across cols)
+  // MatrixD tests (matrix op col vector: broadcast across cols)
   // m1 = [[1,2],[3,4]], colVec = [100,200]
   // +^(colVec): [[101,102],[203,204]]
   // -^(colVec): [[-99,-98],[-197,-196]]
