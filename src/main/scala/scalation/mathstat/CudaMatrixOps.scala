@@ -13,7 +13,7 @@ object CudaMatrixOps:
   private val OP_MUL = 2
   private val OP_DIV = 3
 
-  private val opName = Map(OP_ADD -> "add", OP_SUB -> "sub", OP_MUL -> "mul", OP_DIV -> "div")
+//  private val opName = Map(OP_ADD -> "add", OP_SUB -> "sub", OP_MUL -> "mul", OP_DIV -> "div")
 
   private val matrixOpAddr: MemorySegment =
     libKernels.find("gpuMatrixOp")
