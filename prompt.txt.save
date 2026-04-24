@@ -1,5 +1,0 @@
-files: 
-- ~/dev/repos/incubator/ds2-projects/src/main/scala/scalation/mathstat/CudaVectorOps.scala
-- ~/dev/repos/incubator/ds2-projects/src/main/scala/scalation/mathstat/VectorD.scala
-
-
