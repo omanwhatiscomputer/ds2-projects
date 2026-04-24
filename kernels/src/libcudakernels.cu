@@ -1,4 +1,5 @@
 #include <cuda_runtime.h>
+#include <cublas_v2.h>
 #include <stdio.h>
 
 // op codes: 0=add, 1=sub, 2=mul, 3=div
@@ -157,4 +158,248 @@ extern "C" void gpuMatrixColVecOp(const double* h_a, const double* h_vec, double
     cudaMemcpy(h_result, d_c, matSize, cudaMemcpyDeviceToHost);
 
     cudaFree(d_a); cudaFree(d_vec); cudaFree(d_c);
+}
+
+// ── cuBLAS handle (lazy-initialized, shared across calls) ─────────────────
+
+static cublasHandle_t g_cublasHandle = nullptr;
+
+static cublasHandle_t getCublasHandle() {
+    if (g_cublasHandle == nullptr) {
+        cublasCreate(&g_cublasHandle);
+    }
+    return g_cublasHandle;
+}
+
+// ── GEMM: C = A * B  (all row-major, A is m×k, B is k×n, C is m×n) ───────
+// cuBLAS is column-major; we compute C^T = B^T * A^T to stay row-major.
+extern "C" void gpuMatrixMul(const double* h_a, const double* h_b, double* h_c, int m, int k, int n) {
+    double *d_a, *d_b, *d_c;
+    cudaMalloc(&d_a, (size_t)m * k * sizeof(double));
+    cudaMalloc(&d_b, (size_t)k * n * sizeof(double));
+    cudaMalloc(&d_c, (size_t)m * n * sizeof(double));
+    cudaMemcpy(d_a, h_a, (size_t)m * k * sizeof(double), cudaMemcpyHostToDevice);
+    cudaMemcpy(d_b, h_b, (size_t)k * n * sizeof(double), cudaMemcpyHostToDevice);
+    const double alpha = 1.0, beta = 0.0;
+    cublasDgemm(getCublasHandle(),
+        CUBLAS_OP_N, CUBLAS_OP_N,
+        n, m, k,
+        &alpha,
+        d_b, n,
+        d_a, k,
+        &beta,
+        d_c, n);
+    cudaDeviceSynchronize();
+    cudaMemcpy(h_c, d_c, (size_t)m * n * sizeof(double), cudaMemcpyDeviceToHost);
+    cudaFree(d_a); cudaFree(d_b); cudaFree(d_c);
+}
+
+// ── GEMV: result = A * v  (row-major A is m×n, v is n, result is m) ───────
+extern "C" void gpuMatrixVecMul(const double* h_a, const double* h_v, double* h_result, int m, int n) {
+    double *d_a, *d_v, *d_r;
+    cudaMalloc(&d_a, (size_t)m * n * sizeof(double));
+    cudaMalloc(&d_v, (size_t)n     * sizeof(double));
+    cudaMalloc(&d_r, (size_t)m     * sizeof(double));
+    cudaMemcpy(d_a, h_a, (size_t)m * n * sizeof(double), cudaMemcpyHostToDevice);
+    cudaMemcpy(d_v, h_v, (size_t)n     * sizeof(double), cudaMemcpyHostToDevice);
+    const double alpha = 1.0, beta = 0.0;
+    // row-major A treated as col-major A^T; CUBLAS_OP_T un-transposes it
+    cublasDgemv(getCublasHandle(), CUBLAS_OP_T, n, m, &alpha, d_a, n, d_v, 1, &beta, d_r, 1);
+    cudaDeviceSynchronize();
+    cudaMemcpy(h_result, d_r, (size_t)m * sizeof(double), cudaMemcpyDeviceToHost);
+    cudaFree(d_a); cudaFree(d_v); cudaFree(d_r);
+}
+
+// ── Transposed GEMV: result = A^T * v  (row-major A is m×n, v is m, result is n) ─
+extern "C" void gpuMatrixTransVecMul(const double* h_a, const double* h_v, double* h_result, int m, int n) {
+    double *d_a, *d_v, *d_r;
+    cudaMalloc(&d_a, (size_t)m * n * sizeof(double));
+    cudaMalloc(&d_v, (size_t)m     * sizeof(double));
+    cudaMalloc(&d_r, (size_t)n     * sizeof(double));
+    cudaMemcpy(d_a, h_a, (size_t)m * n * sizeof(double), cudaMemcpyHostToDevice);
+    cudaMemcpy(d_v, h_v, (size_t)m     * sizeof(double), cudaMemcpyHostToDevice);
+    const double alpha = 1.0, beta = 0.0;
+    // row-major A^T = col-major A; CUBLAS_OP_N leaves it as-is
+    cublasDgemv(getCublasHandle(), CUBLAS_OP_N, n, m, &alpha, d_a, n, d_v, 1, &beta, d_r, 1);
+    cudaDeviceSynchronize();
+    cudaMemcpy(h_result, d_r, (size_t)n * sizeof(double), cudaMemcpyDeviceToHost);
+    cudaFree(d_a); cudaFree(d_v); cudaFree(d_r);
+}
+
+// ── Column sums via GEMV with ones: sumV[j] = A^T * ones_m ───────────────
+extern "C" void gpuMatrixColSum(const double* h_a, double* h_result, int rows, int cols) {
+    double *d_a, *d_ones, *d_r;
+    cudaMalloc(&d_a,    (size_t)rows * cols * sizeof(double));
+    cudaMalloc(&d_ones, (size_t)rows        * sizeof(double));
+    cudaMalloc(&d_r,    (size_t)cols        * sizeof(double));
+    cudaMemcpy(d_a, h_a, (size_t)rows * cols * sizeof(double), cudaMemcpyHostToDevice);
+    double *h_ones = new double[rows];
+    for (int i = 0; i < rows; i++) h_ones[i] = 1.0;
+    cudaMemcpy(d_ones, h_ones, (size_t)rows * sizeof(double), cudaMemcpyHostToDevice);
+    delete[] h_ones;
+    const double alpha = 1.0, beta = 0.0;
+    cublasDgemv(getCublasHandle(), CUBLAS_OP_N, cols, rows, &alpha, d_a, cols, d_ones, 1, &beta, d_r, 1);
+    cudaDeviceSynchronize();
+    cudaMemcpy(h_result, d_r, (size_t)cols * sizeof(double), cudaMemcpyDeviceToHost);
+    cudaFree(d_a); cudaFree(d_ones); cudaFree(d_r);
+}
+
+// ── Row sums via GEMV with ones: sumVr[i] = A * ones_n ───────────────────
+extern "C" void gpuMatrixRowSum(const double* h_a, double* h_result, int rows, int cols) {
+    double *d_a, *d_ones, *d_r;
+    cudaMalloc(&d_a,    (size_t)rows * cols * sizeof(double));
+    cudaMalloc(&d_ones, (size_t)cols        * sizeof(double));
+    cudaMalloc(&d_r,    (size_t)rows        * sizeof(double));
+    cudaMemcpy(d_a, h_a, (size_t)rows * cols * sizeof(double), cudaMemcpyHostToDevice);
+    double *h_ones = new double[cols];
+    for (int i = 0; i < cols; i++) h_ones[i] = 1.0;
+    cudaMemcpy(d_ones, h_ones, (size_t)cols * sizeof(double), cudaMemcpyHostToDevice);
+    delete[] h_ones;
+    const double alpha = 1.0, beta = 0.0;
+    cublasDgemv(getCublasHandle(), CUBLAS_OP_T, cols, rows, &alpha, d_a, cols, d_ones, 1, &beta, d_r, 1);
+    cudaDeviceSynchronize();
+    cudaMemcpy(h_result, d_r, (size_t)rows * sizeof(double), cudaMemcpyDeviceToHost);
+    cudaFree(d_a); cudaFree(d_ones); cudaFree(d_r);
+}
+
+// ── Global sum reduction ──────────────────────────────────────────────────
+__global__ void globalSumKernel(const double *a, double *partial, int n) {
+    extern __shared__ double sdata[];
+    int tid = threadIdx.x;
+    int i   = blockIdx.x * blockDim.x + threadIdx.x;
+    sdata[tid] = (i < n) ? a[i] : 0.0;
+    __syncthreads();
+    for (int s = blockDim.x / 2; s > 0; s >>= 1) {
+        if (tid < s) sdata[tid] += sdata[tid + s];
+        __syncthreads();
+    }
+    if (tid == 0) partial[blockIdx.x] = sdata[0];
+}
+
+extern "C" void gpuMatrixGlobalSum(const double* h_a, double* h_result, int n) {
+    int threads = 256;
+    int blocks  = (n + threads - 1) / threads;
+    double *d_a, *d_partial;
+    cudaMalloc(&d_a,       (size_t)n      * sizeof(double));
+    cudaMalloc(&d_partial, (size_t)blocks * sizeof(double));
+    cudaMemcpy(d_a, h_a, (size_t)n * sizeof(double), cudaMemcpyHostToDevice);
+    globalSumKernel<<<blocks, threads, (size_t)threads * sizeof(double)>>>(d_a, d_partial, n);
+    cudaDeviceSynchronize();
+    double *h_partial = new double[blocks];
+    cudaMemcpy(h_partial, d_partial, (size_t)blocks * sizeof(double), cudaMemcpyDeviceToHost);
+    double sum = 0.0;
+    for (int i = 0; i < blocks; i++) sum += h_partial[i];
+    *h_result = sum;
+    delete[] h_partial;
+    cudaFree(d_a); cudaFree(d_partial);
+}
+
+// ── Global min reduction ──────────────────────────────────────────────────
+__global__ void globalMinKernel(const double *a, double *partial, int n) {
+    extern __shared__ double sdata[];
+    int tid = threadIdx.x;
+    int i   = blockIdx.x * blockDim.x + threadIdx.x;
+    sdata[tid] = (i < n) ? a[i] : 1e300;
+    __syncthreads();
+    for (int s = blockDim.x / 2; s > 0; s >>= 1) {
+        if (tid < s) sdata[tid] = min(sdata[tid], sdata[tid + s]);
+        __syncthreads();
+    }
+    if (tid == 0) partial[blockIdx.x] = sdata[0];
+}
+
+extern "C" void gpuMatrixGlobalMin(const double* h_a, double* h_result, int n) {
+    int threads = 256;
+    int blocks  = (n + threads - 1) / threads;
+    double *d_a, *d_partial;
+    cudaMalloc(&d_a,       (size_t)n      * sizeof(double));
+    cudaMalloc(&d_partial, (size_t)blocks * sizeof(double));
+    cudaMemcpy(d_a, h_a, (size_t)n * sizeof(double), cudaMemcpyHostToDevice);
+    globalMinKernel<<<blocks, threads, (size_t)threads * sizeof(double)>>>(d_a, d_partial, n);
+    cudaDeviceSynchronize();
+    double *h_partial = new double[blocks];
+    cudaMemcpy(h_partial, d_partial, (size_t)blocks * sizeof(double), cudaMemcpyDeviceToHost);
+    double result = h_partial[0];
+    for (int i = 1; i < blocks; i++) if (h_partial[i] < result) result = h_partial[i];
+    *h_result = result;
+    delete[] h_partial;
+    cudaFree(d_a); cudaFree(d_partial);
+}
+
+// ── Global max reduction ──────────────────────────────────────────────────
+__global__ void globalMaxKernel(const double *a, double *partial, int n) {
+    extern __shared__ double sdata[];
+    int tid = threadIdx.x;
+    int i   = blockIdx.x * blockDim.x + threadIdx.x;
+    sdata[tid] = (i < n) ? a[i] : -1e300;
+    __syncthreads();
+    for (int s = blockDim.x / 2; s > 0; s >>= 1) {
+        if (tid < s) sdata[tid] = max(sdata[tid], sdata[tid + s]);
+        __syncthreads();
+    }
+    if (tid == 0) partial[blockIdx.x] = sdata[0];
+}
+
+extern "C" void gpuMatrixGlobalMax(const double* h_a, double* h_result, int n) {
+    int threads = 256;
+    int blocks  = (n + threads - 1) / threads;
+    double *d_a, *d_partial;
+    cudaMalloc(&d_a,       (size_t)n      * sizeof(double));
+    cudaMalloc(&d_partial, (size_t)blocks * sizeof(double));
+    cudaMemcpy(d_a, h_a, (size_t)n * sizeof(double), cudaMemcpyHostToDevice);
+    globalMaxKernel<<<blocks, threads, (size_t)threads * sizeof(double)>>>(d_a, d_partial, n);
+    cudaDeviceSynchronize();
+    double *h_partial = new double[blocks];
+    cudaMemcpy(h_partial, d_partial, (size_t)blocks * sizeof(double), cudaMemcpyDeviceToHost);
+    double result = h_partial[0];
+    for (int i = 1; i < blocks; i++) if (h_partial[i] > result) result = h_partial[i];
+    *h_result = result;
+    delete[] h_partial;
+    cudaFree(d_a); cudaFree(d_partial);
+}
+
+// ── Column min ────────────────────────────────────────────────────────────
+__global__ void colMinKernel(const double *A, double *result, int rows, int cols) {
+    int col = blockIdx.x * blockDim.x + threadIdx.x;
+    if (col < cols) {
+        double val = A[col];
+        for (int i = 1; i < rows; i++) { double x = A[i * cols + col]; if (x < val) val = x; }
+        result[col] = val;
+    }
+}
+
+extern "C" void gpuMatrixColMin(const double* h_a, double* h_result, int rows, int cols) {
+    double *d_a, *d_r;
+    cudaMalloc(&d_a, (size_t)rows * cols * sizeof(double));
+    cudaMalloc(&d_r, (size_t)cols        * sizeof(double));
+    cudaMemcpy(d_a, h_a, (size_t)rows * cols * sizeof(double), cudaMemcpyHostToDevice);
+    int threads = 256;
+    int blocks  = (cols + threads - 1) / threads;
+    colMinKernel<<<blocks, threads>>>(d_a, d_r, rows, cols);
+    cudaDeviceSynchronize();
+    cudaMemcpy(h_result, d_r, (size_t)cols * sizeof(double), cudaMemcpyDeviceToHost);
+    cudaFree(d_a); cudaFree(d_r);
+}
+
+// ── Column max ────────────────────────────────────────────────────────────
+__global__ void colMaxKernel(const double *A, double *result, int rows, int cols) {
+    int col = blockIdx.x * blockDim.x + threadIdx.x;
+    if (col < cols) {
+        double val = A[col];
+        for (int i = 1; i < rows; i++) { double x = A[i * cols + col]; if (x > val) val = x; }
+        result[col] = val;
+    }
+}
+
+extern "C" void gpuMatrixColMax(const double* h_a, double* h_result, int rows, int cols) {
+    double *d_a, *d_r;
+    cudaMalloc(&d_a, (size_t)rows * cols * sizeof(double));
+    cudaMalloc(&d_r, (size_t)cols        * sizeof(double));
+    cudaMemcpy(d_a, h_a, (size_t)rows * cols * sizeof(double), cudaMemcpyHostToDevice);
+    int threads = 256;
+    int blocks  = (cols + threads - 1) / threads;
+    colMaxKernel<<<blocks, threads>>>(d_a, d_r, rows, cols);
+    cudaDeviceSynchronize();
+    cudaMemcpy(h_result, d_r, (size_t)cols * sizeof(double), cudaMemcpyDeviceToHost);
+    cudaFree(d_a); cudaFree(d_r);
 }

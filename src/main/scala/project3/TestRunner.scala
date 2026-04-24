@@ -95,4 +95,49 @@ import scalation.mathstat.{VectorD, MatrixD}
   println(mc3)
 
   // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  // MatrixD tests: matrix multiplication (*(MatrixD), mul)
+  // m1 = [[1,2],[3,4]], m2 = [[5,6],[7,8]]
+  // m1 * m2  = [[1*5+2*7, 1*6+2*8],[3*5+4*7, 3*6+4*8]] = [[19,22],[43,50]]
+  // m1 mul m2 = same result
+  val mm1 = m1 * m2
+  val mm2 = m1 mul m2
+  println(mm1)
+  println(mm2)
+
+  // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  // MatrixD tests: matrix * vector (*(VectorD))
+  // m1 = [[1,2],[3,4]], v = [10,20]
+  // m1 * v = [1*10+2*20, 3*10+4*20] = [50, 110]
+  val mv1 = m1 * rowVec
+  println(mv1)
+
+  // MatrixD tests: transposed GEMV (*:, dot(VectorD))
+  // m1^T = [[1,3],[2,4]], colVec = [100,200]
+  // colVec *: m1 = m1^T * colVec = [1*100+3*200, 2*100+4*200] = [700, 1000]
+  // m1 dot colVec = same result (A^T * v)
+  val mv2 = colVec *: m1
+  val mv3 = m1 dot colVec
+  println(mv2)
+  println(mv3)
+
+  // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  // MatrixD tests: reductions
+  // m1 = [[1,2],[3,4]]
+  // sum   = 10,  mmax = 4,  mmin = 1,  mmean = 2.5
+  // sumV  = [4,6],  max = [3,4],  min = [1,2],  mean = [2.0,3.0]
+  // sumVr = [3,7]
+  println(m1.sum)
+  println(m1.mmax)
+  println(m1.mmin)
+  println(m1.mmean)
+  println(m1.sumV)
+  println(m1.max)
+  println(m1.min)
+  println(m1.mean)
+  println(m1.sumVr)
+
+  // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 }

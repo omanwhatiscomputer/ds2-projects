@@ -1038,29 +1038,50 @@ class MatrixD (val dim:  Int,
      *  optimize-memory-access-patterns-using-loop-interchange-and-cache-blocking-techniques.html
      *  @param y  the other matrix
      */
+//    def * (y: MatrixD): MatrixD =
+//        if y.dim != dim2 then
+//            flaw ("*", s"matrix * matrix - incompatible cross dimensions: dim2 = $dim2, y.dim = ${y.dim}")
+//        val a = Array.ofDim [Double] (dim, y.dim2)
+//        cfor (0, dim, TSZ) { ii =>
+//            val i2 = math.min (ii + TSZ, dim)
+//            cfor (0, dim2, TSZ) { kk =>
+//                val k2 = math.min (kk + TSZ, dim2)
+//                cfor (0, y.dim2, TSZ) { jj =>
+//                    val j2 = math.min (jj + TSZ, y.dim2)
+//                    cfor (ii, i2) { i =>
+//                        val v_i = v(i); val a_i = a(i)
+//                        cfor (kk, k2) { k =>
+//                            val y_k = y.v(k); val v_ik = v_i(k)
+//                            cfor (jj, j2) { j => a_i(j) += v_ik * y_k(j) }
+//                        }
+//                    }
+//        }}} // cfor
+//        new MatrixD (dim, y.dim2, a)
+//    end *
     def * (y: MatrixD): MatrixD =
         if y.dim != dim2 then
             flaw ("*", s"matrix * matrix - incompatible cross dimensions: dim2 = $dim2, y.dim = ${y.dim}")
-
-        val a = Array.ofDim [Double] (dim, y.dim2)
-
-        cfor (0, dim, TSZ) { ii =>
-            val i2 = math.min (ii + TSZ, dim)
-            cfor (0, dim2, TSZ) { kk =>
-                val k2 = math.min (kk + TSZ, dim2)
-                cfor (0, y.dim2, TSZ) { jj =>
-                    val j2 = math.min (jj + TSZ, y.dim2)
-
-                    cfor (ii, i2) { i =>
-                        val v_i = v(i); val a_i = a(i)
-                        cfor (kk, k2) { k =>
-                            val y_k = y.v(k); val v_ik = v_i(k)
-                            cfor (jj, j2) { j => a_i(j) += v_ik * y_k(j) }
-                        } // cfor
-                    } // cfor
-
-        }}} // cfor
-        new MatrixD (dim, y.dim2, a)
+        CudaMatrixOps.matrixMul(v, y.v, dim, dim2, y.dim2) match
+            case Some(result) => new MatrixD(dim, y.dim2, result)
+            case None         =>
+                val a = Array.ofDim[Double](dim, y.dim2)
+                cfor (0, dim, TSZ) { ii =>
+                    val i2 = math.min(ii + TSZ, dim)
+                    cfor (0, dim2, TSZ) { kk =>
+                        val k2 = math.min(kk + TSZ, dim2)
+                        cfor (0, y.dim2, TSZ) { jj =>
+                            val j2 = math.min(jj + TSZ, y.dim2)
+                            cfor (ii, i2) { i =>
+                                val v_i = v(i); val a_i = a(i)
+                                cfor (kk, k2) { k =>
+                                    val y_k = y.v(k); val v_ik = v_i(k)
+                                    cfor (jj, j2) { j => a_i(j) += v_ik * y_k(j) }
+                                }
+                            }
+                        }
+                    }
+                }
+                new MatrixD(dim, y.dim2, a)
     end *
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -1068,13 +1089,22 @@ class MatrixD (val dim:  Int,
      *  Alias rows to avoid double subscripting and use array ops.
      *  @param y  the vector to multiply by
      */
+//    def * (y: VectorD): VectorD =
+//        if y.dim < dim2 then
+//            flaw ("*", s"matrix * vector - dimension of vector y: y.dim = ${y.dim} < dim2 = $dim2")
+//        val a = Array.ofDim [Double] (dim)
+//        cfor (0, dim) { i => val x_i = apply(i); a(i) = x_i dot y }
+//        new VectorD (dim, a)
+//    end *
     def * (y: VectorD): VectorD =
         if y.dim < dim2 then
             flaw ("*", s"matrix * vector - dimension of vector y: y.dim = ${y.dim} < dim2 = $dim2")
-
-        val a = Array.ofDim [Double] (dim)
-        cfor (0, dim) { i => val x_i = apply(i); a(i) = x_i dot y }
-        new VectorD (dim, a)
+        CudaMatrixOps.matrixVecMul(v, y.v, dim, dim2) match
+            case Some(result) => new VectorD(dim, result)
+            case None         =>
+                val a = Array.ofDim[Double](dim)
+                cfor (0, dim) { i => val x_i = apply(i); a(i) = x_i dot y }
+                new VectorD(dim, a)
     end *
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -1082,7 +1112,11 @@ class MatrixD (val dim:  Int,
      *  vector = vector *: matrix
      *  @param y  the vector to multiply by
      */
-    def *: (y: VectorD): VectorD = this.transpose * y
+//    def *: (y: VectorD): VectorD = this.transpose * y
+    def *: (y: VectorD): VectorD =
+        CudaMatrixOps.matrixTransVecMul(v, y.v, dim, dim2) match
+            case Some(result) => new VectorD(dim2, result)
+            case None         => this.transpose * y
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     /** Multiply this matrix and scaler u.
@@ -1125,21 +1159,36 @@ class MatrixD (val dim:  Int,
      *  A simpler, less efficient version of '*'.
      *  @param y  the other matrix
      */
+//    infix def mul (y: MatrixD): MatrixD =
+//        if dim2 != y.dim then
+//            flaw ("mul", s"matrix mul matrix - incompatible cross dimensions: dim2 = $dim2, y.dim = ${y.dim}")
+//        val a  = Array.ofDim [Double] (dim, y.dim2)
+//        val yt = y.v.transpose
+//        cfor (0, dim) { i =>
+//            val v_i = v(i); val a_i = a(i)
+//            cfor (0, y.dim2) { j =>
+//                val y_j = yt(j)
+//                a_i(j) = Σ (0, dim2) { k => v_i(k) * y_j(k) }
+//            }
+//        }
+//        new MatrixD (dim, y.dim2, a)
+//    end mul
     infix def mul (y: MatrixD): MatrixD =
         if dim2 != y.dim then
             flaw ("mul", s"matrix mul matrix - incompatible cross dimensions: dim2 = $dim2, y.dim = ${y.dim}")
-
-        val a  = Array.ofDim [Double] (dim, y.dim2)
-        val yt = y.v.transpose
-
-        cfor (0, dim) { i =>
-            val v_i = v(i); val a_i = a(i)
-            cfor (0, y.dim2) { j =>
-                val y_j = yt(j)
-                a_i(j) = Σ (0, dim2) { k => v_i(k) * y_j(k) }
-            } // cfor
-        } // cfor
-        new MatrixD (dim, y.dim2, a) 
+        CudaMatrixOps.matrixMul(v, y.v, dim, dim2, y.dim2) match
+            case Some(result) => new MatrixD(dim, y.dim2, result)
+            case None         =>
+                val a  = Array.ofDim[Double](dim, y.dim2)
+                val yt = y.v.transpose
+                cfor (0, dim) { i =>
+                    val v_i = v(i); val a_i = a(i)
+                    cfor (0, y.dim2) { j =>
+                        val y_j = yt(j)
+                        a_i(j) = Σ (0, dim2) { k => v_i(k) * y_j(k) }
+                    }
+                }
+                new MatrixD(dim, y.dim2, a)
     end mul
 
 // Divide (/) matrix by (matrix, vector, scalar)
@@ -1351,18 +1400,32 @@ class MatrixD (val dim:  Int,
     /** Return the dot product of this matrix and vector y.
      *  @param y  the vector to take the dot product with
      */
+//    infix def dot (y: VectorD): VectorD =
+//        if y.dim < dim then
+//            flaw ("dot", s"matrix dot vector - dimension of vector y: y.dim = ${y.dim} < dim = $dim")
+//        val a = Array.ofDim [Double] (dim2)
+//        cfor (0, dim2) { j =>
+//            val v_j = apply(?, j)
+//            var sum = 0.0
+//            cfor (0, dim) { i => sum += v_j(i) * y(i) }
+//            a(j) = sum
+//        }
+//        new VectorD (dim2, a)
+//    end dot
     infix def dot (y: VectorD): VectorD =
         if y.dim < dim then
             flaw ("dot", s"matrix dot vector - dimension of vector y: y.dim = ${y.dim} < dim = $dim")
-
-        val a = Array.ofDim [Double] (dim2)
-        cfor (0, dim2) { j =>
-            val v_j = apply(?, j)
-            var sum = 0.0
-            cfor (0, dim) { i => sum += v_j(i) * y(i) }
-            a(j) = sum
-        } // cfor
-        new VectorD (dim2, a)
+        CudaMatrixOps.matrixTransVecMul(v, y.v, dim, dim2) match
+            case Some(result) => new VectorD(dim2, result)
+            case None         =>
+                val a = Array.ofDim[Double](dim2)
+                cfor (0, dim2) { j =>
+                    val v_j = apply(?, j)
+                    var sum = 0.0
+                    cfor (0, dim) { i => sum += v_j(i) * y(i) }
+                    a(j) = sum
+                }
+                new VectorD(dim2, a)
     end dot
 
     inline def ∙ (y: VectorD): VectorD = dot (y)                  // unicode bullet point
@@ -1571,66 +1634,122 @@ class MatrixD (val dim:  Int,
     /** Compute the sum of this matrix, i.e., the sum of all its elements.
      *  Σ (indices) { i => Σ (indices2) { j => v(i)(j) }}
      */
+//    def sum: Double =
+//        var sum = 0.0
+//        cfor (0, dim) { i => val v_i = v(i); cfor (0, dim2) { j => sum += v_i(j) }}
+//        sum
+//    end sum
     def sum: Double =
-        var sum = 0.0
-        cfor (0, dim) { i => val v_i = v(i); cfor (0, dim2) { j => sum += v_i(j) }}
-        sum
+        CudaMatrixOps.globalSum(v, dim, dim2) match
+            case Some(result) => result
+            case None         =>
+                var s = 0.0
+                cfor (0, dim) { i => val v_i = v(i); cfor (0, dim2) { j => s += v_i(j) }}
+                s
     end sum
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     /** Compute the column sums of this matrix, i.e., the sums for each of its columns.
      */
+//    def sumV: VectorD =
+//        val s = new VectorD (dim2)
+//        cfor (0, dim) { i => val v_i = v(i); cfor (0, dim2) { j => s(j) += v_i(j) }}
+//        s
+//    end sumV
     def sumV: VectorD =
-        val s = new VectorD (dim2)
-        cfor (0, dim) { i => val v_i = v(i); cfor (0, dim2) { j => s(j) += v_i(j) }}
-        s
+        CudaMatrixOps.colSum(v, dim, dim2) match
+            case Some(result) => new VectorD(dim2, result)
+            case None         =>
+                val s = new VectorD(dim2)
+                cfor (0, dim) { i => val v_i = v(i); cfor (0, dim2) { j => s(j) += v_i(j) }}
+                s
     end sumV
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     /** Compute the row sums of this matrix, i.e., the sums for each of its rows.
      */
+//    def sumVr: VectorD =
+//        val s = new VectorD (dim)
+//        cfor (0, dim) { i => s(i) = v(i).sum }
+//        s
+//    end sumVr
     def sumVr: VectorD =
-        val s = new VectorD (dim)
-        cfor (0, dim) { i => s(i) = v(i).sum }
-        s
+        CudaMatrixOps.rowSum(v, dim, dim2) match
+            case Some(result) => new VectorD(dim, result)
+            case None         =>
+                val s = new VectorD(dim)
+                cfor (0, dim) { i => s(i) = v(i).sum }
+                s
     end sumVr
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     /** Return the maximum value for the entire matrix.
      */
+//    def mmax: Double =
+//        var x = v(0).max
+//        cfor (1, dim) { i => val z = v(i).max; if z > x then x = z }
+//        x
+//    end mmax
     def mmax: Double =
-        var x = v(0).max
-        cfor (1, dim) { i => val z = v(i).max; if z > x then x = z }
-        x
+        CudaMatrixOps.globalMax(v, dim, dim2) match
+            case Some(result) => result
+            case None         =>
+                var x = v(0).max
+                cfor (1, dim) { i => val z = v(i).max; if z > x then x = z }
+                x
     end mmax
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     /** Return the maximum value for each column in the matrix.
      *  VectorD (for j <- indices2 yield apply(?, j).max)
      */
+//    def max: VectorD =
+//        val a = Array.ofDim [Double] (dim2)
+//        cfor (0, dim2) { j => a(j) = apply(?, j).max }
+//        new VectorD (a.size, a)
+//    end max
     def max: VectorD =
-        val a = Array.ofDim [Double] (dim2)
-        cfor (0, dim2) { j => a(j) = apply(?, j).max }
-        new VectorD (a.size, a)
+        CudaMatrixOps.colMax(v, dim, dim2) match
+            case Some(result) => new VectorD(dim2, result)
+            case None         =>
+                val a = Array.ofDim[Double](dim2)
+                cfor (0, dim2) { j => a(j) = apply(?, j).max }
+                new VectorD(a.size, a)
     end max
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     /** Return the minimum value for the entire matrix.
      */
+//    def mmin: Double =
+//        var x = v(0).min
+//        cfor (1, dim) { i => val z = v(i).min; if z < x then x = z }
+//        x
+//    end mmin
     def mmin: Double =
-        var x = v(0).min
-        cfor (1, dim) { i => val z = v(i).min; if z < x then x = z }
-        x
+        CudaMatrixOps.globalMin(v, dim, dim2) match
+            case Some(result) => result
+            case None         =>
+                var x = v(0).min
+                cfor (1, dim) { i => val z = v(i).min; if z < x then x = z }
+                x
     end mmin
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     /** Return the minimum value for each column in the matrix.
      *  VectorD (for j <- indices2 yield apply(?, j).min)
      */
-    def min: VectorD = 
-        val a = Array.ofDim [Double] (dim2)
-        cfor (0, dim2) { j => a(j) = apply(?, j).min }
-        new VectorD (a.size, a)
+//    def min: VectorD =
+//        val a = Array.ofDim [Double] (dim2)
+//        cfor (0, dim2) { j => a(j) = apply(?, j).min }
+//        new VectorD (a.size, a)
+//    end min
+    def min: VectorD =
+        CudaMatrixOps.colMin(v, dim, dim2) match
+            case Some(result) => new VectorD(dim2, result)
+            case None         =>
+                val a = Array.ofDim[Double](dim2)
+                cfor (0, dim2) { j => a(j) = apply(?, j).min }
+                new VectorD(a.size, a)
     end min
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -1686,10 +1805,20 @@ class MatrixD (val dim:  Int,
     /** Compute the column means of this matrix.
      *  VectorD (for j <- indices2 yield apply(?, j).mean)
      */
-    def mean: VectorD = 
-        val a = Array.ofDim [Double] (dim2)
-        cfor (0, dim2) { j => a(j) = apply(?, j).mean }
-        new VectorD (a.size, a)
+//    def mean: VectorD =
+//        val a = Array.ofDim [Double] (dim2)
+//        cfor (0, dim2) { j => a(j) = apply(?, j).mean }
+//        new VectorD (a.size, a)
+//    end mean
+    def mean: VectorD =
+        CudaMatrixOps.colSum(v, dim, dim2) match
+            case Some(colSums) =>
+                val d = dim.toDouble
+                new VectorD(dim2, Array.tabulate(dim2)(j => colSums(j) / d))
+            case None          =>
+                val a = Array.ofDim[Double](dim2)
+                cfor (0, dim2) { j => a(j) = apply(?, j).mean }
+                new VectorD(a.size, a)
     end mean
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

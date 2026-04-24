@@ -210,4 +210,209 @@ object CudaMatrixOps:
   def mulScalar(a: Array[Array[Double]], s: Double, rows: Int, cols: Int): Option[Array[Array[Double]]] = dispatchScalar(a, s, rows, cols, OP_MUL)
   def divScalar(a: Array[Array[Double]], s: Double, rows: Int, cols: Int): Option[Array[Array[Double]]] = dispatchScalar(a, s, rows, cols, OP_DIV)
 
+  // ── New symbol addresses ────────────────────────────────────────────────
+
+  private val matrixMulAddr: MemorySegment =
+    libKernels.find("gpuMatrixMul").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixMul"))
+
+  private val matrixVecMulAddr: MemorySegment =
+    libKernels.find("gpuMatrixVecMul").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixVecMul"))
+
+  private val matrixTransVecMulAddr: MemorySegment =
+    libKernels.find("gpuMatrixTransVecMul").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixTransVecMul"))
+
+  private val matrixColSumAddr: MemorySegment =
+    libKernels.find("gpuMatrixColSum").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixColSum"))
+
+  private val matrixRowSumAddr: MemorySegment =
+    libKernels.find("gpuMatrixRowSum").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixRowSum"))
+
+  private val matrixGlobalSumAddr: MemorySegment =
+    libKernels.find("gpuMatrixGlobalSum").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixGlobalSum"))
+
+  private val matrixGlobalMinAddr: MemorySegment =
+    libKernels.find("gpuMatrixGlobalMin").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixGlobalMin"))
+
+  private val matrixGlobalMaxAddr: MemorySegment =
+    libKernels.find("gpuMatrixGlobalMax").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixGlobalMax"))
+
+  private val matrixColMinAddr: MemorySegment =
+    libKernels.find("gpuMatrixColMin").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixColMin"))
+
+  private val matrixColMaxAddr: MemorySegment =
+    libKernels.find("gpuMatrixColMax").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixColMax"))
+
+  // ── GEMM invoke: (segA, segB, segC, m, k, n) ───────────────────────────
+
+  private def invokeGemm(kernelAddr: MemorySegment, a: Array[Array[Double]], b: Array[Array[Double]], result: Array[Array[Double]], m: Int, k: Int, n: Int): Unit =
+    val kernelHandle = linker.downcallHandle(
+      kernelAddr,
+      FunctionDescriptor.ofVoid(ADDRESS, ADDRESS, ADDRESS, JAVA_INT, JAVA_INT, JAVA_INT)
+    )
+    val flatA   = flatten(a, m, k)
+    val flatB   = flatten(b, k, n)
+    val flatRes = new Array[Double](m * n)
+    val arena   = Arena.ofConfined()
+    try
+      val segA   = arena.allocate(m.toLong * k * 8)
+      val segB   = arena.allocate(k.toLong * n * 8)
+      val segRes = arena.allocate(m.toLong * n * 8)
+      MemorySegment.copy(flatA, 0, segA,   ValueLayout.JAVA_DOUBLE, 0, m * k)
+      MemorySegment.copy(flatB, 0, segB,   ValueLayout.JAVA_DOUBLE, 0, k * n)
+      kernelHandle.invoke(segA, segB, segRes, m, k, n)
+      MemorySegment.copy(segRes, ValueLayout.JAVA_DOUBLE, 0, flatRes, 0, m * n)
+    finally
+      arena.close()
+    end try
+    val mat = unflatten(flatRes, m, n)
+    var i = 0
+    while i < m do
+      System.arraycopy(mat(i), 0, result(i), 0, n)
+      i += 1
+  end invokeGemm
+
+  // ── GEMV invoke: (segA, segVec, segResult, dim1, dim2) ─────────────────
+  // Used for both GEMV (dim1=rows, dim2=cols, resultLen=rows)
+  // and transposed GEMV (dim1=rows, dim2=cols, resultLen=cols).
+
+  private def invokeGemvKernel(kernelAddr: MemorySegment, a: Array[Array[Double]], vec: Array[Double], resultVec: Array[Double], rows: Int, cols: Int): Unit =
+    val kernelHandle = linker.downcallHandle(
+      kernelAddr,
+      FunctionDescriptor.ofVoid(ADDRESS, ADDRESS, ADDRESS, JAVA_INT, JAVA_INT)
+    )
+    val flatA = flatten(a, rows, cols)
+    val arena = Arena.ofConfined()
+    try
+      val segA   = arena.allocate(rows.toLong * cols * 8)
+      val segVec = arena.allocate(vec.length.toLong * 8)
+      val segRes = arena.allocate(resultVec.length.toLong * 8)
+      MemorySegment.copy(flatA, 0, segA,   ValueLayout.JAVA_DOUBLE, 0, rows * cols)
+      MemorySegment.copy(vec,   0, segVec, ValueLayout.JAVA_DOUBLE, 0, vec.length)
+      kernelHandle.invoke(segA, segVec, segRes, rows, cols)
+      MemorySegment.copy(segRes, ValueLayout.JAVA_DOUBLE, 0, resultVec, 0, resultVec.length)
+    finally
+      arena.close()
+    end try
+  end invokeGemvKernel
+
+  // ── Global scalar reduction invoke: (segFlat, segResult, n) ────────────
+
+  private def invokeGlobalReduction(kernelAddr: MemorySegment, flat: Array[Double]): Double =
+    val kernelHandle = linker.downcallHandle(
+      kernelAddr,
+      FunctionDescriptor.ofVoid(ADDRESS, ADDRESS, JAVA_INT)
+    )
+    val arena = Arena.ofConfined()
+    try
+      val segA   = arena.allocate(flat.length.toLong * 8)
+      val segRes = arena.allocate(8L)
+      MemorySegment.copy(flat, 0, segA, ValueLayout.JAVA_DOUBLE, 0, flat.length)
+      kernelHandle.invoke(segA, segRes, flat.length)
+      segRes.get(ValueLayout.JAVA_DOUBLE, 0)
+    finally
+      arena.close()
+    end try
+  end invokeGlobalReduction
+
+  // ── Col/row vector reduction invoke: (segFlat, segResult, rows, cols) ───
+
+  private def invokeVectorReduction(kernelAddr: MemorySegment, flat: Array[Double], rows: Int, cols: Int, resultLen: Int): Array[Double] =
+    val kernelHandle = linker.downcallHandle(
+      kernelAddr,
+      FunctionDescriptor.ofVoid(ADDRESS, ADDRESS, JAVA_INT, JAVA_INT)
+    )
+    val resultArr = new Array[Double](resultLen)
+    val arena     = Arena.ofConfined()
+    try
+      val segA   = arena.allocate(flat.length.toLong * 8)
+      val segRes = arena.allocate(resultLen.toLong * 8)
+      MemorySegment.copy(flat, 0, segA, ValueLayout.JAVA_DOUBLE, 0, flat.length)
+      kernelHandle.invoke(segA, segRes, rows, cols)
+      MemorySegment.copy(segRes, ValueLayout.JAVA_DOUBLE, 0, resultArr, 0, resultLen)
+    finally
+      arena.close()
+    end try
+    resultArr
+  end invokeVectorReduction
+
+  // ── Dispatch functions ──────────────────────────────────────────────────
+
+  private def dispatchGemm(a: Array[Array[Double]], b: Array[Array[Double]], m: Int, k: Int, n: Int): Option[Array[Array[Double]]] =
+    if !CudaVectorOps.isAvailable then return None
+    val result = Array.ofDim[Double](m, n)
+    try
+      invokeGemm(matrixMulAddr, a, b, result, m, k, n)
+      Some(result)
+    catch case e: Throwable =>
+      e.printStackTrace()
+      None
+
+  private def dispatchGemv(a: Array[Array[Double]], vec: Array[Double], rows: Int, cols: Int): Option[Array[Double]] =
+    if !CudaVectorOps.isAvailable then return None
+    val result = new Array[Double](rows)
+    try
+      invokeGemvKernel(matrixVecMulAddr, a, vec, result, rows, cols)
+      Some(result)
+    catch case e: Throwable =>
+      e.printStackTrace()
+      None
+
+  private def dispatchTransGemv(a: Array[Array[Double]], vec: Array[Double], rows: Int, cols: Int): Option[Array[Double]] =
+    if !CudaVectorOps.isAvailable then return None
+    val result = new Array[Double](cols)
+    try
+      invokeGemvKernel(matrixTransVecMulAddr, a, vec, result, rows, cols)
+      Some(result)
+    catch case e: Throwable =>
+      e.printStackTrace()
+      None
+
+  private def dispatchGlobalReduction(kernelAddr: MemorySegment, a: Array[Array[Double]], rows: Int, cols: Int): Option[Double] =
+    if !CudaVectorOps.isAvailable then return None
+    try
+      Some(invokeGlobalReduction(kernelAddr, flatten(a, rows, cols)))
+    catch case e: Throwable =>
+      e.printStackTrace()
+      None
+
+  private def dispatchVectorReduction(kernelAddr: MemorySegment, a: Array[Array[Double]], rows: Int, cols: Int, resultLen: Int): Option[Array[Double]] =
+    if !CudaVectorOps.isAvailable then return None
+    try
+      Some(invokeVectorReduction(kernelAddr, flatten(a, rows, cols), rows, cols, resultLen))
+    catch case e: Throwable =>
+      e.printStackTrace()
+      None
+
+  // ── Public API (GEMM, GEMV, reductions) ────────────────────────────────
+
+  def matrixMul(a: Array[Array[Double]], b: Array[Array[Double]], m: Int, k: Int, n: Int): Option[Array[Array[Double]]] =
+    dispatchGemm(a, b, m, k, n)
+
+  def matrixVecMul(a: Array[Array[Double]], vec: Array[Double], rows: Int, cols: Int): Option[Array[Double]] =
+    dispatchGemv(a, vec, rows, cols)
+
+  def matrixTransVecMul(a: Array[Array[Double]], vec: Array[Double], rows: Int, cols: Int): Option[Array[Double]] =
+    dispatchTransGemv(a, vec, rows, cols)
+
+  def globalSum(a: Array[Array[Double]], rows: Int, cols: Int): Option[Double] =
+    dispatchGlobalReduction(matrixGlobalSumAddr, a, rows, cols)
+
+  def globalMin(a: Array[Array[Double]], rows: Int, cols: Int): Option[Double] =
+    dispatchGlobalReduction(matrixGlobalMinAddr, a, rows, cols)
+
+  def globalMax(a: Array[Array[Double]], rows: Int, cols: Int): Option[Double] =
+    dispatchGlobalReduction(matrixGlobalMaxAddr, a, rows, cols)
+
+  def colSum(a: Array[Array[Double]], rows: Int, cols: Int): Option[Array[Double]] =
+    dispatchVectorReduction(matrixColSumAddr, a, rows, cols, cols)
+
+  def rowSum(a: Array[Array[Double]], rows: Int, cols: Int): Option[Array[Double]] =
+    dispatchVectorReduction(matrixRowSumAddr, a, rows, cols, rows)
+
+  def colMin(a: Array[Array[Double]], rows: Int, cols: Int): Option[Array[Double]] =
+    dispatchVectorReduction(matrixColMinAddr, a, rows, cols, cols)
+
+  def colMax(a: Array[Array[Double]], rows: Int, cols: Int): Option[Array[Double]] =
+    dispatchVectorReduction(matrixColMaxAddr, a, rows, cols, cols)
+
 end CudaMatrixOps

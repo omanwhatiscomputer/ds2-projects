@@ -11,6 +11,6 @@ echo "==> Compiling check_cuda.c -> libcudacheck.so"
 gcc -shared -fPIC -o "$OUT_DIR/libcudacheck.so" "$SRC_DIR/check_cuda.c" -ldl
 
 echo "==> Compiling libcudakernels.cu -> libcudakernels.so"
-nvcc --shared -Xcompiler -fPIC -o "$OUT_DIR/libcudakernels.so" "$SRC_DIR/libcudakernels.cu"
+nvcc --shared -Xcompiler -fPIC -o "$OUT_DIR/libcudakernels.so" "$SRC_DIR/libcudakernels.cu" -lcublas
 
 echo "==> Done. Libraries written to $OUT_DIR"
