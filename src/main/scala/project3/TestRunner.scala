@@ -1,143 +1,208 @@
 package project3
 
-import scalation.mathstat.{VectorD, MatrixD}
+import scalation.{time, banner}
+import scalation.mathstat.{VectorD, MatrixD, DeviceConfig}
 
-@main def TestRunner(): Unit = {
-  println("Hello World");
-  val x = VectorD (2.0, 1.0, 2.0);
-  val y = VectorD (2.0, 1.0, 2.0);
-  
+@main def TestRunner(): Unit =
 
-  val z = x+y;
-  val a = x-y;
-  val b = x*y;
-  val c = x/y;
+  val N       = 10_000_000  // vector-vector/scalar ops  (was 1M, GPU slower below ~10M)
+  val ROWS    = 3_000       // matrix element-wise/scalar/vec ops  (was 1K)
+  val COLS    = 3_000
+  val MM      = 1_000       // GEMM * and GEMV  (was 500, first-call CUDA JIT + small data caused GPU to look slower)
+  val MM_MUL  = 500         // GEMM mul — naive CPU fallback is O(n^3) ~2.6s at 500; keeping small to avoid ~20s CPU run at 1K
 
-  println(z);
-  println(a);
-  println(b);
-  println(c);
+  // ---- Build test data ----
+  val x       = VectorD(Array.fill(N)(1.5))
+  val y       = VectorD(Array.fill(N)(2.5))
+  val rowVec  = VectorD(Array.fill(COLS)(1.5))
+  val colVec  = VectorD(Array.fill(ROWS)(2.5))
+  val gemvVec = VectorD(Array.fill(MM)(1.5))
 
-  // %%%%%%%%%%%%%%%%%%%%%%%%%%%
+  val m1    = MatrixD((0 until ROWS).map(_ => VectorD(Array.fill(COLS)(1.5))))
+  val m2    = MatrixD((0 until ROWS).map(_ => VectorD(Array.fill(COLS)(2.5))))
+  val gm1   = MatrixD((0 until MM).map(_ => VectorD(Array.fill(MM)(1.5))))
+  val gm2   = MatrixD((0 until MM).map(_ => VectorD(Array.fill(MM)(2.5))))
+  val gms1  = MatrixD((0 until MM_MUL).map(_ => VectorD(Array.fill(MM_MUL)(1.5))))
+  val gms2  = MatrixD((0 until MM_MUL).map(_ => VectorD(Array.fill(MM_MUL)(2.5))))
 
-  val d = x + 1;
-  val e = x - 2;
-  val f = x * 2;
-  val g = x / 2;
+  // =========================================================================
+  // Vector-Vector Operations  (N = 10,000,000)
+  // =========================================================================
 
-  println(d);
-  println(e);
-  println(f);
-  println(g);
+  banner("Vector Add (N = 10,000,000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { x + y }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { x + y }
 
-  // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  banner("Vector Sub (N = 10,000,000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { x - y }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { x - y }
 
-  // MatrixD tests (element-wise matrix op matrix: 4 cases)
-  val m1 = MatrixD((2, 2), 1.0, 2.0, 3.0, 4.0)
-  val m2 = MatrixD((2, 2), 5.0, 6.0, 7.0, 8.0)
+  banner("Vector Mul (N = 10,000,000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { x * y }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { x * y }
 
-  val m3 = m1 + m2
-  val m4 = m1 - m2
-  val m5 = m1 *~ m2
-  val m6 = m1 / m2
+  banner("Vector Div (N = 10,000,000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { x / y }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { x / y }
 
-  println(m3)
-  println(m4)
-  println(m5)
-  println(m6)
+  // =========================================================================
+  // Vector-Scalar Operations  (N = 10,000,000)
+  // =========================================================================
 
-  // MatrixD tests (matrix op scalar: 4 cases)
-  val m7 = m1 + 10.0
-  val m8 = m1 - 1.0
-  val m9 = m1 * 2.0
-  val m10 = m1 / 2.0
+  banner("Vector Add Scalar (N = 10,000,000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { x + 10.0 }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { x + 10.0 }
 
-  println(m7)
-  println(m8)
-  println(m9)
-  println(m10)
+  banner("Vector Sub Scalar (N = 10,000,000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { x - 10.0 }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { x - 10.0 }
 
-  // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  banner("Vector Mul Scalar (N = 10,000,000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { x * 2.0 }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { x * 2.0 }
 
-  // MatrixD tests (matrix op row vector: broadcast across rows)
-  // m1 = [[1,2],[3,4]], rowVec = [10,20]
-  // +(rowVec): [[11,22],[13,24]]
-  // -(rowVec): [[-9,-18],[-7,-16]]
-  // *~(rowVec): [[10,40],[30,80]]
-  // /(rowVec): [[0.1,0.1],[0.3,0.2]]
-  val rowVec = VectorD(10.0, 20.0)
+  banner("Vector Div Scalar (N = 10,000,000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { x / 2.0 }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { x / 2.0 }
 
-  val mr1 = m1 + rowVec
-  val mr2 = m1 - rowVec
-  val mr3 = m1 *~ rowVec
-  val mr4 = m1 / rowVec
+  // =========================================================================
+  // Matrix Element-wise Operations  (3,000 x 3,000)
+  // =========================================================================
 
-  println(mr1)
-  println(mr2)
-  println(mr3)
-  println(mr4)
+  banner("Matrix Add (3000 x 3000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { m1 + m2 }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { m1 + m2 }
 
-  // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  banner("Matrix Sub (3000 x 3000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { m1 - m2 }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { m1 - m2 }
 
-  // MatrixD tests (matrix op col vector: broadcast across cols)
-  // m1 = [[1,2],[3,4]], colVec = [100,200]
-  // +^(colVec): [[101,102],[203,204]]
-  // -^(colVec): [[-99,-98],[-197,-196]]
-  // *~:(colVec): [[100,200],[600,800]]
-  val colVec = VectorD(100.0, 200.0)
+  banner("Matrix Element-wise Mul (3000 x 3000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { m1 *~ m2 }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { m1 *~ m2 }
 
-  val mc1 = m1 +^ colVec
-  val mc2 = m1 -^ colVec
-  val mc3 = colVec *~: m1
+  banner("Matrix Div (3000 x 3000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { m1 / m2 }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { m1 / m2 }
 
-  println(mc1)
-  println(mc2)
-  println(mc3)
+  // =========================================================================
+  // Matrix-Scalar Operations  (3,000 x 3,000)
+  // =========================================================================
 
-  // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  banner("Matrix Add Scalar (3000 x 3000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { m1 + 10.0 }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { m1 + 10.0 }
 
-  // MatrixD tests: matrix multiplication (*(MatrixD), mul)
-  // m1 = [[1,2],[3,4]], m2 = [[5,6],[7,8]]
-  // m1 * m2  = [[1*5+2*7, 1*6+2*8],[3*5+4*7, 3*6+4*8]] = [[19,22],[43,50]]
-  // m1 mul m2 = same result
-  val mm1 = m1 * m2
-  val mm2 = m1 mul m2
-  println(mm1)
-  println(mm2)
+  banner("Matrix Sub Scalar (3000 x 3000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { m1 - 1.0 }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { m1 - 1.0 }
 
-  // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  banner("Matrix Mul Scalar (3000 x 3000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { m1 * 2.0 }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { m1 * 2.0 }
 
-  // MatrixD tests: matrix * vector (*(VectorD))
-  // m1 = [[1,2],[3,4]], v = [10,20]
-  // m1 * v = [1*10+2*20, 3*10+4*20] = [50, 110]
-  val mv1 = m1 * rowVec
-  println(mv1)
+  banner("Matrix Div Scalar (3000 x 3000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { m1 / 2.0 }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { m1 / 2.0 }
 
-  // MatrixD tests: transposed GEMV (*:, dot(VectorD))
-  // m1^T = [[1,3],[2,4]], colVec = [100,200]
-  // colVec *: m1 = m1^T * colVec = [1*100+3*200, 2*100+4*200] = [700, 1000]
-  // m1 dot colVec = same result (A^T * v)
-  val mv2 = colVec *: m1
-  val mv3 = m1 dot colVec
-  println(mv2)
-  println(mv3)
+  // =========================================================================
+  // Matrix op Row Vector  (3,000 x 3,000)
+  // =========================================================================
 
-  // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  banner("Matrix Add Row Vector (3000 x 3000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { m1 + rowVec }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { m1 + rowVec }
 
-  // MatrixD tests: reductions
-  // m1 = [[1,2],[3,4]]
-  // sum   = 10,  mmax = 4,  mmin = 1,  mmean = 2.5
-  // sumV  = [4,6],  max = [3,4],  min = [1,2],  mean = [2.0,3.0]
-  // sumVr = [3,7]
-  println(m1.sum)
-  println(m1.mmax)
-  println(m1.mmin)
-  println(m1.mmean)
-  println(m1.sumV)
-  println(m1.max)
-  println(m1.min)
-  println(m1.mean)
-  println(m1.sumVr)
+  banner("Matrix Sub Row Vector (3000 x 3000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { m1 - rowVec }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { m1 - rowVec }
 
-  // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-}
+  banner("Matrix Mul Row Vector (3000 x 3000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { m1 *~ rowVec }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { m1 *~ rowVec }
+
+  banner("Matrix Div Row Vector (3000 x 3000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { m1 / rowVec }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { m1 / rowVec }
+
+  // =========================================================================
+  // Matrix op Col Vector  (3,000 x 3,000)
+  // =========================================================================
+
+  banner("Matrix Add Col Vector (3000 x 3000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { m1 +^ colVec }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { m1 +^ colVec }
+
+  banner("Matrix Sub Col Vector (3000 x 3000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { m1 -^ colVec }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { m1 -^ colVec }
+
+  banner("Matrix Mul Col Vector (3000 x 3000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { colVec *~: m1 }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { colVec *~: m1 }
+
+  // =========================================================================
+  // Matrix Multiplication — GEMM
+  // =========================================================================
+
+  // mul uses the naive CPU fallback (O(n^3) without tiling) — keep at MM_MUL=500
+  // to avoid ~20s CPU run; already shows clear GPU advantage
+  banner("GEMM Matrix mul Matrix (500 x 500)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { gms1 mul gms2 }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { gms1 mul gms2 }
+
+  // * uses tiled CPU fallback — run at MM=1000; also warms the matrixMulAddr lazy val
+  // so the GPU time below is real computation, not first-call CUDA JIT overhead
+  banner("GEMM Matrix * Matrix (1000 x 1000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { gm1 * gm2 }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { gm1 * gm2 }
+
+  // =========================================================================
+  // Matrix-Vector Multiply — GEMV  (1,000 x 1,000)
+  // =========================================================================
+
+  banner("GEMV Matrix * Vector (1000 x 1000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { gm1 * gemvVec }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { gm1 * gemvVec }
+
+  banner("Transpose GEMV Vector *: Matrix (1000 x 1000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { gemvVec *: gm1 }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { gemvVec *: gm1 }
+
+  banner("Transpose GEMV Matrix dot Vector (1000 x 1000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { gm1 dot gemvVec }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { gm1 dot gemvVec }
+
+  // =========================================================================
+  // Reductions  (3,000 x 3,000)
+  // =========================================================================
+
+  banner("Global Sum (3000 x 3000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { m1.sum }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { m1.sum }
+
+  banner("Global Max (3000 x 3000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { m1.mmax }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { m1.mmax }
+
+  banner("Global Min (3000 x 3000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { m1.mmin }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { m1.mmin }
+
+  banner("Column Sum (3000 x 3000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { m1.sumV }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { m1.sumV }
+
+  banner("Column Max (3000 x 3000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { m1.max }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { m1.max }
+
+  banner("Column Min (3000 x 3000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { m1.min }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { m1.min }
+
+  banner("Row Sum (3000 x 3000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { m1.sumVr }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { m1.sumVr }
+
+end TestRunner

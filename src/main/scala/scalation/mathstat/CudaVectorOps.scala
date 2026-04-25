@@ -1,41 +1,38 @@
 package scalation.mathstat
 
 import java.lang.foreign.*
-import java.lang.invoke.MethodHandle
+//import java.lang.invoke.MethodHandle
 import java.lang.foreign.ValueLayout.*
+import scala.util.Try
 
 object CudaVectorOps:
 
   // Load the shared libraries (adjust paths if needed)
-  private val libCheck   = SymbolLookup.libraryLookup("src/main/scala/scalation/mathstat/libC/libcudacheck.so", Arena.global())
-  private val libKernels = SymbolLookup.libraryLookup("src/main/scala/scalation/mathstat/libC/libcudakernels.so", Arena.global())
+  private val libCheck   = Try(SymbolLookup.libraryLookup("src/main/scala/scalation/mathstat/libC/libcudacheck.so", Arena.global())).toOption
+  private val libKernels = Try(SymbolLookup.libraryLookup("src/main/scala/scalation/mathstat/libC/libcudakernels.so", Arena.global())).toOption
 
   // Get the linker (used to create downcall handles)
   private val linker = Linker.nativeLinker()
 
   // ---- CUDA availability check (once) ----
-  private val cudaIsAvailableAddr: MemorySegment =
-    libCheck.find("cuda_is_available")
-      .orElseThrow(() => new RuntimeException("Cannot find cuda_is_available"))
-
-  private val cudaIsAvailable: MethodHandle =
-    linker.downcallHandle(
-      cudaIsAvailableAddr,
-      FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN) // returns bool
-    )
-
   private val _available: Boolean =
-    try
-      // Use invoke() instead of invokeExact() to allow boxing/unboxing
-      val avail = cudaIsAvailable.invoke().asInstanceOf[Boolean]
-//      println(s"[CudaVectorOps] CUDA available check returned: $avail")
-      avail
-    catch case e: Throwable =>
-      println(s"[CudaVectorOps] CUDA availability check threw: ${e.getMessage}")
-      e.printStackTrace()
-      false
+    libCheck match
+      case None => false
+      case Some(lib) =>
+        try
+          val cudaIsAvailableAddr = lib.find("cuda_is_available")
+            .orElseThrow(() => new RuntimeException("Cannot find cuda_is_available"))
+          val cudaIsAvailable = linker.downcallHandle(
+            cudaIsAvailableAddr,
+            FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN)
+          )
+          // Use invoke() instead of invokeExact() to allow boxing/unboxing
+          cudaIsAvailable.invoke().asInstanceOf[Boolean]
+        catch case e: Throwable =>
+          println(s"[CudaVectorOps] CUDA availability check threw: ${e.getMessage}")
+          false
 
-  def isAvailable: Boolean = _available
+  def isAvailable: Boolean = DeviceConfig.useGPU && _available
 
   // op codes matching the CUDA kernel switch statement
   private val OP_ADD = 0
@@ -44,12 +41,13 @@ object CudaVectorOps:
   private val OP_DIV = 3
 
   // ---- Addresses for the combined kernels ----
-  private val opAddr: MemorySegment =
-    libKernels.find("gpuVectorOp")
+  // lazy: only evaluated on first dispatch call, which is guarded by isAvailable
+  private lazy val opAddr: MemorySegment =
+    libKernels.get.find("gpuVectorOp")
       .orElseThrow(() => new RuntimeException("Cannot find gpuVectorOp"))
 
-  private val scalarOpAddr: MemorySegment =
-    libKernels.find("gpuVectorScalarOp")
+  private lazy val scalarOpAddr: MemorySegment =
+    libKernels.get.find("gpuVectorScalarOp")
       .orElseThrow(() => new RuntimeException("Cannot find gpuVectorScalarOp"))
 
   // ---- Generic helper to invoke a kernel that takes two input arrays and one output array ----

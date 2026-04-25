@@ -2,10 +2,11 @@ package scalation.mathstat
 
 import java.lang.foreign.*
 import java.lang.foreign.ValueLayout.*
+import scala.util.Try
 
 object CudaMatrixOps:
 
-  private val libKernels = SymbolLookup.libraryLookup("src/main/scala/scalation/mathstat/libC/libcudakernels.so", Arena.global())
+  private val libKernels = Try(SymbolLookup.libraryLookup("src/main/scala/scalation/mathstat/libC/libcudakernels.so", Arena.global())).toOption
   private val linker     = Linker.nativeLinker()
 
   private val OP_ADD = 0
@@ -15,20 +16,21 @@ object CudaMatrixOps:
 
 //  private val opName = Map(OP_ADD -> "add", OP_SUB -> "sub", OP_MUL -> "mul", OP_DIV -> "div")
 
-  private val matrixOpAddr: MemorySegment =
-    libKernels.find("gpuMatrixOp")
+  // lazy: only evaluated on first dispatch call, which is guarded by CudaVectorOps.isAvailable
+  private lazy val matrixOpAddr: MemorySegment =
+    libKernels.get.find("gpuMatrixOp")
       .orElseThrow(() => new RuntimeException("Cannot find gpuMatrixOp"))
 
-  private val matrixScalarOpAddr: MemorySegment =
-    libKernels.find("gpuMatrixScalarOp")
+  private lazy val matrixScalarOpAddr: MemorySegment =
+    libKernels.get.find("gpuMatrixScalarOp")
       .orElseThrow(() => new RuntimeException("Cannot find gpuMatrixScalarOp"))
 
-  private val matrixRowVecOpAddr: MemorySegment =
-    libKernels.find("gpuMatrixRowVecOp")
+  private lazy val matrixRowVecOpAddr: MemorySegment =
+    libKernels.get.find("gpuMatrixRowVecOp")
       .orElseThrow(() => new RuntimeException("Cannot find gpuMatrixRowVecOp"))
 
-  private val matrixColVecOpAddr: MemorySegment =
-    libKernels.find("gpuMatrixColVecOp")
+  private lazy val matrixColVecOpAddr: MemorySegment =
+    libKernels.get.find("gpuMatrixColVecOp")
       .orElseThrow(() => new RuntimeException("Cannot find gpuMatrixColVecOp"))
 
   private def flatten(m: Array[Array[Double]], rows: Int, cols: Int): Array[Double] =
@@ -212,35 +214,35 @@ object CudaMatrixOps:
 
   // ── New symbol addresses ────────────────────────────────────────────────
 
-  private val matrixMulAddr: MemorySegment =
-    libKernels.find("gpuMatrixMul").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixMul"))
+  private lazy val matrixMulAddr: MemorySegment =
+    libKernels.get.find("gpuMatrixMul").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixMul"))
 
-  private val matrixVecMulAddr: MemorySegment =
-    libKernels.find("gpuMatrixVecMul").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixVecMul"))
+  private lazy val matrixVecMulAddr: MemorySegment =
+    libKernels.get.find("gpuMatrixVecMul").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixVecMul"))
 
-  private val matrixTransVecMulAddr: MemorySegment =
-    libKernels.find("gpuMatrixTransVecMul").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixTransVecMul"))
+  private lazy val matrixTransVecMulAddr: MemorySegment =
+    libKernels.get.find("gpuMatrixTransVecMul").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixTransVecMul"))
 
-  private val matrixColSumAddr: MemorySegment =
-    libKernels.find("gpuMatrixColSum").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixColSum"))
+  private lazy val matrixColSumAddr: MemorySegment =
+    libKernels.get.find("gpuMatrixColSum").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixColSum"))
 
-  private val matrixRowSumAddr: MemorySegment =
-    libKernels.find("gpuMatrixRowSum").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixRowSum"))
+  private lazy val matrixRowSumAddr: MemorySegment =
+    libKernels.get.find("gpuMatrixRowSum").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixRowSum"))
 
-  private val matrixGlobalSumAddr: MemorySegment =
-    libKernels.find("gpuMatrixGlobalSum").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixGlobalSum"))
+  private lazy val matrixGlobalSumAddr: MemorySegment =
+    libKernels.get.find("gpuMatrixGlobalSum").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixGlobalSum"))
 
-  private val matrixGlobalMinAddr: MemorySegment =
-    libKernels.find("gpuMatrixGlobalMin").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixGlobalMin"))
+  private lazy val matrixGlobalMinAddr: MemorySegment =
+    libKernels.get.find("gpuMatrixGlobalMin").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixGlobalMin"))
 
-  private val matrixGlobalMaxAddr: MemorySegment =
-    libKernels.find("gpuMatrixGlobalMax").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixGlobalMax"))
+  private lazy val matrixGlobalMaxAddr: MemorySegment =
+    libKernels.get.find("gpuMatrixGlobalMax").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixGlobalMax"))
 
-  private val matrixColMinAddr: MemorySegment =
-    libKernels.find("gpuMatrixColMin").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixColMin"))
+  private lazy val matrixColMinAddr: MemorySegment =
+    libKernels.get.find("gpuMatrixColMin").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixColMin"))
 
-  private val matrixColMaxAddr: MemorySegment =
-    libKernels.find("gpuMatrixColMax").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixColMax"))
+  private lazy val matrixColMaxAddr: MemorySegment =
+    libKernels.get.find("gpuMatrixColMax").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixColMax"))
 
   // ── GEMM invoke: (segA, segB, segC, m, k, n) ───────────────────────────
 

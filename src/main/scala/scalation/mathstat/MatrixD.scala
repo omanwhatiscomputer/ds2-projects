@@ -740,7 +740,7 @@ class MatrixD (val dim:  Int,
         CudaMatrixOps.addRowVec(v, u.v, dim, dim2) match
             case Some(result) => new MatrixD(dim, dim2, result)
             case None         =>
-                println("Defaulted to CPU!! [+(VectorD) rowVec]")
+                // println("Defaulted to CPU!! [+(VectorD) rowVec]")
                 val a = Array.ofDim[Double](dim, dim2)
                 cfor(0, dim) { i => val v_i = v(i); val a_i = a(i)
                     cfor(0, dim2) { j => a_i(j) = v_i(j) + u(j) } }
@@ -763,7 +763,7 @@ class MatrixD (val dim:  Int,
         CudaMatrixOps.addColVec(v, u.v, dim, dim2) match
             case Some(result) => new MatrixD(dim, dim2, result)
             case None         =>
-                println("Defaulted to CPU!! [+^(VectorD) colVec]")
+                // println("Defaulted to CPU!! [+^(VectorD) colVec]")
                 val a = Array.ofDim[Double](dim, dim2)
                 cfor(0, dim) { i => val v_i = v(i); val a_i = a(i)
                     cfor(0, dim2) { j => a_i(j) = v_i(j) + u(i) } }
@@ -879,7 +879,7 @@ class MatrixD (val dim:  Int,
         CudaMatrixOps.subRowVec(v, u.v, dim, dim2) match
             case Some(result) => new MatrixD(dim, dim2, result)
             case None         =>
-                println("Defaulted to CPU!! [-(VectorD) rowVec]")
+                // println("Defaulted to CPU!! [-(VectorD) rowVec]")
                 val a = Array.ofDim[Double](dim, dim2)
                 cfor(0, dim) { i => val v_i = v(i); val a_i = a(i)
                     cfor(0, dim2) { j => a_i(j) = v_i(j) - u(j) } }
@@ -903,7 +903,7 @@ class MatrixD (val dim:  Int,
         CudaMatrixOps.subColVec(v, u.v, dim, dim2) match
             case Some(result) => new MatrixD(dim, dim2, result)
             case None         =>
-                println("Defaulted to CPU!! [-^(VectorD) colVec]")
+                // println("Defaulted to CPU!! [-^(VectorD) colVec]")
                 val a = Array.ofDim[Double](dim, dim2)
                 cfor(0, dim) { i => val v_i = v(i); val a_i = a(i)
                     cfor(0, dim2) { j => a_i(j) = v_i(j) - u(i) } }
@@ -995,7 +995,7 @@ class MatrixD (val dim:  Int,
         CudaMatrixOps.mulRowVec(v, u.v, dim, dm) match
             case Some(result) => new MatrixD(dim, dm, result)
             case None         =>
-                println("Defaulted to CPU!! [*~(VectorD) rowVec]")
+                // println("Defaulted to CPU!! [*~(VectorD) rowVec]")
                 val a = Array.ofDim[Double](dim, dm)
                 cfor(0, dim) { i => val v_i = v(i); val a_i = a(i)
                     cfor(0, dm) { j => a_i(j) = v_i(j) * u(j) } }
@@ -1022,7 +1022,7 @@ class MatrixD (val dim:  Int,
         CudaMatrixOps.mulColVec(v, u.v, dim, dm) match
             case Some(result) => new MatrixD(dim, dm, result)
             case None         =>
-                println("Defaulted to CPU!! [*~:(VectorD) colVec]")
+                // println("Defaulted to CPU!! [*~:(VectorD) colVec]")
                 val a = Array.ofDim[Double](dim, dm)
                 cfor(0, dim) { i => val v_i = v(i); val a_i = a(i)
                     cfor(0, dm) { j => a_i(j) = u(i) * v_i(j) } }
@@ -1237,7 +1237,7 @@ class MatrixD (val dim:  Int,
         CudaMatrixOps.divRowVec(v, u.v, dim, dim2) match
             case Some(result) => new MatrixD(dim, dim2, result)
             case None         =>
-                println("Defaulted to CPU!! [/(VectorD) rowVec]")
+                // println("Defaulted to CPU!! [/(VectorD) rowVec]")
                 val a = Array.ofDim[Double](dim, dim2)
                 cfor(0, dim) { i => val v_i = v(i); val a_i = a(i)
                     cfor(0, dim2) { j => a_i(j) = v_i(j) / u(j) } }
