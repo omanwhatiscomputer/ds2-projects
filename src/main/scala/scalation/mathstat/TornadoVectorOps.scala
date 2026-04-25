@@ -8,7 +8,7 @@ import uk.ac.manchester.tornado.api.annotations.{Parallel, Reduce}
 import uk.ac.manchester.tornado.api.common.TornadoFunctions
 import uk.ac.manchester.tornado.api.{TaskGraph, TornadoExecutionPlan}
 
-// ─── TornadoVM kernel methods ─────────────────────────────────────────────────
+// %%% TornadoVM kernel methods %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 object TVKernels:
 
   def add(a: Array[Double], b: Array[Double], c: Array[Double]): Unit =
@@ -57,20 +57,20 @@ object TVKernels:
     @Parallel var i = 0
     while i < a.length do { result(0) += Math.abs(a(i)); i += 1 }
 
-// ─── Public dispatch API ──────────────────────────────────────────────────────
+// %%% Public dispatch API %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 // Returns Some(result) on GPU success, None to signal CPU fallback.
 object TornadoVectorOps:
 
   def isAvailable: Boolean = DeviceConfig.useGPU
 
-  // ── Element-wise (returns flat result array) ──────────────────────────────
+  // %% Element-wise (returns flat result array) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
   def add(a: Array[Double], b: Array[Double]): Option[Array[Double]] = elemOp2("tvo_add", TVKernels.add, a, b)
   def sub(a: Array[Double], b: Array[Double]): Option[Array[Double]] = elemOp2("tvo_sub", TVKernels.sub, a, b)
   def mul(a: Array[Double], b: Array[Double]): Option[Array[Double]] = elemOp2("tvo_mul", TVKernels.mul, a, b)
   def div(a: Array[Double], b: Array[Double]): Option[Array[Double]] = elemOp2("tvo_div", TVKernels.div, a, b)
 
-  // ── Reductions (returns scalar) ───────────────────────────────────────────
+  // %% Reductions (returns scalar) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
   def sum(a: Array[Double]): Option[Double]  = scalarOp1("tvo_sum",  TVKernels.sum,   a, 0.0)
   def min(a: Array[Double]): Option[Double]  = scalarOp1("tvo_min",  TVKernels.min,   a, Double.MaxValue)
@@ -96,7 +96,7 @@ object TornadoVectorOps:
       result(0)
     }.toOption
 
-  // ── Private helpers ───────────────────────────────────────────────────────
+  // %% Private helpers %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
   private def setDevice(graphName: String): Unit =
     DeviceConfig.applyDeviceProperty(graphName, "t0")

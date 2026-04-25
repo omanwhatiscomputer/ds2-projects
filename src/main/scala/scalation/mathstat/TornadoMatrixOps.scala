@@ -8,7 +8,7 @@ import uk.ac.manchester.tornado.api.annotations.Parallel
 import uk.ac.manchester.tornado.api.common.TornadoFunctions
 import uk.ac.manchester.tornado.api.{TaskGraph, TornadoExecutionPlan}
 
-// ─── TornadoVM kernel methods ─────────────────────────────────────────────────
+// %%% TornadoVM kernel methods %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 // All matrices are passed as flat row-major arrays; dimensions are inferred from
 // the array lengths so no Int parameters are needed (avoids TornadoVM boxing issues).
 object TMKernels:
@@ -68,7 +68,7 @@ object TMKernels:
       result(j) = mx
       j += 1
 
-// ─── Public dispatch API ──────────────────────────────────────────────────────
+// %%% Public dispatch API %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 object TornadoMatrixOps:
 
   def isAvailable: Boolean = DeviceConfig.useGPU
@@ -122,7 +122,7 @@ object TornadoMatrixOps:
   /** Column max. Returns flat result; caller wraps into VectorD. */
   def colMax(a: MatrixD): Option[Array[Double]] = colOp("tmo_cmax", TMKernels.colMax, a)
 
-  // ── Utilities ─────────────────────────────────────────────────────────────
+  // %% Utilities %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
   /** Flatten jagged MatrixD backing array into a row-major flat array. */
   def flatten(m: MatrixD): Array[Double] =
