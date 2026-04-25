@@ -143,4 +143,69 @@ object CudaVectorOps:
   def subScalar(a: Array[Double], s: Double): Option[Array[Double]] = dispatchScalar(a, s, OP_SUB)
   def mulScalar(a: Array[Double], s: Double): Option[Array[Double]] = dispatchScalar(a, s, OP_MUL)
   def divScalar(a: Array[Double], s: Double): Option[Array[Double]] = dispatchScalar(a, s, OP_DIV)
+
+  // ---- Vector reduction kernel addresses ----
+  // lazy: guarded by isAvailable before any dispatch call
+  private lazy val vectorSumAddr:   MemorySegment = libKernels.get.find("gpuVectorSum").orElseThrow(() => new RuntimeException("Cannot find gpuVectorSum"))
+  private lazy val vectorMinAddr:   MemorySegment = libKernels.get.find("gpuVectorMin").orElseThrow(() => new RuntimeException("Cannot find gpuVectorMin"))
+  private lazy val vectorMaxAddr:   MemorySegment = libKernels.get.find("gpuVectorMax").orElseThrow(() => new RuntimeException("Cannot find gpuVectorMax"))
+  private lazy val vectorDotAddr:   MemorySegment = libKernels.get.find("gpuVectorDot").orElseThrow(() => new RuntimeException("Cannot find gpuVectorDot"))
+  private lazy val vectorNormSqAddr: MemorySegment = libKernels.get.find("gpuVectorNormSq").orElseThrow(() => new RuntimeException("Cannot find gpuVectorNormSq"))
+  private lazy val vectorNormAddr:  MemorySegment = libKernels.get.find("gpuVectorNorm").orElseThrow(() => new RuntimeException("Cannot find gpuVectorNorm"))
+  private lazy val vectorNorm1Addr: MemorySegment = libKernels.get.find("gpuVectorNorm1").orElseThrow(() => new RuntimeException("Cannot find gpuVectorNorm1"))
+
+  // ---- Invoke helper: void(ptr_a, ptr_result, int n) → scalar ----
+  private def invokeScalarReduction(kernelAddr: MemorySegment, a: Array[Double]): Double =
+    val kernelHandle = linker.downcallHandle(
+      kernelAddr,
+      FunctionDescriptor.ofVoid(ADDRESS, ADDRESS, JAVA_INT)
+    )
+    val n     = a.length
+    val arena = Arena.ofConfined()
+    try
+      val segA   = arena.allocate(n.toLong * 8)
+      val segRes = arena.allocate(8L)
+      MemorySegment.copy(a, 0, segA, ValueLayout.JAVA_DOUBLE, 0, n)
+      kernelHandle.invoke(segA, segRes, n)
+      segRes.get(ValueLayout.JAVA_DOUBLE, 0)
+    finally
+      arena.close()
+
+  // ---- Invoke helper: void(ptr_a, ptr_b, ptr_result, int n) → scalar (dot) ----
+  private def invokeDot(a: Array[Double], b: Array[Double]): Double =
+    val kernelHandle = linker.downcallHandle(
+      vectorDotAddr,
+      FunctionDescriptor.ofVoid(ADDRESS, ADDRESS, ADDRESS, JAVA_INT)
+    )
+    val n     = a.length
+    val arena = Arena.ofConfined()
+    try
+      val segA   = arena.allocate(n.toLong * 8)
+      val segB   = arena.allocate(n.toLong * 8)
+      val segRes = arena.allocate(8L)
+      MemorySegment.copy(a, 0, segA, ValueLayout.JAVA_DOUBLE, 0, n)
+      MemorySegment.copy(b, 0, segB, ValueLayout.JAVA_DOUBLE, 0, n)
+      kernelHandle.invoke(segA, segB, segRes, n)
+      segRes.get(ValueLayout.JAVA_DOUBLE, 0)
+    finally
+      arena.close()
+
+  // ---- Shared dispatch for scalar reductions ----
+  private def dispatchReduction(kernelAddr: MemorySegment, a: Array[Double]): Option[Double] =
+    if !isAvailable then return None
+    try Some(invokeScalarReduction(kernelAddr, a))
+    catch case e: Throwable => e.printStackTrace(); None
+
+  // ---- Public API (vector reductions → scalar) ----
+  def sum(a: Array[Double]):   Option[Double] = dispatchReduction(vectorSumAddr, a)
+  def min(a: Array[Double]):   Option[Double] = dispatchReduction(vectorMinAddr, a)
+  def max(a: Array[Double]):   Option[Double] = dispatchReduction(vectorMaxAddr, a)
+  def normSq(a: Array[Double]): Option[Double] = dispatchReduction(vectorNormSqAddr, a)
+  def norm(a: Array[Double]):  Option[Double] = dispatchReduction(vectorNormAddr, a)
+  def norm1(a: Array[Double]): Option[Double] = dispatchReduction(vectorNorm1Addr, a)
+  def dot(a: Array[Double], b: Array[Double]): Option[Double] =
+    if !isAvailable then return None
+    if a.length != b.length then return None
+    try Some(invokeDot(a, b))
+    catch case e: Throwable => e.printStackTrace(); None
 end CudaVectorOps

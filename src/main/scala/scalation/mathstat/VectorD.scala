@@ -596,9 +596,11 @@ class VectorD (val dim: Int,
      *  @param y  the other vector/indexed sequence
      */
     infix def dot (y: VectorD): Double =
-        var sum = 0.0
-        cfor (0, dim) { i => sum += v(i) * y.v(i) }
-        sum
+        CudaVectorOps.dot(v, y.v).getOrElse {
+            var s = 0.0
+            cfor (0, dim) { i => s += v(i) * y.v(i) }
+            s
+        }
     end dot
 
     infix def dot (y: IndexedSeq [Double]): Double =
@@ -798,13 +800,25 @@ class VectorD (val dim: Int,
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     /** Compute the Euclidean norm (2-norm) (or its square) of this vector.
      */
-    def normSq: Double = v.fold (0.0)((s, e) => s + e*e)
-    def norm: Double   = math.sqrt (normSq)
+    def normSq: Double = CudaVectorOps.normSq(v).getOrElse(v.fold(0.0)((s, e) => s + e*e))
+    def norm: Double   = CudaVectorOps.norm(v).getOrElse(math.sqrt(v.fold(0.0)((s, e) => s + e*e)))
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     /** Compute the Manhattan norm (1-norm) of this vector.
      */
-    def norm1: Double = v.fold (0.0)((s, e) => s + math.abs (e))
+    def norm1: Double = CudaVectorOps.norm1(v).getOrElse(v.fold(0.0)((s, e) => s + math.abs(e)))
+
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** GPU-backed sum, min, max — override inherited IndexedSeq versions.
+     */
+    override def sum[B >: Double](implicit num: scala.math.Numeric[B]): B =
+        CudaVectorOps.sum(v).getOrElse(v.sum).asInstanceOf[B]
+
+    override def min[B >: Double](implicit ord: scala.math.Ordering[B]): Double =
+        CudaVectorOps.min(v).getOrElse(v.min)
+
+    override def max[B >: Double](implicit ord: scala.math.Ordering[B]): Double =
+        CudaVectorOps.max(v).getOrElse(v.max)
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     /** Return the vector that is the element-wise absolute value of this vector.

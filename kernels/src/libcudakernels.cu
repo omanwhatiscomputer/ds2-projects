@@ -403,3 +403,64 @@ extern "C" void gpuMatrixColMax(const double* h_a, double* h_result, int rows, i
     cudaMemcpy(h_result, d_r, (size_t)cols * sizeof(double), cudaMemcpyDeviceToHost);
     cudaFree(d_a); cudaFree(d_r);
 }
+
+// ── Vector reductions (delegate to existing global reduction kernels) ─────
+
+extern "C" void gpuVectorSum(const double* h_a, double* h_result, int n) {
+    gpuMatrixGlobalSum(h_a, h_result, n);
+}
+
+extern "C" void gpuVectorMin(const double* h_a, double* h_result, int n) {
+    gpuMatrixGlobalMin(h_a, h_result, n);
+}
+
+extern "C" void gpuVectorMax(const double* h_a, double* h_result, int n) {
+    gpuMatrixGlobalMax(h_a, h_result, n);
+}
+
+// ── Vector dot product via cuBLAS ─────────────────────────────────────────
+
+extern "C" void gpuVectorDot(const double* h_a, const double* h_b, double* h_result, int n) {
+    double *d_a, *d_b;
+    cudaMalloc(&d_a, (size_t)n * sizeof(double));
+    cudaMalloc(&d_b, (size_t)n * sizeof(double));
+    cudaMemcpy(d_a, h_a, (size_t)n * sizeof(double), cudaMemcpyHostToDevice);
+    cudaMemcpy(d_b, h_b, (size_t)n * sizeof(double), cudaMemcpyHostToDevice);
+    double result;
+    cublasDdot(getCublasHandle(), n, d_a, 1, d_b, 1, &result);
+    cudaDeviceSynchronize();
+    *h_result = result;
+    cudaFree(d_a); cudaFree(d_b);
+}
+
+// ── normSq = dot(a, a) ────────────────────────────────────────────────────
+
+extern "C" void gpuVectorNormSq(const double* h_a, double* h_result, int n) {
+    gpuVectorDot(h_a, h_a, h_result, n);
+}
+
+// ── norm = cublasDnrm2 ────────────────────────────────────────────────────
+
+extern "C" void gpuVectorNorm(const double* h_a, double* h_result, int n) {
+    double *d_a;
+    cudaMalloc(&d_a, (size_t)n * sizeof(double));
+    cudaMemcpy(d_a, h_a, (size_t)n * sizeof(double), cudaMemcpyHostToDevice);
+    double result;
+    cublasDnrm2(getCublasHandle(), n, d_a, 1, &result);
+    cudaDeviceSynchronize();
+    *h_result = result;
+    cudaFree(d_a);
+}
+
+// ── norm1 = sum of absolute values via cublasDasum ────────────────────────
+
+extern "C" void gpuVectorNorm1(const double* h_a, double* h_result, int n) {
+    double *d_a;
+    cudaMalloc(&d_a, (size_t)n * sizeof(double));
+    cudaMemcpy(d_a, h_a, (size_t)n * sizeof(double), cudaMemcpyHostToDevice);
+    double result;
+    cublasDasum(getCublasHandle(), n, d_a, 1, &result);
+    cudaDeviceSynchronize();
+    *h_result = result;
+    cudaFree(d_a);
+}

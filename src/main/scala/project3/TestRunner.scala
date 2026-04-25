@@ -205,4 +205,36 @@ import scalation.mathstat.{VectorD, MatrixD, DeviceConfig}
   DeviceConfig.useGPU = true;  println("[GPU]"); time { m1.sumVr }
   DeviceConfig.useGPU = false; println("[CPU]"); time { m1.sumVr }
 
+  // =========================================================================
+  // VectorD Reductions  (N = 10,000,000)
+  // =========================================================================
+
+  banner("Vector Sum (N = 10,000,000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { x.sum }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { x.sum }
+
+  banner("Vector Min (N = 10,000,000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { x.min }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { x.min }
+
+  banner("Vector Max (N = 10,000,000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { x.max }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { x.max }
+
+  banner("Vector Dot (N = 10,000,000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { x dot y }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { x dot y }
+
+  banner("Vector NormSq (N = 10,000,000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { x.normSq }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { x.normSq }
+
+  banner("Vector Norm (N = 10,000,000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { x.norm }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { x.norm }
+
+  banner("Vector Norm1 (N = 10,000,000)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { x.norm1 }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { x.norm1 }
+
 end TestRunner
