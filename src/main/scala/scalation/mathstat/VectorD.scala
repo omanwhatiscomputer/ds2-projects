@@ -326,40 +326,31 @@ class VectorD (val dim: Int,
     /** Compute the element-wise sum (or difference, product, quotient) of vectors this and y.
      *  @param y  the other vector/indexed sequence
      */
-//    def + (y: VectorD): VectorD = new VectorD (dim, cfor (dim) { i => v(i) + y.v(i) })
-//    def + (y: VectorD): VectorD = {
-//        println("Called!!")
-//        new VectorD(this.dim, cfor(this.dim) { i =>
-//            val sum = v(i) + y.v(i)
-//            sum
-//        })
-//    }
+    def + (y: VectorD): VectorD =
+        TornadoVectorOps.add(v, y.v).map(new VectorD(dim, _))
+          .getOrElse(new VectorD(dim, cfor(dim) { i => v(i) + y.v(i) }))
 
 
 
-    def + (that: VectorD): VectorD =
-        require(this.dim == that.dim)
-        CudaVectorOps.add(this.v, that.v) match
-            case Some(result) => new VectorD(dim, result)   // result array is used directly
-            case None         =>
-                // CPU fallback (your existing cfor loop)
-                println("Defaulted to CPU!!")
-                val newData = new Array[Double](dim)
-                cfor(0, dim) { i =>
-                    newData(i) = this.v(i) + that.v(i)
-                }
-                new VectorD(dim, newData)
+
+
 
 
     def + (y: IndexedSeq [Double]): VectorD = new VectorD (dim, cfor (dim) { i => v(i) + y(i) })
 
-    def - (y: VectorD): VectorD = new VectorD (dim, cfor (dim) { i => v(i) - y.v(i) })
+    def - (y: VectorD): VectorD =
+        TornadoVectorOps.sub(v, y.v).map(new VectorD(dim, _))
+          .getOrElse(new VectorD(dim, cfor(dim) { i => v(i) - y.v(i) }))
     def - (y: IndexedSeq [Double]): VectorD = new VectorD (dim, cfor (dim) { i => v(i) - y(i) })
 
-    def * (y: VectorD): VectorD = new VectorD (dim, cfor (dim) { i => v(i) * y.v(i) })
+    def * (y: VectorD): VectorD =
+        TornadoVectorOps.mul(v, y.v).map(new VectorD(dim, _))
+          .getOrElse(new VectorD(dim, cfor(dim) { i => v(i) * y.v(i) }))
     def * (y: IndexedSeq [Double]): VectorD = new VectorD (dim, cfor (dim) { i => v(i) * y(i) })
 
-    def / (y: VectorD): VectorD = new VectorD (dim, cfor (dim) { i => v(i) / y.v(i) })
+    def / (y: VectorD): VectorD =
+        TornadoVectorOps.div(v, y.v).map(new VectorD(dim, _))
+          .getOrElse(new VectorD(dim, cfor(dim) { i => v(i) / y.v(i) }))
     def / (y: IndexedSeq [Double]): VectorD = new VectorD (dim, cfor (dim) { i => v(i) / y(i) })
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -542,9 +533,11 @@ class VectorD (val dim: Int,
      *  @param y  the other vector/indexed sequence
      */
     infix def dot (y: VectorD): Double =
-        var sum = 0.0
-        cfor (0, dim) { i => sum += v(i) * y.v(i) }
-        sum
+        TornadoVectorOps.dot(v, y.v).getOrElse {
+            var sum = 0.0
+            cfor (0, dim) { i => sum += v(i) * y.v(i) }
+            sum
+        }
     end dot
 
     infix def dot (y: IndexedSeq [Double]): Double =
@@ -744,13 +737,23 @@ class VectorD (val dim: Int,
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     /** Compute the Euclidean norm (2-norm) (or its square) of this vector.
      */
-    def normSq: Double = v.fold (0.0)((s, e) => s + e*e)
-    def norm: Double   = math.sqrt (normSq)
+    // Override IndexedSeq inherited reductions to dispatch to TornadoVM
+    override def sum [B >: Double](implicit num: scala.math.Numeric [B]): B =
+        TornadoVectorOps.sum(v).getOrElse(v.sum).asInstanceOf [B]
+
+    override def min [B >: Double](implicit ord: scala.math.Ordering [B]): Double =
+        TornadoVectorOps.min(v).getOrElse(v.min)
+
+    override def max [B >: Double](implicit ord: scala.math.Ordering [B]): Double =
+        TornadoVectorOps.max(v).getOrElse(v.max)
+
+    def normSq: Double = TornadoVectorOps.normSq(v).getOrElse(v.fold(0.0)((s, e) => s + e*e))
+    def norm: Double   = TornadoVectorOps.norm(v).getOrElse(math.sqrt(v.fold(0.0)((s, e) => s + e*e)))
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     /** Compute the Manhattan norm (1-norm) of this vector.
      */
-    def norm1: Double = v.fold (0.0)((s, e) => s + math.abs (e))
+    def norm1: Double = TornadoVectorOps.norm1(v).getOrElse(v.fold(0.0)((s, e) => s + math.abs(e)))
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     /** Return the vector that is the element-wise absolute value of this vector.

@@ -942,25 +942,26 @@ class MatrixD (val dim:  Int,
         if y.dim != dim2 then
             flaw ("*", s"matrix * matrix - incompatible cross dimensions: dim2 = $dim2, y.dim = ${y.dim}")
 
-        val a = Array.ofDim [Double] (dim, y.dim2)
-
-        cfor (0, dim, TSZ) { ii =>
-            val i2 = math.min (ii + TSZ, dim)
-            cfor (0, dim2, TSZ) { kk =>
-                val k2 = math.min (kk + TSZ, dim2)
-                cfor (0, y.dim2, TSZ) { jj =>
-                    val j2 = math.min (jj + TSZ, y.dim2)
-
-                    cfor (ii, i2) { i =>
-                        val v_i = v(i); val a_i = a(i)
-                        cfor (kk, k2) { k =>
-                            val y_k = y.v(k); val v_ik = v_i(k)
-                            cfor (jj, j2) { j => a_i(j) += v_ik * y_k(j) }
+        TornadoMatrixOps.gemm(this, y)
+          .map(flat => new MatrixD(dim, y.dim2, TornadoMatrixOps.unflatten(flat, dim, y.dim2)))
+          .getOrElse {
+            val a = Array.ofDim [Double] (dim, y.dim2)
+            cfor (0, dim, TSZ) { ii =>
+                val i2 = math.min (ii + TSZ, dim)
+                cfor (0, dim2, TSZ) { kk =>
+                    val k2 = math.min (kk + TSZ, dim2)
+                    cfor (0, y.dim2, TSZ) { jj =>
+                        val j2 = math.min (jj + TSZ, y.dim2)
+                        cfor (ii, i2) { i =>
+                            val v_i = v(i); val a_i = a(i)
+                            cfor (kk, k2) { k =>
+                                val y_k = y.v(k); val v_ik = v_i(k)
+                                cfor (jj, j2) { j => a_i(j) += v_ik * y_k(j) }
+                            } // cfor
                         } // cfor
-                    } // cfor
-
-        }}} // cfor
-        new MatrixD (dim, y.dim2, a)
+            }}} // cfor
+            new MatrixD (dim, y.dim2, a)
+          }
     end *
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -972,9 +973,13 @@ class MatrixD (val dim:  Int,
         if y.dim < dim2 then
             flaw ("*", s"matrix * vector - dimension of vector y: y.dim = ${y.dim} < dim2 = $dim2")
 
-        val a = Array.ofDim [Double] (dim)
-        cfor (0, dim) { i => val x_i = apply(i); a(i) = x_i dot y }
-        new VectorD (dim, a)
+        TornadoMatrixOps.gemv(this, y)
+          .map(new VectorD(dim, _))
+          .getOrElse {
+            val a = Array.ofDim [Double] (dim)
+            cfor (0, dim) { i => val x_i = apply(i); a(i) = x_i dot y }
+            new VectorD (dim, a)
+          }
     end *
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -1019,17 +1024,20 @@ class MatrixD (val dim:  Int,
         if dim2 != y.dim then
             flaw ("mul", s"matrix mul matrix - incompatible cross dimensions: dim2 = $dim2, y.dim = ${y.dim}")
 
-        val a  = Array.ofDim [Double] (dim, y.dim2)
-        val yt = y.v.transpose
-
-        cfor (0, dim) { i =>
-            val v_i = v(i); val a_i = a(i)
-            cfor (0, y.dim2) { j =>
-                val y_j = yt(j)
-                a_i(j) = Σ (0, dim2) { k => v_i(k) * y_j(k) }
+        TornadoMatrixOps.gemm(this, y)
+          .map(flat => new MatrixD(dim, y.dim2, TornadoMatrixOps.unflatten(flat, dim, y.dim2)))
+          .getOrElse {
+            val a  = Array.ofDim [Double] (dim, y.dim2)
+            val yt = y.v.transpose
+            cfor (0, dim) { i =>
+                val v_i = v(i); val a_i = a(i)
+                cfor (0, y.dim2) { j =>
+                    val y_j = yt(j)
+                    a_i(j) = Σ (0, dim2) { k => v_i(k) * y_j(k) }
+                } // cfor
             } // cfor
-        } // cfor
-        new MatrixD (dim, y.dim2, a) 
+            new MatrixD (dim, y.dim2, a)
+          }
     end mul
 
 // Divide (/) matrix by (matrix, vector, scalar)
@@ -1443,9 +1451,13 @@ class MatrixD (val dim:  Int,
     /** Compute the column sums of this matrix, i.e., the sums for each of its columns.
      */
     def sumV: VectorD =
-        val s = new VectorD (dim2)
-        cfor (0, dim) { i => val v_i = v(i); cfor (0, dim2) { j => s(j) += v_i(j) }}
-        s
+        TornadoMatrixOps.colSum(this)
+          .map(new VectorD(dim2, _))
+          .getOrElse {
+            val s = new VectorD (dim2)
+            cfor (0, dim) { i => val v_i = v(i); cfor (0, dim2) { j => s(j) += v_i(j) }}
+            s
+          }
     end sumV
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -1471,9 +1483,13 @@ class MatrixD (val dim:  Int,
      *  VectorD (for j <- indices2 yield apply(?, j).max)
      */
     def max: VectorD =
-        val a = Array.ofDim [Double] (dim2)
-        cfor (0, dim2) { j => a(j) = apply(?, j).max }
-        new VectorD (a.size, a)
+        TornadoMatrixOps.colMax(this)
+          .map(new VectorD(dim2, _))
+          .getOrElse {
+            val a = Array.ofDim [Double] (dim2)
+            cfor (0, dim2) { j => a(j) = apply(?, j).max }
+            new VectorD (a.size, a)
+          }
     end max
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -1489,10 +1505,14 @@ class MatrixD (val dim:  Int,
     /** Return the minimum value for each column in the matrix.
      *  VectorD (for j <- indices2 yield apply(?, j).min)
      */
-    def min: VectorD = 
-        val a = Array.ofDim [Double] (dim2)
-        cfor (0, dim2) { j => a(j) = apply(?, j).min }
-        new VectorD (a.size, a)
+    def min: VectorD =
+        TornadoMatrixOps.colMin(this)
+          .map(new VectorD(dim2, _))
+          .getOrElse {
+            val a = Array.ofDim [Double] (dim2)
+            cfor (0, dim2) { j => a(j) = apply(?, j).min }
+            new VectorD (a.size, a)
+          }
     end min
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

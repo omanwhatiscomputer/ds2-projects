@@ -1,5 +1,14 @@
-// build.sbt
+import scala.io.Source
 
+// 1. Read the argfile directly during the SBT build
+lazy val tornadoSdkPath = "/home/khubayeeb_k/.sdkman/candidates/tornadovm/4.0.0-jdk25-full/tornado-argfile"
+lazy val tornadoVMOptions = Source.fromFile(tornadoSdkPath)
+  .getLines()
+  .map(_.trim)
+  .filter(_.nonEmpty)
+  .filterNot(_.startsWith("#"))
+  .flatMap(_.split("\\s+"))
+  .toSeq
 lazy val scalation = project.in(file("."))
   .settings(
     scalaVersion := "3.7.2",
@@ -10,22 +19,19 @@ lazy val scalation = project.in(file("."))
       "-new-syntax",
       "-Wunused:all",
       "-Xfatal-warnings",
-      "-release", "21" // Important: produce Java 21 compatible bytecode
+      "-release", "25"
     ),
 
-    // UPDATED: Modern Maven Central coordinates for TornadoVM v2.2.0
     libraryDependencies ++= Seq(
-      "io.github.beehive-lab" % "tornado-api" % "2.2.0",
-      "io.github.beehive-lab" % "tornado-runtime" % "2.2.0" // <-- THIS WAS MISSING
+      "io.github.beehive-lab" % "tornado-api" % "4.0.0",
+      "io.github.beehive-lab" % "tornado-runtime" % "4.0.0"
     ),
 
     fork := true,
-    run / javaOptions ++= Seq(
-      "--add-modules=jdk.incubator.vector",
-      "--enable-native-access=ALL-UNNAMED",
-      // These exports allow TornadoVM to work with JDK 21+ internals
-      "--add-exports=jdk.internal.vm.ci/jdk.vm.ci.meta=ALL-UNNAMED",
-      "--add-exports=jdk.internal.vm.ci/jdk.vm.ci.runtime=ALL-UNNAMED",
-      "-Dtornado.device.desc=true"
+
+    // 2. Inject the extracted flags + your device target!
+    run / javaOptions ++= tornadoVMOptions ++ Seq(
+      "-Dtornado.backends=ptx",
+      "-Ds0.t0.device=0:0"
     )
   )
