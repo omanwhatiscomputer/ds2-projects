@@ -17,6 +17,8 @@
     <orderEntry type="module-library" scope="PROVIDED">
       <library name="sbt: sbt-1.11.4">
         <CLASSES>
+          <root url="jar://$APPLICATION_PLUGINS_DIR$/Scala/repo/org/jetbrains/scala/sbt-idea-shell_2.12_1.0/2025.3.0/sbt-idea-shell_2.12_1.0-2025.3.0.jar!/" />
+          <root url="jar://$APPLICATION_PLUGINS_DIR$/Scala/repo/org/jetbrains/scala/sbt-structure-extractor_2.12_1.3/2026.1.3/sbt-structure-extractor_2.12_1.3-2026.1.3.jar!/" />
           <root url="jar://$USER_HOME$/.sbt/boot/scala-2.12.20/lib/scala-compiler.jar!/" />
           <root url="jar://$USER_HOME$/.sbt/boot/scala-2.12.20/lib/scala-library.jar!/" />
           <root url="jar://$USER_HOME$/.sbt/boot/scala-2.12.20/lib/scala-reflect.jar!/" />
@@ -112,7 +114,7 @@
   </component>
   <component name="SbtModule">
     <option name="buildForURI" value="file://$MODULE_DIR$/../../../" />
-    <option name="imports" value="SUB:DOLLARcec065f7977388435544.`scalation`, _root_.sbt.Keys._, _root_.sbt.ScriptedPlugin.autoImport._, _root_.sbt.plugins.JUnitXmlReportPlugin.autoImport._, _root_.sbt.plugins.MiniDependencyTreePlugin.autoImport._, _root_.org.jetbrains.sbt.GenerateAllManagedSourcesPlugin.autoImport._, _root_.sbt._, _root_.sbt.nio.Keys._, _root_.sbt.plugins.IvyPlugin, _root_.sbt.plugins.JvmPlugin, _root_.sbt.plugins.CorePlugin, _root_.sbt.ScriptedPlugin, _root_.sbt.plugins.SbtPlugin, _root_.sbt.plugins.SemanticdbPlugin, _root_.sbt.plugins.JUnitXmlReportPlugin, _root_.sbt.plugins.Giter8TemplatePlugin, _root_.sbt.plugins.MiniDependencyTreePlugin, _root_.org.jetbrains.sbt.GenerateAllManagedSourcesPlugin, _root_.org.jetbrains.sbt.StructurePlugin, _root_.scala.xml.{TopScope=&gt;SUB:DOLLARscope}" />
+    <option name="imports" value="SUB:DOLLARd782b40dc8f48cfd157e.`scalation`, _root_.sbt.Keys._, _root_.sbt.ScriptedPlugin.autoImport._, _root_.sbt.plugins.JUnitXmlReportPlugin.autoImport._, _root_.sbt.plugins.MiniDependencyTreePlugin.autoImport._, _root_.org.jetbrains.sbt.GenerateAllManagedSourcesPlugin.autoImport._, _root_.org.jetbrains.sbt.IdeaShellPlugin.autoImport._, _root_.sbt._, _root_.sbt.nio.Keys._, _root_.sbt.plugins.IvyPlugin, _root_.sbt.plugins.JvmPlugin, _root_.sbt.plugins.CorePlugin, _root_.sbt.ScriptedPlugin, _root_.sbt.plugins.SbtPlugin, _root_.sbt.plugins.SemanticdbPlugin, _root_.sbt.plugins.JUnitXmlReportPlugin, _root_.sbt.plugins.Giter8TemplatePlugin, _root_.sbt.plugins.MiniDependencyTreePlugin, _root_.org.jetbrains.sbt.GenerateAllManagedSourcesPlugin, _root_.org.jetbrains.sbt.StructurePlugin, _root_.org.jetbrains.sbt.IdeaShellPlugin, _root_.scala.xml.{TopScope=&gt;SUB:DOLLARscope}" />
     <option name="resolvers" value="https://repo1.maven.org/maven2/|maven|public, /home/khubayeeb_k/.ivy2/cache|ivy|true|Local cache" />
   </component>
 </module>

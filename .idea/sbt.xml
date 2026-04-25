@@ -13,6 +13,8 @@
           </set>
         </option>
         <option name="sbtVersion" value="1.11.4" />
+        <option name="useSbtShellForBuild" value="true" />
+        <option name="useSbtShellForImport" value="true" />
       </SbtProjectSettings>
     </option>
     <option name="vmParameters" value="@/home/khubayeeb_k/.sdkman/candidates/tornadovm/4.0.0-jdk25-full/tornado-argfile -Dtornado.backends=ptx -Ds0.t0.device=0:0" />

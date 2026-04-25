@@ -634,3 +634,8 @@ WARNING: Unmatched cancel notification for request id 125
 2026.04.25 12:54:07 INFO  no build target found for /home/khubayeeb_k/dev/repos/incubator/ds2-projects/src/main/scala/project3/TestRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7[0m
 2026.04.25 12:54:58 INFO  no build target found for /home/khubayeeb_k/dev/repos/incubator/ds2-projects/src/main/scala/project3/TestRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7[0m
 2026.04.25 12:58:34 INFO  no build target found for /home/khubayeeb_k/dev/repos/incubator/ds2-projects/src/main/scala/project3/TestRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7[0m
+2026.04.25 13:03:14 INFO  Shutting down server[0m
+2026.04.25 13:03:14 INFO  Memory monitor stopped[0m
+2026.04.25 13:03:14 INFO  shutting down Metals[0m
+2026.04.25 13:03:14 INFO  Exiting server[0m
+2026.04.25 13:03:14 ERROR 
