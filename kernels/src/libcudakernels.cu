@@ -160,7 +160,7 @@ extern "C" void gpuMatrixColVecOp(const double* h_a, const double* h_vec, double
     cudaFree(d_a); cudaFree(d_vec); cudaFree(d_c);
 }
 
-// ── cuBLAS handle (lazy-initialized, shared across calls) ─────────────────
+// %% cuBLAS handle (lazy-initialized, shared across calls) %%%%%%%%%%%%%%%%%
 
 static cublasHandle_t g_cublasHandle = nullptr;
 
@@ -171,7 +171,7 @@ static cublasHandle_t getCublasHandle() {
     return g_cublasHandle;
 }
 
-// ── GEMM: C = A * B  (all row-major, A is m×k, B is k×n, C is m×n) ───────
+// %% GEMM: C = A * B  (all row-major, A is m×k, B is k×n, C is m×n) %%%%%%%
 // cuBLAS is column-major; we compute C^T = B^T * A^T to stay row-major.
 extern "C" void gpuMatrixMul(const double* h_a, const double* h_b, double* h_c, int m, int k, int n) {
     double *d_a, *d_b, *d_c;
@@ -194,7 +194,7 @@ extern "C" void gpuMatrixMul(const double* h_a, const double* h_b, double* h_c, 
     cudaFree(d_a); cudaFree(d_b); cudaFree(d_c);
 }
 
-// ── GEMV: result = A * v  (row-major A is m×n, v is n, result is m) ───────
+// %% GEMV: result = A * v  (row-major A is m×n, v is n, result is m) %%%%%%%
 extern "C" void gpuMatrixVecMul(const double* h_a, const double* h_v, double* h_result, int m, int n) {
     double *d_a, *d_v, *d_r;
     cudaMalloc(&d_a, (size_t)m * n * sizeof(double));
@@ -210,7 +210,7 @@ extern "C" void gpuMatrixVecMul(const double* h_a, const double* h_v, double* h_
     cudaFree(d_a); cudaFree(d_v); cudaFree(d_r);
 }
 
-// ── Transposed GEMV: result = A^T * v  (row-major A is m×n, v is m, result is n) ─
+// %% Transposed GEMV: result = A^T * v  (row-major A is m×n, v is m, result is n) %
 extern "C" void gpuMatrixTransVecMul(const double* h_a, const double* h_v, double* h_result, int m, int n) {
     double *d_a, *d_v, *d_r;
     cudaMalloc(&d_a, (size_t)m * n * sizeof(double));
@@ -226,7 +226,7 @@ extern "C" void gpuMatrixTransVecMul(const double* h_a, const double* h_v, doubl
     cudaFree(d_a); cudaFree(d_v); cudaFree(d_r);
 }
 
-// ── Column sums via GEMV with ones: sumV[j] = A^T * ones_m ───────────────
+// %% Column sums via GEMV with ones: sumV[j] = A^T * ones_m %%%%%%%%%%%%%%%
 extern "C" void gpuMatrixColSum(const double* h_a, double* h_result, int rows, int cols) {
     double *d_a, *d_ones, *d_r;
     cudaMalloc(&d_a,    (size_t)rows * cols * sizeof(double));
@@ -244,7 +244,7 @@ extern "C" void gpuMatrixColSum(const double* h_a, double* h_result, int rows, i
     cudaFree(d_a); cudaFree(d_ones); cudaFree(d_r);
 }
 
-// ── Row sums via GEMV with ones: sumVr[i] = A * ones_n ───────────────────
+// %% Row sums via GEMV with ones: sumVr[i] = A * ones_n %%%%%%%%%%%%%%%%%%%
 extern "C" void gpuMatrixRowSum(const double* h_a, double* h_result, int rows, int cols) {
     double *d_a, *d_ones, *d_r;
     cudaMalloc(&d_a,    (size_t)rows * cols * sizeof(double));
@@ -262,7 +262,7 @@ extern "C" void gpuMatrixRowSum(const double* h_a, double* h_result, int rows, i
     cudaFree(d_a); cudaFree(d_ones); cudaFree(d_r);
 }
 
-// ── Global sum reduction ──────────────────────────────────────────────────
+// %% Global sum reduction %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 __global__ void globalSumKernel(const double *a, double *partial, int n) {
     extern __shared__ double sdata[];
     int tid = threadIdx.x;
@@ -294,7 +294,7 @@ extern "C" void gpuMatrixGlobalSum(const double* h_a, double* h_result, int n) {
     cudaFree(d_a); cudaFree(d_partial);
 }
 
-// ── Global min reduction ──────────────────────────────────────────────────
+// %% Global min reduction %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 __global__ void globalMinKernel(const double *a, double *partial, int n) {
     extern __shared__ double sdata[];
     int tid = threadIdx.x;
@@ -326,7 +326,7 @@ extern "C" void gpuMatrixGlobalMin(const double* h_a, double* h_result, int n) {
     cudaFree(d_a); cudaFree(d_partial);
 }
 
-// ── Global max reduction ──────────────────────────────────────────────────
+// %% Global max reduction %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 __global__ void globalMaxKernel(const double *a, double *partial, int n) {
     extern __shared__ double sdata[];
     int tid = threadIdx.x;
@@ -358,7 +358,7 @@ extern "C" void gpuMatrixGlobalMax(const double* h_a, double* h_result, int n) {
     cudaFree(d_a); cudaFree(d_partial);
 }
 
-// ── Column min ────────────────────────────────────────────────────────────
+// %% Column min %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 __global__ void colMinKernel(const double *A, double *result, int rows, int cols) {
     int col = blockIdx.x * blockDim.x + threadIdx.x;
     if (col < cols) {
@@ -381,7 +381,7 @@ extern "C" void gpuMatrixColMin(const double* h_a, double* h_result, int rows, i
     cudaFree(d_a); cudaFree(d_r);
 }
 
-// ── Column max ────────────────────────────────────────────────────────────
+// %% Column max %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 __global__ void colMaxKernel(const double *A, double *result, int rows, int cols) {
     int col = blockIdx.x * blockDim.x + threadIdx.x;
     if (col < cols) {
@@ -404,7 +404,7 @@ extern "C" void gpuMatrixColMax(const double* h_a, double* h_result, int rows, i
     cudaFree(d_a); cudaFree(d_r);
 }
 
-// ── Vector reductions (delegate to existing global reduction kernels) ─────
+// %% Vector reductions (delegate to existing global reduction kernels) %%%%%
 
 extern "C" void gpuVectorSum(const double* h_a, double* h_result, int n) {
     gpuMatrixGlobalSum(h_a, h_result, n);
@@ -418,7 +418,7 @@ extern "C" void gpuVectorMax(const double* h_a, double* h_result, int n) {
     gpuMatrixGlobalMax(h_a, h_result, n);
 }
 
-// ── Vector dot product via cuBLAS ─────────────────────────────────────────
+// %% Vector dot product via cuBLAS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 extern "C" void gpuVectorDot(const double* h_a, const double* h_b, double* h_result, int n) {
     double *d_a, *d_b;
@@ -433,13 +433,13 @@ extern "C" void gpuVectorDot(const double* h_a, const double* h_b, double* h_res
     cudaFree(d_a); cudaFree(d_b);
 }
 
-// ── normSq = dot(a, a) ────────────────────────────────────────────────────
+// %% normSq = dot(a, a) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 extern "C" void gpuVectorNormSq(const double* h_a, double* h_result, int n) {
     gpuVectorDot(h_a, h_a, h_result, n);
 }
 
-// ── norm = cublasDnrm2 ────────────────────────────────────────────────────
+// %% norm = cublasDnrm2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 extern "C" void gpuVectorNorm(const double* h_a, double* h_result, int n) {
     double *d_a;
@@ -452,7 +452,7 @@ extern "C" void gpuVectorNorm(const double* h_a, double* h_result, int n) {
     cudaFree(d_a);
 }
 
-// ── norm1 = sum of absolute values via cublasDasum ────────────────────────
+// %% norm1 = sum of absolute values via cublasDasum %%%%%%%%%%%%%%%%%%%%%%%%
 
 extern "C" void gpuVectorNorm1(const double* h_a, double* h_result, int n) {
     double *d_a;

@@ -212,7 +212,7 @@ object CudaMatrixOps:
   def mulScalar(a: Array[Array[Double]], s: Double, rows: Int, cols: Int): Option[Array[Array[Double]]] = dispatchScalar(a, s, rows, cols, OP_MUL)
   def divScalar(a: Array[Array[Double]], s: Double, rows: Int, cols: Int): Option[Array[Array[Double]]] = dispatchScalar(a, s, rows, cols, OP_DIV)
 
-  // ── New symbol addresses ────────────────────────────────────────────────
+  // %% New symbol addresses %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
   private lazy val matrixMulAddr: MemorySegment =
     libKernels.get.find("gpuMatrixMul").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixMul"))
@@ -244,7 +244,7 @@ object CudaMatrixOps:
   private lazy val matrixColMaxAddr: MemorySegment =
     libKernels.get.find("gpuMatrixColMax").orElseThrow(() => new RuntimeException("Cannot find gpuMatrixColMax"))
 
-  // ── GEMM invoke: (segA, segB, segC, m, k, n) ───────────────────────────
+  // %% GEMM invoke: (segA, segB, segC, m, k, n) %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
   private def invokeGemm(kernelAddr: MemorySegment, a: Array[Array[Double]], b: Array[Array[Double]], result: Array[Array[Double]], m: Int, k: Int, n: Int): Unit =
     val kernelHandle = linker.downcallHandle(
@@ -273,7 +273,7 @@ object CudaMatrixOps:
       i += 1
   end invokeGemm
 
-  // ── GEMV invoke: (segA, segVec, segResult, dim1, dim2) ─────────────────
+  // %% GEMV invoke: (segA, segVec, segResult, dim1, dim2) %%%%%%%%%%%%%%%%%
   // Used for both GEMV (dim1=rows, dim2=cols, resultLen=rows)
   // and transposed GEMV (dim1=rows, dim2=cols, resultLen=cols).
 
@@ -297,7 +297,7 @@ object CudaMatrixOps:
     end try
   end invokeGemvKernel
 
-  // ── Global scalar reduction invoke: (segFlat, segResult, n) ────────────
+  // %% Global scalar reduction invoke: (segFlat, segResult, n) %%%%%%%%%%%%
 
   private def invokeGlobalReduction(kernelAddr: MemorySegment, flat: Array[Double]): Double =
     val kernelHandle = linker.downcallHandle(
@@ -316,7 +316,7 @@ object CudaMatrixOps:
     end try
   end invokeGlobalReduction
 
-  // ── Col/row vector reduction invoke: (segFlat, segResult, rows, cols) ───
+  // %% Col/row vector reduction invoke: (segFlat, segResult, rows, cols) %%%
 
   private def invokeVectorReduction(kernelAddr: MemorySegment, flat: Array[Double], rows: Int, cols: Int, resultLen: Int): Array[Double] =
     val kernelHandle = linker.downcallHandle(
@@ -337,7 +337,7 @@ object CudaMatrixOps:
     resultArr
   end invokeVectorReduction
 
-  // ── Dispatch functions ──────────────────────────────────────────────────
+  // %% Dispatch functions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
   private def dispatchGemm(a: Array[Array[Double]], b: Array[Array[Double]], m: Int, k: Int, n: Int): Option[Array[Array[Double]]] =
     if !CudaVectorOps.isAvailable then return None
@@ -385,7 +385,7 @@ object CudaMatrixOps:
       e.printStackTrace()
       None
 
-  // ── Public API (GEMM, GEMV, reductions) ────────────────────────────────
+  // %% Public API (GEMM, GEMV, reductions) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
   def matrixMul(a: Array[Array[Double]], b: Array[Array[Double]], m: Int, k: Int, n: Int): Option[Array[Array[Double]]] =
     dispatchGemm(a, b, m, k, n)
