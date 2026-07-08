@@ -522,10 +522,8 @@ class TensorD (val dim: Int, val dim2: Int, val dim3: Int,
         val outShape = broadcastShapes (shape, that.shape)
         val left     = broadcastTo (this, outShape)
         val right    = broadcastTo (that, outShape)
-
         val (d1, d2, d3) = (outShape(0), outShape(1), outShape(2))
         val c = new TensorD (d1, d2, d3)
-
         cfor (0, d1) { i =>
             cfor (0, d2) { j =>
                 cfor (0, d3) { k => c(i, j, k) = op(left(i, j, k), right(i, j, k)) }
@@ -565,15 +563,35 @@ class TensorD (val dim: Int, val dim2: Int, val dim3: Int,
     // Element-wise Operations
     //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-    inline def + (b: Broadcastable): TensorD = elementWiseDispatch (b, _ + _)
+    def + (b: Broadcastable): TensorD = b match
+        case t: TensorD => CudaTensorOps.tensorOp(this, t, 0)
+            .map(new TensorD(dim, dim2, dim3, _)).getOrElse(elementWiseDispatch(b, _ + _))
+        case s: Double  => CudaTensorOps.tensorScalarOp(this, s, 0)
+            .map(new TensorD(dim, dim2, dim3, _)).getOrElse(elementWiseDispatch(b, _ + _))
+        case _          => elementWiseDispatch(b, _ + _)
 
-    inline def - (b: Broadcastable): TensorD = elementWiseDispatch (b, _ - _)
+    def - (b: Broadcastable): TensorD = b match
+        case t: TensorD => CudaTensorOps.tensorOp(this, t, 1)
+            .map(new TensorD(dim, dim2, dim3, _)).getOrElse(elementWiseDispatch(b, _ - _))
+        case s: Double  => CudaTensorOps.tensorScalarOp(this, s, 1)
+            .map(new TensorD(dim, dim2, dim3, _)).getOrElse(elementWiseDispatch(b, _ - _))
+        case _          => elementWiseDispatch(b, _ - _)
 
-    inline def * (b: Broadcastable): TensorD = elementWiseDispatch (b, _ * _)
+    def * (b: Broadcastable): TensorD = b match
+        case t: TensorD => CudaTensorOps.tensorOp(this, t, 2)
+            .map(new TensorD(dim, dim2, dim3, _)).getOrElse(elementWiseDispatch(b, _ * _))
+        case s: Double  => CudaTensorOps.tensorScalarOp(this, s, 2)
+            .map(new TensorD(dim, dim2, dim3, _)).getOrElse(elementWiseDispatch(b, _ * _))
+        case _          => elementWiseDispatch(b, _ * _)
 
-    inline def / (b: Broadcastable): TensorD = elementWiseDispatch (b, _ / _)
+    def / (b: Broadcastable): TensorD = b match
+        case t: TensorD => CudaTensorOps.tensorOp(this, t, 3)
+            .map(new TensorD(dim, dim2, dim3, _)).getOrElse(elementWiseDispatch(b, _ / _))
+        case s: Double  => CudaTensorOps.tensorScalarOp(this, s, 3)
+            .map(new TensorD(dim, dim2, dim3, _)).getOrElse(elementWiseDispatch(b, _ / _))
+        case _          => elementWiseDispatch(b, _ / _)
 
-    inline def *~ (b: Broadcastable): TensorD = elementWiseDispatch (b, _ * _)
+    inline def *~ (b: Broadcastable): TensorD = this * b
 
     inline def ~^ (b: Broadcastable): TensorD = elementWiseDispatch (b, math.pow)
 
@@ -589,13 +607,15 @@ class TensorD (val dim: Int, val dim2: Int, val dim3: Int,
     /** Sum of all elements.
      */
     def sum: Double =
-        var total = 0.0
-        cfor (0, dim) { i =>
-            cfor (0, dim2) { j =>
-                cfor (0, dim3) { k => total += this (i, j, k) }
+        CudaTensorOps.globalSum(this).getOrElse {
+            var total = 0.0
+            cfor (0, dim) { i =>
+                cfor (0, dim2) { j =>
+                    cfor (0, dim3) { k => total += this (i, j, k) }
+                } // cfor
             } // cfor
-        } // cfor
-        total
+            total
+        }
     end sum
 
     //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -944,21 +964,24 @@ class TensorD (val dim: Int, val dim2: Int, val dim3: Int,
         val (m3, n3) = (d.dim, d.dim2)
         if n1 > dim2 || n2 > dim2 || n3 > dim3 then flaw ("*", "dimensions don't match")
 
-        val e = new TensorD (m1, m2, m3)
-        cfor (b.indices) { i =>
-            cfor (c.indices) { j =>
-                cfor (d.indices) { k =>
-                    var sum = 0.0
-                    cfor (b.indices2) { l1 =>
-                        cfor (c.indices2) { l2 =>
-                            cfor (d.indices2) { l3 => sum += b(i, l1) * c(j, l2) * d(k, l3) * v(l1)(l2)(l3) }
+        CudaTensorOps.tensorContraction(this, b, c, d) match
+            case Some(arr) => new TensorD(m1, m2, m3, arr)
+            case None      =>
+                val e = new TensorD (m1, m2, m3)
+                cfor (b.indices) { i =>
+                    cfor (c.indices) { j =>
+                        cfor (d.indices) { k =>
+                            var sum = 0.0
+                            cfor (b.indices2) { l1 =>
+                                cfor (c.indices2) { l2 =>
+                                    cfor (d.indices2) { l3 => sum += b(i, l1) * c(j, l2) * d(k, l3) * v(l1)(l2)(l3) }
+                                } // cfor
+                            } // cfor
+                            e.v(i)(j)(k) = sum
                         } // cfor
                     } // cfor
-                    e.v(i)(j)(k) = sum
                 } // cfor
-            } // cfor
-        } // cfor
-        e
+                e
     end *
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

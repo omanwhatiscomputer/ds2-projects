@@ -1,7 +1,7 @@
 package project3
 
 import scalation.{time, banner}
-import scalation.mathstat.{VectorD, MatrixD, DeviceConfig}
+import scalation.mathstat.{VectorD, MatrixD, TensorD, DeviceConfig}
 
 @main def TestRunner(): Unit =
 
@@ -236,5 +236,51 @@ import scalation.mathstat.{VectorD, MatrixD, DeviceConfig}
   banner("Vector Norm1 (N = 10,000,000)")
   DeviceConfig.useGPU = true;  println("[GPU]"); time { x.norm1 }
   DeviceConfig.useGPU = false; println("[CPU]"); time { x.norm1 }
+
+  // =========================================================================
+  // TensorD Operations  (100 x 100 x 100 = 1,000,000 elements)
+  // =========================================================================
+
+  val TD = 100   // tensor element-wise / sum
+  val TC = 20    // tensor contraction — CPU is O(n^6), keep small
+
+  val t1  = TensorD.fill(TD, TD, TD, 1.5)
+  val t2  = TensorD.fill(TD, TD, TD, 2.5)
+  val tb  = MatrixD((0 until TC).map(_ => VectorD(Array.fill(TC)(1.5))))
+  val tc  = MatrixD((0 until TC).map(_ => VectorD(Array.fill(TC)(1.5))))
+  val td  = MatrixD((0 until TC).map(_ => VectorD(Array.fill(TC)(1.5))))
+  val ts  = TensorD.fill(TC, TC, TC, 1.5)
+
+  banner("Tensor Add (100 x 100 x 100)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { t1 + t2 }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { t1 + t2 }
+
+  banner("Tensor Sub (100 x 100 x 100)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { t1 - t2 }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { t1 - t2 }
+
+  banner("Tensor Mul (100 x 100 x 100)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { t1 * t2 }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { t1 * t2 }
+
+  banner("Tensor Div (100 x 100 x 100)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { t1 / t2 }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { t1 / t2 }
+
+  banner("Tensor Add Scalar (100 x 100 x 100)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { t1 + 10.0 }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { t1 + 10.0 }
+
+  banner("Tensor Mul Scalar (100 x 100 x 100)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { t1 * 2.0 }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { t1 * 2.0 }
+
+  banner("Tensor Global Sum (100 x 100 x 100)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { t1.sum }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { t1.sum }
+
+  banner("Tensor Contraction (20 x 20 x 20)")
+  DeviceConfig.useGPU = true;  println("[GPU]"); time { ts * (tb, tc, td) }
+  DeviceConfig.useGPU = false; println("[CPU]"); time { ts * (tb, tc, td) }
 
 end TestRunner

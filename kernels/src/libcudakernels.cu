@@ -464,3 +464,57 @@ extern "C" void gpuVectorNorm1(const double* h_a, double* h_result, int n) {
     *h_result = result;
     cudaFree(d_a);
 }
+
+// %% Tensor contraction: e(i,j,k) = sum_{l1,l2,l3} b(i,l1)*c(j,l2)*d(k,l3)*t(l1,l2,l3) %%
+// t is (L1 x L2 x L3), b is (M1 x L1), c is (M2 x L2), d is (M3 x L3)
+// output e is (M1 x M2 x M3), all arrays row-major flattened
+__global__ void tensorContractionKernel(
+    const double* t, const double* b, const double* c, const double* d,
+    double* e,
+    int L1, int L2, int L3,
+    int M1, int M2, int M3)
+{
+    int i = blockIdx.x * blockDim.x + threadIdx.x;
+    int j = blockIdx.y * blockDim.y + threadIdx.y;
+    int k = blockIdx.z * blockDim.z + threadIdx.z;
+    if (i >= M1 || j >= M2 || k >= M3) return;
+
+    double sum = 0.0;
+    for (int l1 = 0; l1 < L1; l1++) {
+        double bval = b[i * L1 + l1];
+        for (int l2 = 0; l2 < L2; l2++) {
+            double cval = c[j * L2 + l2];
+            for (int l3 = 0; l3 < L3; l3++) {
+                sum += bval * cval * d[k * L3 + l3] * t[l1 * L2 * L3 + l2 * L3 + l3];
+            }
+        }
+    }
+    e[i * M2 * M3 + j * M3 + k] = sum;
+}
+
+extern "C" void gpuTensorContraction(
+    const double* h_t, const double* h_b, const double* h_c, const double* h_d,
+    double* h_e,
+    int L1, int L2, int L3,
+    int M1, int M2, int M3)
+{
+    double *d_t, *d_b, *d_c, *d_d, *d_e;
+    cudaMalloc(&d_t, (size_t)L1 * L2 * L3 * sizeof(double));
+    cudaMalloc(&d_b, (size_t)M1 * L1     * sizeof(double));
+    cudaMalloc(&d_c, (size_t)M2 * L2     * sizeof(double));
+    cudaMalloc(&d_d, (size_t)M3 * L3     * sizeof(double));
+    cudaMalloc(&d_e, (size_t)M1 * M2 * M3 * sizeof(double));
+
+    cudaMemcpy(d_t, h_t, (size_t)L1 * L2 * L3 * sizeof(double), cudaMemcpyHostToDevice);
+    cudaMemcpy(d_b, h_b, (size_t)M1 * L1     * sizeof(double), cudaMemcpyHostToDevice);
+    cudaMemcpy(d_c, h_c, (size_t)M2 * L2     * sizeof(double), cudaMemcpyHostToDevice);
+    cudaMemcpy(d_d, h_d, (size_t)M3 * L3     * sizeof(double), cudaMemcpyHostToDevice);
+
+    dim3 block(8, 8, 8);
+    dim3 grid((M1 + 7) / 8, (M2 + 7) / 8, (M3 + 7) / 8);
+    tensorContractionKernel<<<grid, block>>>(d_t, d_b, d_c, d_d, d_e, L1, L2, L3, M1, M2, M3);
+    cudaDeviceSynchronize();
+
+    cudaMemcpy(h_e, d_e, (size_t)M1 * M2 * M3 * sizeof(double), cudaMemcpyDeviceToHost);
+    cudaFree(d_t); cudaFree(d_b); cudaFree(d_c); cudaFree(d_d); cudaFree(d_e);
+}
