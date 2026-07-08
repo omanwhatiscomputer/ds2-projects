@@ -17,6 +17,9 @@ import java.io.PrintWriter
 import scala.annotation.unused
 import scala.collection.immutable.{IndexedSeq => IIndexedSeq, Set => ISet}
 import scala.collection.mutable.{ArrayBuffer, IndexedSeq, Set}
+import scala.concurrent.{Future, Await}
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.duration.Duration
 import scala.math.{min, round}
 import scala.util.control.Breaks.{break, breakable}
 
@@ -647,8 +650,21 @@ class MatrixD (val dim:  Int,
         if u.dim != dim then
             flaw ("+^:", s"vector does not match column dimension: u.dim = ${u.dim} != dim = $dim")
 
-        val c = new MatrixD (dim, dim2 + 1)
-        cfor (0, c.dim2) { j => c(?, j) = if j == 0 then u else apply(?, j-1) }
+        val c        = new MatrixD (dim, dim2 + 1)
+        val nThreads = Runtime.getRuntime.availableProcessors()
+        val chunk    = (dim + nThreads - 1) / nThreads
+        val futures  = (0 until nThreads).map { t =>
+            val start = t * chunk
+            val end   = math.min(start + chunk, dim)
+            Future {
+                var i = start
+                while i < end do
+                    c.v(i)(0) = u(i)
+                    System.arraycopy(v(i), 0, c.v(i), 1, dim2)
+                    i += 1
+            }
+        }
+        Await.result(Future.sequence(futures), Duration.Inf)
         c
     end +^:
 
@@ -1337,11 +1353,31 @@ class MatrixD (val dim:  Int,
         val nn = n * (n - 1) / 2
         debug ("crossAll", s"create matrix with dims = ($dim, $nn)")
         val xx = new MatrixD (dim, nn)
+        // precompute (i,j) pairs and their output column index
+        val pairs = Array.ofDim[(Int,Int)](nn)
         var k = 0
-        cfor (0, dim2) { i => cfor (0, i) { j =>
-            xx(?, k) = apply(?, i) * apply(?, j)
-            k += 1
-        }} // cfor
+        var i = 0
+        while i < dim2 do
+            var j = 0
+            while j < i do { pairs(k) = (i, j); k += 1; j += 1 }
+            i += 1
+        val nThreads = Runtime.getRuntime.availableProcessors()
+        val chunk    = (nn + nThreads - 1) / nThreads
+        val futures  = (0 until nThreads).map { t =>
+            val start = t * chunk
+            val end   = math.min(start + chunk, nn)
+            Future {
+                var col = start
+                while col < end do
+                    val (ci, cj) = pairs(col)
+                    val colI = v.map(_(ci))
+                    val colJ = v.map(_(cj))
+                    var row = 0
+                    while row < dim do { xx.v(row)(col) = colI(row) * colJ(row); row += 1 }
+                    col += 1
+            }
+        }
+        Await.result(Future.sequence(futures), Duration.Inf)
         xx
     end crossAll
 
@@ -1355,11 +1391,34 @@ class MatrixD (val dim:  Int,
         val nn = n * (n - 1) * (n - 2) / 6
         debug ("crossAll3", s"create matrix with dims = ($dim, $nn)")
         val xx = new MatrixD (dim, nn)
+        val triples = Array.ofDim[(Int,Int,Int)](nn)
         var l = 0
-        cfor (0, dim2) { i => cfor (0, i) { j => cfor (0, j) { k =>
-            xx(?, l) = apply(?, i) * apply(?, j) * apply(?, k)
-            l += 1
-        }}} // cfor
+        var i = 0
+        while i < dim2 do
+            var j = 0
+            while j < i do
+                var k = 0
+                while k < j do { triples(l) = (i, j, k); l += 1; k += 1 }
+                j += 1
+            i += 1
+        val nThreads = Runtime.getRuntime.availableProcessors()
+        val chunk    = (nn + nThreads - 1) / nThreads
+        val futures  = (0 until nThreads).map { t =>
+            val start = t * chunk
+            val end   = math.min(start + chunk, nn)
+            Future {
+                var col = start
+                while col < end do
+                    val (ci, cj, ck) = triples(col)
+                    val colI = v.map(_(ci))
+                    val colJ = v.map(_(cj))
+                    val colK = v.map(_(ck))
+                    var row = 0
+                    while row < dim do { xx.v(row)(col) = colI(row) * colJ(row) * colK(row); row += 1 }
+                    col += 1
+            }
+        }
+        Await.result(Future.sequence(futures), Duration.Inf)
         xx
     end crossAll3
 
@@ -1418,12 +1477,29 @@ class MatrixD (val dim:  Int,
         CudaMatrixOps.matrixTransVecMul(v, y.v, dim, dim2) match
             case Some(result) => new VectorD(dim2, result)
             case None         =>
-                val a = Array.ofDim[Double](dim2)
-                cfor (0, dim2) { j =>
-                    val v_j = apply(?, j)
-                    var sum = 0.0
-                    cfor (0, dim) { i => sum += v_j(i) * y(i) }
-                    a(j) = sum
+                val a        = new Array[Double](dim2)
+                val nThreads = Runtime.getRuntime.availableProcessors()
+                val chunk    = (dim + nThreads - 1) / nThreads
+                val yv       = y.v
+                val futures  = (0 until nThreads).map { t =>
+                    val start = t * chunk
+                    val end   = math.min(start + chunk, dim)
+                    Future {
+                        val local = new Array[Double](dim2)
+                        var i = start
+                        while i < end do
+                            val yi  = yv(i)
+                            val row = v(i)
+                            var j   = 0
+                            while j < dim2 do { local(j) += row(j) * yi; j += 1 }
+                            i += 1
+                        local
+                    }
+                }
+                val locals = Await.result(Future.sequence(futures), Duration.Inf)
+                locals.foreach { local =>
+                    var j = 0
+                    while j < dim2 do { a(j) += local(j); j += 1 }
                 }
                 new VectorD(dim2, a)
     end dot
@@ -1591,7 +1667,23 @@ class MatrixD (val dim:  Int,
      *  @param  f the vector to vector function to apply
      */
     def mmap_ (f: FunctionV2V): MatrixD =
-        MatrixD (indices2.map { j => f(apply(?, j)) }).transpose
+        val result   = new MatrixD (dim, dim2)
+        val nThreads = Runtime.getRuntime.availableProcessors()
+        val chunk    = (dim2 + nThreads - 1) / nThreads
+        val futures  = (0 until nThreads).map { t =>
+            val start = t * chunk
+            val end   = math.min(start + chunk, dim2)
+            Future {
+                var j = start
+                while j < end do
+                    val col = f(apply(?, j))
+                    var i = 0
+                    while i < dim do { result.v(i)(j) = col(i); i += 1 }
+                    j += 1
+            }
+        }
+        Await.result(Future.sequence(futures), Duration.Inf)
+        result
     end mmap_
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -1959,7 +2051,23 @@ class MatrixD (val dim:  Int,
      *  @param skip  the number of initial columns to skip (e.g., first column of all ones)
      */
     def corr (y: VectorD, skip: Int = 0): VectorD =
-        VectorD ((skip until dim2).map { j => apply(?, j) corr y })
+        val len      = dim2 - skip
+        val nThreads = Runtime.getRuntime.availableProcessors()
+        val chunk    = (len + nThreads - 1) / nThreads
+        val futures  = (0 until nThreads).map { t =>
+            val start = t * chunk
+            val end   = math.min(start + chunk, len)
+            Future {
+                val local = new Array[Double](end - start)
+                var j = start
+                while j < end do { local(j - start) = apply(?, j + skip) corr y; j += 1 }
+                (start, local)
+            }
+        }
+        val results = Await.result(Future.sequence(futures), Duration.Inf)
+        val a = new Array[Double](len)
+        results.foreach { (start, local) => System.arraycopy(local, 0, a, start, local.length) }
+        new VectorD(len, a)
     end corr
 
     //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -2052,6 +2160,99 @@ class MatrixD (val dim:  Int,
      *  @return a MatrixD filled with ones.
      */
     def onesLike: MatrixD = MatrixD.fill (dim, dim2, 1)
+
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Return the column-wise squared norm (normSq of each column) as a VectorD.
+     */
+    def normSq: VectorD =
+        val nThreads = Runtime.getRuntime.availableProcessors()
+        val chunk    = (dim + nThreads - 1) / nThreads
+        val futures  = (0 until nThreads).map { t =>
+            val start = t * chunk
+            val end   = math.min(start + chunk, dim)
+            Future {
+                val local = new Array[Double](dim2)
+                var i = start
+                while i < end do
+                    val row = v(i); var j = 0
+                    while j < dim2 do { local(j) += row(j) * row(j); j += 1 }
+                    i += 1
+                local
+            }
+        }
+        val locals = Await.result(Future.sequence(futures), Duration.Inf)
+        val a = new Array[Double](dim2)
+        locals.foreach { local => var j = 0; while j < dim2 do { a(j) += local(j); j += 1 } }
+        new VectorD(dim2, a)
+    end normSq
+
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Return the column-wise Euclidean norm (norm of each column) as a VectorD.
+     */
+    def norm: VectorD =
+        val ns = normSq
+        var j  = 0
+        while j < dim2 do { ns.v(j) = math.sqrt(ns.v(j)); j += 1 }
+        ns
+    end norm
+
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Return a 2-row matrix where row 0 is Q1 and row 1 is Q3 for each column.
+     */
+    def q1_q3: MatrixD =
+        val result   = new MatrixD(2, dim2)
+        val nThreads = Runtime.getRuntime.availableProcessors()
+        val chunk    = (dim2 + nThreads - 1) / nThreads
+        val futures  = (0 until nThreads).map { t =>
+            val start = t * chunk
+            val end   = math.min(start + chunk, dim2)
+            Future {
+                var j = start
+                while j < end do
+                    val col = apply(?, j)
+                    result.v(0)(j) = col.quantile(0.25)
+                    result.v(1)(j) = col.quantile(0.75)
+                    j += 1
+            }
+        }
+        Await.result(Future.sequence(futures), Duration.Inf)
+        result
+    end q1_q3
+
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Return the cosine similarity matrix for the columns of this matrix.
+     *  cosSim(i,j) = (col_i dot col_j) / (||col_i|| * ||col_j||)
+     *  Result is symmetric; diagonal is 1.0.
+     */
+    def cosSim: MatrixD =
+        val norms  = norm
+        val cs     = MatrixD.eye(dim2, dim2)
+        val nPairs = dim2 * (dim2 - 1) / 2
+        val pairs  = Array.ofDim[(Int,Int)](nPairs)
+        var idx = 0; var i = 0
+        while i < dim2 do
+            var j = 0
+            while j < i do { pairs(idx) = (i, j); idx += 1; j += 1 }
+            i += 1
+        val nThreads = Runtime.getRuntime.availableProcessors()
+        val chunk    = (nPairs + nThreads - 1) / nThreads
+        val futures  = (0 until nThreads).map { t =>
+            val start = t * chunk
+            val end   = math.min(start + chunk, nPairs)
+            Future {
+                var p = start
+                while p < end do
+                    val (ci, cj) = pairs(p)
+                    var dot = 0.0; var row = 0
+                    while row < dim do { dot += v(row)(ci) * v(row)(cj); row += 1 }
+                    val sim = dot / (norms(ci) * norms(cj))
+                    cs.v(ci)(cj) = sim; cs.v(cj)(ci) = sim
+                    p += 1
+            }
+        }
+        Await.result(Future.sequence(futures), Duration.Inf)
+        cs
+    end cosSim
 
 end MatrixD
 
