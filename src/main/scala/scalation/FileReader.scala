@@ -35,7 +35,7 @@ def readFile (fileName: String, fullPath: Boolean = false): Int =
     catch 
         case _ : IOException => _flaw ("readFile", s"IOException: file $path may not exist.")
 
-    val lines  = buffer.getLines
+    val lines  = buffer.getLines()
     var i = 0
     for line <- lines do
         println (line)
@@ -67,7 +67,7 @@ def readFileIntoArray (fileName: String, fullPath: Boolean = false, limit: Int =
 
     val lineArr = 
     if limit <= 0 then
-        buffer.getLines.toArray
+        buffer.getLines().toArray
     else
         val it: Iterator [String] = buffer.getLines ()                 // line iterator
         val ab = ArrayBuffer [String] ()

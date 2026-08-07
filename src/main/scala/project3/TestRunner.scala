@@ -181,6 +181,11 @@ import scalation.mathstat.{VectorD, MatrixD, TensorD, DeviceConfig}
       DeviceConfig.useGPU = true;  println("[GPU]"); time { gm1 * gm2 }
       DeviceConfig.useGPU = false; println("[CPU]"); time { gm1 * gm2 }
 
+      // * uses tiled CPU fallback — also warms the matrixMulAddr lazy val
+      banner(s"CPU using par collection ($MM x $MM)")
+      
+      DeviceConfig.useGPU = false; println("[CPU]"); time { gm1 *@ gm2 }
+
   // =========================================================================
   // Matrix-Vector Multiply — GEMV
   // =========================================================================

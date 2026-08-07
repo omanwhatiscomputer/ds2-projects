@@ -126,8 +126,10 @@ end PetriNetRules
 /** The `PetriNetRulesTest` object is used to test the `PetriNetRules` trait.
  *  > runMain scalation.simulation.activity.PetriNetRulesTest
  */
-object PetriNetRulesTest extends App with PetriNetRules:
-
+// object PetriNetRulesTest extends App with PetriNetRules:
+@main def petriNetRulesTest(): Unit=
+    object PetriNetRules_ extends PetriNetRules
+    import PetriNetRules_._
     //:: Set the initial time.
 
     val t0 = 1.0
@@ -188,5 +190,5 @@ object PetriNetRulesTest extends App with PetriNetRules:
     val dervs = Array [Derivative] (derv1, derv2)
     println ("Fluid flow:  place to transition: " + fluidFlow (f, dervs, t0, d))
 
-end PetriNetRulesTest
+end petriNetRulesTest
 

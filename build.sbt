@@ -4,7 +4,7 @@ lazy val scalation = project.in(file("."))
 
   .settings(
 
-    scalaVersion  := "3.7.2",
+    scalaVersion  := "3.8.4",
 
     scalacOptions ++= Seq(
 
@@ -14,9 +14,9 @@ lazy val scalation = project.in(file("."))
 
        "-new-syntax",          // require `then` and `do` in control expressions.
 
-       "-Wunused:all",         // warn of unused imports, ...
+       "-Wunused:imports,privates,locals", // warn of unused imports/privates/locals (not explicit params)
 
-       "-Xfatal-warnings")     // fail the compilation if there are any warnings
+       "-Werror")              // fail the compilation if there are any warnings
 
 //  javacOptions  += "--add-modules jdk.incubator.vector"
 
@@ -24,6 +24,7 @@ lazy val scalation = project.in(file("."))
 
 fork := true
 // Fork the JVM when running
+libraryDependencies += "org.scala-lang.modules" %% "scala-parallel-collections" % "1.2.0"
 
 // Enable Panama/FFM API native access
 run / javaOptions += "--enable-native-access=ALL-UNNAMED"

@@ -22,6 +22,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration.Duration
 import scala.math.{min, round}
 import scala.util.control.Breaks.{break, breakable}
+import scala.collection.parallel.CollectionConverters.RangeIsParallelizable
 
 /** Top-level type definition for functions mapping from `MatrixD`:
  */
@@ -1074,6 +1075,35 @@ class MatrixD (val dim:  Int,
 //        }}} // cfor
 //        new MatrixD (dim, y.dim2, a)
 //    end *
+
+
+    def *@ (y: MatrixD): MatrixD =
+        if y.dim != dim2 then
+            flaw ("*", s"matrix * matrix - incompatible cross dimensions: dim2 = $dim2, y.dim = ${y.dim}")
+
+        val v_ = v                                                  // local access is faster
+        val a  = Array.ofDim [Double] (dim, y.dim2)
+
+//      cfor (0, dim, TSZ) { ii =>                                  // sequential outer loop
+        (0 until dim by TSZ).par.foreach { ii =>                    // parallel outer loop
+            val i2 = math.min (ii + TSZ, dim)
+            cfor (0, dim2, TSZ) { kk =>
+                val k2 = math.min (kk + TSZ, dim2)
+                cfor (0, y.dim2, TSZ) { jj =>
+                    val j2 = math.min (jj + TSZ, y.dim2)
+
+                    cfor (ii, i2) { i =>
+                        val v_i = v_(i); val a_i = a(i)
+                        cfor (kk, k2) { k =>
+                            val y_k = y.v(k); val v_ik = v_i(k)
+                            cfor (jj, j2) { j => a_i(j) += v_ik * y_k(j) }
+                        } // cfor
+                    } // cfor
+
+        }}} // cfor
+        new MatrixD (dim, y.dim2, a)
+    end *@
+
     def * (y: MatrixD): MatrixD =
         if y.dim != dim2 then
             flaw ("*", s"matrix * matrix - incompatible cross dimensions: dim2 = $dim2, y.dim = ${y.dim}")
