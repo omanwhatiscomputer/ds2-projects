@@ -17,9 +17,6 @@ import java.io.PrintWriter
 import scala.annotation.unused
 import scala.collection.immutable.{IndexedSeq => IIndexedSeq, Set => ISet}
 import scala.collection.mutable.{ArrayBuffer, IndexedSeq, Set}
-import scala.concurrent.{Future, Await}
-import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.duration.Duration
 import scala.math.{min, round}
 import scala.util.control.Breaks.{break, breakable}
 import scala.collection.parallel.CollectionConverters.RangeIsParallelizable
@@ -651,21 +648,11 @@ class MatrixD (val dim:  Int,
         if u.dim != dim then
             flaw ("+^:", s"vector does not match column dimension: u.dim = ${u.dim} != dim = $dim")
 
-        val c        = new MatrixD (dim, dim2 + 1)
-        val nThreads = Runtime.getRuntime.availableProcessors()
-        val chunk    = (dim + nThreads - 1) / nThreads
-        val futures  = (0 until nThreads).map { t =>
-            val start = t * chunk
-            val end   = math.min(start + chunk, dim)
-            Future {
-                var i = start
-                while i < end do
-                    c.v(i)(0) = u(i)
-                    System.arraycopy(v(i), 0, c.v(i), 1, dim2)
-                    i += 1
-            }
+        val c = new MatrixD (dim, dim2 + 1)
+        (0 until dim).par.foreach { i =>
+            c.v(i)(0) = u(i)
+            System.arraycopy(v(i), 0, c.v(i), 1, dim2)
         }
-        Await.result(Future.sequence(futures), Duration.Inf)
         c
     end +^:
 
@@ -1391,23 +1378,13 @@ class MatrixD (val dim:  Int,
             var j = 0
             while j < i do { pairs(k) = (i, j); k += 1; j += 1 }
             i += 1
-        val nThreads = Runtime.getRuntime.availableProcessors()
-        val chunk    = (nn + nThreads - 1) / nThreads
-        val futures  = (0 until nThreads).map { t =>
-            val start = t * chunk
-            val end   = math.min(start + chunk, nn)
-            Future {
-                var col = start
-                while col < end do
-                    val (ci, cj) = pairs(col)
-                    val colI = v.map(_(ci))
-                    val colJ = v.map(_(cj))
-                    var row = 0
-                    while row < dim do { xx.v(row)(col) = colI(row) * colJ(row); row += 1 }
-                    col += 1
-            }
+        (0 until nn).par.foreach { col =>
+            val (ci, cj) = pairs(col)
+            val colI = v.map(_(ci))
+            val colJ = v.map(_(cj))
+            var row = 0
+            while row < dim do { xx.v(row)(col) = colI(row) * colJ(row); row += 1 }
         }
-        Await.result(Future.sequence(futures), Duration.Inf)
         xx
     end crossAll
 
@@ -1431,24 +1408,14 @@ class MatrixD (val dim:  Int,
                 while k < j do { triples(l) = (i, j, k); l += 1; k += 1 }
                 j += 1
             i += 1
-        val nThreads = Runtime.getRuntime.availableProcessors()
-        val chunk    = (nn + nThreads - 1) / nThreads
-        val futures  = (0 until nThreads).map { t =>
-            val start = t * chunk
-            val end   = math.min(start + chunk, nn)
-            Future {
-                var col = start
-                while col < end do
-                    val (ci, cj, ck) = triples(col)
-                    val colI = v.map(_(ci))
-                    val colJ = v.map(_(cj))
-                    val colK = v.map(_(ck))
-                    var row = 0
-                    while row < dim do { xx.v(row)(col) = colI(row) * colJ(row) * colK(row); row += 1 }
-                    col += 1
-            }
+        (0 until nn).par.foreach { col =>
+            val (ci, cj, ck) = triples(col)
+            val colI = v.map(_(ci))
+            val colJ = v.map(_(cj))
+            val colK = v.map(_(ck))
+            var row = 0
+            while row < dim do { xx.v(row)(col) = colI(row) * colJ(row) * colK(row); row += 1 }
         }
-        Await.result(Future.sequence(futures), Duration.Inf)
         xx
     end crossAll3
 
@@ -1507,29 +1474,13 @@ class MatrixD (val dim:  Int,
         CudaMatrixOps.matrixTransVecMul(v, y.v, dim, dim2) match
             case Some(result) => new VectorD(dim2, result)
             case None         =>
-                val a        = new Array[Double](dim2)
-                val nThreads = Runtime.getRuntime.availableProcessors()
-                val chunk    = (dim + nThreads - 1) / nThreads
-                val yv       = y.v
-                val futures  = (0 until nThreads).map { t =>
-                    val start = t * chunk
-                    val end   = math.min(start + chunk, dim)
-                    Future {
-                        val local = new Array[Double](dim2)
-                        var i = start
-                        while i < end do
-                            val yi  = yv(i)
-                            val row = v(i)
-                            var j   = 0
-                            while j < dim2 do { local(j) += row(j) * yi; j += 1 }
-                            i += 1
-                        local
-                    }
-                }
-                val locals = Await.result(Future.sequence(futures), Duration.Inf)
-                locals.foreach { local =>
-                    var j = 0
-                    while j < dim2 do { a(j) += local(j); j += 1 }
+                val a  = new Array[Double](dim2)
+                val yv = y.v
+                (0 until dim2).par.foreach { j =>
+                    var sum = 0.0
+                    var i   = 0
+                    while i < dim do { sum += v(i)(j) * yv(i); i += 1 }
+                    a(j) = sum
                 }
                 new VectorD(dim2, a)
     end dot
@@ -1697,22 +1648,12 @@ class MatrixD (val dim:  Int,
      *  @param  f the vector to vector function to apply
      */
     def mmap_ (f: FunctionV2V): MatrixD =
-        val result   = new MatrixD (dim, dim2)
-        val nThreads = Runtime.getRuntime.availableProcessors()
-        val chunk    = (dim2 + nThreads - 1) / nThreads
-        val futures  = (0 until nThreads).map { t =>
-            val start = t * chunk
-            val end   = math.min(start + chunk, dim2)
-            Future {
-                var j = start
-                while j < end do
-                    val col = f(apply(?, j))
-                    var i = 0
-                    while i < dim do { result.v(i)(j) = col(i); i += 1 }
-                    j += 1
-            }
+        val result = new MatrixD (dim, dim2)
+        (0 until dim2).par.foreach { j =>
+            val col = f(apply(?, j))
+            var i = 0
+            while i < dim do { result.v(i)(j) = col(i); i += 1 }
         }
-        Await.result(Future.sequence(futures), Duration.Inf)
         result
     end mmap_
 
@@ -2081,22 +2022,8 @@ class MatrixD (val dim:  Int,
      *  @param skip  the number of initial columns to skip (e.g., first column of all ones)
      */
     def corr (y: VectorD, skip: Int = 0): VectorD =
-        val len      = dim2 - skip
-        val nThreads = Runtime.getRuntime.availableProcessors()
-        val chunk    = (len + nThreads - 1) / nThreads
-        val futures  = (0 until nThreads).map { t =>
-            val start = t * chunk
-            val end   = math.min(start + chunk, len)
-            Future {
-                val local = new Array[Double](end - start)
-                var j = start
-                while j < end do { local(j - start) = apply(?, j + skip) corr y; j += 1 }
-                (start, local)
-            }
-        }
-        val results = Await.result(Future.sequence(futures), Duration.Inf)
-        val a = new Array[Double](len)
-        results.foreach { (start, local) => System.arraycopy(local, 0, a, start, local.length) }
+        val len = dim2 - skip
+        val a   = (skip until dim2).par.map { j => apply(?, j).corr(y) }.toArray
         new VectorD(len, a)
     end corr
 
